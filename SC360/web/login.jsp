@@ -134,7 +134,7 @@
 
 
         <script src="jq/jquery.min.js" type="text/javascript"></script>
-        <script src="jq/bootstrap.min.js" type="text/javascript"></script>
+        <script src="botstrap/bootstrap.min.js" type="text/javascript"></script>
         <script src="<c:out value="${pageContext.request.contextPath}"/>/js/nanoscroller.js"></script>
 
 

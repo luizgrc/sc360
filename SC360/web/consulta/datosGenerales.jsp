@@ -14,16 +14,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Datos Generales</title>
         <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/css/bootstrap.min.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/3.3.1/jquery.min.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/bootstrap.min.js"></script>
         <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/main.css">
         <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.css">
         <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/style.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
-        <script src="../scripts/jquery.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
+       
+        <link href="../botstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/sb-admin-2.css" rel="stylesheet" type="text/css"/>  
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <script>
             $(function () {
                 $("#primerNombre").attr("placeholder", "Nombre 1");
@@ -108,11 +105,9 @@
                 form.submit();
             }
         </script>
-
     </head>
-    <body >
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <body class="container">
+
         <div class="container">
             <ul class="nav nav-tabs">
                 <li class="nav-item active"><a class="nav-link" href="#">Detalle Consulta</a></li>
@@ -125,165 +120,206 @@
         </div>
         <html:form action="Consulta.do" styleId="frmConsulta" >
 
-            <div class="form-group div-align-l dv-align-2030">
+            <!--<div class="form-group div-align-l dv-align-2030">-->
+            <div class="container">
                 <div class="row">
-                    <div class="col-4 form-inline">
-                        <STRONG>DATOS GENERALES</STRONG>&nbsp;
+                    <div class="col-lg-12">
+                        <h1 class="page-header">SEYCI ETAPA 1</h1>
                     </div>
-                    <div class="col-2 form-inline">
-                        Exp&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="numeroExpediente" styleClass="form-control" size="20" maxlength="20" disabled="true"/>
-                    </div>
-                    <div class="col-1 form-inline">
-                        CUSPP&nbsp;
-                    </div>
-                    <div class="col-3 form-inline">
-                        <html:text property="cuspp" styleClass="form-control" size="12" maxlength="12" />
-                        &nbsp;
-                        <input type="checkbox" id="cuspp">
-                    </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-                <div class="space">&nbsp;</div>
                 <div class="row">
-                    <div class="col-5 form-inline">
-                        <html:text property="primerNombre" styleClass="form-control" styleId="primerNombre" size="20" maxlength="20" />
-                        &nbsp;
-                        <input type="checkbox" id="primerNombre" >
-                        <html:text property="segundoNombre" styleClass="form-control" styleId="segundoNombre" size="20" maxlength="20" />
-                        &nbsp;
-                        <input type="checkbox" id="segundoNombre" >
-                    </div>
-                    <div class="col-1 form-inline">&nbsp;</div>
-                    <div class="col-5 form-inline">
-                        <html:text property="primerApellido" styleClass="form-control" styleId="primerApellido" size="20" maxlength="20" />
-                        &nbsp;
-                        <input type="checkbox" id="primerApellido" >
-                        <html:text property="segundoApellido" styleClass="form-control" styleId="segundoApellido" size="20" maxlength="20" />
-                        &nbsp;
-                        <input type="checkbox" id="segundoApellido" >
-                    </div>
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                DATOS GENERALES
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label>Exp</label>
+                                                <label class="checkbox-inline">
+                                                    <html:text property="numeroExpediente" styleClass="form-control" size="20" maxlength="20" disabled="true"/>
+                                                </label>
 
-                </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Fecha de Nac.
-                        &nbsp;
-                    </div>
-                    <div class="col-3 form-inline">
-                        <html:text property="fechaNacimiento" styleClass="form-control" styleId="fechaNacimiento" size="12" />
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                        &nbsp;
-                        <input type="checkbox" id="fechaNacimiento">
-                    </div>
-                    <div class="col-2 form-inline">
-                        Correo
-                    </div>
-                    <div class="col-3 form-inline">
-                        <html:text property="correo" styleClass="form-control"  size="20" maxlength="20" /> 
-                        &nbsp;
-                        <input type="checkbox" id="fechaNacimiento" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:select property="sexo" styleClass="form-control">
-                            <html:option value="0">SEXO</html:option>   
-                            <html:option value="1">MASCULINO</html:option>
-                            <html:option value="2">FEMENINO</html:option>
-                        </html:select> 
-                        &nbsp;
-                        <input type="checkbox" id="sexo" >
-                    </div>
-                </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Telefono
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:text property="telefono" styleClass="form-control" styleId="telefono" size="20" maxlength="20" />
-                        &nbsp;
-                        <input type="checkbox" id="telefono" >
-                    </div>
-                    <div class="col-3 form-inline">
-                        <html:select property="estadoCivil" styleClass="form-control">
-                            <html:option value="0">ESTADO CIVIL</html:option>   
-                            <html:option value="1">SOLTERO</html:option>
-                            <html:option value="2">CASADO</html:option>
-                            <html:option value="3">VIUDO</html:option>
-                            <html:option value="4">DIVORCIADO</html:option>
-                        </html:select>
-                        &nbsp;
-                        <input type="checkbox" id="estadoCivil" >
-                    </div>
-                </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Direccion
-                        &nbsp;
-                    </div>
-                    <div class="col-6 form-inline">
-                        <html:text property="direccion" styleClass="form-control" styleId="direccion" size="40" maxlength="40" />
-                        &nbsp;
-                        <input type="checkbox" id="direccion" >
-                    </div>
-                    <div class="col-1 form-inline">
-                        Departamento
-                        &nbsp;
-                    </div>
-                    <div class="col-3 form-inline">
-                        <html:select property="departamento" styleClass="form-control" styleId="departamento" onchange="onChangeProvincia(this,'PR')" >
-                            <html:options collection="listDepartamento" property="codigo" labelProperty="descripcion"/>
-                        </html:select> 
-                        &nbsp;
-                        <input type="checkbox" id="departamento" >
-                    </div>
-                </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Provincia
-                        &nbsp;
-                    </div>
-                    <div class="col-6 form-inline">
-                        <html:select property="provincia" styleClass="form-control" styleId="provincia" onchange="onChangeDistrito(this,'DI')" >
-                            <html:options collection="listaProvincia" property="codigo" labelProperty="descripcion"/>
-                        </html:select> 
-                        &nbsp;
-                        <input type="checkbox" id="provincia" >
-                    </div>
-                    <div class="col-1 form-inline">
-                        Distrito
-                        &nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <select name="distrito" class="form-control" id="distrito" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000;">
-                            <c:forEach var="item" items="${listaDistrito}">
-                                <option value="${item.codigo}" ${item.codigo == selectedDist ? 'selected="selected"' : ''}>${item.descripcion}</option>
-                            </c:forEach>
-                        </select>
-                        &nbsp;
-                        <input type="checkbox" id="distrito" >
-                    </div>
-                </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-9 form-inline"> 
-                        <input type="checkbox" id="Apoderado">&nbsp;
-                        Tiene Apoderado
-                    </div>
-                    <div class="col-2 form-inline">
-                        <a href="javascript:fncGuardarSolicitud()">
-                            <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
-                        </a> 
+                                            </div>
+                                            <div class="form-group">
+                                                <label>CUSPP</label>
+                                                <label class="checkbox-inline">
+                                                    <html:text property="cuspp" styleClass="form-control" size="12" maxlength="12" />
+                                                    &nbsp;
+                                                    <input type="checkbox" id="cuspp">
+                                                </label>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <html:text property="primerNombre" styleClass="form-control" styleId="primerNombre" size="20" maxlength="20" />
+                                                &nbsp;
+                                                <input type="checkbox" id="primerNombre" >
+                                            </div>
+                                            <div class="form-group">
+                                                <html:text property="segundoNombre" styleClass="form-control" styleId="segundoNombre" size="20" maxlength="20" />
+                                                &nbsp;
+                                                <input type="checkbox" id="segundoNombre" >
+
+                                            </div >
+                                            <div class="form-group">
+                                                <html:text property="primerApellido" styleClass="form-control" styleId="primerApellido" size="20" maxlength="20" />
+                                                &nbsp;
+                                                <input type="checkbox" id="primerApellido" >
+                                            </div>
+                                            <div class="form-group">
+                                                <html:text property="segundoApellido" styleClass="form-control" styleId="segundoApellido" size="20" maxlength="20" />
+                                                &nbsp;
+                                                <input type="checkbox" id="segundoApellido" >
+
+                                            </div>
+                                            <div class="row">
+                                                <label>Fecha de Nac.</label>
+                                                <label class="checkbox-inline">
+                                                    <html:text property="fechaNacimiento" styleClass="form-control" styleId="fechaNacimiento" size="12" />
+                                                    <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                                                    &nbsp;
+                                                    <input type="checkbox" id="fechaNacimiento">
+                                                </label>
+
+                                            </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-2 form-inline">
+                                            Fecha de Nac.
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-3 form-inline">
+                                            <html:text property="fechaNacimiento" styleClass="form-control" styleId="fechaNacimiento" size="12" />
+                                            <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                                            &nbsp;
+                                            <input type="checkbox" id="fechaNacimiento">
+                                        </div>
+                                        <div class="col-2 form-inline">
+                                            Correo
+                                        </div>
+                                        <div class="col-3 form-inline">
+                                            <html:text property="correo" styleClass="form-control"  size="20" maxlength="20" /> 
+                                            &nbsp;
+                                            <input type="checkbox" id="fechaNacimiento" >
+                                        </div>
+                                        <div class="col-2 form-inline">
+                                            <html:select property="sexo" styleClass="form-control">
+                                                <html:option value="0">SEXO</html:option>   
+                                                <html:option value="1">MASCULINO</html:option>
+                                                <html:option value="2">FEMENINO</html:option>
+                                            </html:select> 
+                                            &nbsp;
+                                            <input type="checkbox" id="sexo" >
+                                        </div>
+                                    </div>
+                                    <div class="space">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-2 form-inline">
+                                            Telefono
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-4 form-inline">
+                                            <html:text property="telefono" styleClass="form-control" styleId="telefono" size="20" maxlength="20" />
+                                            &nbsp;
+                                            <input type="checkbox" id="telefono" >
+                                        </div>
+                                        <div class="col-3 form-inline">
+                                            <html:select property="estadoCivil" styleClass="form-control">
+                                                <html:option value="0">ESTADO CIVIL</html:option>   
+                                                <html:option value="1">SOLTERO</html:option>
+                                                <html:option value="2">CASADO</html:option>
+                                                <html:option value="3">VIUDO</html:option>
+                                                <html:option value="4">DIVORCIADO</html:option>
+                                            </html:select>
+                                            &nbsp;
+                                            <input type="checkbox" id="estadoCivil" >
+                                        </div>
+                                    </div>
+                                    <div class="space">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-2 form-inline">
+                                            Direccion
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-6 form-inline">
+                                            <html:text property="direccion" styleClass="form-control" styleId="direccion" size="40" maxlength="40" />
+                                            &nbsp;
+                                            <input type="checkbox" id="direccion" >
+                                        </div>
+                                        <div class="col-1 form-inline">
+                                            Departamento
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-3 form-inline">
+                                            <html:select property="departamento" styleClass="form-control" styleId="departamento" onchange="onChangeProvincia(this,'PR')" >
+                                                <html:options collection="listDepartamento" property="codigo" labelProperty="descripcion"/>
+                                            </html:select> 
+                                            &nbsp;
+                                            <input type="checkbox" id="departamento" >
+                                        </div>
+                                    </div>
+                                    <div class="space">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-2 form-inline">
+                                            Provincia
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-6 form-inline">
+                                            <html:select property="provincia" styleClass="form-control" styleId="provincia" onchange="onChangeDistrito(this,'DI')" >
+                                                <html:options collection="listaProvincia" property="codigo" labelProperty="descripcion"/>
+                                            </html:select> 
+                                            &nbsp;
+                                            <input type="checkbox" id="provincia" >
+                                        </div>
+                                        <div class="col-1 form-inline">
+                                            Distrito
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-2 form-inline">
+                                            <select name="distrito" class="form-control" id="distrito" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000;">
+                                                <c:forEach var="item" items="${listaDistrito}">
+                                                    <option value="${item.codigo}" ${item.codigo == selectedDist ? 'selected="selected"' : ''}>${item.descripcion}</option>
+                                                </c:forEach>
+                                            </select>
+                                            &nbsp;
+                                            <input type="checkbox" id="distrito" >
+                                        </div>
+                                    </div>
+                                    <div class="space">&nbsp;</div>
+                                    <div class="row">
+                                        <div class="col-9 form-inline"> 
+                                            <input type="checkbox" id="Apoderado">&nbsp;
+                                            Tiene Apoderado
+                                        </div>
+                                        <div class="col-2 form-inline">
+                                            <a href="javascript:fncGuardarSolicitud()">
+                                                <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
+                                            </a> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </html:form>
-        
+        </div>
+    </div>
+</html:form>
 
-    </body>
+
+<script src="<c:out value="${pageContext.request.contextPath}"/>/jq/3.3.1/jquery.min.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/bootstrap.min.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
+
+<script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
+<script src="../scripts/jquery.js"></script>
+
+</body>
 </html>

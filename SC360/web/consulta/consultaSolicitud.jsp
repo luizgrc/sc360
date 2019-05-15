@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.css">
         <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/style.css">
         <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
+        
         <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"></script>

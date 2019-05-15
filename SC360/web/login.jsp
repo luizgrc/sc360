@@ -30,8 +30,7 @@
         </div>
         <div class="container">
             <html:form action="/validateLogin.do" styleId="frmdata">
-                <div class="row">
-                    <div class="ui-g-12">                        <!--                        <label id="j_idt6:j_idt11" class="ui-outputlabel ui-widget"
+                      <!--                        <label id="j_idt6:j_idt11" class="ui-outputlabel ui-widget"
                                                        for="j_idt6:username">Usuario</label>-->
                         <div class="col-md-4 col-md-offset-4">
                             <div class="login-panel panel panel-default">
@@ -65,9 +64,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
                 </div>     
             </html:form>
         </div>

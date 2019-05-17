@@ -5,77 +5,161 @@
 --%>
 
 <%-- 
-    Document   : success
-    Created on : 25/01/2019, 10:13:21 PM
-    Author     : Elgar Eduardo Puma Cruz
+    Document   : menuDinamico v2.0
+    Created on : 17/05/2019
+    Author     : Luis García
 --%>
 
 <%
     java.util.Vector menu = (java.util.Vector) session.getAttribute("menuPrincipal");
     System.out.println(" MENU " + menu);
+    String usuario = (String) session.getAttribute("nickUsuario");
+    System.out.println(" usuario " + usuario.toUpperCase());
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ page isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>-->
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
-    </head>
-    <body>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <div class="bg-orange">
-            <img id="j_idt6:j_idt8"
-                 src="<c:out value="${pageContext.request.contextPath}"/>/images/cabecera_2.png"
-                 alt="" class="logo" />
-            <a href="validateLogin.do"><img src='<c:out value="${pageContext.request.contextPath}"/>/images/inicio.gif' border=0 /> Inicio</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-            <a href="logout.jsp"><img src='<c:out value="${pageContext.request.contextPath}"/>/images/signOut.gif' border=0 /> Cerrar Sesión</a>&nbsp;&nbsp;
-        </div>
 
+<head>
 
-        <div class="col-sm-2 b-right">
-            <div class="nav-side-menu">
-                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-                <div class="menu-list">
-                    <ul id="menu-content" class="menu-content collapse out">
-                        <li>
-                            <input type="submit" onClick="window.location.href = 'CargaExcel.do?method=inicio'" value="Carga de Archivos" alt="Carga de Archivos" class="btn btn-custom t-12" style="font-size: 12px;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper" style="background-color: #FF4C01;">
+        <!-- /navbar-header -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #FF4C01;margin-bottom: 0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+                <img src="<c:out value="${pageContext.request.contextPath}"/>/images/cabecera_2.png"  alt=""  style="height:51px; width:1260px;"/>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /dropdown bars -->
+            <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <span style="color: #fff"><%=usuario.toUpperCase()%></span>
+                    </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bars fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="validateLogin.do"><i class="fa fa-home fa-fw"></i> Inicio</a>
                         </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = 'Asignacion.do?method=inicio'" value="Asignacion" alt="Asignacion" class="btn btn-custom t-12" style="font-size: 12px;">
-                            
-                        </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = 'Consulta.do?method=inicio'" value="Consulta de Trámites" alt="Consulta de Trámites" class="btn btn-custom t-12" style="font-size: 12px;">
-                          
-                        </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = '#'" value="Parámetros" alt="Parámetros" class="btn btn-custom t-12" style="font-size: 12px;">
-                        </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = '#'" value="Reportes" alt="Reportes" class="btn btn-custom t-12" style="font-size: 12px;">
-                        </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = '#'" value="Gestión de Cartas" alt="Gestión de Cartas" class="btn btn-custom t-12" style="font-size: 12px;">
-                        </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = '#'" value="Autorización de Traslado" alt="Autorización de Traslado" class="btn btn-custom t-12" style="font-size: 12px;">
-                        </li>
-                        <li><input type="submit" onClick="window.location.href = '#'" value="Mantenimiento de Etapas" alt="Mantenimiento de Etapas (Reactivación)" class="btn btn-custom t-12" style="font-size: 12px;">
-                            
-                        </li>
-                        <li>
-                            <input type="submit" onClick="window.location.href = '#'" value="Indicadores" alt="Indicadores" class="btn btn-custom t-12" style="font-size: 12px;">
+                        <li class="divider"></li>
+                        <li><a href="logout.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
+                   
+                </li>
+            </ul>
+             <!-- /.dropdown-bars -->
+              <!-- /Menu -->
+            <div class="navbar-default navbar-static-side" role="navigation"  >
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="CargaExcel.do?method=inicio"><i class="fa fa-upload fa-fw"></i> Carga de Archivos</a>
+                        </li>
+                        <li>
+                            <a href="Asignacion.do?method=inicio"><i class="fa fa-check-circle-o fa-fw"></i><!--<span class="fa arrow"></span>--> Asignacion</a>
+                            <!-- /.nav-second-level -->
+                            <!--<ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>-->
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="Consulta.do?method=inicio"><i class="fa fa-search fa-fw"></i> Consulta de Trámites</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Parámetros</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Reportes</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-envelope fa-fw"></i> Gestión de Cartas<!--<span class="fa arrow"></span>--></a>
+                            <!--
+                              /nav-second-level comentario
+                            
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                     /nav-third-level comentario
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                    /.nav-third-level comentario
+                                </li>
+                                 
+                            </ul>
+                           
+                            /.nav-second-level comentario -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Autorización de Traslado</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cog fa-fw"></i> Mantenimiento de Etapas</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw" aria-hidden="true"></i> Indicadores</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
                 </div>
+                <!-- /.sidebar-collapse -->
             </div>
-        </div>
+            <!-- /.Menu -->
+        </nav>
+
+
+           
+           
+
+
 

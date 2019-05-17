@@ -3,21 +3,23 @@
     Created on : 29/01/2019, 11:27:24 AM
     Author     : Elgar Eduardo Puma Cruz
 --%>
-
+<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
 
-        <!-- Bootstrap CSS -->
-        <link href="botstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <!-- Custom CSS -->
-        <link href="css/sb-admin-2.css" rel="stylesheet" type="text/css"/>
+        <!-- Core CSS - Include with every page -->
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <!-- SB Admin CSS - Include with every page -->
+        <link href="css/sb-admin.css" rel="stylesheet">
+
         <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
     </head>
     <body>
@@ -26,7 +28,7 @@
         <div class="bg-orange">
             <img id="j_idt6:j_idt8"
                  src="<c:out value="${pageContext.request.contextPath}"/>/images/cabecera_2.png"
-                 alt="" class="logo" />
+                 alt="" class="logo" style="height:51px; width:100%;"/>
         </div>
         <div class="container">
             <html:form action="/validateLogin.do" styleId="frmdata">
@@ -39,11 +41,11 @@
                                     <form role="form">
                                         <fieldset>
                                             <div class="form-group">
-                                                <input id="nickUsuario" class="form-control" type="text" placeholder="Username" name="nickUsuario" >
+                                                <input id="nickUsuario" class="form-control" type="text" placeholder="Username" name="nickUsuario" required="" >
                                                 <span class="help-block"></span>
                                             </div>
                                             <div class="form-group">
-                                                <input id="password" name="password" class="form-control" placeholder="Password"  type="password" >
+                                                <input id="password" name="password" class="form-control" placeholder="Password"  type="password" required="">
                                                 <span class="help-block"></span>
                                             </div>
                                             <!-- Change this to a button or input when using this as a form -->
@@ -129,11 +131,12 @@
             document.onkeydown = capturaTecla;
         </script>
 
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
 
-        <script src="jq/jquery.min.js" type="text/javascript"></script>
-        <script src="botstrap/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/nanoscroller.js"></script>
-
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="js/sb-admin.js"></script>
 
     </body>
 </html>

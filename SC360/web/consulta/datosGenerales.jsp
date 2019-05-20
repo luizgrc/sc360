@@ -25,10 +25,6 @@
         <script src="../scripts/jquery.js"></script>
         <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
         <link href="../css/sb-admin-2.css" rel="stylesheet" type="text/css"/>
-        
-     
-  
-  
         <script>
             $(function () {
                 $("#primerNombre").attr("placeholder", "Nombre 1");
@@ -147,7 +143,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6> <label  col-sm-2 control-label>CUSPP&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>CUSPP&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -164,7 +160,7 @@
 
                     <div class="row show-grid form-group" >
                         <div class="col-md-4">
-                            <h6> <label  col-sm-2 control-label>Primer nombre&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Primer nombre&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -178,7 +174,7 @@
 
                     <div class="row show-grid form-group">
                         <div class="col-md-4">
-                            <h6><label  col-sm-2 control-label>Segundo Nombre&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Segundo Nombre&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -191,7 +187,7 @@
                     </div>
                     <div class="row show-grid form-group">
                         <div class="col-md-4">
-                            <h6><label  col-sm-2 control-label>Primer Apellido&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Primer Apellido&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -204,7 +200,7 @@
                     </div>
                     <div class="row show-grid form-group">
                         <div class="col-md-4">
-                            <h6><label  col-sm-2 control-label>Segundo Apellido&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Segundo Apellido&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -217,7 +213,7 @@
                     </div>
                     <div class="row show-grid form-group">
                         <div class="col-md-4">
-                            <h6><label  col-sm-2 control-label>Fecha Nacimiento&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Fecha Nacimiento&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-10">
@@ -234,7 +230,7 @@
                     </div>
                     <div class="row show-grid form-group">
                         <div class="col-md-4">
-                            <h6><label  col-sm-2 control-label>Correo&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Correo&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -254,7 +250,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Sexo&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Sexo&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -273,7 +269,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Telefono&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Telefono&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -289,7 +285,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Estado Civil&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Estado Civil&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -310,7 +306,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Direccion&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Direccion&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -326,7 +322,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Departamento&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Departamento&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -343,7 +339,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Provincia&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Provincia&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -361,7 +357,7 @@
                     <div class="row show-grid form-group">
 
                         <div class="col-md-4 ">
-                            <h6><label  col-sm-2 control-label>Distrito&nbsp;</label></h6>
+                            <label  col-sm-2 control-label>Distrito&nbsp;</label>
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-12">
@@ -381,7 +377,7 @@
 
                 <div class="col-9 form-inline"> 
                     <input type="checkbox" id="Apoderado">&nbsp;
-                    <h6>Tiene Apoderado</h6>
+                    Tiene Apoderado
                 </div>
                 <br>
                 <div class="col-2 form-inline">

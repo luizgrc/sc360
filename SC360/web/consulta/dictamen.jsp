@@ -462,7 +462,7 @@
                         </div>
                         <div class="col-2 form-inline">
                             <a href="javascript:fncGuardarDictamen()">
-                                <div style="text-align: center"> <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
+                                <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom">
                             </a>
                         </div>
                     </div>

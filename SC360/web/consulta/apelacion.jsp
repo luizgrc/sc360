@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="col-md-6">
 
-                                <html:text property="nroDictamenApelado" styleClass="form-control input-sm" styleId="nroDictamenApelado" size="12" />                                
+                                <html:text property="nroDictamenApelado" styleClass="form-control" styleId="nroDictamenApelado" size="12" />                                
 
                             </div>
                             <div class="col-md-2">
@@ -110,7 +110,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <html:text property="personaApela" styleClass="form-control input-sm" styleId="personaApela" size="12" />
+                                <html:text property="personaApela" styleClass="form-control" styleId="personaApela" size="12" />
 
                             </div>
                             <div class="col-md-2">
@@ -125,7 +125,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <html:text property="fechaApelacion" styleClass="form-control input-sm" styleId="fechaApelacion" size="12" />
+                                <html:text property="fechaApelacion" styleClass="form-control" styleId="fechaApelacion" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
 
                             </div>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <html:text property="fecIngBeneficios" styleClass="form-control input-sm" styleId="fecIngBeneficios" size="12" />
+                                <html:text property="fecIngBeneficios" styleClass="form-control" styleId="fecIngBeneficios" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
                             </div>
                             <div class="col-md-2">
@@ -157,7 +157,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <html:text property="fecEnvCarta" styleClass="form-control input-sm" styleId="fecEnvCarta" size="12" />
+                                <html:text property="fecEnvCarta" styleClass="form-control" styleId="fecEnvCarta" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
                             </div>
                             <div class="col-md-2">
@@ -172,7 +172,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <html:text property="recepCOMAFP" styleClass="form-control input-sm" styleId="recepCOMAFP" size="12" />
+                                <html:text property="recepCOMAFP" styleClass="form-control" styleId="recepCOMAFP" size="12" />
                                 <input type="checkbox" id="recepCOMAFP" >
                             </div>
                             <div class="col-md-2">
@@ -180,7 +180,6 @@
                             </div>
                         </div>
                     </div>
-                                <div class="space">&nbsp;</div>
                     <div class="col-md-4">
                         <div class="row show-grid form-group">
                             <div class="col-md-4">
@@ -188,7 +187,7 @@
                             </div>
                             <div class="col-md-6">
 
-                                <html:text property="analista" styleClass="form-control input-sm" styleId="analista" size="12" />
+                                <html:text property="analista" styleClass="form-control" styleId="analista" size="12" />
                             </div>
                             <div class="col-md-2">
                                 <input type="checkbox" id="analista" >
@@ -201,7 +200,7 @@
                                 Motivo Apelacion&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="motivoApelacion" styleClass="form-control input-sm" styleId="motivoApelacion" size="12" />
+                                <html:text property="motivoApelacion" styleClass="form-control" styleId="motivoApelacion" size="12" />
                             </div>
                             <div class="col-md-2">
                                 <input type="checkbox" id="motivoApelacion" >
@@ -215,21 +214,20 @@
                                 Nro Dictamen Apelado&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="nroExpDictamenApelado" styleClass="form-control input-sm" styleId="nroExpDictamenApelado" size="12" />
+                                <html:text property="nroExpDictamenApelado" styleClass="form-control" styleId="nroExpDictamenApelado" size="12" />
                             </div>
                             <div class="col-md-2">
                                 <input type="checkbox" id="nroExpDictamenApelado" >
                             </div>
                         </div>
                     </div>
-                            <div class="space">&nbsp;</div>
                     <div class="col-md-4">
                         <div class="row show-grid form-group">
                             <div class="col-md-4">
                                 DIS / PACIFICO&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="disPacifico" styleClass="form-control input-sm" styleId="disPacifico" size="12" />
+                                <html:text property="disPacifico" styleClass="form-control" styleId="disPacifico" size="12" />
                             </div>
                             <div class="col-md-2">
                                 <input type="checkbox" id="disPacifico" >
@@ -242,7 +240,7 @@
                                 Fecha Dictamen&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="fecDictamen" styleClass="form-control input-sm" styleId="fecDictamen" size="12" />
+                                <html:text property="fecDictamen" styleClass="form-control" styleId="fecDictamen" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
                             </div>
                             <div class="col-md-2">
@@ -256,7 +254,7 @@
                                 Fecha Envio DIS&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="fecEnvioDis" styleClass="form-control input-sm" styleId="fecEnvioDis" size="12" />
+                                <html:text property="fecEnvioDis" styleClass="form-control" styleId="fecEnvioDis" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
                             </div>
                             <div class="col-md-2">
@@ -264,14 +262,13 @@
                             </div>
                         </div>
                     </div> 
-                            <div class="space">&nbsp;</div>
                     <div class="col-md-4">
                         <div class="row show-grid form-group">
                             <div class="col-md-4">
                                 SOL&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="oK" styleClass="form-control input-sm" styleId="oK" size="12" />
+                                <html:text property="oK" styleClass="form-control" styleId="oK" size="12" />
                             </div>
                             <div class="col-md-2">
                                 <input type="checkbox" id="ok" >
@@ -284,7 +281,7 @@
                                 Fecha Notificacion Afiliado&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="fecNotAfiliado" styleClass="form-control input-sm" styleId="fecNotAfiliado" size="12" />
+                                <html:text property="fecNotAfiliado" styleClass="form-control" styleId="fecNotAfiliado" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
                             </div>
                             <div class="col-md-2">
@@ -298,7 +295,7 @@
                                 Fecha Notificacion COMEC&nbsp;
                             </div>
                             <div class="col-md-6">
-                                <html:text property="fecNotCOMEC" styleClass="form-control input-sm" styleId="fecNotCOMEC" size="12" />
+                                <html:text property="fecNotCOMEC" styleClass="form-control" styleId="fecNotCOMEC" size="12" />
                                 <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
                             </div>
                             <div class="col-md-2">
@@ -316,17 +313,19 @@
                     </div>
                     <div class="space">&nbsp;</div>
                     <div class="col-7 form-inline">
-                        <html:textarea cols="120" rows="2" styleClass="form-control input-sm" property="observaciones" readonly="false" />
+                        <html:textarea cols="120" rows="2" styleClass="form-control" property="observaciones" readonly="false" />
                     </div>
 
-                     <div class="space">&nbsp;</div>
-                  
+                    <div class="row">
+                        <div class="col-10 form-inline">
+                            &nbsp;
+                        </div>
                         <div class="col-2 form-inline">
                             <a href="javascript:fncGuardarApelacion()">
-                                <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
+                                <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom">
                             </a>
                         </div>
-                   
+                    </div>
 
                 </div>
 

@@ -81,7 +81,7 @@
         <html:form action="Seyci.do" styleId="frmSeyci" >
 
             <div class="form-group div-align-l dv-align-2030">
-                <div class="col-md-6">
+                <div class="col-md-6 ">
                     <div class="row show-grid">
                         <div class="col-md-6"><STRONG>SEYCI</STRONG>&nbsp;</div>
                         <div class="col-md-6"> <html:hidden property="numeroExpediente"></html:hidden></div>
@@ -104,7 +104,7 @@
                 <div class="col-md-6">
                     <div class="row show-grid form-group">
                         <div class="col-md-4 ">
-                            <label  col-sm-2 control-label>Ejecutivo&nbsp;</label>
+                            <h6><label  col-sm-2 control-label>Ejecutivo&nbsp;</label></h6>
                         </div>
                         <div class="col-md-6">
                             <html:select property="ejecutivo" styleClass="form-control input-sm" styleId="ejecutivo" >
@@ -119,7 +119,7 @@
                     </div>
                     <div class="row show-grid form-group">
                         <div class="col-md-4 ">
-                            <label  col-sm-2 control-label> Tipo Solicitud&nbsp;</label>
+                            <h6><label  col-sm-2 control-label> Tipo Solicitud&nbsp;</label></h6>
                         </div>
                         <div class="col-md-6">
                             <select id="tipoSolicitud" name="tipoSolicitud" class="form-control input-sm" >
@@ -138,7 +138,7 @@
                 <div class="col-md-6">
                     <div class="row show-grid form-group">
                         <div class="col-md-4 ">
-                            <label  col-sm-2 control-label> Agencia&nbsp;</label>
+                            <h6><label  col-sm-2 control-label> Agencia&nbsp;</label></h6>
                         </div>
                         <div class="col-md-6">
                             <html:select property="agencia" styleClass="form-control input-sm" styleId="agencia" >
@@ -153,7 +153,7 @@
                     </div>
                     <div class="row show-grid form-group">
                         <div class="col-md-4 ">
-                            <label  col-sm-2 control-label> Tipo Evaluado&nbsp;</label>
+                            <h6><label  col-sm-2 control-label> Tipo Evaluado&nbsp;</label></h6>
                         </div>
                         <div class="col-md-6">
                             <select id="tipoEvaluado" name="tipoEvaluado" class="form-control input-sm" >
@@ -169,13 +169,9 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-
-                    <STRONG>Nombre del Evaluado&nbsp;</STRONG>&nbsp;                   
+                    <h6><STRONG>Nombre del Evaluado&nbsp;</STRONG>&nbsp;    </h6>               
                 </div>
                 <div class="space">&nbsp;</div>
-
-
-
                 <div class="col-md-2">
                     <html:text property="primerNombreEvaluado" styleClass="form-control input-sm" styleId="primerNombre" size="20" maxlength="20" />
 
@@ -210,7 +206,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Parentesco&nbsp;
+                            <h6> Parentesco&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-12">
@@ -231,7 +227,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Nac&nbsp;
+                            <h6>Fecha Nac&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -248,7 +244,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Act Riesgo&nbsp;
+                            <h6>Act Riesgo&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-12">
@@ -267,7 +263,7 @@
                 <div class="col-md-6">
                     <div class="row show-grid form-group">
                         <div class="col-md-4">
-                            Resultados Evaluacion&nbsp;
+                            <h6> Resultados Evaluacion&nbsp;</h6>
                         </div>
                         <div class="col-md-6">
                             <select id="resultadoEvaluacion" name="resultadoEvaluacion" class="form-control input-sm" >
@@ -286,7 +282,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Sec I&nbsp;
+                            <h6>Fecha Sec I&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -316,7 +312,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Ingreso Benef&nbsp;
+                            <h6>Fecha Ingreso Benef&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -333,7 +329,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Firma Medico&nbsp;
+                            <h6> Fecha Firma Medico&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -350,7 +346,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            DJ de no Beneficiarios&nbsp;
+                            <h6>DJ de no Beneficiarios&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-12">
@@ -368,7 +364,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Envio COMAFP&nbsp;
+                            <h6>Fecha Envio COMAFP&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -385,7 +381,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Recep COMAFP&nbsp;
+                            <h6>Fecha Recep COMAFP&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -402,7 +398,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Envio DIS&nbsp;
+                            <h6>Fecha Envio DIS&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -419,7 +415,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Recep DIS&nbsp;
+                            <h6>Fecha Recep DIS&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -437,7 +433,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Nombre Archivo ok Dis&nbsp;
+                            <h6>Nombre Archivo ok Dis&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-12">
@@ -452,7 +448,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Fecha Conclusion&nbsp;
+                            <h6>Fecha Conclusion&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-10">
@@ -469,7 +465,7 @@
                 <div class="col-md-4">
                     <div class="row show-grid form-group">
                         <div class="col-md-3">
-                            Analista&nbsp;
+                            <h6>Analista&nbsp;</h6>
                         </div>
                         <div class="col-md-7">
                             <div class="col-xs-12">
@@ -484,7 +480,7 @@
                 <div class="col-md-12">
                     <div class="row show-grid form-group">
                         <div >
-                            Observaciones SEYCI&nbsp;
+                            <h6> Observaciones SEYCI&nbsp;</h6>
                         </div>
                         <div >
                             <div class="col-xs-12">
@@ -498,7 +494,7 @@
 
                 <div class="col-2 form-inline">
                     <a href="javascript:fncGuardarSeyci()">
-                        <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom">
+                        <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
                     </a>
                 </div>
 

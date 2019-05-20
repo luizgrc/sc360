@@ -28,67 +28,68 @@
         $(function () {
             $("#fechaCita").datepicker();
             $("#fechaAprobacion").datepicker();
-            
 
-        $("#btn-addBody").click(function( event ) {
-            var textoInput = '<div class="space">&nbsp;</div><div class="row"><div class="col-2 form-inline">Moneda&nbsp;</div>'
-            var linea1 = '<div class="col-2 form-inline"><select id="moneda" name="moneda" class="form-control" ><option value="00">[SOLES]</option><option value="01">[DOLARES]</option></select></div>'
-            var linea2 = '<div class="col-2 form-inline">Tipo Movilidad&nbsp;</div>' 
-            var linea3 = '<div class="col-2 form-inline"><select id="tipoMovilidad" name="tipoMovilidad" class="form-control" ><option value="01">[PASAJES AVION]</option><option value="02">[PASAJES TIERRA]</option><option value="03">[MOVILIDAD INTERNA]</option></select></div>'
-            var linea4 = '<div class="col-2 form-inline">Monto Movilidad&nbsp;</div>'
-            var linea5 = '<div class="col-2 form-inline"><input type="text" id="montoMovilidad" name="montoMovilidad" class="form-control" size="12" maxlength="20"></div>'
-            var fin = '</div>'
-            var nuevoTexto = textoInput + linea1 + linea2 + linea3 + linea4 + linea5 +fin;
-            $("#movilidad").after(nuevoTexto);
+
+            $("#btn-addBody").click(function (event) {
+                var textoInput = '<div class="space">&nbsp;</div><div class="col-md-1">Moneda&nbsp;</div>'
+                var linea1 = '<div class="col-md-2"><select id="moneda" name="moneda" class="form-control" ><option value="00">[SOLES]</option><option value="01">[DOLARES]</option></select></div>'
+                var linea2 = '<div class="col-md-1">Tipo Movilidad&nbsp;</div>'
+                var linea3 = '<div class="col-md-3"><select id="tipoMovilidad" name="tipoMovilidad" class="form-control" ><option value="01">[PASAJES AVION]</option><option value="02">[PASAJES TIERRA]</option><option value="03">[MOVILIDAD INTERNA]</option></select></div>'
+                var linea4 = '<div class="col-md-2">Monto Movilidad&nbsp;</div>'
+                var linea5 = '<div class="col-md-2"><input type="text" id="montoMovilidad" name="montoMovilidad" class="form-control" size="12" maxlength="20"></div>'
+                var fin = '<div class="col-md-2"></div>'
+
+                var nuevoTexto = textoInput + linea1 + linea2 + linea3 + linea4 + linea5 + fin;
+                $("#movilidad").after(nuevoTexto);
+            });
+
         });
-        
-        });
-        
-        
-        
+
+
+
         function onChangeMostar(campo) {
-                var form = document.getElementById("frmTraslado");
-                var opc = document.getElementById("opcion").value;
+            var form = document.getElementById("frmTraslado");
+            var opc = document.getElementById("opcion").value;
 
-                if(opc=='00'){
- 
-                    window.document.getElementById("mostrar").style.display='block';
-                }
-                
-                if(opc=='01'){
-                    
-                    window.document.getElementById("mostrar").style.display='none';
-                }
+            if (opc == '00') {
+
+                window.document.getElementById("mostrar").style.display = 'block';
             }
-            
-         function myCheck(idNroTraslado,numExpediente){
-             
-             //var checkBox = document.getElementById("chkid").checked;
-             
-             //alert(checkBox);
-             
-             //document.getElementById("red").checked = true;
-             
-             //if (checkBox.checked === true){
-                 
-                 //alert("checked");
-                 
-                 var i 
-                 for (i=0;i<document.frmTraslado.chkid.length;i++){ 
-                 if (document.frmTraslado.chkid[i].checked) 
-                     break; 
-                 } 
-                 
-                 var form = document.frmTraslado;
-                 var url = 'Traslado.do?method=mostrarTraslado&idNroTraslado='+idNroTraslado+"&numeroExp="+numExpediente;
-                 //form.action="ConsultaDocumentos.do?metodo=actualizacionDocumento&codigo="+codigo+"&coddestinatario="+coddestinatario;
-                 var form = document.forms(0);
-                 form.action = url;
-                 form.method = "post";
-                 form.submit();
-              //}
-             
-         }
+
+            if (opc == '01') {
+
+                window.document.getElementById("mostrar").style.display = 'none';
+            }
+        }
+
+        function myCheck(idNroTraslado, numExpediente) {
+
+            //var checkBox = document.getElementById("chkid").checked;
+
+            //alert(checkBox);
+
+            //document.getElementById("red").checked = true;
+
+            //if (checkBox.checked === true){
+
+            //alert("checked");
+
+            var i
+            for (i = 0; i < document.frmTraslado.chkid.length; i++) {
+                if (document.frmTraslado.chkid[i].checked)
+                    break;
+            }
+
+            var form = document.frmTraslado;
+            var url = 'Traslado.do?method=mostrarTraslado&idNroTraslado=' + idNroTraslado + "&numeroExp=" + numExpediente;
+            //form.action="ConsultaDocumentos.do?metodo=actualizacionDocumento&codigo="+codigo+"&coddestinatario="+coddestinatario;
+            var form = document.forms(0);
+            form.action = url;
+            form.method = "post";
+            form.submit();
+            //}
+
+        }
 
         function irSeyci() {
             var form = document.frmTraslado;
@@ -103,7 +104,7 @@
         function irReevaluacion() {
             var form = document.frmTraslado;
             var numeroExp = form.nroExpSeyci.value;
-            var url = 'Reevaluacion.do?method=inicioReevaluacion&numeroExp='+numeroExp;
+            var url = 'Reevaluacion.do?method=inicioReevaluacion&numeroExp=' + numeroExp;
             var form = document.forms(0);
             form.action = url;
             form.method = "post";
@@ -123,218 +124,276 @@
 
     </script>
 </head>
-<body>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<body style="background-color:#FFFFFF;">
     <div class="container">
-        
+
         <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link" href="javascript:irDetalle()">Detalle Consulta</a></li>
-                      <li class="nav-item"><a class="nav-link" href="javascript:irSeyci()">SEYCI</a></li>
-                      <li class="nav-item active"><a class="nav-link" href="#">TRASLADO</a></li>
-                      <li class="nav-item"><a class="nav-link" href="javascript:irReevaluacion()">REEVALUACION</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#">DICTAMEN</a></li>
-                      <li class="nav-item"><a class="nav-link" href="#">APELACION</a></li>
-          </ul>
+            <li class="nav-item"><a class="nav-link" href="javascript:irSeyci()">SEYCI</a></li>
+            <li class="nav-item active"><a class="nav-link" href="#">TRASLADO</a></li>
+            <li class="nav-item"><a class="nav-link" href="javascript:irReevaluacion()">REEVALUACION</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">DICTAMEN</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">APELACION</a></li>
+        </ul>
     </div>
 
     <html:form action="Traslado.do" styleId="frmTraslado" >
         <div class="form-group div-align-l dv-align-2030">
-            <div class="row">
-                    <div class="col-6 form-inline">
+            <!--primer grid-->
+            <div class="row show-grid">
+
+                <div class="col-md-6">
+
+
+                    <div class="col-md-4">
                         <STRONG>TRASLADO</STRONG>&nbsp;
-                        <select id="opcion" name="opcion" class="form-control" onchange="onChangeMostar(this)" >
-                           <option value="00">[SI]</option>
-                           <option value="01">[NO]</option>
-                        </select>
-                        &nbsp;<html:text property="nroExpSeyci" disabled="true"></html:text>
                     </div>
+                    <div class="col-md-4">
+
+                        <select id="opcion" name="opcion" class="form-control input-sm" onchange="onChangeMostar(this)" >
+                            <option value="00">[SI]</option>
+                            <option value="01">[NO]</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        &nbsp;<html:text property="nroExpSeyci" disabled="true">
+
+                        </html:text>
+
+                    </div>
+
+
+                </div>
             </div>
+            <!--grid terminado-->
+            <!--segundo grid-->
             <div id="mostrar">
-            <div class="row">
-                <div class="col-2 form-inline">
-                    Fecha de Cita
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="fechaCita" styleClass="form-control" styleId="fechaCita" size="12"></html:text>
-                    <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
-                </div>
-                <div class="col-2 form-inline">
-                    Acompa&ntilde;ante&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <select id="acompanante" name="acompanante" class="form-control" >
-                        <option value="00">[SI]</option>
-                        <option value="01">[NO]</option>
-                    </select>
-                </div>
-                <div class="col-2 form-inline">
-                    N Traslado&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="nroTraslado" styleClass="form-control" styleId="nroTraslado" size="12" maxlength="20" />
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-2 form-inline">
-                    Tipo de Traslado&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <select id="tipo" name="tipo" class="form-control" >
-                        <option value="01">[PROVINCIA-PROVINCIA]</option>
-                        <option value="02">[PROVINCIA-LIMA]</option>
-                        <option value="03">[LIMA-LIMA]</option>
-                    </select>
-                </div>
-                <div class="col-2 form-inline">
-                    Origen&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:select property="origen" styleClass="form-control" styleId="origen"  >
-                        <html:options collection="listDepartamento" property="codigo" labelProperty="descripcion"/>
-                    </html:select>
-                </div>
-                <div class="col-2 form-inline">
-                    Destino&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:select property="destino" styleClass="form-control" styleId="destino"  >
-                        <html:options collection="listDepartamento" property="codigo" labelProperty="descripcion"/>
-                    </html:select>
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-2 form-inline">
-                    Fecha Aprobacion&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="fechaAprobacion" styleClass="form-control" styleId="fechaAprobacion" size="12"></html:text>
-                    <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row" id="movilidad">
-                <div class="col-2 form-inline">
-                    Moneda&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <select id="moneda" name="moneda" class="form-control" >
-                        <option value="00">[SOLES]</option>
-                        <option value="01">[DOLARES]</option>
-                    </select>
-                </div>
-                <div class="col-2 form-inline">
-                    Tipo Movilidad&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <select id="tipoMovilidad" name="tipoMovilidad" class="form-control" >
-                        <option value="01">[PASAJES AVION]</option>
-                        <option value="02">[PASAJES TIERRA]</option>
-                        <option value="03">[MOVILIDAD INTERNA]</option>
-                    </select>
-                </div>
-                <div class="col-2 form-inline">
-                    Monto Movilidad&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="montoMovilidad" styleClass="form-control" styleId="montoMovilidad" size="12" maxlength="20" />
-                    <input type="button" value="+"  id="btn-addBody" class="btn btn-warning">
-                </div>
-                
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-2 form-inline">
-                    Moneda&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <select id="moneda1" name="moneda1" class="form-control">
-                        <option value="00">[SOLES]</option>
-                        <option value="01">[DOLARES]</option>
-                    </select>
-                </div>
-                <div class="col-2 form-inline">
-                    Dias de Alimentacion&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="diasAlimentacion" styleClass="form-control" styleId="diasAlimentacion" size="12" maxlength="20" />
-                </div>
-                <div class="col-2 form-inline">
-                    Monto Alimentacion&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="montoAlimentacion" styleClass="form-control" styleId="montoAlimentacion" size="12" maxlength="20" />
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-2 form-inline">
-                    Moneda&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <select id="moneda2" name="moneda2" class="form-control">
-                        <option value="00">[SOLES]</option>
-                        <option value="01">[DOLARES]</option>
-                    </select>
-                </div>
-                <div class="col-2 form-inline">
-                    Dias de Alojamiento&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="diasAlojamiento" styleClass="form-control" styleId="diasAlojamiento" size="12" maxlength="20" />
-                </div>
-                <div class="col-2 form-inline">
-                    Monto de Alojamiento&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="montoAlojamiento" styleClass="form-control" styleId="montoAlojamiento" size="12" maxlength="20" />
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-8 form-inline">
-                    &nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    Monto Exa Medicos&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="montoMedico" styleClass="form-control" styleId="montoMedico" size="12" maxlength="20" />
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-8 form-inline">
-                    &nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    Total Gasto&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="totalGasto" styleClass="form-control" styleId="totalGasto" size="12" maxlength="20" />
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-2 form-inline">
-                    Ejecutiva&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="ejecutivo" styleClass="form-control" styleId="ejecutivo" size="12" maxlength="20" />
-                </div>
-                <div class="col-2 form-inline">
-                    Analista&nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <html:text property="analista" styleClass="form-control" styleId="analista" size="12" maxlength="20" />
-                </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                    <div class="col-12 form-inline">
-                        <table id="idConsulta" class="table table-striped table-bordered" style="width:100%">
+                <div class="space">&nbsp;</div>
+                <div class="row show-grid">
+                    <div class="col-md-12">
+
+                        <div class="row show-grid">
+                            <div class="col-md-2">
+                                Fecha de Cita
+                            </div>
+                            <div class="col-md-2">
+                                <html:text property="fechaCita" styleClass="form-control input-sm" styleId="fechaCita" size="12"></html:text>
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
+                            </div>
+                            <div class="col-md-2">
+                                Acompa&ntilde;ante&nbsp;
+                            </div>
+                            <div class="col-md-2">
+                                <select id="acompanante" name="acompanante" class="form-control input-sm" >
+                                    <option value="00">[SI]</option>
+                                    <option value="01">[NO]</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                N Traslado&nbsp;
+                            </div>
+                            <div class="col-md-2">
+                                <html:text property="nroTraslado" styleClass="form-control input-sm" styleId="nroTraslado" size="12" maxlength="20" />
+
+                            </div>
+                        </div>
+                        <div class="row show-grid">
+                            <div class="col-md-2">
+                                Tipo de Traslado&nbsp;
+                            </div>
+                            <div class="col-md-2">
+                                <select id="tipo" name="tipo" class="form-control input-sm" >
+                                    <option value="01">[PROVINCIA-PROVINCIA]</option>
+                                    <option value="02">[PROVINCIA-LIMA]</option>
+                                    <option value="03">[LIMA-LIMA]</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                Origen&nbsp;
+                            </div>
+
+                            <div class="col-md-2">
+                                <html:select property="origen" styleClass="form-control input-sm" styleId="origen"  >
+                                    <html:options collection="listDepartamento" property="codigo" labelProperty="descripcion"/>
+                                </html:select>
+                            </div>
+                            <div class="col-md-2">
+                                Destino&nbsp;
+                            </div>
+
+                            <div class="col-md-2">
+                                <html:select property="destino" styleClass="form-control input-sm" styleId="destino"  >
+                                    <html:options collection="listDepartamento" property="codigo" labelProperty="descripcion"/>
+                                </html:select>
+                            </div>
+                        </div>
+                        <div class="space">&nbsp;</div>
+
+                        <div class="col-md-2">
+                            Fecha Aprobacion&nbsp;
+                        </div>
+                        <div class="col-md-2 form-group row">
+                            <html:text property="fechaAprobacion" styleClass="form-control input-sm" styleId="fechaAprobacion" size="12">
+                            </html:text>
+                            <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
+
+                        </div>
+                        <div class="space">&nbsp;</div>
+
+                        <div class="col-md-1">
+                            Moneda&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <select id="moneda" name="moneda" class="form-control input-sm" >
+                                <option value="00">[SOLES]</option>
+                                <option value="01">[DOLARES]</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            Tipo Movilidad&nbsp;
+                        </div>
+                        <div class="col-md-3">
+                            <select id="tipoMovilidad" name="tipoMovilidad" class="form-control input-sm" >
+                                <option value="01">[PASAJES AVION]</option>
+                                <option value="02">[PASAJES TIERRA]</option>
+                                <option value="03">[MOVILIDAD INTERNA]</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            Monto Movilidad&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <html:text property="montoMovilidad" styleClass="form-control input-sm" styleId="montoMovilidad" size="12" maxlength="20" />
+                        </div>
+                        <div class="col-md-1" id="movilidad">
+                            <input type="button" value="+"  id="btn-addBody" class="btn btn-warning">
+
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-1">
+                            Moneda&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <select id="moneda1" name="moneda1" class="form-control input-sm">
+                                <option value="00">[SOLES]</option>
+                                <option value="01">[DOLARES]</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            Dias de Alimentacion&nbsp;
+                        </div>
+                        <div class="col-md-3">
+                            <html:text property="diasAlimentacion" styleClass="form-control input-sm" styleId="diasAlimentacion" size="12" maxlength="20" />
+
+                        </div>
+                        <div class="col-md-2">
+                            Monto Alimentacion&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <html:text property="montoAlimentacion" styleClass="form-control input-sm" styleId="montoAlimentacion" size="12" maxlength="20" />
+
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-1">
+                            Moneda&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <select id="moneda2" name="moneda2" class="form-control input-sm">
+                                <option value="00">[SOLES]</option>
+                                <option value="01">[DOLARES]</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            Dias de Alojamiento&nbsp;
+                        </div>
+                        <div class="col-md-3">
+                            <html:text property="diasAlojamiento" styleClass="form-control input-sm" styleId="diasAlojamiento" size="12" maxlength="20" />
+
+                        </div>
+                        <div class="col-md-2">
+                            Monto de Alojamiento&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <html:text property="montoAlojamiento" styleClass="form-control input-sm" styleId="montoAlojamiento" size="12" maxlength="20" />
+
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!-- para los montos y totales-->
+
+
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-3">
+
+                        </div>
+
+
+
+                        <div class="col-md-2">
+                            Monto Exa Medicos&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <html:text property="montoMedico" styleClass="form-control input-sm" styleId="montoMedico" size="12" maxlength="20" />
+
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!-- para los montos y totales-->
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="col-md-1">
+
+                        </div>
+                        <div class="col-md-3">
+
+                        </div>
+                        <div class="col-md-2">
+                            Total Gasto&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <html:text property="totalGasto" styleClass="form-control input-sm" styleId="totalGasto" size="12" maxlength="20" />
+
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!-- Fin de montos y totales-->
+                        <div class="col-md-1">
+                            Ejecutiva&nbsp;
+                        </div>
+                        <div class="col-md-2">
+                            <html:text property="ejecutivo" styleClass="form-control input-sm" styleId="ejecutivo" size="12" maxlength="20" />
+
+                        </div>
+
+                        <div class="col-md-1">
+                            Analista&nbsp;
+                        </div>
+                        <div class="col-md-3">
+                            <html:text property="analista" styleClass="form-control input-sm" styleId="analista" size="12" maxlength="20" />
+
+                        </div>
+                    </div>
+                    <div class="space">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-12 form-inline">
+                            <table id="idConsulta" class="table table-striped table-bordered" style="width:100%">
 
                                 <thead>
 
@@ -350,13 +409,13 @@
                                     </tr>
 
                                 </thead>
-                                
+
                                 <tbody>
 
                                     <c:forEach var="t" items="${listaTraslado}">
 
                                         <tr>
-                                            <td align="center"><input name=chkid id=chkid type=radio value="<c:out value="${t.idTraslado}"/>" onclick="myCheck('<c:out value="${t.idTraslado}"/>','<c:out value="${t.nroExpSeyci}"/>')"></td>
+                                            <td align="center"><input name=chkid id=chkid type=radio value="<c:out value="${t.idTraslado}"/>" onclick="myCheck('<c:out value="${t.idTraslado}"/>', '<c:out value="${t.nroExpSeyci}"/>')"></td>
                                             <td align="center"><c:out value="${t.fechaCita}"/></td>
                                             <td align="center"><c:out value="${t.tipo}"/></td>
                                             <td align="center"><c:out value="${t.origen}"/></td>
@@ -372,25 +431,26 @@
 
 
                                 </tbody>
-                                
-                        </table>
-                    </div>
-            </div>
-            <div class="space">&nbsp;</div>
-            <div class="row">
-                <div class="col-10 form-inline">
-                    &nbsp;
-                </div>
-                <div class="col-2 form-inline">
-                    <a href="javascript:fncGuardarTraslado()">
-                        <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
-                        
-                    </a>
-                </div>
-            </div>
-        </div>
-        </div>
 
+                            </table>
+                        </div>
+                    </div>
+                    <div class="space">&nbsp;</div>
+                    <div class="row">
+                        <div class="col-10 form-inline">
+                            &nbsp;
+                        </div>
+                        <div class="col-2 form-inline">
+                            <a href="javascript:fncGuardarTraslado()">
+                                <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
+
+                            </a>
+                        </div>
+                        <div class="space">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </html:form>
 
 </body>

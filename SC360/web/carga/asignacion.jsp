@@ -14,7 +14,7 @@
 
         <title>Asignacion</title>
         <!-- Page-Level Plugin CSS - Tables -->
-        <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="bootstrap-3.4.1/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
     </head>
     <%@include file="../plantilla/menuDinamico.jsp" %>
@@ -87,13 +87,13 @@
     <!-- /#wrapper -->
 
     <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="bootstrap-3.4.1/js/bootstrap.js"></script>
+    <script src="bootstrap-3.4.1/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 
     <!-- Page-Level Plugin Scripts - Tables -->
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="bootstrap-3.4.1/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="bootstrap-3.4.1/js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/sb-admin.js"></script>

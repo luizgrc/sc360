@@ -13,106 +13,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Datos Generales</title>
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/css/bootstrap.min.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/3.3.1/jquery.min.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/bootstrap.min.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/main.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/style.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
-        <script src="../scripts/jquery.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
-        <script>
-            $(function () {
-                $("#primerNombre").attr("placeholder", "Nombre 1");
-                $("#primerApellido").attr("placeholder", "Apellido 1");
-                $("#segundoApellido").attr("placeholder", "Apellido 2");
-                $("#fechaNacimiento").datepicker();
-            });
+        <link rel="stylesheet" type="text/css" href="bootstrap-3.4.1/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css"
+        <link rel=stylesheet type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
 
-            function onChangeProvincia(campo, flag) {
-
-                var form = document.getElementById("frmconsulta");
-                var dpto = document.getElementById("departamento").value;
-                var campoaLlenar;
-                if (flag == 'PR') {
-                    campoaLlenar = document.getElementById("provincia");
-                    limpiarCombo(campoaLlenar);
-                }
-                if (campo.value != 'S') {
-                    ajax = new Ajax();
-                    ajax.clase = "com.sc360.struts.jdbc.dao.ImpUtil";
-                    ajax.metodo = "provinciasXdepaAjax";
-                    ajax.async = false;
-                    ajax.parametros = new Array("2", dpto, " ", " ");
-                    ajax.cargarComboBox(campoaLlenar, "descripcion", "codigo");
-                } else {
-                    if (flag == 'PR' && campo.value == 'S') {
-                        limpiarCombo(form.provincia);
-                        limpiarCombo(form.distrito);
-                    }
-                }
-
-
-            }
-
-            function onChangeDistrito(campo, flag) {
-                var form = document.getElementById("frmconsulta");
-                var dpto = document.getElementById("departamento").value;
-                var prov = document.getElementById("provincia").value;
-                var campoaLlenar;
-                if (flag == 'DI') {
-                    campoaLlenar = document.getElementById("distrito");
-                    limpiarCombo(campoaLlenar);
-                }
-                if (campo.value != 'S') {
-                    ajax = new Ajax();
-                    ajax.clase = "com.sc360.struts.jdbc.dao.ImpUtil";
-                    ajax.metodo = "distritoXprovinciaAjax";
-                    ajax.async = false;
-                    ajax.parametros = new Array("3", dpto, prov, " ");
-                    ajax.cargarComboBox(campoaLlenar, "descripcion", "codigo");
-                } else {
-                    if (flag == 'DI' && campo.value == 'S')
-                    {
-                        limpiarCombo(form.distrito);
-                    }
-                }
-            }
-
-            function limpiarCombo(campo) {
-
-                while (campo.options.length > 1) {
-                    campo.options.remove(1);
-                }
-            }
-
-
-            function irSeyci() {
-                var form = document.frmConsulta;
-                var numeroExp = form.numeroExpediente.value;
-                var url = 'Seyci.do?method=inicioSeyci&numeroExp=' + numeroExp;
-                var form = document.forms(0);
-                form.action = url;
-                form.method = "post";
-                form.submit();
-            }
-            ;
-
-            function fncGuardarSolicitud() {
-                var form = document.getElementById("frmConsulta");
-                form.action = "Consulta.do?method=guardarSolicitud";
-                form.method = "post";
-                form.submit();
-            }
-        </script>
+        <link rel="stylesheet" type="text/css" href="css/layout-default.css">
+       
 
     </head>
     <body >
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        
         <div class="container">
             <ul class="nav nav-tabs">
                 <li class="nav-item active"><a class="nav-link" href="#">Detalle Consulta</a></li>
@@ -286,4 +198,91 @@
         
 
     </body>
+    <script src="js/jquery-3.4.1.js"
+    <script src="js/ajax.js"></script>
+     <script>
+            $(function () {
+                $("#primerNombre").attr("placeholder", "Nombre 1");
+                $("#primerApellido").attr("placeholder", "Apellido 1");
+                $("#segundoApellido").attr("placeholder", "Apellido 2");
+                $("#fechaNacimiento").datetimepicker();
+            });
+
+            function onChangeProvincia(campo, flag) {
+
+                var form = document.getElementById("frmconsulta");
+                var dpto = document.getElementById("departamento").value;
+                var campoaLlenar;
+                if (flag == 'PR') {
+                    campoaLlenar = document.getElementById("provincia");
+                    limpiarCombo(campoaLlenar);
+                }
+                if (campo.value != 'S') {
+                    ajax = new Ajax();
+                    ajax.clase = "com.sc360.struts.jdbc.dao.ImpUtil";
+                    ajax.metodo = "provinciasXdepaAjax";
+                    ajax.async = false;
+                    ajax.parametros = new Array("2", dpto, " ", " ");
+                    ajax.cargarComboBox(campoaLlenar, "descripcion", "codigo");
+                } else {
+                    if (flag == 'PR' && campo.value == 'S') {
+                        limpiarCombo(form.provincia);
+                        limpiarCombo(form.distrito);
+                    }
+                }
+
+
+            }
+
+            function onChangeDistrito(campo, flag) {
+                var form = document.getElementById("frmconsulta");
+                var dpto = document.getElementById("departamento").value;
+                var prov = document.getElementById("provincia").value;
+                var campoaLlenar;
+                if (flag == 'DI') {
+                    campoaLlenar = document.getElementById("distrito");
+                    limpiarCombo(campoaLlenar);
+                }
+                if (campo.value != 'S') {
+                    ajax = new Ajax();
+                    ajax.clase = "com.sc360.struts.jdbc.dao.ImpUtil";
+                    ajax.metodo = "distritoXprovinciaAjax";
+                    ajax.async = false;
+                    ajax.parametros = new Array("3", dpto, prov, " ");
+                    ajax.cargarComboBox(campoaLlenar, "descripcion", "codigo");
+                } else {
+                    if (flag == 'DI' && campo.value == 'S')
+                    {
+                        limpiarCombo(form.distrito);
+                    }
+                }
+            }
+
+            function limpiarCombo(campo) {
+
+                while (campo.options.length > 1) {
+                    campo.options.remove(1);
+                }
+            }
+
+
+            function irSeyci() {
+                var form = document.frmConsulta;
+                var numeroExp = form.numeroExpediente.value;
+                alert(numeroExp);
+                var url = 'Seyci.do?method=inicioSeyci&numeroExp=' + numeroExp;
+                var form = document.forms(0);
+                form.action = url;
+                form.method = "post";
+                form.submit();
+            }
+            ;
+
+            function fncGuardarSolicitud() {
+                var form = document.getElementById("frmConsulta");
+                form.action = "Consulta.do?method=guardarSolicitud";
+                form.method = "post";
+                form.submit();
+            }
+        </script>
 </html>

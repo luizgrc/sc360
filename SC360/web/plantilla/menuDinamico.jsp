@@ -31,7 +31,7 @@
     <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
 
     <!-- Core CSS - Include with every page -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
@@ -43,7 +43,7 @@
 
     <div id="wrapper" style="background-color: #FF4C01;">
         <!-- /navbar-header -->
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #FF4C01;margin-bottom: 0;">
+        <nav class="navbar navbar-default navbar-fixed-top nav-custom" role="navigation" >
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -52,7 +52,6 @@
                     <span class="icon-bar"></span>
                 </button>
                
-                <img src="<c:out value="${pageContext.request.contextPath}"/>/images/cabecera_2.png"  alt=""  style="height:51px; width:1260px;"/>
             </div>
             <!-- /.navbar-header -->
             <!-- /dropdown bars -->

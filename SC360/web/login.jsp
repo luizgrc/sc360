@@ -15,7 +15,7 @@
 
 
         <!-- Core CSS - Include with every page -->
-        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
         <!-- SB Admin CSS - Include with every page -->
         <link href="css/sb-admin.css" rel="stylesheet">
@@ -93,11 +93,11 @@
                     ussro.focus();
                     //form.usuario.focus();
                     return false;
-                } else if (ussro == null || ussro.length == 0 || /^\s+$/.text(ussro)) {
+                } else if (ussro == null || ussro.length == 0 ) {
                     $("#nickUsuario").parent().parent().attr("class", "form-group has-error");
                     $("#nickUsuario".parent().children("span").text("Debe ingresar algun caracter").show());
                     return false;
-                } else if (pssord == null || pssord.length == 0 || /^\s+$/.text(pssord)) {
+                } else if (pssord == null || pssord.length == 0) {
                     $("#password").parent().parent().attr("class", "form-group has-error");
                     $("#password".parent().children("span").text("Debe ingresar algun caracter").show());
                     return false;
@@ -132,8 +132,8 @@
         </script>
 
     <!-- Core Scripts - Include with every page -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="bootstrap-3.4.1/js/bootstrap.js"></script>
 
     <!-- SB Admin Scripts - Include with every page -->
     <script src="js/sb-admin.js"></script>

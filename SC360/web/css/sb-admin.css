@@ -337,3 +337,11 @@ table.dataTable thead .sorting:after {
     color: #FF4C01;
     border: 1px solid #FF4C01;
 }
+.nav-custom{
+    background-color: #FF4C01;
+    margin-bottom: 0;
+    background-image: url(../images/cabecera_2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:10px;
+}

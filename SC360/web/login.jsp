@@ -56,7 +56,7 @@
                                                         style="padding: 5px; cursor: pointer;" onclick="javaScript:validateLogin();">
                                                     <span class="ui-button-text ui-c">Ingresar</span>
                                                 </button>-->
-                                                
+
                                                 <html:submit onclick="javaScript:validateLogin();" value="ingresar" styleClass="btn btn-lg btn-warning btn-block" style="padding: 5px; cursor: pointer;">
                                                     <span class="ui-button-text ui-c">Ingresar</span>
                                                 </html:submit>

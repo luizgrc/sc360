@@ -24,7 +24,7 @@
         <script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
         <script src="../scripts/jquery.js"></script>
         <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
-        
+
         <script>
 
             $(function () {
@@ -64,12 +64,10 @@
 
 
         </script>
-        
+
     </head>
-    
-    <body style="text-align: center ">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <body style="background-color:#FFFFFF;">
         <div class="container">
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link" href="javascript:irDetalle()">Detalle Consulta</a></li>
@@ -81,171 +79,262 @@
             </ul>
         </div>
         <html:form action="Apelacion.do" styleId="frmApelacion" >
-            
+
+
             <div class="form-group div-align-l dv-align-2030">
-                <div class="row">
-                    <div class="col-6 form-inline">
-                        <STRONG>APELACION</STRONG>&nbsp;
+
+                <div class="row show-grid">
+
+                    <STRONG>APELACION</STRONG>&nbsp;
                         <html:hidden property="nroSeyci"></html:hidden>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-4">
+                            <div class="row show-grid form-group">
+                                <div class="col-md-4">
+                                    Nro Dictamen Apelado&nbsp;
+                                </div>
+                                <div class="col-md-6">
+
+                                <html:text property="nroDictamenApelado" styleClass="form-control" styleId="nroDictamenApelado" size="12" />                                
+
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="nroDictamenApelado" >
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Nro Dictamen Apelado&nbsp;
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Persona Apela&nbsp;
+                            </div>
+                            <div class="col-md-6">
+
+                                <html:text property="personaApela" styleClass="form-control" styleId="personaApela" size="12" />
+
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="personaApela" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="nroDictamenApelado" styleClass="form-control" styleId="nroDictamenApelado" size="12" />
-                        <input type="checkbox" id="nroDictamenApelado" >
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Apelacion&nbsp;
+                            </div>
+                            <div class="col-md-6">
+
+                                <html:text property="fechaApelacion" styleClass="form-control" styleId="fechaApelacion" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fechaApelacion" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        Persona Apela&nbsp;
+                    <div class="space">&nbsp;</div>
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Ingreso Beneficios&nbsp;
+                            </div>
+                            <div class="col-md-6">
+
+                                <html:text property="fecIngBeneficios" styleClass="form-control" styleId="fecIngBeneficios" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fecIngBeneficios" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="personaApela" styleClass="form-control" styleId="personaApela" size="12" />
-                        <input type="checkbox" id="personaApela" >
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Envio Carta&nbsp;
+                            </div>
+                            <div class="col-md-6">
+
+                                <html:text property="fecEnvCarta" styleClass="form-control" styleId="fecEnvCarta" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fecEnvcarta" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        Fecha Apelacion&nbsp;
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Recepcion COMAFP&nbsp;
+                            </div>
+                            <div class="col-md-6">
+
+                                <html:text property="recepCOMAFP" styleClass="form-control" styleId="recepCOMAFP" size="12" />
+                                <input type="checkbox" id="recepCOMAFP" >
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="recepCOMAFP" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                       <html:text property="fechaApelacion" styleClass="form-control" styleId="fechaApelacion" size="12" />
-                       <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                       <input type="checkbox" id="fechaApelacion" >
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Analista&nbsp;
+                            </div>
+                            <div class="col-md-6">
+
+                                <html:text property="analista" styleClass="form-control" styleId="analista" size="12" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="analista" >
+                            </div>
+                        </div>
                     </div>
-                </div>
-                    
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Fecha Ingreso Beneficios&nbsp;
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Motivo Apelacion&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="motivoApelacion" styleClass="form-control" styleId="motivoApelacion" size="12" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="motivoApelacion" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="fecIngBeneficios" styleClass="form-control" styleId="fecIngBeneficios" size="12" />
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                        <input type="checkbox" id="fecIngBeneficios" >
+
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Nro Dictamen Apelado&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="nroExpDictamenApelado" styleClass="form-control" styleId="nroExpDictamenApelado" size="12" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="nroExpDictamenApelado" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        Fecha Envio Carta&nbsp;
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                DIS / PACIFICO&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="disPacifico" styleClass="form-control" styleId="disPacifico" size="12" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="disPacifico" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="fecEnvCarta" styleClass="form-control" styleId="fecEnvCarta" size="12" />
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                        <input type="checkbox" id="fecEnvcarta" >
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Dictamen&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="fecDictamen" styleClass="form-control" styleId="fecDictamen" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fecDictamen" >
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        Recepcion COMAFP&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                       <html:text property="recepCOMAFP" styleClass="form-control" styleId="recepCOMAFP" size="12" />
-                       <input type="checkbox" id="recepCOMAFP" >
-                    </div>
-                </div>
-                    
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Analista&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="analista" styleClass="form-control" styleId="analista" size="12" />
-                        <input type="checkbox" id="analista" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        Motivo Apelacion&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="motivoApelacion" styleClass="form-control" styleId="motivoApelacion" size="12" />
-                        <input type="checkbox" id="motivoApelacion" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        Nro Dictamen Apelado&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                       <html:text property="nroExpDictamenApelado" styleClass="form-control" styleId="nroExpDictamenApelado" size="12" />
-                       <input type="checkbox" id="nroExpDictamenApelado" >
-                    </div>
-                </div>
-                    
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        DIS / PACIFICO&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="disPacifico" styleClass="form-control" styleId="disPacifico" size="12" />
-                        <input type="checkbox" id="disPacifico" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        Fecha Dictamen&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="fecDictamen" styleClass="form-control" styleId="fecDictamen" size="12" />
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                        <input type="checkbox" id="fecDictamen" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        Fecha Envio DIS&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                       <html:text property="fecEnvioDis" styleClass="form-control" styleId="fecEnvioDis" size="12" />
-                       <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                       <input type="checkbox" id="fecEnvioDis" >
-                    </div>
-                </div>
-                    
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        SOL&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="oK" styleClass="form-control" styleId="oK" size="12" />
-                        <input type="checkbox" id="ok" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        Fecha Notificacion Afiliado&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                        <html:text property="fecNotAfiliado" styleClass="form-control" styleId="fecNotAfiliado" size="12" />
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                        <input type="checkbox" id="fecNotAfiliado" >
-                    </div>
-                    <div class="col-2 form-inline">
-                        Fecha Notificacion COMEC&nbsp;
-                    </div>
-                    <div class="col-2 form-inline">
-                       <html:text property="fecNotCOMEC" styleClass="form-control" styleId="fecNotCOMEC" size="12" />
-                       <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                       <input type="checkbox" id="fecNotCOMEC" >
-                    </div>
-                </div>
-                    
-                <div class="space">&nbsp;</div>
-                <div class="row">
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Envio DIS&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="fecEnvioDis" styleClass="form-control" styleId="fecEnvioDis" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fecEnvioDis" >
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                SOL&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="oK" styleClass="form-control" styleId="oK" size="12" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="ok" >
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Notificacion Afiliado&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="fecNotAfiliado" styleClass="form-control" styleId="fecNotAfiliado" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fecNotAfiliado" >
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-md-4">
+                        <div class="row show-grid form-group">
+                            <div class="col-md-4">
+                                Fecha Notificacion COMEC&nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <html:text property="fecNotCOMEC" styleClass="form-control" styleId="fecNotCOMEC" size="12" />
+                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="checkbox" id="fecNotCOMEC" >
+                            </div>
+                        </div>
+                    </div> 
+
+
+                    <div class="space">&nbsp;</div>
+
+
                     <div class="col-2 form-inline">
                         Observaciones&nbsp;
                     </div>
+                    <div class="space">&nbsp;</div>
                     <div class="col-7 form-inline">
                         <html:textarea cols="120" rows="2" styleClass="form-control" property="observaciones" readonly="false" />
                     </div>
-                </div>
-                    <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-10 form-inline">
-                        &nbsp;
+
+                    <div class="row">
+                        <div class="col-10 form-inline">
+                            &nbsp;
+                        </div>
+                        <div class="col-2 form-inline">
+                            <a href="javascript:fncGuardarApelacion()">
+                                <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom">
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-2 form-inline">
-                        <a href="javascript:fncGuardarApelacion()">
-                        <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom">
-                        </a>
-                    </div>
+
                 </div>
-                    
+
+
+
             </div>
-            
+
         </html:form>
     </body>
-    
-    
+
+
 </html>

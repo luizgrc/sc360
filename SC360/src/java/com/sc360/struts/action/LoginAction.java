@@ -53,7 +53,7 @@ public class LoginAction extends org.apache.struts.action.Action{
             sesion.setAttribute("nickUsuario", login.getNickUsuario());
              return mapping.findForward(SUCCESS);
         }else{
-        
+            sesion.setAttribute("valida", "0");
              return mapping.findForward("error");
         }
         

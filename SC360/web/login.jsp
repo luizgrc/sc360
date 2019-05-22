@@ -22,15 +22,12 @@
 
         <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
     </head>
-    <body>
+    <body cz-shortcut-listen="true">
 
         <!--<h1 class="Estilo2" align="center">SISTEMA COORDINADOR 360</h1>-->
-        <div class="bg-orange">
-            <img id="j_idt6:j_idt8"
-                 src="<c:out value="${pageContext.request.contextPath}"/>/images/cabecera_2.png"
-                 alt="" class="logo" style="height:51px; width:100%;"/>
-        </div>
+        <nav class="navbar navbar-default navbar-fixed-top nav-custom" role="navigation" ></nav>
         <div class="container">
+            <div class="row">
             <html:form action="/validateLogin.do" styleId="frmdata">
                       <!--                        <label id="j_idt6:j_idt11" class="ui-outputlabel ui-widget"
                                                        for="j_idt6:username">Usuario</label>-->
@@ -69,6 +66,7 @@
 
                 </div>     
             </html:form>
+        </div>
         </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -135,8 +133,6 @@
     <script src="js/jquery-3.4.1.js"></script>
     <script src="bootstrap-3.4.1/js/bootstrap.js"></script>
 
-    <!-- SB Admin Scripts - Include with every page -->
-    <script src="js/sb-admin.js"></script>
 
     </body>
 </html>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : dictamen
     Created on : 17/04/2019, 09:04:57 PM
-    Author     : Elgar
+    Author     : Elgar Eduardo Puma Cruz
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -39,16 +39,16 @@
 
             });
 
-            function myCheck(idNroTraslado) {
+            function myCheck(idSeyci, numDictamen) {
 
-                var i
+                var i;
                 for (i = 0; i < document.frmDictamen.chkid.length; i++) {
                     if (document.frmDictamen.chkid[i].checked)
                         break;
                 }
 
                 var form = document.frmDictamen;
-                var url = 'Dictamen.do?method=mostrarDictamen&idNroTraslado=' + idNroTraslado;
+                var url = 'Dictamen.do?method=mostrarDictamen&idNroTraslado=' + idSeyci + "&numeroExp=" + numDictamen;
                 //form.action="ConsultaDocumentos.do?metodo=actualizacionDocumento&codigo="+codigo+"&coddestinatario="+coddestinatario;
                 var form = document.forms(0);
                 form.action = url;
@@ -434,7 +434,7 @@
                                 <c:forEach var="t" items="${listaDictamen}">
 
                                     <tr>
-                                        <td align="center"><input name=chkid id=chkid type=radio value="<c:out value="${t.nroDictamen}"/>" onclick="myCheck('<c:out value="${t.nroDictamen}"/>'"></td>
+                                        <td align="center"><input name=chkid id=chkid type=radio value="<c:out value="${t.nroDictamen}"/>" onclick="myCheck('<c:out value="${t.idSeyci}"/>','<c:out value="${t.nroSeyci}"/>')"></td>
                                         <td align="center"><c:out value="${t.nroDictamen}"/></td>
                                         <td align="center"><c:out value="${t.fecRecAFP}"/></td>
                                         <td align="center"><c:out value="${t.fecEmision}"/></td>

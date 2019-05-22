@@ -33,6 +33,7 @@ public class Dictamen {
     private String Edad;
     private String Analista;
     private String Observaciones;
+    private String idSeyci;
     
     
     public Dictamen() {
@@ -213,6 +214,15 @@ public class Dictamen {
     public void setObservaciones(String Observaciones) {
         this.Observaciones = Observaciones;
     }
+
+    public String getIdSeyci() {
+        return idSeyci;
+    }
+
+    public void setIdSeyci(String idSeyci) {
+        this.idSeyci = idSeyci;
+    }
+    
     
     
     

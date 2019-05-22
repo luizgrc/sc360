@@ -457,7 +457,7 @@
             function irSeyci() {
                 var form = document.frmConsulta;
                 var numeroExp = form.numeroExpediente.value;
-                alert(numeroExp);
+                
                 var url = 'Seyci.do?method=inicioSeyci&numeroExp=' + numeroExp;
                 var form = document.forms(0);
                 form.action = url;

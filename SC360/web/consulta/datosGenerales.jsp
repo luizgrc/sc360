@@ -13,96 +13,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Datos Generales</title>
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/css/bootstrap.min.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/3.3.1/jquery.min.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/bootstrap.min.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/main.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/style.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
-        <script src="../scripts/jquery.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
-        <link href="../css/sb-admin-2.css" rel="stylesheet" type="text/css"/>
-        <script>
-            $(function () {
-                $("#primerNombre").attr("placeholder", "Nombre 1");
-                $("#primerApellido").attr("placeholder", "Apellido 1");
-                $("#segundoApellido").attr("placeholder", "Apellido 2");
-                $("#fechaNacimiento").datepicker();
-            });
-
-            function onChangeProvincia(campo, flag) {
-
-                var form = document.getElementById("frmconsulta");
-                var dpto = document.getElementById("departamento").value;
-                var campoaLlenar;
-                if (flag == 'PR') {
-                    campoaLlenar = document.getElementById("provincia");
-                    limpiarCombo(campoaLlenar);
-                }
-                if (campo.value != 'S') {
-                    ajax = new Ajax();
-                    ajax.clase = "com.sc360.struts.jdbc.dao.ImpUtil";
-                    ajax.metodo = "provinciasXdepaAjax";
-                    ajax.async = false;
-                    ajax.parametros = new Array("2", dpto, " ", " ");
-                    ajax.cargarComboBox(campoaLlenar, "descripcion", "codigo");
-                } else {
-                    if (flag == 'PR' && campo.value == 'S') {
-                        limpiarCombo(form.provincia);
-                        limpiarCombo(form.distrito);
-                    }
-                }
 
 
-            }
-
-            function onChangeDistrito(campo, flag) {
-                var form = document.getElementById("frmconsulta");
-                var dpto = document.getElementById("departamento").value;
-                var prov = document.getElementById("provincia").value;
-                var campoaLlenar;
-                if (flag == 'DI') {
-                    campoaLlenar = document.getElementById("distrito");
-                    limpiarCombo(campoaLlenar);
-                }
-                if (campo.value != 'S') {
-                    ajax = new Ajax();
-                    ajax.clase = "com.sc360.struts.jdbc.dao.ImpUtil";
-                    ajax.metodo = "distritoXprovinciaAjax";
-                    ajax.async = false;
-                    ajax.parametros = new Array("3", dpto, prov, " ");
-                    ajax.cargarComboBox(campoaLlenar, "descripcion", "codigo");
-                } else {
-                    if (flag == 'DI' && campo.value == 'S')
-                    {
-                        limpiarCombo(form.distrito);
-                    }
-                }
-            }
-
-            function limpiarCombo(campo) {
-
-                while (campo.options.length > 1) {
-                    campo.options.remove(1);
-                }
-            }
 
 
-            function irSeyci() {
-                var form = document.frmConsulta;
-                var numeroExp = form.numeroExpediente.value;
-                var url = 'Seyci.do?method=inicioSeyci&numeroExp=' + numeroExp;
-                var form = document.forms(0);
-                form.action = url;
-                form.method = "post";
-                form.submit();
-            }
-            ;
-        </script>     
+       
+        <link href="../bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
+
+        <link href="../css/sb-admin.css" rel="stylesheet" type="text/css"/>
 
     </head>    
     <body style="background-color:#FFFFFF;">
@@ -212,7 +132,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="col-xs-10">
-                                <html:text property="fechaNacimiento" styleClass="form-control input-sm" styleId="fechaNacimiento" size="12" />
+                                <html:text property="fechaNacimiento" styleClass="form-control input-sm" styleId="fechaNacimiento" size="20" maxlength="20"  />
                             </div>
                             &nbsp;
                             <label >     
@@ -327,7 +247,8 @@
                             </div>
                         </div>
                         <div class="col-md-2" >
-                            <input type="checkbox" id="departamento" >
+
+
                         </div>
 
                     </div>
@@ -386,9 +307,11 @@
 
 
     </body>
-    <script src="js/jquery-3.4.1.js"
-    <script src="js/ajax.js"></script>
-     <script>
+    <script src="../bootstrap-3.4.1/js/bootstrap.js" type="text/javascript"></script>
+
+    <script src="../scripts/jquery.js"></script>
+    <script src="../js/jquery-3.4.1.js" type="text/javascript"></script>
+    <script>
             $(function () {
                 $("#primerNombre").attr("placeholder", "Nombre 1");
                 $("#primerApellido").attr("placeholder", "Apellido 1");
@@ -472,5 +395,5 @@
                 form.method = "post";
                 form.submit();
             }
-        </script>
+    </script>
 </html>

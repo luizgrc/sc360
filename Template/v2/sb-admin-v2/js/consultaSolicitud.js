@@ -48,7 +48,32 @@ $(function() {
         $('#fechaVencimientoIni').data("DateTimePicker").maxDate(e.date);
     });
 
+    /** Date Time Picker Fecha Del Modal*/
+
+    $('.fechaModal').datetimepicker({
+        format: 'DD/MM/YYYY'
+       
+    });
+
+
+
 });
+/** traslado -- desactivar y activar el contenido */
+function onChangeMostar() {
+    var form = document.getElementById("frmTraslado");
+    var opc = document.getElementById("opcion").value;
+
+    if (opc == '00') {
+
+        window.document.getElementById("mostrar").style.display = 'block';
+    }
+
+    if (opc == '01') {
+
+        window.document.getElementById("mostrar").style.display = 'none';
+    }
+}
+
 function showModalWindow() {
     $('#modal-detalle').modal({
         backdrop: 'static', keyboard: false
@@ -68,8 +93,8 @@ function showModalWindow() {
                     $item = $(this);
         
                 if (!$item.hasClass("disabled")) {
-                    navListItems.removeClass('btn-success').addClass('btn-default');
-                    $item.addClass('btn-success');
+                    navListItems.removeClass('btn-warning').addClass('btn-default');
+                    $item.addClass('btn-warning');
                     allWells.hide();
                     $target.show();
                     $target.find('input:eq(0)').focus();
@@ -94,7 +119,7 @@ function showModalWindow() {
                 if (isValid) nextStepWizard.removeClass('disabled').trigger('click');
             });
         
-            $('div.setup-panel div a.btn-success').trigger('click');
+            $('div.setup-panel div a.btn-warning').trigger('click');
 
       });
 }

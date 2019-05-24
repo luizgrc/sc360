@@ -38,6 +38,7 @@ public interface IfaceSolicitud {
     public List<Reevaluacion> ListadoReevaluacion(Reevaluacion dto);
     public String InsertarActualizarReevaluacion(Reevaluacion dto);
     public List<Dictamen> ListadoDictamen(Dictamen dto);
+    public List<Dictamen> ListadoDictamenItem(Dictamen dto);
     public String InsertarActualizarDictamen(Dictamen dto);
     public List<Apelacion> ListadoApelacion(Apelacion dto);
     public String InsertarActualizarApelacion(Apelacion dto);

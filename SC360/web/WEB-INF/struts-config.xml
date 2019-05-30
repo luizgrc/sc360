@@ -24,6 +24,7 @@
 
     <global-forwards>
         <forward name="welcome"  path="/Welcome.do"/>
+        <forward name="cargaExcel"  path="/CargaExcel.do"/>
     </global-forwards>
 
     <action-mappings>
@@ -35,7 +36,7 @@
         </action>
         
         <action path="/CargaExcel" type="com.sc360.struts.action.CargaExcelAction" parameter="method" name="formCarga" validate="true"> 
-            <forward name="success" path="/carga/cargaExcel.jsp"/>
+            <forward name="success" path="/carga/cargaExcel.jsp" redirect="true" />
         </action>
         
         <action path="/Asignacion" type="com.sc360.struts.action.AsignacionAction" parameter="method" name="formAsignacion" validate="true"> 

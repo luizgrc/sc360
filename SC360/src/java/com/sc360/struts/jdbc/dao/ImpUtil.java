@@ -193,7 +193,8 @@ public class ImpUtil implements IfaceUtil{
         List<TipoArchivo> list = null;
         sql_1.append("SELECT ")
                 .append("idtipoArchivo,")
-                .append("descripcionArchivo ")
+                .append("descripcionArchivo,")
+                .append("numfila ")
                 .append("FROM TIPOARCHIVO WHERE ESTADOARCHIVO='A' ");
         
         try (Connection cn = db.getConnection();
@@ -206,7 +207,7 @@ public class ImpUtil implements IfaceUtil{
 
                 p.setTipoArchivo(rs.getString(1));
                 p.setDescripcion(rs.getString(2));
-
+                p.setNumfila(rs.getInt(3));
                 list.add(p);
             }
             

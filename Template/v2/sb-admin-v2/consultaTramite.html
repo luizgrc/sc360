@@ -329,6 +329,7 @@
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
+                                        
                                         <td style="text-align: center;">Trident</td>
                                         <td style="text-align: center;">Internet Explorer 4.0</td>
                                         <td style="text-align: center;">Win 95+</td>
@@ -339,7 +340,7 @@
                                             <a href="javascript:showModalWindow()">
                                                 <i class="fa fa-file-text fa-fw" style="color:#000;"></i></a></td>
                                     </tr>
-
+                                        
                                 </tbody>
                             </table>
                         </div>
@@ -360,9 +361,7 @@
                             <h4 class="modal-title">Modal title</h4>
                         </div>-->
                         <!--Modal Body-->
-                        <div class="modal-body" style="width: 100%;
-                        height: 90%;
-                        overflow-y: auto;">
+                        <div class="modal-body" >
                             <div class="container" style="
                             width: 1235px;">
                                 <div class="stepwizard">
@@ -373,22 +372,22 @@
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
                                             <a href="#step-2" type="button"
-                                                class="btn btn-default btn-circle disabled">2</a>
+                                                class="btn btn-default btn-circle ">2</a>
                                             <p><small>Seyci</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
                                             <a href="#step-3" type="button"
-                                                class="btn btn-default btn-circle disabled">3</a>
+                                                class="btn btn-default btn-circle ">3</a>
                                             <p><small>Traslado</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
                                             <a href="#step-4" type="button"
-                                                class="btn btn-default btn-circle disabled">4</a>
+                                                class="btn btn-default btn-circle ">4</a>
                                             <p><small>Reevaluacion</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
                                             <a href="#step-5" type="button"
-                                                class="btn btn-default btn-circle disabled">5</a>
+                                                class="btn btn-default btn-circle ">5</a>
                                             <p><small>Dictamen</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
@@ -400,12 +399,14 @@
                                     </div>
                                 </div>
                                 <!--DATOS GENERALES -->
-                                <form role="form">
+                                <form role="form" id="formulario">
                                     <div class="panel panel-primary setup-content" id="step-1">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Consulta detalle</h3>
+                                            <h3 class="panel-title" >Consulta detalle</h3>
                                         </div>
-                                        <div class="panel-body">
+                                        <div class="panel-body" style="width: auto;
+                                        height: 400px;
+                                        overflow-y: auto;">
                                             <div class="continer">
                                                 <div>
                                                     <STRONG>DATOS GENERALES</STRONG>&nbsp;
@@ -514,13 +515,12 @@
                                                             <div class="input-group">
                                                                 <!--<html:text--><input type="text" required="required"
                                                                     class="input-sm fechaModal"
-                                                                    style="width: 130px;" >
+                                                                    style="width: 130px;"/>
                                                                 <span class="input-group-addon">
                                                                     <span class="fa fa-calendar"></span>
                                                                 </span>  
-                                                         </div>                                                               
+                                                            </div>                                                               
                                                         </div>
-
                                                         <div class="col-md-4">
                                                             <input type="checkbox" required="required" id="fechaNacimiento">
                                                         </div>
@@ -531,38 +531,38 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <input type="text" required="required"
+                                                                styleId="correo"
                                                                 class="input-sm" 
                                                                 style="width: 167px;">
 
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input type="checkbox" required="required" id="fechaNacimiento">
+                                                            <input type="checkbox" required="required" id="correo">
                                                         </div>
                                                     </div>
-
-
                                                     <div class="col-lg-6">
-
-
-
                                                         <!---->
                                                         <div class="col-md-4" style="height: 20px ">
                                                             <label style="padding-top: 10px;"> Sexo&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-4">
-
                                                             <!-- <html:select property="sexo" styleClass="form-control input-sm">-->
                                                             <select  required="required"
                                                                 style="width: 168px;" class="input-sm">
-                                                                <option>
+                                                                <option value="">
                                                                     SELECCIONAR
+                                                                </option>
+                                                                <option value="00">
+                                                                    Maculino
+                                                                </option>
+                                                                <option value="01">
+                                                                    Femenino
                                                                 </option>
                                                                 <!--<html:option value="0">SEXO</html:option>
                                                                 <html:option value="1">MASCULINO</html:option>
                                                                 <html:option value="2">FEMENINO</html:option>-->
                                                             </select>
                                                             <!-- </html:select> -->
-
                                                         </div>
                                                         <div class="col-md-4">
                                                             <input type="checkbox" required="required" id="sexo">
@@ -590,8 +590,14 @@
                                                             <!--<html:select property="estadoCivil" styleClass="form-control input-sm ">-->
                                                             <select required="required" style="width: 168px;"
                                                                 class="input-sm">
-                                                                <option>
+                                                                <option value="">
                                                                     SELECCIONAR
+                                                                </option>
+                                                                <option value="00">
+                                                                    Soltero
+                                                                </option>
+                                                                <option value="01">
+                                                                    Casado
                                                                 </option>
                                                                 <!--<html:option value="0">ESTADO CIVIL</html:option>
                                                                 <html:option value="1">SOLTERO</html:option>
@@ -628,8 +634,14 @@
                                                             <select required="required" class=" input-sm"
                                                                 style="width: 168px;" styleId="departamento"
                                                                 onchange="onChangeProvincia(this,'PR')">
-                                                                <option>
+                                                                <option value="">
                                                                     SELECCIONAR
+                                                                </option>
+                                                                <option value="00">
+                                                                    lima
+                                                                </option>
+                                                                <option value="01">
+                                                                    ate
                                                                 </option>
                                                                 <!--<html:options collection="listDepartamento"
                                                                     property="codigo" labelProperty="descripcion" />-->
@@ -648,8 +660,14 @@
                                                             <select required="required" class="input-sm"
                                                                 style="width: 168px;" styleId="provincia"
                                                                 onchange="onChangeDistrito(this,'DI')">
-                                                                <option>
+                                                                <option value="">
                                                                     SELECCIONAR
+                                                                </option>
+                                                                <option value="00">
+                                                                    smp
+                                                                </option>
+                                                                <option value="01">
+                                                                    los olivos
                                                                 </option>
 
                                                             </select>
@@ -672,15 +690,14 @@
                                                             <select name="distrito" style="width: 168px;"
                                                                 required="required" class="input-sm"
                                                                 id="distrito">
-                                                                <!--<c:forEach var="item" items="${listaDistrito}">
-                                                                    <option value="${item.codigo}"
-                                                                        ${item.codigo==selectedDist
-                                                                        ? 'selected="selected"' : '' }>
-                                                                        ${item.descripcion}</option>
-                                                                </c:forEach>
-                                                                -->
-                                                                <option>
+                                                                <option value="">
                                                                     SELECCIONAR
+                                                                </option>
+                                                                <option value="00">
+                                                                    lima
+                                                                </option>
+                                                                <option value="01">
+                                                                    ate
                                                                 </option>
                                                             </select>
                                                         </div>
@@ -695,27 +712,31 @@
                                                         <input type="checkbox" required="required" id="Apoderado">&nbsp;<label
                                                             style="padding-top: 10px;">Tiene Apoderado</label>
                                                     </div>
-                                                    <div class="col-2 form-inline">
-                                                        <a href="javascript:fncGuardarSolicitud()">
-                                                            <div style="text-align: center"><input type="submit"
-                                                                    value="Guardar" alt="Guardar"
-                                                                    class="btn btn-custom nextBtn"></div>
-                                                        </a>
-                                                    </div>
+                                                    
 
 
                                                 </div>
+                                               
                                             </div>
                                         </div>
+                                        <div class="col-2 form-inline">
+                                                <a href="javascript:fncGuardarSolicitud()">
+                                                    <div style="text-align: center"><input type="submit"
+                                                            value="Siguiente" alt="Guardar"
+                                                            class="btn btn-custom nextBtn"></div>
+                                                </a>
+                                            </div>
                                     </div>
                                 </form>
                                 <!--SEYCI-->
-                                <form role="form">
+                                <form role="form" id="formulario">
                                     <div class="panel panel-primary setup-content" id="step-2">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Seyci</h3>
                                         </div>
-                                        <div class="panel-body">
+                                        <div class="panel-body" style="    width: auto;
+                                        height: 440px;
+                                        overflow-y: auto;">
                                             <div class="continer">
 
                                                 <div class="col-lg-6">
@@ -746,19 +767,24 @@
                                                         <label style="padding-top: 9px;">Ejecutivo&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:select--> <select property="ejecutivo"
+                                                        <!--<html:select--> <select type="text" required="required"
                                                             class="form-control input-sm" style="width: 250px;"
                                                             styleId="ejecutivo">
-                                                            <!--<html:option value="0">[EJECUTIVO]</html:option>
-                                                                <html:options collection="listEjecutivo"
-                                                                    property="codigo" labelProperty="descripcion" />-->
-                                                            <option>seleccionar</option>
+                                                            <option value="">
+                                                                SELECCIONAR
+                                                            </option>
+                                                            <option value="00">
+                                                                xxxx xxxx
+                                                            </option>
+                                                            <option value="01">
+                                                                xxxx xxxx
+                                                            </option>
                                                             <!--</html:select-->
                                                         </select>
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="ejecutivo">
+                                                        <input type="checkbox" required="required" id="ejecutivo">
                                                     </div>
 
                                                     <div class="space">&nbsp;</div>
@@ -767,18 +793,18 @@
                                                         <label style="padding-top: 9px;">Tipo Solicitud&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select id="tipoSolicitud" name="tipoSolicitud"
+                                                        <select id="tipoSolicitud" name="tipoSolicitud" requires="required"
                                                             style="width: 250px;" class="form-control input-sm">
-                                                            <option value="00">[SELECCIONE]</option>
-                                                            <option value="01">Invalidez</option>
-                                                            <option value="02">Invalidez y Cáncer</option>
-                                                            <option value="03">Invalidez y Enfermedad Terminal
+                                                            <option value="">[SELECCIONE]</option>
+                                                            <option value="00">Invalidez</option>
+                                                            <option value="01">Invalidez y Cáncer</option>
+                                                            <option value="02">Invalidez y Enfermedad Terminal
                                                             </option>
                                                         </select>
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="tipoSolicitud">
+                                                        <input type="checkbox" required="required" id="tipoSolicitud">
                                                     </div>
 
                                                 </div>
@@ -789,19 +815,22 @@
                                                         <label style="padding-top: 9px;"> Agencia&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:select--><select property="agencia"
-                                                            class="form-control input-sm" style="width: 250px"
-                                                            tyleId="agencia">
-                                                            <!--<html:option-->
-                                                            <option value="0">[AGENCIA]</option>
-                                                            <!--</html:option-->
-                                                            <!--<html:options collection="listAgencias" property="codigo" labelProperty="descripcion"/>-->
-                                                            <!--</html:select-->
+                                                        <!--<html:select--><select required="required" class="form-control input-sm" style="width: 250px"
+                                                           >
+                                                           <option value="">
+                                                            SELECCIONAR
+                                                        </option>
+                                                        <option value="00">
+                                                            xxxxx xxxx
+                                                        </option>
+                                                        <option value="01">
+                                                            xxxx xxxxx
+                                                        </option>
                                                         </select>
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="agencia">
+                                                        <input type="checkbox" required="required" id="agencia">
                                                     </div>
 
                                                     <div class="space">&nbsp;</div>
@@ -810,7 +839,7 @@
                                                         <label style="padding-top: 9px;"> Tipo Evaluado&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select id="tipoEvaluado" name="tipoEvaluado"
+                                                        <select id="tipoEvaluado" name="tipoEvaluado" required="required"
                                                             class="form-control input-sm" style="width: 250px">
                                                             <option value="00">[SELECCIONE]</option>
                                                             <option value="01">Afiliado</option>
@@ -819,7 +848,7 @@
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="tipoEvaluado">
+                                                        <input type="checkbox" required="required" id="tipoEvaluado">
                                                     </div>
 
                                                 </div>
@@ -830,40 +859,40 @@
                                                     <STRONG>Nombre del Evaluado&nbsp;</STRONG>&nbsp;
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <!--<html:text--> <input property="primerNombreEvaluado"
+                                                    <!--<html:text--> <input type="text" required="required"
                                                         class="form-control input-sm" styleId="primerNombre"
                                                         style="width: 179px;" />
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" id="primerNombreEvaluado">
+                                                    <input type="checkbox" required="required" id="primerNombreEvaluado">
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <!--<html:text--><input property="segundoNombreEvaluado"
-                                                        class="form-control input-sm" styleId="segundoNombre"
+                                                    <!--<html:text--><input type="text" required="required"
+                                                        class="form-control input-sm" styleId="sgundoNombre"
                                                         style="width: 179px;" />
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" id="segundoNombreEvaluado">
+                                                    <input type="checkbox" required="required" id="segundoNombreEvaluado">
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <!--<html:text--><input property="primerApellidoEvaluado"
+                                                    <!--<html:text--><input type="text" required="required"
                                                         class="form-control input-sm" styleId="primerApellido"
                                                         style="width: 179px;" />
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" id="primerApellidoEvaluado">
+                                                    <input type="checkbox" required="required" id="primerApellidoEvaluado">
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <!--<html:text--><input property="segundoApellidoEvaluado"
+                                                    <!--<html:text--><input type="text" required="required"
                                                         class="form-control input-sm" styleId="segundoApellido"
                                                         style="width: 179px;" />
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" id="segundoApellidoEvaluado">
+                                                    <input type="checkbox" required="required" id="segundoApellidoEvaluado">
                                                 </div>
 
                                                 <div class="space">&nbsp;</div>
@@ -876,9 +905,10 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <select id="parentesco" name="parentesco" style="width: 190px;"
+                                                        <select id="parentesco" name="parentesco" required="required" style="width: 190px;"
                                                             class="form-control input-sm">
-                                                            <option value="00">[SELECCIONE]</option>
+
+                                                            <option value="">[SELECCIONE]</option>
                                                             <option value="01">Titular</option>
                                                             <option value="02">Conyugue</option>
                                                             <option value="03">Hijos</option>
@@ -887,7 +917,7 @@
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="parentesco">
+                                                        <input type="checkbox" required="required" id="parentesco">
                                                     </div>
 
                                                 </div>
@@ -899,7 +929,7 @@
                                                     </div>
                                                     <div class=" col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -907,7 +937,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" type="text" id="fechaNacimientoSeyci">
+                                                        <input type="checkbox" required="required" id="fechaNacimientoSeyci">
                                                     </div>
 
                                                 </div>
@@ -919,15 +949,25 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <select id="actRiesgo" name="actRiesgo" style="width: 190px;"
+                                                        <select id="actRiesgo" name="actRiesgo" required="required" required="required" style="width: 190px;"
                                                             class="form-control input-sm">
+                                                            <option value="">
+                                                                SELECCIONAR
+                                                            </option>
+                                                           
+                                                            <option value="00">
+                                                                Maculino
+                                                            </option>
+                                                            <option value="01">
+                                                                Femenino
+                                                            </option>
                                                             <option value="00">[NO]</option>
                                                             <option value="01">[SI]</option>
                                                         </select>
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="actRiesgo">
+                                                        <input type="checkbox" required="required" id="actRiesgo">
                                                     </div>
 
                                                 </div>
@@ -939,15 +979,20 @@
                                                         <label style="margin: 4px">Resultados Evaluacion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7">
-                                                        <select id="resultadoEvaluacion" name="resultadoEvaluacion"
+                                                        <select id="resultadoEvaluacion" name="resultadoEvaluacion" required="required"
                                                             class="form-control input-sm" style="width: 190px;">
+                                                            <option value="">
+                                                                SELECCIONAR
+                                                            </option>
+                                                           
+                                                            </option>
                                                             <option value="00">[PROCEDE]</option>
                                                             <option value="00">[RECHAZADO]</option>
                                                             <option value="00">[SUSPENDIDO]</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="resultadoEvaluacion">
+                                                        <input type="checkbox" required="required" id="resultadoEvaluacion">
                                                     </div>
 
                                                 </div>
@@ -964,7 +1009,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -972,7 +1017,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaSeccionI">
+                                                        <input type="checkbox" required="required" id="fechaSeccionI">
                                                     </div>
 
                                                 </div>
@@ -988,7 +1033,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -996,7 +1041,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaIngresoBenef">
+                                                        <input type="checkbox" required="required" id="fechaIngresoBenef">
                                                     </div>
                                                 </div>
                                                 <div class="space">&nbsp;</div>
@@ -1010,14 +1055,14 @@
                                                     <div class="col-md-7">
                                                         <div class="input-group">
                                                             <!--<html:text--><input type="text"
-                                                                class="form-control input-sm fechaModal"
+                                                                class="form-control input-sm fechaModal" required="required"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
                                                                 <span class="fa fa-calendar"></span>
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaFirmaMedico">
+                                                        <input type="checkbox" required="required" id="fechaFirmaMedico">
                                                     </div>
 
                                                 </div>
@@ -1030,15 +1075,19 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <select id="djBenef" name="djBenef" style="width: 190px;"
+                                                        <select id="djBenef" name="djBenef" required="required" style="width: 190px;"
                                                             class="form-control input-sm">
+                                                            <option value="">
+                                                                SELECCIONAR
+                                                            </option>
+                                                            
                                                             <option value="01">[SI]</option>
                                                             <option value="02">[NO]</option>
                                                         </select>
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="djBenef">
+                                                        <input type="checkbox" required="required" id="djBenef">
                                                     </div>
 
                                                 </div>
@@ -1051,7 +1100,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -1059,7 +1108,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaRecepcionComafp">
+                                                        <input type="checkbox" required="required" id="fechaRecepcionComafp">
                                                     </div>
 
                                                 </div>
@@ -1073,7 +1122,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -1081,7 +1130,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaRecepcionComafp">
+                                                        <input type="checkbox" required="required" id="fechaRecepcionComafp">
                                                     </div>
 
                                                 </div>
@@ -1093,7 +1142,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -1101,7 +1150,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaEnvioDis">
+                                                        <input type="checkbox" required="required" id="fechaEnvioDis">
                                                     </div>
 
                                                 </div>
@@ -1113,7 +1162,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -1121,7 +1170,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaRecepcionDis">
+                                                        <input type="checkbox" required="required" id="fechaRecepcionDis">
                                                     </div>
 
                                                 </div>
@@ -1134,7 +1183,7 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <!--<html:text--> <input property="nombreArchivoOKDis"
+                                                        <!--<html:text--> <input type="text" required="required"
                                                             class="form-control input-sm" style="width: 190px;"
                                                             styleId="nombreArchivoOKDis" />
 
@@ -1152,7 +1201,7 @@
                                                     </div>
                                                     <div class="col-md-7">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 153px;" />
                                                             <span class="input-group-addon">
@@ -1160,7 +1209,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaConclusion">
+                                                        <input type="checkbox" required="required" id="fechaConclusion">
                                                     </div>
 
                                                 </div>
@@ -1172,7 +1221,7 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <!--<html:text--> <input property="analista"
+                                                        <!--<html:text--> <input type="text" required="required"
                                                             style="width: 190px;" class="form-control input-sm"
                                                             styleId="analista" />
 
@@ -1192,37 +1241,40 @@
                                                     <div class="space">&nbsp;</div>
                                                     <div>
                                                         <div class="col-xs-12">
-                                                            <!--<html:textarea--><textarea cols="120" rows="2"
-                                                                class="form-control input-sm"
+                                                            <!--<html:textarea--><textarea type="text"  cols="120" rows="2"
+                                                                class="form-control input-sm" 
                                                                 property="observacionesSEYCI"
                                                                 readonly="false"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="space">&nbsp;</div>
-                                                    <div class="col-2 form-inline">
-                                                        <a href="javascript:fncGuardarSeyci()">
-                                                            <div style="text-align: center"><input type="button"
-                                                                    value="Guardar" alt="Guardar"
-                                                                    class="btn btn-custom">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
+                                                   
 
                                                 </div>
 
 
                                             </div>
                                         </div>
+                                        <div class="col-2 form-inline">
+                                                <a href="javascript:fncGuardarSeyci()">
+                                                    <div style="text-align: center"><input type="submit"
+                                                            value="Siguiente" alt="Guardar"
+                                                            class="btn btn-custom nextBtn">
+                                                    </div>
+                                                </a>
+                                            </div>
+
                                     </div>
                                 </form>
                                 <!--TRASLADO-->
-                                <form role="form">
+                                <form role="form" id="formulario">
                                     <div class="panel panel-primary setup-content" id="step-3">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Traslado</h3>
                                         </div>
-                                        <div class="panel-body">
+                                        <div class="panel-body" style="    width: auto;
+                                        height: 440px;
+                                        overflow-y: auto;">
                                             <div class="continer">
 
 
@@ -1236,8 +1288,9 @@
 
                                                     <div class="col-md-4">
 
-                                                        <a href="javascript:onChangeMostar()"><select id="opcion"
+                                                        <a href="javascript:onChangeMostar()"><select type="text" required="required" id="opcion"
                                                                 name="opcion" class="form-control input-sm">
+                                                                <option value="">SELECCIONAR</option>
                                                                 <option value="00">[SI]</option>
                                                                 <option value="01">[NO]</option>
                                                             </select></a>
@@ -1262,16 +1315,12 @@
                                                 <div id=" mostrar">
 
                                                     <div class="">
-
-
-                                                        <div class="col-md-1" style="
-                                                        padding-right: 0px;
-                                                    ">
+                                                        <div class="col-md-1" style="padding-right: 0px;">
                                                             <label style="padding-top: 9px;">Fecha de Cita</label>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="input-group">
-                                                                <!--<html:text--><input type="text"
+                                                                <!--<html:text--><input type="text" required="required"
                                                                     class="form-control input-sm fechaModal" />
                                                                 <span class="input-group-addon">
                                                                     <span class="fa fa-calendar"></span>
@@ -1282,7 +1331,7 @@
                                                                 style="padding-top: 9px;">Acompa&ntilde;ante&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select id="acompanante" name="acompanante"
+                                                            <select id="acompanante" name="acompanante" required="required"
                                                                 class="form-control input-sm">
                                                                 <option value="00">[SI]</option>
                                                                 <option value="01">[NO]</option>
@@ -1292,21 +1341,20 @@
                                                             <label style="padding-top: 9px;">N Traslado&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <!--<html:text--><input property="nroTraslado"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="nroTraslado"
                                                                 size="12" maxlength="20" />
 
                                                         </div>
                                                         <div class="space">&nbsp;</div>
 
-                                                        <div class="col-md-1" style="
-                                                        padding-right: 0px;
-                                                    ">
+                                                        <div class="col-md-1" style="padding-right: 0px;">
                                                             <label style="padding-top: 9px;">Tipo de
                                                                 Traslado&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select id="tipo" name="tipo" class="form-control input-sm">
+                                                            <select id="tipo" name="tipo" type="text" required="required" class="form-control input-sm">
+                                                                <option value="">SELECCIONAR</option>
                                                                 <option value="01">[PROVINCIA-PROVINCIA]</option>
                                                                 <option value="02">[PROVINCIA-LIMA]</option>
                                                                 <option value="03">[LIMA-LIMA]</option>
@@ -1317,12 +1365,12 @@
                                                         </div>
 
                                                         <div class="col-md-3">
-                                                            <!--<html:select--><select property="origen"
+                                                            <select type="text" required="required"
                                                                 class="form-control input-sm" styleId="origen">
-                                                                <!--<html:options collection="listDepartamento"
-                                                                property="codigo" labelProperty="descripcion" />-->
-                                                                <option>seleccionar</option>
-                                                                <!--</html:text-->
+                                                                
+                                                                <option value="">seleccionar</option>
+                                                                <option value="1">seleccionar</option>
+                                                                
                                                             </select>
                                                         </div>
                                                         <div class="col-md-1">
@@ -1330,11 +1378,12 @@
                                                         </div>
 
                                                         <div class="col-md-3">
-                                                            <!--<html:select--><select property="destino"
+                                                            <!--<html:select--><select type="text" required="required"
                                                                 class="form-control input-sm" styleId="destino">
                                                                 <!--<html:options collection="listDepartamento" property="codigo"
                                                         labelProperty="descripcion" />-->
-                                                                <option>Seleccionar</option>
+                                                                <option value="">Seleccionar</option>
+                                                                <option value="1">zxxxx</option>
                                                                 <!--</html:select
                                                         -->
                                                             </select>
@@ -1350,7 +1399,7 @@
                                                         </div>
                                                         <div class="col-md-3 ">
                                                             <div class="input-group">
-                                                                <!--<html:text--><input type="text"
+                                                                <!--<html:text--><input type="text" required="required"
                                                                     class="form-control input-sm fechaModal" />
                                                                 <span class="input-group-addon">
                                                                     <span class="fa fa-calendar"></span>
@@ -1365,21 +1414,21 @@
                                                             <label style="padding-top: 9px;">Moneda&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <select id="moneda" name="moneda"
+                                                            <select id="moneda" name="moneda" type="text" required="required"
                                                                 class="form-control input-sm">
+                                                                <option value="">SELECCIONAR</option>
                                                                 <option value="00">[SOLES]</option>
                                                                 <option value="01">[DOLARES]</option>
                                                             </select>
                                                         </div>
-                                                        <div class="col-md-1" style="
-                                                        padding-right: 0px;
-                                                    ">
+                                                        <div class="col-md-1" style="padding-right: 0px;">
                                                             <label style="padding-top: 9px;">Tipo
                                                                 Movilidad&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select id="tipoMovilidad" name="tipoMovilidad"
+                                                            <select id="tipoMovilidad" name="tipoMovilidad" type="text" required="required"
                                                                 class="form-control input-sm">
+                                                                <option value="">Seleccionar</option>
                                                                 <option value="01">[PASAJES AVION]</option>
                                                                 <option value="02">[PASAJES TIERRA]</option>
                                                                 <option value="03">[MOVILIDAD INTERNA]</option>
@@ -1390,12 +1439,12 @@
                                                                 Movilidad&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <!--<html:text--><input property="montoMovilidad"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="montoMovilidad"
                                                                 size="12" maxlength="20" />
                                                         </div>
                                                         <div class="col-md-1" id="movilidad">
-                                                            <input type="button" value="+" id="btn-addBody"
+                                                            <input type="button" required="required" value="+" id="btn-addBody"
                                                                 class="btn btn-warning">
 
                                                         </div>
@@ -1404,20 +1453,19 @@
                                                             <label style="padding-top: 9px;">Moneda&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <select id="moneda1" name="moneda1"
+                                                            <select id="moneda1" name="moneda1" type="text" required="required"
                                                                 class="form-control input-sm">
+                                                                <option value="">Seleccionar</option>
                                                                 <option value="00">[SOLES]</option>
                                                                 <option value="01">[DOLARES]</option>
                                                             </select>
                                                         </div>
-                                                        <div class="col-md-1" style="
-                                                        padding-right: 0px;
-                                                    ">
+                                                        <div class="col-md-1" style="padding-right: 0px;">
                                                             <label style="padding-top: 9px;">Dias de
                                                                 Alimentacion&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <!--<html:text--><input property="diasAlimentacion"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="diasAlimentacion"
                                                                 size="12" maxlength="20" />
 
@@ -1427,7 +1475,7 @@
                                                                 Alimentacion&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <!--<html:text--><input property="montoAlimentacion"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm"
                                                                 styleId="montoAlimentacion" size="12" maxlength="20" />
 
@@ -1440,8 +1488,9 @@
                                                             <label style="padding-top: 9px;">Moneda&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <select id="moneda2" name="moneda2"
+                                                            <select id="moneda2" name="moneda2" type= "text" required="required"
                                                                 class="form-control input-sm">
+                                                                <option value="">Seleccionar</option>
                                                                 <option value="00">[SOLES]</option>
                                                                 <option value="01">[DOLARES]</option>
                                                             </select>
@@ -1453,7 +1502,7 @@
                                                                 Alojamiento&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <!--<html:text--><input property="diasAlojamiento"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="diasAlojamiento"
                                                                 size="12" maxlength="20" />
 
@@ -1463,7 +1512,7 @@
                                                                 Alojamiento&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <!--<html:text--><input property="montoAlojamiento"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="montoAlojamiento"
                                                                 size="12" maxlength="20" />
 
@@ -1479,7 +1528,7 @@
                                                                 Medicos&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <!--<html:text--><input property="montoMedico"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="montoMedico"
                                                                 size="12" maxlength="20" />
 
@@ -1496,7 +1545,7 @@
                                                             <label style="padding-top: 9px;">Total Gasto&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <!--<html:text--><input property="totalGasto"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="totalGasto"
                                                                 size="12" maxlength="20" />
 
@@ -1511,7 +1560,7 @@
                                                             <label style="padding-top: 9px;">Ejecutiva&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <!--<html:text--><input property="ejecutivo"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="ejecutivo"
                                                                 size="12" maxlength="20" />
 
@@ -1521,7 +1570,7 @@
                                                             <label style="padding-top: 9px;">Analista&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <!--<html:text--><input property="analista"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm" styleId="analista"
                                                                 size="12" maxlength="20" />
 
@@ -1599,34 +1648,35 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="space">&nbsp;</div>
-                                                    <div class="row">
-                                                        <div class="col-10 form-inline">
-                                                            &nbsp;
-                                                        </div>
-                                                        <div class="col-2 form-inline">
-                                                            <a href="javascript:fncGuardarTraslado()">
-                                                                <div style="text-align: center"><input type="button"
-                                                                        value="Guardar" alt="Guardar"
-                                                                        class="btn btn-custom">
-                                                                </div>
-
-                                                            </a>
-                                                        </div>
-                                                        <div class="space">&nbsp;</div>
-                                                    </div>
+                                                                                                  
+                                                       
+                                                       
+                                                        
+                                                   
 
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-2 form-inline">
+                                                <a href="javascript:fncGuardarTraslado()">
+                                                    <div style="text-align: center"><input type="submit"
+                                                            value="Siguiente" alt="Guardar"
+                                                            class="btn btn-custom nextBtn">
+                                                    </div>
+
+                                                </a>
+                                            </div>
                                     </div>
                                 </form>
-                                <form role="form">
+                                <!--REEVALUACION-->
+                                <form role="form" id="formulario">
                                     <div class="panel panel-primary setup-content" id="step-4">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Reevaluacion</h3>
                                         </div>
-                                        <div class="panel-body">
+                                        <div class="panel-body" style="    width: auto;
+                                        height: 440px;
+                                        overflow-y: auto;">
                                             <div class="continer">
                                                 <STRONG>REEVALUACION</STRONG>&nbsp;
                                                 <html:hidden property="numeroSeyci"></html:hidden>
@@ -1641,7 +1691,7 @@
                                                     </div>
                                                     <div class="col-md-9">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal" />
                                                             <span class="input-group-addon">
                                                                 <span class="fa fa-calendar"></span>
@@ -1656,7 +1706,7 @@
                                                     </div>
                                                     <div class="col-md-9">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal" />
                                                             <span class="input-group-addon">
                                                                 <span class="fa fa-calendar"></span>
@@ -1669,7 +1719,7 @@
                                                     </div>
                                                     <div class="col-md-9">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal" />
                                                             <span class="input-group-addon">
                                                                 <span class="fa fa-calendar"></span>
@@ -1687,12 +1737,13 @@
                                                             &nbsp;</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <!--<html:select--><select property="tipoDocumento"
+                                                        <!--<html:select--><select type="text" required="required"
                                                             class="form-control input-sm">
                                                             <!-- <html:option value="0">SELECCIONE</html:option>   
                                                 <html:options collection="list" property="codigoTipoDocumento" labelProperty="descripcionTipoDocumento"/>
                                                -->
-                                                            <option>seleccionar</option>
+                                                            <option value="">seleccionar</option>
+                                                            <option value="1">dni</option>
                                                             <!--</html:select-->
                                                         </select>
                                                     </div>
@@ -1702,7 +1753,7 @@
                                                             &nbsp;</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <!--<html:text--><input class="form-control input-sm" />
+                                                        <input type="text" required="required" class="form-control input-sm" />
                                                     </div>
 
 
@@ -1727,28 +1778,31 @@
                                                 </textarea>
                                                     </div>
                                                     <div class="space">&nbsp;</div>
-                                                    <div class="col-2 form-inline">
-                                                        <a href="javascript:fncGuardarReevaluacion()">
-                                                            <div style="text-align: center"><input type="button"
-                                                                    value="Guardar" alt="Guardar"
-                                                                    class="btn btn-custom">
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                  
 
                                                 </div>
 
                                             </div>
                                         </div>
+                                        <div class="col-2 form-inline">
+                                                <a href="javascript:fncGuardarReevaluacion()">
+                                                    <div style="text-align: center"><input type="button"
+                                                            value="Guardar" alt="Guardar"
+                                                            class="btn btn-custom nextBtn">
+                                                    </div>
+                                                </a>
+                                            </div>
                                     </div>
                                 </form>
                                 <!--DICTAMEN-->
-                                <form role="form">
+                                <form role="form" id="formulario">
                                     <div class="panel panel-primary setup-content" id="step-5">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Dictamen</h3>
                                         </div>
-                                        <div class="panel-body">
+                                        <div class="panel-body " style="    width: auto;
+                                        height: 440px;
+                                        overflow-y: auto;">
                                             <div class="continer">
 
 
@@ -1767,7 +1821,7 @@
                                                     <div class="col-md-6">
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -1775,7 +1829,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecRecAFP" required="required">
+                                                        <input type="checkbox" required="required" id="fecRecAFP" required="required">
                                                     </div>
 
                                                 </div>
@@ -1788,7 +1842,7 @@
                                                     <div class="col-md-6">
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -1796,7 +1850,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecEmision">
+                                                        <input type="checkbox" required="required" id="fecEmision">
                                                     </div>
 
                                                 </div>
@@ -1808,11 +1862,11 @@
                                                         <label style="margin: 4px">Emite Dictamen&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="instancia"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="instancia">
+                                                        <input type="checkbox" required="required" id="instancia">
                                                     </div>
 
                                                 </div>
@@ -1826,11 +1880,11 @@
                                                         <label style="margin: 4px">Nro de Evaluacion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="nroEvaluacion"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" id="nroEvaluacion">
+                                                        <input type="checkbox" required="required" id="nroEvaluacion">
                                                     </div>
 
                                                 </div>
@@ -1842,11 +1896,11 @@
                                                         <label style="margin: 4px">N° Dictamen&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="nroDictamen"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" id="nroDictamen">
+                                                        <input type="checkbox" required="required" id="nroDictamen">
                                                     </div>
 
                                                 </div>
@@ -1861,11 +1915,11 @@
                                                         <label style="margin: 4px">Porcentaje Menoscabo&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="porcMenoscabio"
+                                                        <!--<html:text--><input type="text" required="requiredad"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <input type="checkbox" id="nroDictamen">
+                                                        <input type="checkbox" required="required" id="nroDictamen">
                                                     </div>
 
                                                 </div>
@@ -1877,15 +1931,16 @@
                                                         <label style="margin: 4px">Califica&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select id="califica" name="califica"
+                                                        <select id="califica" name="califica" type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;">
-                                                            <option value="00">[SELECCIONE]</option>
+                                                            
+                                                            <option value="">[SELECCIONE]</option>
                                                             <option value="02">[SI CALIFICA]</option>
                                                             <option value="03">[NO CALIFICA]</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="califica">
+                                                        <input type="checkbox" required="required" id="califica">
                                                     </div>
 
                                                 </div>
@@ -1898,11 +1953,11 @@
                                                             Cancer&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="indEnf"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="indEnf">
+                                                        <input type="checkbox" required="required" id="indEnf">
                                                     </div>
 
                                                 </div>
@@ -1914,11 +1969,11 @@
                                                         <label style="margin: 4px">Definitivo&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="definitivo"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="definitivo">
+                                                        <input type="checkbox"required="required" id="definitivo">
                                                     </div>
 
                                                 </div>
@@ -1930,11 +1985,11 @@
                                                         <label style="margin: 4px">Grado&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="grado"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="grado">
+                                                        <input type="checkbox" required="required" id="grado">
                                                     </div>
 
                                                 </div>
@@ -1947,11 +2002,11 @@
                                                         <label style="margin: 4px">Naturaleza&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="naturaleza"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="naturaleza">
+                                                        <input type="checkbox" required="required" id="naturaleza">
                                                     </div>
 
                                                 </div>
@@ -1963,11 +2018,11 @@
                                                         <label style="margin: 4px"> Meses de Vigencia&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="meses"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="meses">
+                                                        <input type="checkbox" required="required" id="meses">
                                                     </div>
 
                                                 </div>
@@ -1981,7 +2036,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -1989,7 +2044,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecInicial">
+                                                        <input type="checkbox" required="required" id="fecInicial">
                                                     </div>
 
                                                 </div>
@@ -2004,7 +2059,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2012,7 +2067,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecFinal">
+                                                        <input type="checkbox" required="required" id="fecFinal">
                                                     </div>
 
                                                 </div>
@@ -2025,7 +2080,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2033,7 +2088,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecOcurrencia">
+                                                        <input type="checkbox" required="required" id="fecOcurrencia">
                                                     </div>
 
                                                 </div>
@@ -2045,7 +2100,7 @@
                                                         <label style="margin: 4px">Proxima Evaluacion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="proximaEvaluacion"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control input-sm" styleId="proximaEvaluacion"
                                                             style="width: 163px;" />
                                                         <!--<img id="imagen_calendario1" src="<c:out value="
@@ -2053,7 +2108,7 @@
                                                 alt="Calendario"/>-->
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="proximaEvaluacion">
+                                                        <input type="checkbox" required="required" id="proximaEvaluacion">
                                                     </div>
 
                                                 </div>
@@ -2068,7 +2123,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2076,7 +2131,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecNotificacion">
+                                                        <input type="checkbox" required="required" id="fecNotificacion">
                                                     </div>
 
                                                 </div>
@@ -2090,7 +2145,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2098,7 +2153,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecRecNotificacion">
+                                                        <input type="checkbox" required="required" id="fecRecNotificacion">
                                                     </div>
 
                                                 </div>
@@ -2111,7 +2166,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2119,7 +2174,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="edad">
+                                                        <input type="checkbox" required="required" id="edad">
                                                     </div>
 
                                                 </div>
@@ -2132,11 +2187,11 @@
                                                         <label style="margin: 4px">Analista&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--> <input property="analista"
+                                                        <!--<html:text--> <input type="text" required="required"
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="analista">
+                                                        <input type="checkbox" required="required" id="analista">
                                                     </div>
 
                                                 </div>
@@ -2220,30 +2275,27 @@
                                                 </div>
 
 
-                                                <div class="space">&nbsp;</div>
-                                                <div class="row">
-                                                    <div class="col-10 form-inline">
-                                                        &nbsp;
-                                                    </div>
-                                                    <div class="col-2 form-inline">
-                                                        <a href="javascript:fncGuardarDictamen()">
-                                                            <div style="text-align: center"><input type="button"
-                                                                    value="Guardar" alt="Guardar"
-                                                                    class="btn btn-custom">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
+                                        <div class="col-2 form-inline">
+                                                <a href="javascript:fncGuardarDictamen()">
+                                                    <div style="text-align: center"><input type="submit"
+                                                            value="Siguiente" alt="Guardar"
+                                                            class="btn btn-custom nextBtn">
+                                                    </div>
+                                                </a>
+                                            </div>
                                     </div>
                                 </form>
-                                <form role="form">
+                                <form role="form" >
                                     <div class="panel panel-primary setup-content" id="step-6">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Apelacion</h3>
                                         </div>
-                                        <div class="panel-body">
+                                        <div class="panel-body " style="    width: auto;
+                                        height: 440px;
+                                        overflow-y: auto;">
                                             <div class="continer">
                                                 <STRONG>APELACION</STRONG>&nbsp;
                                                 <html:hidden property="nroSeyci"></html:hidden>
@@ -2255,13 +2307,13 @@
                                                     </div>
                                                     <div class="col-md-6">
 
-                                                        <!--<html:text--><input property="nroDictamenApelado"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" styleId="nroDictamenApelado"
                                                             style="width: 163px;" />
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="nroDictamenApelado">
+                                                        <input type="checkbox" required="required" id="nroDictamenApelado">
                                                     </div>
 
                                                 </div>
@@ -2272,13 +2324,13 @@
                                                     </div>
                                                     <div class="col-md-6">
 
-                                                        <!--<html:text--><input property="personaApela"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" styleId="personaApela"
                                                             style="width: 163px;" />
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="personaApela">
+                                                        <input type="checkbox" required="required" id="personaApela">
                                                     </div>
 
                                                 </div>
@@ -2291,7 +2343,7 @@
 
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2299,7 +2351,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fechaApelacion">
+                                                        <input type="checkbox" required="required" id="fechaApelacion">
                                                     </div>
 
                                                 </div>
@@ -2314,7 +2366,7 @@
 
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2322,7 +2374,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecIngBeneficios">
+                                                        <input type="checkbox" required="required" id="fecIngBeneficios">
                                                     </div>
 
                                                 </div>
@@ -2335,7 +2387,7 @@
 
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2343,7 +2395,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecEnvcarta">
+                                                        <input type="checkbox" required="required" id="fecEnvcarta">
                                                     </div>
 
                                                 </div>
@@ -2354,12 +2406,12 @@
                                                     </div>
                                                     <div class="col-md-6">
 
-                                                        <!--<html:text--><input property="recepCOMAFP"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" styleId="recepCOMAFP"
                                                             style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="recepCOMAFP">
+                                                        <input type="checkbox" required="required" id="recepCOMAFP">
                                                     </div>
 
                                                 </div>
@@ -2371,11 +2423,11 @@
                                                     </div>
                                                     <div class="col-md-6">
 
-                                                        <!--<html:text--><input property="analista" class="form-control"
+                                                        <!--<html:text--><input type="text" required="required" class="form-control"
                                                             styleId="analista" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="analista">
+                                                        <input type="checkbox" required="required" id="analista">
                                                     </div>
 
                                                 </div>
@@ -2385,12 +2437,12 @@
                                                         <label style="margin: 4px">Motivo Apelacion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="motivoApelacion"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" styleId="motivoApelacion"
                                                             style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="motivoApelacion">
+                                                        <input type="checkbox" required="required" id="motivoApelacion">
                                                     </div>
 
                                                 </div>
@@ -2401,12 +2453,12 @@
                                                         <label style="margin: 4px">Nro Dictamen Apelado&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="nroExpDictamenApelado"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" styleId="nroExpDictamenApelado"
                                                             style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="nroExpDictamenApelado">
+                                                        <input type="checkbox" required="required" id="nroExpDictamenApelado">
                                                     </div>
 
                                                 </div>
@@ -2417,12 +2469,12 @@
                                                         <label style="margin: 4px">DIS / PACIFICO&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="disPacifico"
+                                                        <!--<html:text--><input type="text" required="required"
                                                             class="form-control" styleId="disPacifico"
                                                             style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="disPacifico">
+                                                        <input type="checkbox" required="required" id="disPacifico">
                                                     </div>
 
                                                 </div>
@@ -2434,7 +2486,7 @@
                                                     <div class="col-md-6">
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2442,7 +2494,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecDictamen">
+                                                        <input type="checkbox" required="required" id="fecDictamen">
                                                     </div>
 
                                                 </div>
@@ -2454,7 +2506,7 @@
                                                     <div class="col-md-6">
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2462,7 +2514,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecEnvioDis">
+                                                        <input type="checkbox" required="required" id="fecEnvioDis">
                                                     </div>
 
                                                 </div>
@@ -2473,11 +2525,11 @@
                                                         <label style="margin: 4px">SOL&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input property="oK" class="form-control"
+                                                        <!--<html:text--><input type="text" required="required" class="form-control"
                                                             style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="ok">
+                                                        <input type="checkbox" required="required" id="ok">
                                                     </div>
 
                                                 </div>
@@ -2490,7 +2542,7 @@
                                                     <div class="col-md-6">
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2498,7 +2550,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecNotAfiliado">
+                                                        <input type="checkbox" required="required" id="fecNotAfiliado">
                                                     </div>
 
                                                 </div>
@@ -2510,7 +2562,7 @@
                                                     <div class="col-md-6">
 
                                                         <div class="input-group">
-                                                            <!--<html:text--><input type="text"
+                                                            <!--<html:text--><input type="text" required="required"
                                                                 class="form-control input-sm fechaModal"
                                                                 style="width: 125px;" />
                                                             <span class="input-group-addon">
@@ -2518,7 +2570,7 @@
                                                             </span></div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" id="fecNotCOMEC">
+                                                        <input type="checkbox" required="required" id="fecNotCOMEC">
                                                     </div>
 
                                                 </div>
@@ -2540,14 +2592,7 @@
                                                     <div class="col-10 form-inline">
                                                         &nbsp;
                                                     </div>
-                                                    <div class="col-2 form-inline">
-                                                        <a href="javascript:fncGuardarApelacion()">
-                                                            <div style="text-align: center"><input type="button"
-                                                                    value="Guardar" alt="Guardar"
-                                                                    class="btn btn-custom">
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                    
                                                 </div>
 
 
@@ -2557,7 +2602,14 @@
 
 
                                         </div>
-
+                                        <div class="col-2 form-inline">
+                                                <a href="javascript:fncGuardarApelacion()">
+                                                    <div style="text-align: center"><input type="submit"
+                                                            value="Guardar" alt="Guardar"
+                                                            class="btn btn-custom nextBtn">
+                                                    </div>
+                                                </a>
+                                            </div>
                                     </div>
 
 
@@ -2569,10 +2621,7 @@
                         </div>
                         <!--/.Modal Body-->
                         <!--/Modal Pie-->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Seleccionar</button>
-                        </div>
+                        
                         <!--/.Modal Pie-->
                     </div>
                 </div>

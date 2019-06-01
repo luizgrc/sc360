@@ -105,7 +105,7 @@ function showModalWindow() {
                 var curStep = $(this).closest(".setup-content"),
                     curStepBtn = curStep.attr("id"),
                     nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = curStep.find("input[type='text'],input[type='url']"),
+                    curInputs = curStep.find("input[type='text'],input[type='url'],input[type='checkbox'],select"),
                     isValid = true;
         
                 $(".form-group").removeClass("has-error");
@@ -113,13 +113,24 @@ function showModalWindow() {
                     if (!curInputs[i].validity.valid) {
                         isValid = false;
                         $(curInputs[i]).closest(".form-group").addClass("has-error");
-                    }
-                }
-        
+                    }                    
+                }                
+
                 if (isValid) nextStepWizard.removeClass('disabled').trigger('click');
             });
         
+
             $('div.setup-panel div a.btn-warning').trigger('click');
 
       });
+
+      
 }
+
+// evitar refresh
+$(document).ready(function() {
+    $(document).on('submit', '#formulario', function() {
+      return false;
+     });
+});
+

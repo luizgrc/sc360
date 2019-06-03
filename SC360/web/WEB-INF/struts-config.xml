@@ -44,10 +44,11 @@
         </action>
         
         <action path="/Consulta" type="com.sc360.struts.action.ConsultaAction" parameter="method" name="formConsulta" validate="true"> 
-            <forward name="success" path="/consulta/consultaSolicitud.jsp"/>
-            <forward name="datosGenerales" path="/consulta/datosGenerales.jsp"/>
-            <forward name="inicioSeyci" path="/consulta/inicioSeyci.jsp"/>
-            <forward name="inicioTraslado" path="/consulta/traslado.jsp"/>
+            <forward name="success" path="/consulta/consultaTramite.html"/>
+                  <!-- <forward name="success" path="/consulta/consultaSolicitud.jsp"/>-->
+                  <!--<forward name="datosGenerales" path="/consulta/datosGenerales.jsp"/>-->	
+                  <!--<forward name="inicioSeyci" path="/consulta/inicioSeyci.jsp"/>-->
+                  <!--<forward name="inicioTraslado" path="/consulta/traslado.jsp"/>-->
         </action>
         
         <action path="/Seyci" type="com.sc360.struts.action.SeyciAction" parameter="method" name="formSeyci" validate="true"> 

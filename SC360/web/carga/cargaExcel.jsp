@@ -71,7 +71,7 @@
                     <label for="archivo">Archivo:</label>&nbsp;
                 </div>
                 <div class="col-lg-7">
-                    <html:file  property="archivo" styleId="archivo" styleClass="form-control" size="70" accept=".csv ,.xlsm,.xls"/>
+                    <html:file  property="archivo" styleId="archivo" styleClass="form-control" size="70" accept=".csv"/>
                     <!--<input type="file" class="form-control" id="archivo" accept=".csv ,.xlsm,.xls" >-->
                     <div class="space">&nbsp;</div>
                 </div>
@@ -220,7 +220,7 @@
 
                                 var input = e.target;
                                 var file = input.files[0];
-                                var reImageName = /^.*\.(csv|xls|xlsm)$/i;
+                                var reImageName = /^.*\.(csv)$/i;
                                 if (file) {
                                     var isExcel = reImageName.test(file.name);
 

@@ -6852,3 +6852,6 @@ button.close {
     margin-bottom: 15px;
   }
 }
+.form-filters{
+  width: auto !important;
+}

@@ -54,13 +54,13 @@ if ($.fn.dataTable.Api) {
                                 '' : ' disabled');
                             break;
 
-                        case 'anterior':
+                        case 'previous':
                             btnDisplay = lang.sPrevious;
                             btnClass = button + (page > 0 ?
                                 '' : ' disabled');
                             break;
 
-                        case 'siguiente':
+                        case 'next':
                             btnDisplay = lang.sNext;
                             btnClass = button + (page < pages - 1 ?
                                 '' : ' disabled');
@@ -145,10 +145,10 @@ if ($.fn.dataTable.Api) {
                 );
                 var els = $('a', nPaging);
                 $(els[0]).bind('click.DT', {
-                    action: "anterior"
+                    action: "previous"
                 }, fnClickHandler);
                 $(els[1]).bind('click.DT', {
-                    action: "siguiente"
+                    action: "next"
                 }, fnClickHandler);
             },
 

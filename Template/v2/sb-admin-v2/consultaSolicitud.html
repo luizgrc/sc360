@@ -21,8 +21,9 @@
 
     <!-- Page-Level Plugin CSS - Tables -->
     <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- Customize CSS - Consulta Tramite-->
     <link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datetimepicker.css">
+    <!-- Customize CSS - Consulta Tramite-->
+
 
 
 </head>
@@ -309,6 +310,7 @@
                 </div>
             </div>
             <div class="space">&nbsp;</div>
+            <!-- Detalle -->
             <div class="row">
                 <div class="col-lg-12">
 
@@ -329,7 +331,7 @@
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
-                                        
+
                                         <td style="text-align: center;">Trident</td>
                                         <td style="text-align: center;">Internet Explorer 4.0</td>
                                         <td style="text-align: center;">Win 95+</td>
@@ -340,7 +342,7 @@
                                             <a href="javascript:showModalWindow()">
                                                 <i class="fa fa-file-text fa-fw" style="color:#000;"></i></a></td>
                                     </tr>
-                                        
+
                                 </tbody>
                             </table>
                         </div>
@@ -358,12 +360,11 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            
+
                         </div>
                         <!--Modal Body-->
-                        <div class="modal-body" >
-                            <div class="container" style="
-                            width: 1235px;">
+                        <div class="modal-body">
+                            <div class="container" style="width: 1235px;">
                                 <div class="stepwizard">
                                     <div class="stepwizard-row setup-panel">
                                         <div class="stepwizard-step col-xs-2">
@@ -371,28 +372,24 @@
                                             <p><small>Consulta Detalle</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
-                                            <a href="#step-2" type="button"
-                                                class="btn btn-default btn-circle ">2</a>
+                                            <a href="#step-2" type="button" class="btn btn-default btn-circle ">2</a>
                                             <p><small>Seyci</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
-                                            <a href="#step-3" type="button"
-                                                class="btn btn-default btn-circle ">3</a>
+                                            <a href="#step-3" type="button" class="btn btn-default btn-circle ">3</a>
                                             <p><small>Traslado</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
-                                            <a href="#step-4" type="button"
-                                                class="btn btn-default btn-circle ">4</a>
+                                            <a href="#step-4" type="button" class="btn btn-default btn-circle ">4</a>
                                             <p><small>Reevaluacion</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
-                                            <a href="#step-5" type="button"
-                                                class="btn btn-default btn-circle ">5</a>
+                                            <a href="#step-5" type="button" class="btn btn-default btn-circle ">5</a>
                                             <p><small>Dictamen</small></p>
                                         </div>
                                         <div class="stepwizard-step col-xs-2">
                                             <a href="#step-6" type="button"
-                                                class="btn btn-default btn-circle disabled">6</a>
+                                                class="btn btn-default btn-circle ">6</a>
                                             <p><small>Apelacion</small></p>
                                         </div>
 
@@ -402,7 +399,7 @@
                                 <form role="form" id="formulario">
                                     <div class="panel panel-primary setup-content" id="step-1">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title" >Consulta detalle</h3>
+                                            <h3 class="panel-title">Consulta detalle</h3>
                                         </div>
                                         <div class="panel-body" style="width: auto;
                                         height: 400px;
@@ -436,8 +433,8 @@
                                                         </div>
 
                                                         <div class="col-md-4">
-                                                            <input type="checkbox" required=""
-                                                                class="form-group" id="cuspp">
+                                                            <input type="checkbox" required="" class="form-group"
+                                                                id="cuspp">
                                                         </div>
 
                                                         <div class="space">&nbsp;</div>
@@ -503,25 +500,28 @@
 
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input type="checkbox" required="required" id="segundoApellido">
+                                                            <input type="checkbox" required="required"
+                                                                id="segundoApellido">
                                                         </div>
                                                         <div class="space">&nbsp;</div>
-                                                        
+
                                                         <div class="col-lg-4" style="height: 20px">
                                                             <label style="padding-top: 10px;">Fecha
                                                                 Nacimiento&nbsp;</label>
                                                         </div>
-                                                        
+
                                                         <div class="col-md-4 form-inline">
-                                                                <div class="input-group date fechaModal" >
-                                                                    <!--<html:text--><input type="text" required="required"
-                                                                        class="form-control input-sm " style="width: 130px;" />
-                                                                    <span class="input-group-addon">
-                                                                        <span class="fa fa-calendar"></span>
-                                                                    </span></div>
-                                                            </div>
+                                                            <div class="input-group date fechaModal">
+                                                                <!--<html:text--><input type="text" required="required"
+                                                                    class="form-control input-sm "
+                                                                    style="width: 130px;" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="fa fa-calendar"></span>
+                                                                </span></div>
+                                                        </div>
                                                         <div class="col-md-4">
-                                                            <input type="checkbox" required="required" id="fechaNacimiento">
+                                                            <input type="checkbox" required="required"
+                                                                id="fechaNacimiento">
                                                         </div>
                                                         <div class="space">&nbsp;</div>
                                                         <!---->
@@ -529,10 +529,8 @@
                                                             <label style="padding-top: 10px;">Correo&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input type="text" required="required"
-                                                                styleId="correo"
-                                                                class="input-sm" 
-                                                                style="width: 167px;">
+                                                            <input type="text" required="required" styleId="correo"
+                                                                class="input-sm" style="width: 167px;">
 
                                                         </div>
                                                         <div class="col-md-4">
@@ -546,8 +544,8 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <!-- <html:select property="sexo" styleClass="form-control input-sm">-->
-                                                            <select  required="required"
-                                                                style="width: 168px;" class="input-sm">
+                                                            <select required="required" style="width: 168px;"
+                                                                class="input-sm">
                                                                 <option value="">
                                                                     SELECCIONAR
                                                                 </option>
@@ -615,9 +613,8 @@
                                                             <label style="padding-top: 10px;">Direccion&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <!--<html:text--><input required="required"
-                                                                class="input-sm" styleId="direccion"
-                                                                size="20" maxlength="20" />
+                                                            <!--<html:text--><input required="required" class="input-sm"
+                                                                styleId="direccion" size="20" maxlength="20" />
 
                                                         </div>
                                                         <div class="col-md-4">
@@ -648,7 +645,8 @@
                                                             <!--  </html:select> -->
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input type="checkbox" required="required" id="departamento">
+                                                            <input type="checkbox" required="required"
+                                                                id="departamento">
                                                         </div>
                                                         <div class="space">&nbsp;</div>
                                                         <!---->
@@ -678,7 +676,7 @@
                                                             <!-- </html:select>-->
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input type="checkbox"  required="required" id="provincia">
+                                                            <input type="checkbox" required="required" id="provincia">
                                                         </div>
                                                         <div class="space">&nbsp;</div>
                                                         <!---->
@@ -687,8 +685,7 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <select name="distrito" style="width: 168px;"
-                                                                required="required" class="input-sm"
-                                                                id="distrito">
+                                                                required="required" class="input-sm" id="distrito">
                                                                 <option value="">
                                                                     SELECCIONAR
                                                                 </option>
@@ -708,23 +705,23 @@
                                                     <div class="space">&nbsp;</div>
                                                     <div class="container col-9 form-inline">
 
-                                                        <input type="checkbox" required="required" id="Apoderado">&nbsp;<label
-                                                            style="padding-top: 10px;">Tiene Apoderado</label>
+                                                        <input type="checkbox" required="required"
+                                                            id="Apoderado">&nbsp;<label style="padding-top: 10px;">Tiene
+                                                            Apoderado</label>
                                                     </div>
-                                                    
+
 
 
                                                 </div>
-                                               
+
                                             </div>
                                         </div>
                                         <div class="col-2 form-inline">
-                                                <a href="javascript:fncGuardarSolicitud()">
-                                                    <div style="text-align: center"><input type="submit"
-                                                            value="Siguiente" alt="Guardar"
-                                                            class="btn btn-custom nextBtn"></div>
-                                                </a>
-                                            </div>
+                                            <a href="javascript:fncGuardarSolicitud()">
+                                                <div style="text-align: center"><input type="submit" value="Siguiente"
+                                                        alt="Guardar" class="btn btn-custom nextBtn"></div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </form>
                                 <!--SEYCI-->
@@ -792,8 +789,9 @@
                                                         <label style="padding-top: 9px;">Tipo Solicitud&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select id="tipoSolicitud" name="tipoSolicitud" requires="required"
-                                                            style="width: 250px;" class="form-control input-sm">
+                                                        <select id="tipoSolicitud" name="tipoSolicitud"
+                                                            requires="required" style="width: 250px;"
+                                                            class="form-control input-sm">
                                                             <option value="">[SELECCIONE]</option>
                                                             <option value="00">Invalidez</option>
                                                             <option value="01">Invalidez y Cáncer</option>
@@ -814,17 +812,17 @@
                                                         <label style="padding-top: 9px;"> Agencia&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:select--><select required="required" class="form-control input-sm" style="width: 250px"
-                                                           >
-                                                           <option value="">
-                                                            SELECCIONAR
-                                                        </option>
-                                                        <option value="00">
-                                                            xxxxx xxxx
-                                                        </option>
-                                                        <option value="01">
-                                                            xxxx xxxxx
-                                                        </option>
+                                                        <!--<html:select--><select required="required"
+                                                            class="form-control input-sm" style="width: 250px">
+                                                            <option value="">
+                                                                SELECCIONAR
+                                                            </option>
+                                                            <option value="00">
+                                                                xxxxx xxxx
+                                                            </option>
+                                                            <option value="01">
+                                                                xxxx xxxxx
+                                                            </option>
                                                         </select>
 
                                                     </div>
@@ -838,8 +836,9 @@
                                                         <label style="padding-top: 9px;"> Tipo Evaluado&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select id="tipoEvaluado" name="tipoEvaluado" required="required"
-                                                            class="form-control input-sm" style="width: 250px">
+                                                        <select id="tipoEvaluado" name="tipoEvaluado"
+                                                            required="required" class="form-control input-sm"
+                                                            style="width: 250px">
                                                             <option value="00">[SELECCIONE]</option>
                                                             <option value="01">Afiliado</option>
                                                             <option value="02">Beneficiario</option>
@@ -864,7 +863,8 @@
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" required="required" id="primerNombreEvaluado">
+                                                    <input type="checkbox" required="required"
+                                                        id="primerNombreEvaluado">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <!--<html:text--><input type="text" required="required"
@@ -873,7 +873,8 @@
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" required="required" id="segundoNombreEvaluado">
+                                                    <input type="checkbox" required="required"
+                                                        id="segundoNombreEvaluado">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <!--<html:text--><input type="text" required="required"
@@ -882,7 +883,8 @@
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" required="required" id="primerApellidoEvaluado">
+                                                    <input type="checkbox" required="required"
+                                                        id="primerApellidoEvaluado">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <!--<html:text--><input type="text" required="required"
@@ -891,7 +893,8 @@
 
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="checkbox" required="required" id="segundoApellidoEvaluado">
+                                                    <input type="checkbox" required="required"
+                                                        id="segundoApellidoEvaluado">
                                                 </div>
 
                                                 <div class="space">&nbsp;</div>
@@ -904,8 +907,8 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <select id="parentesco" name="parentesco" required="required" style="width: 190px;"
-                                                            class="form-control input-sm">
+                                                        <select id="parentesco" name="parentesco" required="required"
+                                                            style="width: 190px;" class="form-control input-sm">
 
                                                             <option value="">[SELECCIONE]</option>
                                                             <option value="01">Titular</option>
@@ -926,17 +929,18 @@
                                                     <div class="col-md-3">
                                                         <label style="padding-top: 9px;">Fecha Nac&nbsp;</label>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" 
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fechaNacimientoSeyci">
+                                                        <input type="checkbox" required="required"
+                                                            id="fechaNacimientoSeyci">
                                                     </div>
 
                                                 </div>
@@ -948,12 +952,13 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <select id="actRiesgo" name="actRiesgo" required="required" required="required" style="width: 190px;"
+                                                        <select id="actRiesgo" name="actRiesgo" required="required"
+                                                            required="required" style="width: 190px;"
                                                             class="form-control input-sm">
                                                             <option value="">
                                                                 SELECCIONAR
                                                             </option>
-                                                           
+
                                                             <option value="00">
                                                                 Maculino
                                                             </option>
@@ -978,12 +983,13 @@
                                                         <label style="margin: 4px">Resultados Evaluacion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7">
-                                                        <select id="resultadoEvaluacion" name="resultadoEvaluacion" required="required"
-                                                            class="form-control input-sm" style="width: 190px;">
+                                                        <select id="resultadoEvaluacion" name="resultadoEvaluacion"
+                                                            required="required" class="form-control input-sm"
+                                                            style="width: 190px;">
                                                             <option value="">
                                                                 SELECCIONAR
                                                             </option>
-                                                           
+
                                                             </option>
                                                             <option value="00">[PROCEDE]</option>
                                                             <option value="00">[RECHAZADO]</option>
@@ -991,7 +997,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="resultadoEvaluacion">
+                                                        <input type="checkbox" required="required"
+                                                            id="resultadoEvaluacion">
                                                     </div>
 
                                                 </div>
@@ -1007,13 +1014,13 @@
                                                         <label style="padding-top: 9px;">Fecha Sec I&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fechaSeccionI">
                                                     </div>
@@ -1030,15 +1037,16 @@
                                                             ">Fecha Ingreso Benef&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fechaIngresoBenef">
+                                                        <input type="checkbox" required="required"
+                                                            id="fechaIngresoBenef">
                                                     </div>
                                                 </div>
                                                 <div class="space">&nbsp;</div>
@@ -1050,15 +1058,16 @@
                                                             Medico&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fechaFirmaMedico">
+                                                        <input type="checkbox" required="required"
+                                                            id="fechaFirmaMedico">
                                                     </div>
 
                                                 </div>
@@ -1071,12 +1080,12 @@
                                                     </div>
                                                     <div class="col-md-7">
 
-                                                        <select id="djBenef" name="djBenef" required="required" style="width: 190px;"
-                                                            class="form-control input-sm">
+                                                        <select id="djBenef" name="djBenef" required="required"
+                                                            style="width: 190px;" class="form-control input-sm">
                                                             <option value="">
                                                                 SELECCIONAR
                                                             </option>
-                                                            
+
                                                             <option value="01">[SI]</option>
                                                             <option value="02">[NO]</option>
                                                         </select>
@@ -1095,15 +1104,16 @@
                                                             COMAFP&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fechaRecepcionComafp">
+                                                        <input type="checkbox" required="required"
+                                                            id="fechaRecepcionComafp">
                                                     </div>
 
                                                 </div>
@@ -1116,15 +1126,16 @@
                                                             COMAFP&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fechaRecepcionComafp">
+                                                        <input type="checkbox" required="required"
+                                                            id="fechaRecepcionComafp">
                                                     </div>
 
                                                 </div>
@@ -1135,13 +1146,13 @@
                                                         <label style="margin: 4px">Fecha Envio DIS&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fechaEnvioDis">
                                                     </div>
@@ -1154,15 +1165,16 @@
                                                         <label style="margin: 4px">Fecha Recep DIS&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fechaRecepcionDis">
+                                                        <input type="checkbox" required="required"
+                                                            id="fechaRecepcionDis">
                                                     </div>
 
                                                 </div>
@@ -1192,13 +1204,13 @@
                                                         <label style="margin: 4px">Fecha Conclusion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-7 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 153px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 153px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fechaConclusion">
                                                     </div>
@@ -1232,14 +1244,14 @@
                                                     <div class="space">&nbsp;</div>
                                                     <div>
                                                         <div class="col-xs-12">
-                                                            <!--<html:textarea--><textarea type="text"  cols="120" rows="2"
-                                                                class="form-control input-sm" 
+                                                            <!--<html:textarea--><textarea type="text" cols="120"
+                                                                rows="2" class="form-control input-sm"
                                                                 property="observacionesSEYCI"
                                                                 readonly="false"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="space">&nbsp;</div>
-                                                   
+
 
                                                 </div>
 
@@ -1247,13 +1259,12 @@
                                             </div>
                                         </div>
                                         <div class="col-2 form-inline">
-                                                <a href="javascript:fncGuardarSeyci()">
-                                                    <div style="text-align: center"><input type="submit"
-                                                            value="Siguiente" alt="Guardar"
-                                                            class="btn btn-custom nextBtn">
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            <a href="javascript:fncGuardarSeyci()">
+                                                <div style="text-align: center"><input type="submit" value="Siguiente"
+                                                        alt="Guardar" class="btn btn-custom nextBtn">
+                                                </div>
+                                            </a>
+                                        </div>
 
                                     </div>
                                 </form>
@@ -1279,8 +1290,9 @@
 
                                                     <div class="col-md-4">
 
-                                                        <a href="javascript:onChangeMostar()"><select type="text" required="required" id="opcion"
-                                                                name="opcion" class="form-control input-sm">
+                                                        <a href="javascript:onChangeMostar()"><select type="text"
+                                                                required="required" id="opcion" name="opcion"
+                                                                class="form-control input-sm">
                                                                 <option value="">SELECCIONAR</option>
                                                                 <option value="00">[SI]</option>
                                                                 <option value="01">[NO]</option>
@@ -1310,20 +1322,21 @@
                                                             <label style="padding-top: 9px;">Fecha de Cita</label>
                                                         </div>
                                                         <div class="col-md-3 form-inline">
-                                                                <div class="input-group date fechaModal" >
-                                                                    <!--<html:text--><input type="text" required="required" style="width: 220px;"
-                                                                        class="form-control input-sm " />
-                                                                    <span class="input-group-addon">
-                                                                        <span class="fa fa-calendar"></span>
-                                                                    </span></div>
-                                                            </div>
+                                                            <div class="input-group date fechaModal">
+                                                                <!--<html:text--><input type="text" required="required"
+                                                                    style="width: 220px;"
+                                                                    class="form-control input-sm " />
+                                                                <span class="input-group-addon">
+                                                                    <span class="fa fa-calendar"></span>
+                                                                </span></div>
+                                                        </div>
                                                         <div class="col-md-1">
                                                             <label
                                                                 style="padding-top: 9px;">Acompa&ntilde;ante&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select id="acompanante" name="acompanante" required="required"
-                                                                class="form-control input-sm">
+                                                            <select id="acompanante" name="acompanante"
+                                                                required="required" class="form-control input-sm">
                                                                 <option value="00">[SI]</option>
                                                                 <option value="01">[NO]</option>
                                                             </select>
@@ -1344,7 +1357,8 @@
                                                                 Traslado&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select id="tipo" name="tipo" type="text" required="required" class="form-control input-sm">
+                                                            <select id="tipo" name="tipo" type="text"
+                                                                required="required" class="form-control input-sm">
                                                                 <option value="">SELECCIONAR</option>
                                                                 <option value="01">[PROVINCIA-PROVINCIA]</option>
                                                                 <option value="02">[PROVINCIA-LIMA]</option>
@@ -1358,10 +1372,10 @@
                                                         <div class="col-md-3">
                                                             <select type="text" required="required"
                                                                 class="form-control input-sm" styleId="origen">
-                                                                
+
                                                                 <option value="">seleccionar</option>
                                                                 <option value="1">seleccionar</option>
-                                                                
+
                                                             </select>
                                                         </div>
                                                         <div class="col-md-1">
@@ -1389,13 +1403,14 @@
                                                                 Aprobacion&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3 form-inline">
-                                                                <div class="input-group date fechaModal" >
-                                                                    <!--<html:text--><input type="text" required="required" style="width: 220px;"
-                                                                        class="form-control input-sm " style="width: 125px;" />
-                                                                    <span class="input-group-addon">
-                                                                        <span class="fa fa-calendar"></span>
-                                                                    </span></div>
-                                                            </div>
+                                                            <div class="input-group date fechaModal">
+                                                                <!--<html:text--><input type="text" required="required"
+                                                                    style="width: 220px;" class="form-control input-sm "
+                                                                    style="width: 125px;" />
+                                                                <span class="input-group-addon">
+                                                                    <span class="fa fa-calendar"></span>
+                                                                </span></div>
+                                                        </div>
 
                                                         <div class="row">
 
@@ -1405,8 +1420,8 @@
                                                             <label style="padding-top: 9px;">Moneda&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <select id="moneda" name="moneda" type="text" required="required"
-                                                                class="form-control input-sm">
+                                                            <select id="moneda" name="moneda" type="text"
+                                                                required="required" class="form-control input-sm">
                                                                 <option value="">SELECCIONAR</option>
                                                                 <option value="00">[SOLES]</option>
                                                                 <option value="01">[DOLARES]</option>
@@ -1417,8 +1432,8 @@
                                                                 Movilidad&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <select id="tipoMovilidad" name="tipoMovilidad" type="text" required="required"
-                                                                class="form-control input-sm">
+                                                            <select id="tipoMovilidad" name="tipoMovilidad" type="text"
+                                                                required="required" class="form-control input-sm">
                                                                 <option value="">Seleccionar</option>
                                                                 <option value="01">[PASAJES AVION]</option>
                                                                 <option value="02">[PASAJES TIERRA]</option>
@@ -1435,8 +1450,8 @@
                                                                 size="12" maxlength="20" />
                                                         </div>
                                                         <div class="col-md-1" id="movilidad">
-                                                            <input type="button" required="required" value="+" id="btn-addBody"
-                                                                class="btn btn-warning">
+                                                            <input type="button" required="required" value="+"
+                                                                id="btn-addBody" class="btn btn-warning">
 
                                                         </div>
                                                         <div class="space">&nbsp;</div>
@@ -1444,8 +1459,8 @@
                                                             <label style="padding-top: 9px;">Moneda&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <select id="moneda1" name="moneda1" type="text" required="required"
-                                                                class="form-control input-sm">
+                                                            <select id="moneda1" name="moneda1" type="text"
+                                                                required="required" class="form-control input-sm">
                                                                 <option value="">Seleccionar</option>
                                                                 <option value="00">[SOLES]</option>
                                                                 <option value="01">[DOLARES]</option>
@@ -1479,8 +1494,8 @@
                                                             <label style="padding-top: 9px;">Moneda&nbsp;</label>
                                                         </div>
                                                         <div class="col-md-2">
-                                                            <select id="moneda2" name="moneda2" type= "text" required="required"
-                                                                class="form-control input-sm">
+                                                            <select id="moneda2" name="moneda2" type="text"
+                                                                required="required" class="form-control input-sm">
                                                                 <option value="">Seleccionar</option>
                                                                 <option value="00">[SOLES]</option>
                                                                 <option value="01">[DOLARES]</option>
@@ -1639,24 +1654,23 @@
                                                             </table>
                                                         </div>
                                                     </div>
-                                                                                                  
-                                                       
-                                                       
-                                                        
-                                                   
+
+
+
+
+
 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-2 form-inline">
-                                                <a href="javascript:fncGuardarTraslado()">
-                                                    <div style="text-align: center"><input type="submit"
-                                                            value="Siguiente" alt="Guardar"
-                                                            class="btn btn-custom nextBtn">
-                                                    </div>
+                                            <a href="javascript:fncGuardarTraslado()">
+                                                <div style="text-align: center"><input type="submit" value="Siguiente"
+                                                        alt="Guardar" class="btn btn-custom nextBtn">
+                                                </div>
 
-                                                </a>
-                                            </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </form>
                                 <!--REEVALUACION-->
@@ -1696,26 +1710,26 @@
                                                             &nbsp;</label>
                                                     </div>
                                                     <div class="col-md-9 form-inline">
-                                                            <div class="input-group date fechaModal">
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="space">&nbsp;</div>
                                                     <div class="col-md-3">
                                                         <label style="padding-top: 9px;">Fecha de Notificacion
                                                             &nbsp;</label>
                                                     </div>
                                                     <div class="col-md-9 form-inline">
-                                                            <div class="input-group date fechaModal">
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
 
 
 
@@ -1744,7 +1758,8 @@
                                                             &nbsp;</label>
                                                     </div>
                                                     <div class="col-md-9">
-                                                        <input type="text" required="required" class="form-control input-sm" />
+                                                        <input type="text" required="required"
+                                                            class="form-control input-sm" />
                                                     </div>
 
 
@@ -1769,20 +1784,19 @@
                                                 </textarea>
                                                     </div>
                                                     <div class="space">&nbsp;</div>
-                                                  
+
 
                                                 </div>
 
                                             </div>
                                         </div>
                                         <div class="col-2 form-inline">
-                                                <a href="javascript:fncGuardarReevaluacion()">
-                                                    <div style="text-align: center"><input type="button"
-                                                            value="Guardar" alt="Guardar"
-                                                            class="btn btn-custom nextBtn">
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            <a href="javascript:fncGuardarReevaluacion()">
+                                                <div style="text-align: center"><input type="button" value="Guardar"
+                                                        alt="Guardar" class="btn btn-custom nextBtn">
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </form>
                                 <!--DICTAMEN-->
@@ -1810,15 +1824,16 @@
                                                         <label style="margin: 4px">Fecha Recepción AFP&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fecRecAFP" required="required">
+                                                        <input type="checkbox" required="required" id="fecRecAFP"
+                                                            required="required">
                                                     </div>
 
                                                 </div>
@@ -1828,14 +1843,14 @@
                                                     padding-right: 0px;">
                                                         <label style="margin: 4px">Fecha de Emisión&nbsp;</label>
                                                     </div>
-                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                    <div class="col-md-6 form-inline">
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecEmision">
                                                     </div>
@@ -1918,9 +1933,10 @@
                                                         <label style="margin: 4px">Califica&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select id="califica" name="califica" type="text" required="required"
-                                                            class="form-control input-sm" style="width: 163px;">
-                                                            
+                                                        <select id="califica" name="califica" type="text"
+                                                            required="required" class="form-control input-sm"
+                                                            style="width: 163px;">
+
                                                             <option value="">[SELECCIONE]</option>
                                                             <option value="02">[SI CALIFICA]</option>
                                                             <option value="03">[NO CALIFICA]</option>
@@ -1960,7 +1976,7 @@
                                                             class="form-control input-sm" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox"required="required" id="definitivo">
+                                                        <input type="checkbox" required="required" id="definitivo">
                                                     </div>
 
                                                 </div>
@@ -2022,13 +2038,13 @@
                                                             Vigencia&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecInicial">
                                                     </div>
@@ -2044,13 +2060,13 @@
                                                             Vigencia&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecFinal">
                                                     </div>
@@ -2064,13 +2080,13 @@
                                                         <label style="margin: 4px">Fecha Ocurrencia&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecOcurrencia">
                                                     </div>
@@ -2092,7 +2108,8 @@
                                                 alt="Calendario"/>-->
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="proximaEvaluacion">
+                                                        <input type="checkbox" required="required"
+                                                            id="proximaEvaluacion">
                                                     </div>
 
                                                 </div>
@@ -2106,13 +2123,13 @@
                                                             Afiliado&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecNotificacion">
                                                     </div>
@@ -2127,15 +2144,16 @@
                                                             Notificacion&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fecRecNotificacion">
+                                                        <input type="checkbox" required="required"
+                                                            id="fecRecNotificacion">
                                                     </div>
 
                                                 </div>
@@ -2147,13 +2165,13 @@
                                                         <label style="margin: 4px">Edad Fec. vig. Dict.&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="edad">
                                                     </div>
@@ -2256,20 +2274,19 @@
                                                 </div>
 
 
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-2 form-inline">
-                                                <a href="javascript:fncGuardarDictamen()">
-                                                    <div style="text-align: center"><input type="submit"
-                                                            value="Siguiente" alt="Guardar"
-                                                            class="btn btn-custom nextBtn">
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            <a href="javascript:fncGuardarDictamen()">
+                                                <div style="text-align: center"><input type="submit" value="Siguiente"
+                                                        alt="Guardar" class="btn btn-custom nextBtn">
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </form>
-                                <form role="form" >
+                                <form role="form">
                                     <div class="panel panel-primary setup-content" id="step-6">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">Apelacion</h3>
@@ -2294,7 +2311,8 @@
 
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="nroDictamenApelado">
+                                                        <input type="checkbox" required="required"
+                                                            id="nroDictamenApelado">
                                                     </div>
 
                                                 </div>
@@ -2320,15 +2338,15 @@
                                                     <div class="col-md-4">
                                                         <label style="margin: 4px">Fecha Apelacion&nbsp;</label>
                                                     </div>
-                                                    
+
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fechaApelacion">
                                                     </div>
@@ -2342,31 +2360,31 @@
                                                             Beneficios&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="fecIngBeneficios">
+                                                        <input type="checkbox" required="required"
+                                                            id="fecIngBeneficios">
                                                     </div>
 
                                                 </div>
                                                 <div class="col-md-4">
-
                                                     <div class="col-md-4">
                                                         <label style="margin: 4px">Fecha Envio Carta&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecEnvcarta">
                                                     </div>
@@ -2396,8 +2414,9 @@
                                                     </div>
                                                     <div class="col-md-6">
 
-                                                        <!--<html:text--><input type="text" required="required" class="form-control"
-                                                            styleId="analista" style="width: 163px;" />
+                                                        <!--<html:text--><input type="text" required="required"
+                                                            class="form-control" styleId="analista"
+                                                            style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="analista">
@@ -2431,7 +2450,8 @@
                                                             style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="checkbox" required="required" id="nroExpDictamenApelado">
+                                                        <input type="checkbox" required="required"
+                                                            id="nroExpDictamenApelado">
                                                     </div>
 
                                                 </div>
@@ -2457,13 +2477,13 @@
                                                         <label style="margin: 4px">Fecha Dictamen&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecDictamen">
                                                     </div>
@@ -2475,13 +2495,13 @@
                                                         <label style="margin: 4px"> Envio DIS&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecEnvioDis">
                                                     </div>
@@ -2494,8 +2514,8 @@
                                                         <label style="margin: 4px">SOL&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <!--<html:text--><input type="text" required="required" class="form-control"
-                                                            style="width: 163px;" />
+                                                        <!--<html:text--><input type="text" required="required"
+                                                            class="form-control" style="width: 163px;" />
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="ok">
@@ -2509,13 +2529,13 @@
                                                             Afiliado&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecNotAfiliado">
                                                     </div>
@@ -2527,13 +2547,13 @@
                                                         <label style="margin: 4px"> Notificacion COMEC&nbsp;</label>
                                                     </div>
                                                     <div class="col-md-6 form-inline">
-                                                            <div class="input-group date fechaModal" >
-                                                                <!--<html:text--><input type="text" required="required"
-                                                                    class="form-control input-sm " style="width: 125px;" />
-                                                                <span class="input-group-addon">
-                                                                    <span class="fa fa-calendar"></span>
-                                                                </span></div>
-                                                        </div>
+                                                        <div class="input-group date fechaModal">
+                                                            <!--<html:text--><input type="text" required="required"
+                                                                class="form-control input-sm " style="width: 125px;" />
+                                                            <span class="input-group-addon">
+                                                                <span class="fa fa-calendar"></span>
+                                                            </span></div>
+                                                    </div>
                                                     <div class="col-md-2">
                                                         <input type="checkbox" required="required" id="fecNotCOMEC">
                                                     </div>
@@ -2557,7 +2577,7 @@
                                                     <div class="col-10 form-inline">
                                                         &nbsp;
                                                     </div>
-                                                    
+
                                                 </div>
 
 
@@ -2568,13 +2588,12 @@
 
                                         </div>
                                         <div class="col-2 form-inline">
-                                                <a href="javascript:fncGuardarApelacion()">
-                                                    <div style="text-align: center"><input type="submit"
-                                                            value="Guardar" alt="Guardar"
-                                                            class="btn btn-custom nextBtn">
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            <a href="javascript:fncGuardarApelacion()">
+                                                <div style="text-align: center"><input type="submit" value="Guardar"
+                                                        alt="Guardar" class="btn btn-custom nextBtn">
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
 
 
@@ -2586,7 +2605,7 @@
                         </div>
                         <!--/.Modal Body-->
                         <!--/Modal Pie-->
-                        
+
                         <!--/.Modal Pie-->
                     </div>
                 </div>
@@ -2648,7 +2667,7 @@
     </div>
 
     <!-- /#wrapper -->
- 
+
     <!-- Core Scripts - Include with every page -->
     <script src="js/jquery-3.4.1.js"></script>
     <script src="bootstrap-3.4.1/js/bootstrap.js"></script>

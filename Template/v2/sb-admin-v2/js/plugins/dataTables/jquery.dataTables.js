@@ -10846,7 +10846,7 @@
 			 * displayed after filtering. `emptyTable` is shown when there is simply no
 			 * information in the table at all (regardless of filtering).
 			 *  @type string
-			 *  @default No se encontaron registros coincidentes
+			 *  @default No matching records found
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.zeroRecords

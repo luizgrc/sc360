@@ -84,7 +84,7 @@ function showModalWindow() {
             var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
                 allNextBtn = $('.nextBtn');
-        
+            
             allWells.hide();
             
             navListItems.click(function (e) {
@@ -136,7 +136,7 @@ function showModalWindow() {
 
 // evitar refresh
 $(document).ready(function() {
-    $(document).on('submit', '#formulario', function() {
+    $(document).on('submit', '#step-1', function() {
       return false;
      });
 });

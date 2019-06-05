@@ -139,25 +139,6 @@
         </html:form>
     </div>
     <!-- /#page-wrapper -->
-    <!-- /.modal -->
-    <div class="modal fade" id="AlertModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Confirmación de Carga</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Esta seguro de realizar la carga?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-custom" onclick="CargaArchivo()">Guardar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 </div>
 <!-- /#wrapper -->
 
@@ -260,11 +241,11 @@
 
                                 $('#frmcargaExcel').submit();
                             }/*
-                            var form = $('#frmcargaExcel').val();
-                            form.action = "CargaExcel.do?method=cargaExcel";
-                            ;
-                            form.method = "post";
-                            form.submit();*/
+                             var form = $('#frmcargaExcel').val();
+                             form.action = "CargaExcel.do?method=cargaExcel";
+                             ;
+                             form.method = "post";
+                             form.submit();*/
                         }
 
                         function ValidarArchivo() {
@@ -289,11 +270,7 @@
                             if ($('#msgError').length) {
                                 return;
                             }
-
-                            $('#AlertModal').modal({
-                                backdrop: 'static',
-                                keyboard: false
-                            });
+                            MuestraAlerta('Confirmación de Carga', 'Esta seguro de realizar la carga?', CargaArchivo)
 
 
 

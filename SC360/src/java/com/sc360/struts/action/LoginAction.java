@@ -10,6 +10,7 @@ import com.sc360.struts.jdbc.dao.ImpLogin;
 import com.sc360.struts.form.LoginForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -39,6 +40,7 @@ public class LoginAction extends org.apache.struts.action.Action{
             throws Exception {
         
         LoginForm login = (LoginForm)form;
+        HttpSession sesion = request.getSession();
         
         System.out.println(" Usuario : " + login.getNickUsuario());
         System.out.println(" Clave : " + login.getPassword());
@@ -48,10 +50,10 @@ public class LoginAction extends org.apache.struts.action.Action{
         login = iface.validaLogin(login);
         
         if(login !=null){
-        
+            sesion.setAttribute("nickUsuario", login.getNickUsuario());
              return mapping.findForward(SUCCESS);
         }else{
-        
+            sesion.setAttribute("valida", "0");
              return mapping.findForward("error");
         }
         

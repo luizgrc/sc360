@@ -165,7 +165,10 @@ public class DictamenAction extends DispatchAction{
         
         
         System.out.println(" Inicio Mostrar Dictamen Action ");
-        String numeroExpediente  =  req.getParameter("idNroTraslado");
+
+        String numeroExpediente  =  req.getParameter("numeroExp");
+        String idNroTraslado = req.getParameter("idNroTraslado");
+        
         System.out.println(" numeroExpediente " + numeroExpediente);
         Dictamen dto = new Dictamen();
         IfaceUtil daoUtil = new ImpUtil();
@@ -182,8 +185,10 @@ public class DictamenAction extends DispatchAction{
           }
         
         dto.setNroSeyci(numeroExpediente);
+        dto.setIdSeyci(idNroTraslado);
         
         List<Dictamen>   listaDictamen = daoSolicitud.ListadoDictamen(dto);
+        List<Dictamen>   listaDictamenItem = daoSolicitud.ListadoDictamenItem(dto);
         
         if (listaDictamen.size()>0) {
                     req.setAttribute("listaDictamen", listaDictamen);
@@ -191,9 +196,9 @@ public class DictamenAction extends DispatchAction{
         
         try
            {
-                for(int cant=0;cant < listaDictamen.size();cant++ )
+                for(int cant=0;cant < listaDictamenItem.size();cant++ )
                 {
-                 Dictamen dtoDetalle = (Dictamen)listaDictamen.get(cant);
+                 Dictamen dtoDetalle = (Dictamen)listaDictamenItem.get(cant);
                  
                  formS.setNroSeyci(dtoDetalle.getNroSeyci());
                  formS.setFecRecAFP(dtoDetalle.getFecRecAFP());

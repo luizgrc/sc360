@@ -913,28 +913,29 @@ public class ImpSolicitud implements IfaceSolicitud{
                 while (rs.next()) {
                 Dictamen p = new Dictamen();
                 
-                p.setNroSeyci(rs.getString(1));
-                p.setFecRecAFP(rs.getString(2));
-                p.setFecEmision(rs.getString(3));
-                p.setInstancia(rs.getString(4));
-                p.setNroEvaluacion(rs.getString(5));
-                p.setNroDictamen(rs.getString(6));
-                p.setPorcMenoscabio(rs.getString(7));
-                p.setCalifica(rs.getString(8));
-                p.setIndEnf(rs.getString(9));
-                p.setDefinitivo(rs.getString(10));
-                p.setGrado(rs.getString(11));
-                p.setNaturaleza(rs.getString(12));
-                p.setMeses(rs.getString(13));
-                p.setFecInicial(rs.getString(14));
-                p.setFecFinal(rs.getString(15));
-                p.setFecOcurrencia(rs.getString(16));
-                p.setProximaEvaluacion(rs.getString(17));
-                p.setFecNotificacion(rs.getString(18));
-                p.setFecRecNotificacion(rs.getString(19));
-                p.setEdad(rs.getString(20));
-                p.setAnalista(rs.getString(21));
-                p.setObservaciones(rs.getString(22));
+                p.setIdSeyci(rs.getString(1));
+                p.setNroSeyci(rs.getString(2));
+                p.setFecRecAFP(rs.getString(3));
+                p.setFecEmision(rs.getString(4));
+                p.setInstancia(rs.getString(5));
+                p.setNroEvaluacion(rs.getString(6));
+                p.setNroDictamen(rs.getString(7));
+                p.setPorcMenoscabio(rs.getString(8));
+                p.setCalifica(rs.getString(9));
+                p.setIndEnf(rs.getString(10));
+                p.setDefinitivo(rs.getString(11));
+                p.setGrado(rs.getString(12));
+                p.setNaturaleza(rs.getString(13));
+                p.setMeses(rs.getString(14));
+                p.setFecInicial(rs.getString(15));
+                p.setFecFinal(rs.getString(16));
+                p.setFecOcurrencia(rs.getString(17));
+                p.setProximaEvaluacion(rs.getString(18));
+                p.setFecNotificacion(rs.getString(19));
+                p.setFecRecNotificacion(rs.getString(20));
+                p.setEdad(rs.getString(21));
+                p.setAnalista(rs.getString(22));
+                p.setObservaciones(rs.getString(23));
 
                 listDictamen.add(p);
             }
@@ -1131,6 +1132,61 @@ public class ImpSolicitud implements IfaceSolicitud{
         }
 
         return listTraslado;
+    }
+
+    @Override
+    public List<Dictamen> ListadoDictamenItem(Dictamen dto) {
+        
+      List<Dictamen> listDictamen = null;
+         String query = "{ call SP_LISTAR_DICTAMEN_X_NUMERO(?) }";
+        
+        try (Connection cn = db.getConnection();
+                PreparedStatement ps = cn.prepareStatement(query.toString());
+                ) {
+            
+                ps.setString(1, dto.getIdSeyci());
+
+                ResultSet rs = ps.executeQuery();
+
+                listDictamen = new LinkedList<>();
+                
+                while (rs.next()) {
+                Dictamen p = new Dictamen();
+                
+                p.setIdSeyci(rs.getString(1));
+                p.setNroSeyci(rs.getString(2));
+                p.setFecRecAFP(rs.getString(3));
+                p.setFecEmision(rs.getString(4));
+                p.setInstancia(rs.getString(5));
+                p.setNroEvaluacion(rs.getString(6));
+                p.setNroDictamen(rs.getString(7));
+                p.setPorcMenoscabio(rs.getString(8));
+                p.setCalifica(rs.getString(9));
+                p.setIndEnf(rs.getString(10));
+                p.setDefinitivo(rs.getString(11));
+                p.setGrado(rs.getString(12));
+                p.setNaturaleza(rs.getString(13));
+                p.setMeses(rs.getString(14));
+                p.setFecInicial(rs.getString(15));
+                p.setFecFinal(rs.getString(16));
+                p.setFecOcurrencia(rs.getString(17));
+                p.setProximaEvaluacion(rs.getString(18));
+                p.setFecNotificacion(rs.getString(19));
+                p.setFecRecNotificacion(rs.getString(20));
+                p.setEdad(rs.getString(21));
+                p.setAnalista(rs.getString(22));
+                p.setObservaciones(rs.getString(23));
+
+                listDictamen.add(p);
+            }
+
+        } catch (SQLException e) {
+            message = e.getMessage();
+        }
+
+        return listDictamen;  
+        
+        
     }
         
     

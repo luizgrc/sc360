@@ -1,0 +1,12 @@
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+SC360/nbproject/
+nbproject/
+dist/
+nbdist/
+.nb-gradle/
+private.properties*
+.vscode/*

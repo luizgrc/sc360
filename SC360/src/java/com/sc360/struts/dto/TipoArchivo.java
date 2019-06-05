@@ -15,7 +15,7 @@ public class TipoArchivo {
     private String  estado;
     private String  descripcion;
     private String  fechaRegistro;
-    
+    private int numfila;
     public TipoArchivo() {
     }
 
@@ -49,6 +49,14 @@ public class TipoArchivo {
 
     public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public int getNumfila() {
+        return numfila;
+    }
+
+    public void setNumfila(int numfila) {
+        this.numfila = numfila;
     }
     
     

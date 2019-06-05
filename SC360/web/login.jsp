@@ -4,25 +4,98 @@
     Author     : Elgar Eduardo Puma Cruz
 --%>
 
+<!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+<%
+    String valida = (String) session.getAttribute("valida");
+    System.out.println(" Valida:  " + valida);
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
-        
-        
-        <!-- Bootstrap CSS -->
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/primefaces-paradise/theme.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <style></style>
 
+
+        <!-- Core CSS - Include with every page -->
+        <link href="bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <!-- SB Admin CSS - Include with every page -->
+        <link href="css/sb-admin.css" rel="stylesheet">
+
+        <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
+    </head>
+    <body cz-shortcut-listen="true">
+
+        <!--<h1 class="Estilo2" align="center">SISTEMA COORDINADOR 360</h1>-->
+        <nav class="navbar navbar-default navbar-fixed-top nav-custom" role="navigation" ></nav>
+        <div class="container">
+            <div class="row">
+                <html:form action="/validateLogin.do" styleId="frmdata">
+                    <!--                        <label id="j_idt6:j_idt11" class="ui-outputlabel ui-widget"
+                                                     for="j_idt6:username">Usuario</label>-->
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="login-panel panel panel-default">
+
+                            <div class="panel-body">
+                                <form role="form">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <input id="nickUsuario" class="form-control" type="text" placeholder="Username" name="nickUsuario" required="" >
+                                            <span class="help-block"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input id="password" name="password" class="form-control" placeholder="Password"  type="password" required="">
+                                            <span class="help-block"></span>
+                                        </div>
+
+
+                                        <div class="alert alert-danger page-alert alert-dismissible" id="alertLogin">
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            Usuario o Contraseña Incorrectos
+                                        </div>
+
+                                        <!-- Change this to a button or input when using this as a form -->
+                                        <div class="form-group">
+                                            <!--<button id="ingresar" name="ingresar" 
+
+                                                    class="btn btn-lg btn-warning btn-block"
+                                                    role="button" aria-disabled="false"
+                                                    style="padding: 5px; cursor: pointer;" onclick="javaScript:validateLogin();">
+                                                <span class="ui-button-text ui-c">Ingresar</span>
+                                            </button>-->
+
+                                            <html:submit onclick="javaScript:validateLogin();" value="ingresar" styleClass="btn btn-lg btn-warning btn-block" style="padding: 5px; cursor: pointer;">
+                                                <span class="ui-button-text ui-c">Ingresar</span>
+                                            </html:submit>
+                                        </div>
+                                    </fieldset>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>     
+                </html:form>
+            </div>
+        </div>
+        <!-- Core Scripts - Include with every page -->
+        <script src="js/jquery-3.4.1.js"></script>
+        <script src="bootstrap-3.4.1/js/bootstrap.js"></script>
         <script language="javascript">
             var tecla;
+            $('#alertLogin').hide();
+            $('#alertLogin').on('close.bs.alert', function (e) {
+                e.preventDefault();
+                $('#alertLogin').hide();
+            });
+            var validar = '<%= session.getAttribute("valida")%>';
+            if (validar === '0') {
+                $('#alertLogin').slideDown();
+            }
             function validateLogin()
             {
                 var ussro = document.getElementById("nickUsuario").value;
@@ -34,14 +107,25 @@
                  */
                 if (ussro == "" || pssord == "")
                 {
-                    alert("Debe ingresar su usuario y password");
-                    var input = document.getElementById("nickUsuario");
-                    input.focus();
+                    // $("#ingresar".parent().children("span").text("Debe ingresar algun caracter").show());
+                    //alert("Debe ingresar su usuario y password");
+                    //var input = document.getElementById("nickUsuario");
+                    $('#alertLogin').html("<button type='button' class='close' data-dismiss='alert'><span aria-hidden='true'>&times;</span></button>Campos necesarios incompletos");
+                    $('#alertLogin').slideDown();
+                    //ussro.focus();
                     //form.usuario.focus();
-                    return;
+                    return false;
+                } else if (ussro == null || ussro.length == 0) {
+                    $('#alertLogin').html('Campos necesarios incompletos');
+                    $('#alertLogin').slideDown();
+                    return false;
+                } else if (pssord == null || pssord.length == 0) {
+                    $('#alertLogin').html('Campos necesarios incompletos');
+                    $('#alertLogin').slideDown();
+                    return false;
                 }
 
-                document.forms["frmdata"].submit();
+                //document.forms["frmdata"].submit();
                 //document.frmdata.submit();
                 /*
                  form.action="Login.do?metodo=signIn";
@@ -49,6 +133,8 @@
                  form.submit();
                  */
             }
+
+
 
             function capturaTecla(e)
             {
@@ -66,75 +152,6 @@
 
             document.onkeydown = capturaTecla;
         </script>
-
-        <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
-    </head>
-    <body class="login-body">
-
-        <!--<h1 class="Estilo2" align="center">SISTEMA COORDINADOR 360</h1>-->
-        <div class="bg-orange">
-            <img id="j_idt6:j_idt8"
-                 src="<c:out value="${pageContext.request.contextPath}"/>/images/cabecera_2.png"
-                 alt="" class="logo" />
-        </div>
-        <html:form action="/validateLogin.do" styleId="frmdata">
-
-            <div class="login-panel ui-fluid">
-                <div class="ui-g">
-                    <div class="ui-g-12">
-<!--                        <label id="j_idt6:j_idt11" class="ui-outputlabel ui-widget"
-                               for="j_idt6:username">Usuario</label>-->
-                        <div class="input-wrapper">
-                            <input id="nickUsuario" name="nickUsuario" style="width: 100%;"
-                                   type="text" placeholder="Username"
-                                   class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
-                                   role="textbox" aria-disabled="false" aria-readonly="false" /> <i
-                                   style="right: -15px;" class="fa fa-user"></i>
-                        </div>
-                    </div>
-                    <div class="ui-g-12">
-<!--                        <label id="j_idt6:j_idt14" class="ui-outputlabel ui-widget"
-                               for="j_idt6:password">Contraseña</label>-->
-                        <div class="input-wrapper">
-                            <input id="password" name="password" style="width: 100%;"
-                                   type="password"
-                                   class="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all"
-                                   placeholder="Password" role="textbox" aria-disabled="false"
-                                   aria-readonly="false" /> <i style="right: -15px;"
-                                   class="fa fa-lock"></i> <i class="fa fa-lock"></i>
-                        </div>
-                        <div style="height: 10px;"></div>
-                        <c:if test="${param['auth-error']}">
-                            <span
-                                style="color: white; font-size: 12px; background: #de2c1a; padding: 5px; border-radius: 4px;">Datos
-                                incorrectos. Porfavor, intente nuevamente.</span>
-                            </c:if>
-                    </div>
-
-                    <div class="ui-g-12 button-container">
-                        <button id="ingresar" name="ingresar" type="submit"
-                                class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only blue-btn raised-btn"
-                                role="button" aria-disabled="false"
-                                style="padding: 5px; cursor: pointer;" onclick="javaScript:validateLogin();">
-                            <span class="ui-button-text ui-c">Ingresar</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-
-        </html:form>
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <!-- Scripts-->
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/nanoscroller.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/layout.js"></script>
-        
-        
     </body>
 </html>
 

@@ -1,0 +1,66 @@
+[33mcommit c5dc768b00336dd90b722f44457e3cc045005ba2[m[33m ([m[1;36mHEAD -> [m[1;32mDevEsteban[m[33m, [m[1;31mfork/DevEsteban[m[33m)[m
+Author: evalencia1995 <estebanvalenciaflores1995@gmail.com>
+Date:   Mon May 20 18:08:44 2019 -0500
+
+    subido
+
+[33mcommit d6a8e957280453556da78ca5d1b429c180db39e3[m
+Merge: 959e0b8 1597e4c
+Author: evalencia1995 <estebanvalenciaflores1995@gmail.com>
+Date:   Mon May 20 15:30:58 2019 -0500
+
+    Merge remote-tracking branch 'origin/DevEsteban' into DevEsteban
+
+[33mcommit 959e0b872f010d11589dc4e40a4bf9798f00cd80[m
+Author: evalencia1995 <estebanvalenciaflores1995@gmail.com>
+Date:   Mon May 20 15:30:10 2019 -0500
+
+    model casi terminado
+
+[33mcommit 1597e4c547d9aba812110e68f9df0e9b642aeb02[m[33m ([m[1;31morigin/DevEsteban[m[33m)[m
+Merge: efe4b75 b7f56bf
+Author: Luis García <48184654+luizgrc@users.noreply.github.com>
+Date:   Wed May 15 18:51:53 2019 -0500
+
+    Merge pull request #2 from evalencia1995/DevEsteban
+    
+    Solucionando cambios 15/05/2019
+
+[33mcommit b7f56bf97b05ff22568fd4f1856389a02fef60f0[m
+Author: evalencia1995 <estebanvalenciaflores1995@gmail.com>
+Date:   Wed May 15 18:42:51 2019 -0500
+
+    Solucionando cambios 15/05/2019
+
+[33mcommit efe4b75391e183cea4f2f973944491de62905996[m
+Merge: 5bfac4d 88147f9
+Author: Luis García <48184654+luizgrc@users.noreply.github.com>
+Date:   Wed May 15 16:06:56 2019 -0500
+
+    Merge pull request #1 from evalencia1995/DevEsteban
+    
+    Login modificado
+
+[33mcommit 88147f96b5e4c2f20e0fe1a43970cf6e5e66bb88[m
+Author: evalencia1995 <estebanvalenciaflores1995@gmail.com>
+Date:   Wed May 15 15:07:03 2019 -0500
+
+    Login modificado
+
+[33mcommit 5bfac4de153d1e39ae5db58448ee3268ca9e8885[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: luizgrc <luisgrc11312538@gmail.com>
+Date:   Mon May 13 15:39:26 2019 -0500
+
+    inicio proyecto
+
+[33mcommit ac334995e805c0a665146ab42811d8f80e294a2d[m
+Author: luizgrc <luisgrc11312538@gmail.com>
+Date:   Mon May 13 14:53:43 2019 -0500
+
+    Actualizacion del readme.md
+
+[33mcommit 332c83dd2d018ccd3ae12f3b9eb277d582e7ce21[m
+Author: Luis García <48184654+luizgrc@users.noreply.github.com>
+Date:   Mon May 13 14:18:11 2019 -0500
+
+    Initial commit

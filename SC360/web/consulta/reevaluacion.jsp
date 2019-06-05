@@ -41,16 +41,16 @@
                 form.submit();
             }
             ;
-            
+
             function irDictamen() {
-            var form = document.frmReevaluacion;
-            var numeroExp = form.numeroSeyci.value;
-            var url = 'Dictamen.do?method=inicioDictamen&numeroExp='+numeroExp;
-            //var url = "Dictamen.do?method=inicioDictamen";
-            var form = document.forms(0);
-            form.action = url;
-            form.method = "post";
-            form.submit();
+                var form = document.frmReevaluacion;
+                var numeroExp = form.numeroSeyci.value;
+                var url = 'Dictamen.do?method=inicioDictamen&numeroExp=' + numeroExp;
+                //var url = "Dictamen.do?method=inicioDictamen";
+                var form = document.forms(0);
+                form.action = url;
+                form.method = "post";
+                form.submit();
             }
             ;
 
@@ -66,9 +66,7 @@
         </script>
     </head>
 
-    <body>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <body style="background-color:#FFFFFF;">
         <div class="container">
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="nav-link" href="javascript:irDetalle()">Detalle Consulta</a></li>
@@ -83,84 +81,111 @@
         <html:form action="Reevaluacion.do" styleId="frmReevaluacion" >
 
             <div class="form-group div-align-l dv-align-2030">
-                <div class="row">
-                    <div class="col-6 form-inline">
-                        <STRONG>REEVALUACION</STRONG>&nbsp;
+                <div class="row show-grid">
+
+
+                    <STRONG>REEVALUACION</STRONG>&nbsp;                   
                         <html:hidden property="numeroSeyci"></html:hidden>
+
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-6">
+
+
+                            <div class="col-md-6">
+                                Fec. Ingreso Beneficios
+                                &nbsp;
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-xs-10">
+                                <html:text property="fechaIngresoBeneficios" styleClass="form-control input-sm" styleId="fechaIngresoBeneficios" size="12"/>
+                            </div>
+                            <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
+
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-6">
+                            Fecha de Evaluacion Doc                   
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-xs-10">
+                                <html:text property="fechaEvaluacionDoc" styleClass="form-control input-sm" styleId="fechaEvaluacionDoc" size="12">
+
+                                </html:text>
+                            </div>
+
+                            <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
+
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-6">
+                            Fecha de Notificacion
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-xs-10">
+                                <html:text property="fechaNotificacion" styleClass="form-control input-sm" styleId="fechaNotificacion" size="12">
+
+                                </html:text>
+                            </div>
+                            <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-md-6">
+
+
+                        <div class="col-md-6">
+                            Tipo Documento
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6">
+                            <html:select property="tipoDocumento" styleClass="form-control input-sm">
+                                <html:option value="0">SELECCIONE</html:option>   
+                                <html:options collection="list" property="codigoTipoDocumento" labelProperty="descripcionTipoDocumento"/>
+                            </html:select>  
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-6">
+                            Analista
+                            &nbsp;
+                        </div>
+                        <div class="col-md-6">
+                            <html:text property="analista" styleClass="form-control input-sm" size="20" maxlength="20"/>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="col-md-12">
+                        <div class="space">&nbsp;</div>
+                        <div class="row">
+                            <div class="col-6 form-inline">
+                                Observaciones Reevaluacion
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="space">&nbsp;</div>
+
+                        <div class="col-8 form-inline">
+                            <html:textarea cols="80" rows="4" styleClass="form-control input-sm" property="observacionesReevaluacion" readonly="false" />
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-2 form-inline">
+                            <a href="javascript:fncGuardarReevaluacion()">
+                                <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
-                <div class="space">&nbsp;</div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Fec. Ingreso Beneficios
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:text property="fechaIngresoBeneficios" styleClass="form-control" styleId="fechaIngresoBeneficios" size="12"/>
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
-                    </div>
-                    <div class="col-2 form-inline">
-                        Tipo Documento
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:select property="tipoDocumento" styleClass="form-control">
-                            <html:option value="0">SELECCIONE</html:option>   
-                            <html:options collection="list" property="codigoTipoDocumento" labelProperty="descripcionTipoDocumento"/>
-                        </html:select>  
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Fecha de Evaluacion Doc
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:text property="fechaEvaluacionDoc" styleClass="form-control" styleId="fechaEvaluacionDoc" size="12"></html:text>
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
-                    </div>
-                    <div class="col-2 form-inline">
-                        Analista
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:text property="analista" styleClass="form-control" size="20" maxlength="20"/> 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-2 form-inline">
-                        Fecha de Notificacion
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:text property="fechaNotificacion" styleClass="form-control" styleId="fechaNotificacion" size="12"></html:text>
-                        <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario">
-                    </div>
-                    <!--<div class="col-2 form-inline">
-                        Resp Dis(opcional)
-                        &nbsp;
-                    </div>
-                    <div class="col-4 form-inline">
-                        <html:text property="respDis" styleClass="form-control" size="20" maxlength="20"/> 
-                    </div>-->
-                </div>
-                <div class="row">
-                    <div class="col-6 form-inline">
-                        Observaciones Reevaluacion
-                        &nbsp;
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-8 form-inline">
-                        <html:textarea cols="80" rows="4" styleClass="form-control" property="observacionesReevaluacion" readonly="false" />
-                    </div>
-                    <div class="col-2 form-inline">
-                        <a href="javascript:fncGuardarReevaluacion()">
-                            <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="btn btn-custom"></div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </div> 
+
+
         </html:form>
     </body>
 </html>

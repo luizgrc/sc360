@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Page-Level Plugin CSS - Tables -->
+    <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper" style="background-color: #FF4C01;">
+        <!-- /navbar-header -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #FF4C01;margin-bottom: 0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+                <img src="../images/cabecera_2.png"  alt=""  style="height:51px; width:1260px;"/>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /dropdown bars -->
+            <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                           <span style="color: #fff">CFABIAN</span>
+                    </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bars fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-home fa-fw"></i> Inicio</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                    </ul>
+                   
+                </li>
+            </ul>
+             <!-- /.dropdown-bars -->
+              <!-- /Menu -->
+            <div class="navbar-default navbar-static-side" role="navigation"  >
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="cargaExcel.html"><i class="fa fa-upload fa-fw"></i> Carga de Archivos</a>
+                        </li>
+                        <li>
+                            <a href="asignar.html"><i class="fa fa-check-circle-o fa-fw"></i><!--<span class="fa arrow"></span>--> Asignacion</a>
+                            <!-- /.nav-second-level -->
+                            <!--<ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>-->
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-search fa-fw"></i> Consulta de Trámites</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Parámetros</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Reportes</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-envelope fa-fw"></i> Gestión de Cartas<!--<span class="fa arrow"></span>--></a>
+                            <!--
+                              /nav-second-level comentario
+                            
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Second Level Item</a>
+                                </li>
+                                <li>
+                                    <a href="#">Third Level <span class="fa arrow"></span></a>
+                                     /nav-third-level comentario
+                                    <ul class="nav nav-third-level">
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Third Level Item</a>
+                                        </li>
+                                    </ul>
+                                    /.nav-third-level comentario
+                                </li>
+                                 
+                            </ul>
+                           
+                            /.nav-second-level comentario -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Autorización de Traslado</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-cog fa-fw"></i> Mantenimiento de Etapas</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw" aria-hidden="true"></i> Indicadores</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.Menu -->
+        </nav>
+        <!-- /page-wrapper -->
+        <div id="page-wrapper">
+                <div class="space">&nbsp;</div>
+                <div class="space">&nbsp;</div>
+                <div class="row">
+                        <div class="col-lg-10">
+                                <i class="fa fa-upload"></i>&nbsp;<STRONG>ASIGNACION</STRONG>&nbsp;
+                            </div>
+
+                        <!-- /.col-lg-12 -->
+                </div>
+                <div class="space">&nbsp;</div>
+
+                <div class="panel panel-default">
+             
+                <div class="panel-body">
+                        <div class="table-responsive table-bordered">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;">Fecha</th>
+                                        <th style="text-align: center;"># Solicitud</th>
+                                        <th style="text-align: center;">Cuspp</th>
+                                        <th style="text-align: center;">Afiliado</th>
+                                        <th style="text-align: center;">Ejecutivo Servicio</th>
+                                        <th style="text-align: center;">Analista</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align: center;">1</td>
+                                        <td style="text-align: center;">Mark</td>
+                                        <td style="text-align: center;">X</td>
+                                        <td style="text-align: center;">@mdo</td>
+                                        <td style="text-align: center;">Otto</td>
+                                        <td style="text-align: center;">X</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+
+                    <div class="space">&nbsp;</div>       
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-7 form-inline">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-3 form-inline">
+                                
+                                <input type="button" value="ASIGNAR" alt="Asignar" id="btn-asignar" class="btn btn-custom" onclick="fncAsignar()" >
+                            </div>
+                        </div>
+                    </div>
+           
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Tables -->
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="js/sb-admin.js"></script>
+    <script>
+            $(function () {
+
+                
+                $( "#btn-asignar" ).click(function() {
+
+          });
+            });
+            function fncAsignar() {
+
+                alert("Asignar");
+
+            }
+            
+    </script>
+
+</body>
+
+</html>

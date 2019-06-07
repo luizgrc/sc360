@@ -26,8 +26,8 @@ public interface IfaceUtil {
      public List<Archivo> ListadoCarga(Archivo dto);
      public List<TipoArchivo> tiposArchivoQry();
      public List<Parametro>  departamentosCbo();
-     public List<Parametro> provinciasXdepa(String tipoUbigeo, String idDepartamento,String idProvincia, String idDistrito);
-     public List<Parametro> distritoXprovincia(String tipoUbigeo, String idDepartamento,String idProvincia, String idDistrito);
+     public List<Parametro> provinciasXdepa(String idDepartamento);
+     public List<Parametro> distritoXprovincia(String idProvincia);
      public List<Archivo> ListarErrores(Archivo dto);
      public String insertarLineaError(Archivo dto);
      public List<Asignacion> ListadoAsignacion(Asignacion dto);

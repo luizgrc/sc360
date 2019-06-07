@@ -31,11 +31,11 @@
     <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
 
     <!-- Core CSS - Include with every page -->
-    <link href="bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<c:out value="${pageContext.request.contextPath}"/>/bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
+    <link href="<c:out value="${pageContext.request.contextPath}"/>/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- SB Admin CSS - Include with every page -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="<c:out value="${pageContext.request.contextPath}"/>/css/sb-admin.css" rel="stylesheet">
 
 </head>
 

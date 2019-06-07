@@ -1,5 +1,17 @@
+$.getElementById
+
+
 
 $(function() {
+    /*var inputs = $('#frmConsulta :input');
+    var values = {};
+    inputs.each(function(){
+    $(this).attr('prueba','prueba');
+    });*/
+    $('#frmConsulta :input').each(function(){
+        $(this).attr('prueba2', 'prueba22');
+    });
+
     $('#dataTables-example').dataTable();
 /** Date Time Picker Fecha Seccion */
     $('#fechaSeccionIni').datetimepicker({
@@ -139,5 +151,8 @@ $(document).ready(function() {
     $(document).on('submit', '#step-1', function() {
       return false;
      });
+     $(document).on('submit', '#step-2', function() {
+        return false;
+       });
 });
 

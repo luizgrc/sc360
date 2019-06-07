@@ -1,295 +1,260 @@
-<%-- 
-    Document   : detalleConsulta
-    Created on : 07/04/2019, 12:59:24 PM
-    Author     : Elgar
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Detalle Consulta</title>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/main.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/style.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
-        <script>
-            
-            $(function() {
-                $("#primerNombre").attr("placeholder", "Nombre 1");
-                $("#segundoNombre").attr("placeholder", "Nombre 2");
-                $("#primerApellido").attr("placeholder", "Apellido 1");
-                $("#segundoApellido").attr("placeholder", "Apellido 2");
-                $("#fechaNacimiento" ).datepicker();
-            });
-            
-             function onChangeProvincia(campo,flag){
-                
-                var form=document.getElementById("frmconsulta");
-                var dpto  = document.getElementById("departamento").value;
-	        var campoaLlenar;
-	        if(flag=='PR'){
-		   campoaLlenar = document.getElementById("provincia");
-	           limpiarCombo(campoaLlenar);
-               }
-	        if (campo.value!='S'){
-		   ajax              = new Ajax(); 
-                   ajax.clase        = "com.sc360.struts.jdbc.dao.ImpUtil";
-                   ajax.metodo       = "provinciasXdepa";
-                   ajax.async        = false;
-                   ajax.parametros   = new Array("2",dpto," "," ");
-                   ajax.cargarComboBox(campoaLlenar,"descripcion","codigo");  
-               }else{
-		    if(flag=='PR' && campo.value=='S'){
-		       limpiarCombo(form.provincia);
-                       limpiarCombo(form.distrito);
-                    }
-	        }
-                
-                
-            }
-            
-            function onChangeDistrito(campo,flag){
-                  var form=document.getElementById("frmconsulta");
-                  var dpto  = document.getElementById("departamento").value;
-                  var prov  = document.getElementById("provincia").value;
-	          var campoaLlenar;
-	          if(flag=='DI'){
-		     campoaLlenar = document.getElementById("distrito");
-                     limpiarCombo(campoaLlenar);
-                  }
-	          if (campo.value!='S'){
-		          ajax              = new Ajax(); 
-                          ajax.clase        = "com.sc360.struts.jdbc.dao.ImpUtil";
-		          ajax.metodo       = "distritoXprovincia";
-                          ajax.async        = false;
-                          ajax.parametros   = new Array("3",dpto,prov," ");
-		          ajax.cargarComboBox(campoaLlenar,"descripcion","codigo");  
-	          }else{
-                        if(flag=='DI' && campo.value=='S')
-                        {
-                            limpiarCombo(form.distrito);
-                        }
-	          }
-            }
-            
-            function limpiarCombo(campo){
+<!--DATOS GENERALES-->
+<form role="form" id="step-1" class="setup-content">
+    <div class="panel panel-primary ">
+        <!--Titulo-->
+        <div class="panel-heading">
+            <h3 class="panel-title">Consulta detalle</h3>
+        </div>
+        <!--/.Titulo-->
+        <div class="panel-body" style="width: auto;height: 400px;overflow-y: auto;">
+            <div class="container">
+                <div>
+                    <STRONG>DATOS GENERALES</STRONG>&nbsp;
+                </div>
+                <div class="space">&nbsp;</div>
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label style="margin: 4px">Exp &nbsp;</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input id="txtExp" class="form-control input-sm"
+                               size="12" maxlength="12" disabled="true" /></div>
+                </div>
+                <div class="space">&nbsp;</div>
+                <div>
+                    <div class="col-lg-6">
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">CUSPP&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="txtCuspp" type="text" required="" class="input-sm form-control"
+                                   style="width: 167px;" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="" id="cuspp">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Primer
+                                nombre&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="txtpNom" type="text" required="" class="input-sm"
+                                   style="width: 167px;" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required"
+                                   id="primerNombre">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Segundo
+                                Nombre&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="txtsNom" type="text" required="required" class="input-sm"
+                                   style="width: 167px;" />
+                        </div>
+                        <div class="col-md-4 ">
+                            <input type="checkbox" required="required"
+                                   id="segundoNombre">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Primer
+                                Apellido&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="txtpApe" type="text" required="required" class=" input-sm"
+                                    style="width: 167px;" />
 
-                while(campo.options.length>1){
-                    campo.options.remove(1);
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <html:form action="Consulta.do" styleId="frmConsulta" >
-            
-            
-            <table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-                    <tr>
-                        <td colspan="9">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td width="20">&nbsp;</td>
-                      <td align="left">
-                        <STRONG>DATOS GENERALES</STRONG>					  </td>
-					  <td></td>
-					  <td></td>
-                      <td align="right">Exp</td>
-                      <td align="left"><html:text property="numeroExpediente" styleClass="TextoCajaVerde" size="20" maxlength="20"></html:text></td>
-                      <td align="right">CUSPP</td>
-                      <td align="left"><html:text property="cuspp" styleClass="TextoDatosGenerales" size="20" maxlength="20"></html:text></td>
-					  <td width="20">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td>&nbsp;</td>
-                      <td align="left">&nbsp;</td>
-                      <td></td>
-                      <td></td>
-                      <td align="right">&nbsp;</td>
-                      <td align="left">&nbsp;</td>
-                      <td align="right">&nbsp;</td>
-                      <td align="left">&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>
-            </table>      
-			<table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-			<tr>
-                      <td width="20">&nbsp;</td>
-                      <td width="110" style="text-align: center"><html:text property="primerNombre" styleClass="TextoDatosGenerales" styleId="primerNombre" size="20" maxlength="20" ></html:text></td>
-                      <td width="40">&nbsp;</td>
-                      <td width="110" align="center"><html:text property="segundoNombre" styleClass="TextoDatosGenerales" styleId="segundoNombre" size="20" maxlength="20" ></html:text></td>
-                      <td width="40">&nbsp;</td>
-                      <td width="110" align="center"><html:text property="primerApellido" styleClass="TextoDatosGenerales" styleId="primerApellido" size="20" maxlength="20"></html:text></td>
-                      <td width="40">&nbsp;</td>
-                      <td width="103" align="center"><html:text property="segundoApellido" styleClass="TextoDatosGenerales" styleId="segundoApellido" size="20" maxlength="20"></html:text></td>
-					  <td width="20">&nbsp;</td>
-              </tr>
-			<tr>
-			  <td>&nbsp;</td>
-			  <td style="text-align: center">&nbsp;</td>
-			  <td>&nbsp;</td>
-			  <td align="center">&nbsp;</td>
-			  <td>&nbsp;</td>
-			  <td align="center">&nbsp;</td>
-			  <td>&nbsp;</td>
-			  <td align="center">&nbsp;</td>
-			  <td>&nbsp;</td>
-			  </tr>
-			</table>
-			
-			<table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-                    <tr>
-					  <td width="20">&nbsp;</td>
-                      <td width="100">Fecha de Nac.</td>
-                      <td width="220" style="text-align: left">
-                      <html:text property="fechaNacimiento" styleClass="Texto1" styleId="fechaNacimiento" size="12" />
-                      <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>                      </td>
-                      <td width="20">Correo</td>
-                      <td width="20"><html:text property="correo" styleClass="TextoDatosGenerales"  size="20" maxlength="20"></html:text></td>
-                      <td width="200">
-                        <html:select property="sexo" styleClass="Texto1">
-                            <html:option value="0">SEXO</html:option>   
-                            <html:option value="1">MASCULINO</html:option>
-                            <html:option value="2">FEMENINO</html:option>
-                        </html:select>                      </td>
-					  <td width="20">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td style="text-align: left">&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>
-            </table>
-			<table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-                    <tr>
-					    <td width="20">&nbsp;</td>
-                        <td width="70" align="left">Telefono</td>
-                        <td width="250" style="text-align: left">
-                      <html:text property="telefono" styleClass="TextoDatosGenerales" styleId="telefono" size="20" maxlength="20" />                      </td>
-                      <td width="20"></td>
-                      <td width="70"></td>
-                      <td width="150">
-                        <html:select property="estadoCivil" styleClass="Texto1">
-                            <html:option value="0">ESTADO CIVIL</html:option>   
-                            <html:option value="1">SOLTERO</html:option>
-                            <html:option value="2">CASADO</html:option>
-                            <html:option value="3">VIUDO</html:option>
-                            <html:option value="4">DIVORCIADO</html:option>
-                        </html:select>					  </td>
-					  <td width="20">&nbsp;</td>
-                    </tr>
-                    <tr>
-                      <td>&nbsp;</td>
-                      <td align="left">&nbsp;</td>
-                      <td style="text-align: left">&nbsp;</td>
-                      <td></td>
-                      <td></td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                    </tr>        
-            </table>
-			
-			<table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-                     <tr>
-					     <td width="20">&nbsp;</td>
-                        <td width="70" align="left">Direccion</td>
-                        <td width="250" style="text-align: left">
-                        <html:text property="telefono" styleClass="TextoDatosGenerales" styleId="direccion" size="40" maxlength="40" />                      </td>
-                      <td width="20"></td>
-                      <td width="70">Departamento</td>
-                      <td width="150">
-                          <select id="departamento" name="departamento" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000;" onchange="onChangeProvincia(this,'PR')" >
-                            <option value="00">[DEPARTAMENTO]</option>
-                            <c:forEach var="f" items="${listDepartamento}">
-                                <option value="${f[0]}">${f[1]}</option>
-                            </c:forEach>
-                        </select>					  
-                      </td>
-					  <td width="20">&nbsp;</td>
-                     </tr>
-                     <tr>
-                       <td>&nbsp;</td>
-                       <td align="left">&nbsp;</td>
-                       <td style="text-align: left">&nbsp;</td>
-                       <td></td>
-                       <td></td>
-                       <td>&nbsp;</td>
-                       <td>&nbsp;</td>
-                     </tr>
-                 </table>
-				 
-				 <table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-                     <tr>
-					     <td width="20">&nbsp;</td>
-                         <td width="70" align="left">Provincia</td>
-                         <td width="250" style="text-align: left">
-                         <select name="provincia" class="Texto1" id="provincia" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000;" onchange="onChangeDistrito(this,'DI')">
-                            <option value="00">[PROVINCIA]</option>
-                            <c:forEach var="item" items="${listaProvincia}">
-                                <option value="${item.codigo}" ${item.codigo == selectedProv ? 'selected="selected"' : ''}>${item.descripcion}</option>
-                            </c:forEach>
-                         </select>                   
-			 </td>
-                         <td width="20"></td>
-                         <td width="70">Distrito</td>
-                         <td width="150">
-                            <select name="distrito" class="Texto1" id="distrito" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000;">
-                                <option value="00">[DISTRITO]</option>
-                                    <c:forEach var="item" items="${listaDistrito}">
-                                        <option value="${item.codigo}" ${item.codigo == selectedDist ? 'selected="selected"' : ''}>${item.descripcion}</option>
-                                    </c:forEach>
-                            </select> 					  
-			  </td>
-					     <td width="20">&nbsp;</td>
-                     </tr>
-                     <tr>
-                       <td>&nbsp;</td>
-                       <td align="left">&nbsp;</td>
-                       <td style="text-align: left">&nbsp;</td>
-                       <td></td>
-                       <td></td>
-                       <td>&nbsp;</td>
-                       <td>&nbsp;</td>
-                     </tr>
-                 </table>
-				 
-				  <table width="600" border="0" cellpadding="0" cellspacing="0" class="Texto1">
-                     <tr>
-					     <td width="20">&nbsp;</td>
-                         <td width="70" align="left">
-						   <input type="checkbox">
-						 </td>
-                         <td width="250" style="text-align: left">
-                             Tiene Apoderado                
-						 </td>
-                         <td width="20"></td>
-                         <td width="70">&nbsp;</td>
-                         <td width="150">
-                            <div style="text-align: center"><input type="button" value="Guardar" alt="Guardar" class="button2"></div>					
-						 </td>
-					     <td width="20">&nbsp;</td>
-                     </tr>
-                     <tr>
-                       <td>&nbsp;</td>
-                       <td align="left">&nbsp;</td>
-                       <td style="text-align: left">&nbsp;</td>
-                       <td></td>
-                       <td></td>
-                       <td>&nbsp;</td>
-                       <td>&nbsp;</td>
-                     </tr>
-                 </table>
-			
-        </html:form>
-    </body>
-</html>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required"
+                                   id="primerApellido">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!---->
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Segundo
+                                Apellido&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="txtsApe" type="text" required="required" class="input-sm"
+                                    style="width: 167px;" />
+
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required"
+                                   id="segundoApellido">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-lg-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Fecha
+                                Nacimiento&nbsp;</label>
+                        </div>
+                        <div class="col-md-4 form-inline">
+                            <div class="input-group date fechaModal">
+                                <input id="txtfecNac" type="text" required="required"
+                                       class="form-control input-sm "
+                                       style="width: 130px;" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span></div>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required"
+                                   id="fechaNacimiento">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Correo&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input id="txtcorreo" type="text" required="required"
+                                   class="input-sm" style="width: 167px;">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="correo">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-md-4" style="height: 20px ">
+                            <label style="padding-top: 10px;"> Sexo&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="txtSexo" required="required" style="width: 168px;"
+                                    class="input-sm">
+                                <option value="0">
+                                    [SEXO]
+                                </option>
+                                <option value="1">
+                                    MASCULINO
+                                </option>
+                                <option value="2">
+                                    FEMENINO
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="sexo">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!---->
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Telefono&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input required="required" class=" input-sm" id="txtTelefono"
+                                   style="width: 167px;" />
+
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="telefono">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Estado Civil&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="txtEstCivil"required="required" style="width: 168px;"
+                                    class="input-sm">
+                                <option value="0">
+                                    [ESTADO CIVIL]
+                                </option>
+                                <option value="1">
+                                    SOLTERO
+                                </option>
+                                <option value="2">
+                                    CASADO
+                                </option>
+                                <option value="3">
+                                    VIUDO
+                                </option>
+                                <option value="4">
+                                    DIVORCIADO
+                                </option>                                
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="estadoCivil">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!---->
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Direccion&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input required="required" class="input-sm" id="txtDireccion"
+                                   size="20" maxlength="20" />
+
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="direccion">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!---->
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Departamento&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <select required="required" class=" input-sm"
+                                    style="width: 168px;" id="departamento">
+                                <option value="00">[DEPARTAMENTO]</option>
+                                <c:forEach var="f" items="${listDepartamento}">
+                                    <option value="<c:out value="${f.codigo}"/>"><c:out value="${f.descripcion}"/></option>
+                                </c:forEach>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required"
+                                   id="departamento">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!---->
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Provincia&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <select required="required" class="input-sm"
+                                    style="width: 168px;" id="provincia">
+                                <option value="00">[PROVINCIA]</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="provincia">
+                        </div>
+                        <div class="space">&nbsp;</div>
+                        <!---->
+                        <div class="col-md-4" style="height: 20px">
+                            <label style="padding-top: 10px;">Distrito&nbsp;</label>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="distrito" style="width: 168px;"
+                                    required="required" class="input-sm" id="distrito">
+                                <option value="00">
+                                    [DISTRITO]
+                                </option>
+
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="checkbox" required="required" id="distrito">
+                        </div>
+                    </div>
+                    <div class="space">&nbsp;</div>
+                    <div class="container col-9 form-inline">
+                        <input type="checkbox" required="required"
+                               id="Apoderado">&nbsp;<label style="padding-top: 10px;">Tiene
+                            Apoderado</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-custom nextBtn pull-right" type="submit">Siguiente</button>
+</form>
+<!--/.DATOS GENERALES-->

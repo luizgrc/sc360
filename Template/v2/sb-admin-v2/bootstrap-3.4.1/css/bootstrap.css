@@ -6846,12 +6846,7 @@ button.close {
 .form-inline .form-control {
     width: 100%;
 }
-/* Reset margin-bottom for our multiline form*/
-@media (min-width: 768px) {
-  .form-inline .form-group {
-    margin-bottom: 15px;
-  }
-}
+
 .form-filters{
   width: auto !important;
 }

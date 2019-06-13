@@ -17,7 +17,7 @@ $(function () {
             $('#frmConsulta').submit();
         }
     });
-    $('#departamento').change(function () {
+    $('#txtdepartamento').change(function () {
         var codigodep = $(this).val();
         //console.log(codigodep);
         $.ajax({
@@ -25,13 +25,14 @@ $(function () {
             url: 'Consulta.do?method=provinciasXdepa',
             data: {codigodep: codigodep},
             dataType: 'JSON',
+            async: false,
             success: function (response) {
-                $('#provincia').empty();
-                $('#distrito').empty();
-                $("<option/>").attr("value", "00").text("[PROVINCIA]").appendTo('#provincia');
-                $("<option/>").attr("value", "00").text("[DISTRITO]").appendTo('#distrito');
+                $('#txtprovincia').empty();
+                $('#txtdistrito').empty();
+                $("<option/>").attr("value", "00").text("[PROVINCIA]").appendTo('#txtprovincia');
+                $("<option/>").attr("value", "00").text("[DISTRITO]").appendTo('#txtdistrito');
                 $.each(response, function (index, item) {
-                    $("<option/>").attr("value", item.codigo).text(item.descripcion).appendTo('#provincia');
+                    $("<option/>").attr("value", item.codigo).text(item.descripcion).appendTo('#txtprovincia');
                 });
             },
             error: function () {
@@ -42,27 +43,29 @@ $(function () {
 
 
     });
-    $('#provincia').change(function () {
+    $('#txtprovincia').change(function () {
         var idProvincia = $(this).val();
-        //console.log(idProvincia);
+        console.log('change #txtprovincia' + idProvincia);
         $.ajax({
             type: 'POST',
             url: 'Consulta.do?method=distritoXprovincia',
             data: {idProvincia: idProvincia},
             dataType: 'JSON',
+            async: false,
             success: function (response) {
-                $('#distrito').empty();
-                $("<option/>").attr("value", "00").text("[DISTRITO]").appendTo('#distrito');
+                $('#txtdistrito').empty();
+                $("<option/>").attr("value", "00").text("[DISTRITO]").appendTo('#txtdistrito');
                 $.each(response, function (index, item) {
-                    $("<option/>").attr("value", item.codigo).text(item.descripcion).appendTo('#distrito');
+                    $("<option/>").attr("value", item.codigo).text(item.descripcion).appendTo('#txtdistrito');
                 });
             },
             error: function () {
-                alert('Hubo un error en ajax #provincia');
+                alert('Hubo un error en ajax #txtprovincia');
             }
 
         });
     });
+
     $(document).on('submit', '.setup-content', function () {
         return false;
     });
@@ -120,29 +123,7 @@ $(function () {
         format: 'DD/MM/YYYY'
 
     });
-    $('form').attr({
-        role: 'form'
-    });
-
-
-
 });
-/** traslado -- desactivar y activar el contenido */
-function onChangeMostar() {
-    var form = document.getElementById("frmTraslado");
-    var opc = document.getElementById("opcion").value;
-
-    if (opc == '00') {
-
-        window.document.getElementById("mostrar").style.display = 'block';
-    }
-
-    if (opc == '01') {
-
-        window.document.getElementById("mostrar").style.display = 'none';
-    }
-}
-
 function showModalWindow(idSolicitud) {
     $('#modal-detalle').modal({
         backdrop: 'static', keyboard: false
@@ -155,7 +136,11 @@ function showModalWindow(idSolicitud) {
             data: {idSolicitud: idSolicitud},
             dataType: 'JSON',
             success: function (response) {
+                console.log(response);
                 $.each(response, function (index, item) {
+                    console.log('departamento: ' + item.departamento);
+                    console.log('provincia: ' + item.provincia);
+                    console.log('distrito: ' + item.distrito);
                     $('#txtExp').val(item.exp);
                     $('#txtCuspp').val(item.cuspp);
                     $('#txtpNom').val(item.primerNombre);
@@ -177,8 +162,14 @@ function showModalWindow(idSolicitud) {
                     }
                     $('#txtTelefono').val(item.telefono);
                     //$('#txtEstCivil').val() por determinar
+
                     $('#txtDireccion').val(item.direccion);
-                    //$('#departamento').val(item.nombreDepartamento);
+                    $('#txtdepartamento').val(item.departamento).trigger('change');
+                    console.log('Departamento Val Modal: ' + $('#txtdepartamento').val());
+                    $('#txtprovincia').val(item.provincia).trigger('change');
+                    console.log('txtprovincia Val Modal: ' + $('#txtprovincia'));
+                    $('#txtdistrito').val(item.distrito);
+                    console.log('txtdistrito Val Modal: ' + $('#txtdistrito').val());
 
                 });
             },
@@ -198,8 +189,9 @@ function showModalWindow(idSolicitud) {
         navListItems.click(function (e) {
             e.preventDefault();
             var $target = $($(this).attr('href')),
-                    $item = $(this);
-
+                    $item = $(this),
+                    $targethrefVal = $(this).attr('href');
+            console.log($target);
             if (!$item.hasClass("disabled")) {
                 navListItems.removeClass('btn-warning').addClass('btn-default');
                 $item.addClass('btn-warning');
@@ -207,6 +199,30 @@ function showModalWindow(idSolicitud) {
                 $target.show();
                 $target.find('input:eq(0)').focus();
             }
+            switch ($targethrefVal) {
+                case "#step-1":
+                    break;
+                    //-------SEYCI-----------
+                case "#step-2":
+                    console.log($targethrefVal);
+                    listarEjecutivos();
+                    listarAgencias();
+                    AjaxSeyciInicio($('#txtExp').val());
+
+                    break;
+                    //-------TRASLADO-----------
+                case "#step-3":
+                    $('#nroExpT').val($('#txtExp').val());
+                    $('#sltOpcionT').trigger('change');
+                    break;
+                case "#step-4":
+                    break;
+                case "#step-5":
+                    break;
+                case "#step-6":
+                    break;
+            }
+
         });
 
         allNextBtn.click(function () {
@@ -228,8 +244,10 @@ function showModalWindow(idSolicitud) {
                 }
             }
 
-            if (isValid)
+            if (isValid) {
+
                 nextStepWizard.removeClass('disabled').trigger('click');
+            }
 
         });
 

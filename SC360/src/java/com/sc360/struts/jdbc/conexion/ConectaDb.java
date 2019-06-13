@@ -9,52 +9,49 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.Locale;
-import com.sc360.struts.jdbc.conexion.Utils;
+import java.net.URL;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 
 /**
  *
  * @author epuma
  */
 public class ConectaDb {
-    
-     
-    
+
+    private final static Logger LOGGER = Logger.getLogger(ConectaDb.class);
+
+//    URL log4url = ConectaDb.class.getResource("log4j.properties");
     private String url = "";
+
     //private final String driver = "com.mysql.jdbc.Driver";
     //private final String user = "root";
     //private final String password = "mysql";
     //private final String password = "root";
-    
-    
     public Connection getConnection() throws SQLException {
+        
         Connection cn = null;
-        
-        String archivo_configuracion = "com.sc360.struts.jdbc.conexion.sc360";
             
-        ResourceBundle rb = ResourceBundle.getBundle(archivo_configuracion);
-        
-        
-        /*Locale locale = new Locale("es", "PE");
-        ResourceBundle recursos = ResourceBundle.getBundle("sc360properties",locale);
-        String user = recursos.getString("US");
-        String password = recursos.getString("PW");
-        String url = recursos.getString("URL");
-        String driver = recursos.getString("DRIVER");*/
+        String archivo_configuracion = "com.sc360.struts.jdbc.conexion.sc360";
+
+        LOGGER.log(Level.INFO, "Inicio Cadena Conexion");
         
 
+        ResourceBundle rb = ResourceBundle.getBundle(archivo_configuracion);
         try {
-            
             String user = rb.getString("US");
             String password = rb.getString("PW");
             String url = rb.getString("URL");
+            LOGGER.log(Level.INFO, user);
+            LOGGER.log(Level.INFO, password);
+            LOGGER.log(Level.INFO, url);
             String driver = rb.getString("DRIVER");
-            
             Class.forName(driver).newInstance();
             cn = DriverManager.getConnection(url, user, password);
+        } catch (Exception ex) {
 
-        } catch ( Exception ex) {
-            
             throw new SQLException(ex.getMessage());
         }
 
@@ -67,5 +64,5 @@ public class ConectaDb {
     public ConectaDb(String database) {
         url = "jdbc:mysql://localhost:3306/" + database;
     }
-    
+
 }

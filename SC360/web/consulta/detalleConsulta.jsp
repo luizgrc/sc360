@@ -199,8 +199,7 @@
                             <label style="padding-top: 10px;">Departamento&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select required="required" class=" input-sm"
-                                    style="width: 168px;" id="departamento">
+                            <select required="required" class=" input-sm" style="width: 168px;" id="txtdepartamento">
                                 <option value="00">[DEPARTAMENTO]</option>
                                 <c:forEach var="f" items="${listDepartamento}">
                                     <option value="<c:out value="${f.codigo}"/>"><c:out value="${f.descripcion}"/></option>
@@ -209,8 +208,7 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required"
-                                   id="departamento">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <!---->
@@ -218,13 +216,12 @@
                             <label style="padding-top: 10px;">Provincia&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select required="required" class="input-sm"
-                                    style="width: 168px;" id="provincia">
+                            <select required="required" class="input-sm" style="width: 168px;" id="txtprovincia">
                                 <option value="00">[PROVINCIA]</option>
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="provincia">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <!---->
@@ -233,7 +230,7 @@
                         </div>
                         <div class="col-md-4">
                             <select name="distrito" style="width: 168px;"
-                                    required="required" class="input-sm" id="distrito">
+                                    required="required" class="input-sm" id="txtdistrito">
                                 <option value="00">
                                     [DISTRITO]
                                 </option>
@@ -241,7 +238,7 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="distrito">
+                            <input type="checkbox" required="required">
                         </div>
                     </div>
                     <div class="space">&nbsp;</div>
@@ -255,6 +252,6 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-custom nextBtn pull-right" type="submit">Siguiente</button>
+    <button class="btn btn-custom nextBtn pull-right" type="submit" id="btndetConsulta">Siguiente</button>
 </form>
 <!--/.DATOS GENERALES-->

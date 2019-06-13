@@ -51,11 +51,11 @@
         </action>
         
         <action path="/Seyci" type="com.sc360.struts.action.SeyciAction" parameter="method" name="formSeyci" validate="true"> 
-            <forward name="inicioSeyci" path="/consulta/inicioSeyci.jsp"/>
+            <!--<forward name="inicioSeyci" path="/consulta/inicioSeyci.jsp"/>-->
         </action>
         
         <action path="/Traslado" type="com.sc360.struts.action.TrasladoAction" parameter="method" name="formTraslado" validate="true"> 
-            <forward name="inicioTraslado" path="/consulta/traslado.jsp"/>
+           <!-- <forward name="inicioTraslado" path="/consulta/traslado.jsp"/>-->
         </action>
         
         <action path="/Reevaluacion" type="com.sc360.struts.action.ReevaluacionAction" parameter="method" name="formReevaluacion" validate="true"> 

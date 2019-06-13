@@ -5,6 +5,7 @@
  */
 package com.sc360.struts.action;
 
+import com.google.gson.Gson;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -29,100 +30,24 @@ public class TrasladoAction extends DispatchAction{
 
     
         System.out.println(" Inicio Traslado Action ");
-        IfaceUtil daoUtil = new ImpUtil();
+        Gson gson = new Gson();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
         Traslado dto = new Traslado();
         String numeroExpediente  =  req.getParameter("numeroExp");
         System.out.println(" numeroExpediente " + numeroExpediente);
         
-        TrasladoForm formT =(TrasladoForm)form;
-        
-        //formT.setNroExpSeyci(numeroExpediente);
-        
-        if(numeroExpediente==null){
-  
-              numeroExpediente = formT.getNroExpSeyci();
-              System.out.println(" numeroExpediente Null " + numeroExpediente);
-        }else{
-              formT.setNroExpSeyci(numeroExpediente);
-        }
-        
-        List<Parametro>  listDepartamento = daoUtil.departamentosCbo();
-        
-        if (listDepartamento != null) {
-                    req.setAttribute("listDepartamento", listDepartamento);
-        }
-        
         dto.setNroExpSeyci(numeroExpediente);
         
         List<Traslado>   listaTraslado= daoSolicitud.ListadoTraslado(dto);
+        String jsonstring = "";
+        if(listaTraslado != null){
+            jsonstring = gson.toJson(listaTraslado);
+        }
+        res.getWriter().write(jsonstring);
         
-        if (listaTraslado.size()>0) {
-                    req.setAttribute("listaTraslado", listaTraslado);
-                }
-        
-                 formT.setFechaCita(null);
-                 formT.setAcompanante(null);
-                 formT.setNroTraslado(null);
-                 formT.setTipo(null);
-                 formT.setOrigen(null);
-                 formT.setDestino(null);
-                 formT.setFechaAprobacion(null);
-                 formT.setMoneda(null);
-                 formT.setTipoMovilidad(null);
-                 formT.setMontoMovilidad(null);
-                 formT.setMoneda1(null);
-                 formT.setDiasAlimentacion(null);
-                 formT.setMontoAlimentacion(null);
-                 formT.setMoneda2(null);
-                 formT.setDiasAlojamiento(null);
-                 formT.setMontoAlojamiento(null);
-                 formT.setMontoMedico(null);
-                 formT.setTotalGasto(null);
-                 formT.setEjecutivo(null);
-                 formT.setAnalista(null);
-        
-        //if (listaTraslado.size()>0) {
-        
-        /*try
-           {
-                for(int cant=0;cant < listaTraslado.size();cant++ )
-                {
-                 Traslado dtoDetalle = (Traslado)listaTraslado.get(cant);
-                 
-                 formT.setFechaCita(dtoDetalle.getFechaCita());
-                 formT.setAcompanante(dtoDetalle.getAcompanante());
-                 formT.setNroTraslado(dtoDetalle.getNroTraslado());
-                 formT.setTipo(dtoDetalle.getTipo());
-                 formT.setOrigen(dtoDetalle.getOrigen());
-                 formT.setDestino(dtoDetalle.getDestino());
-                 formT.setFechaAprobacion(dtoDetalle.getFechaAprobacion());
-                 formT.setMoneda(dtoDetalle.getMoneda1());
-                 formT.setTipoMovilidad(dtoDetalle.getTipoMovilidad());
-                 formT.setMontoMovilidad(dtoDetalle.getMontoMovilidad());
-                 formT.setMoneda1(dtoDetalle.getMoneda1());
-                 formT.setDiasAlimentacion(dtoDetalle.getDiasAlimentacion());
-                 formT.setMontoAlimentacion(dtoDetalle.getMontoAlimentacion());
-                 formT.setMoneda2(dtoDetalle.getMoneda2());
-                 formT.setDiasAlojamiento(dtoDetalle.getDiasAlojamiento());
-                 formT.setMontoAlojamiento(dtoDetalle.getMontoAlojamiento());
-                 formT.setMontoMedico(dtoDetalle.getMontoExtraMedicos());
-                 formT.setTotalGasto(dtoDetalle.getTotalGasto());
-                 formT.setEjecutivo(dtoDetalle.getEjecutiva());
-                 formT.setAnalista(dtoDetalle.getAnalista());
-                 formT.setNroExpSeyci(dtoDetalle.getNroExpSeyci());
-                 
-                } 
-       
-            }catch(Exception e)
-            {
-                e.printStackTrace();
-            }*/
-  
-        //}
         System.out.println(" Fin Traslado Action ");
         
-        return mapping.findForward("inicioTraslado");
+        return null;
         
     }
     

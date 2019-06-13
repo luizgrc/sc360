@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-lg-3 form-inline">
                     <div class='input-group date' id='fechaAsignacionFin'>
-                        <html:text property="fechaAsignacionFin" styleClass="form-control"/>
+                        <html:text property="fechaAsignacionFin" styleClass="form-control" />
                         <span class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </span>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-lg-3 form-inline">
                     <div class='input-group date' id='fechaVencimientoIni'>
-                        <html:text property="fechaVencimientoIni" styleClass="form-control"/>&nbsp;
+                        <html:text property="fechaVencimientoIni" styleClass="form-control"/>
                         <span class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </span>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="col-lg-3 form-inline">
                     <div class='input-group date' id='fechaVencimientoFin'>
-                        <html:text property="fechaVencimientoFin" styleClass="form-control"/>&nbsp;
+                        <html:text property="fechaVencimientoFin" styleClass="form-control"/>
                         <span class="input-group-addon">
                             <span class="fa fa-calendar"></span>
                         </span>
@@ -230,7 +230,7 @@
                                         <p><small>Consulta Detalle</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-2" type="button" class="btn btn-default btn-circle ">2</a>
+                                        <a href="#step-2" type="button" class="btn btn-default btn-circle">2</a>
                                         <p><small>Seyci</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
@@ -263,6 +263,13 @@
                             <!--SEYCI-->
                             <%@include file="../consulta/inicioSeyci.jsp" %>
                             <!--/.SEYCI-->
+
+                            <!--TRASLADO-->
+                            <%@include file="../consulta/traslado.jsp" %>
+                            <!--/.SEYCI-->
+                            <!--REEVALUACION-->
+                            <%@include file="../consulta/reevaluacion.jsp" %>
+                            <!--/.REEVALUACION-->
                         </div>
                         <!--/.Contenedor-->
                     </div>
@@ -296,7 +303,11 @@
 
 <!-- Customize JS - Consulta Tramite-->
 <script src="<c:out value="${pageContext.request.contextPath}"/>/bootstrap-3.4.1/js/bootstrap-datetimepicker.min.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/reevaluacion.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/seyci.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/traslado.js"></script>
 <script src="<c:out value="${pageContext.request.contextPath}"/>/js/consultaSolicitud.js"></script>
+
 
 
 

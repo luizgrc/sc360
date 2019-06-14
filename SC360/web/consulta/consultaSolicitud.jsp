@@ -177,7 +177,7 @@
                                         <th style="text-align: center;">Etapa</th>
                                         <th style="text-align: center;">Fecha Vencimiento</th>
                                         <th style="text-align: center;">Estado</th>
-                                        <th style="text-align: center;">Detalle</th>
+                                        <th style="text-align: center;" class="xl_none">Detalle</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -191,7 +191,7 @@
                                                 <td style="text-align: center;"><c:out value="${t.etapa}"/></td>
                                                 <td style="text-align: center;"><c:out value="${t.fechaVencimientoSolicitud}"/></td>
                                                 <td style="text-align: center;"><c:out value="${t.estado}"/></td>
-                                                <td style="text-align: center;">
+                                                <td style="text-align: center;" class="xl_none">
                                                     <a href="javascript:showModalWindow('<c:out value="${t.idSolicitud}"/>')">
                                                         <i class="fa fa-file-text fa-fw" style="color:#000;"></i></a></td>
                                             </tr>
@@ -226,28 +226,27 @@
                             <div class="stepwizard">
                                 <div class="stepwizard-row setup-panel">
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-1" type="button" class="btn btn-warning btn-circle">1</a>
+                                        <a href="#step-1" type="button" class="btn btn-warning btn-circle" >1</a>
                                         <p><small>Consulta Detalle</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-2" type="button" class="btn btn-default btn-circle">2</a>
+                                        <a href="#step-2" type="button" class="btn btn-default btn-circle disabled">2</a>
                                         <p><small>Seyci</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-3" type="button" class="btn btn-default btn-circle ">3</a>
+                                        <a href="#step-3" type="button" class="btn btn-default btn-circle disabled">3</a>
                                         <p><small>Traslado</small></p>
                                     </div>
-                                    <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-4" type="button" class="btn btn-default btn-circle ">4</a>
+                                    <div class="stepwizard-step col-xs-2" >
+                                        <a href="#step-4" type="button" class="btn btn-default btn-circle disabled">4</a>
                                         <p><small>Reevaluacion</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-5" type="button" class="btn btn-default btn-circle ">5</a>
+                                        <a href="#step-5" type="button" class="btn btn-default btn-circle disabled">5</a>
                                         <p><small>Dictamen</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-6" type="button"
-                                           class="btn btn-default btn-circle ">6</a>
+                                        <a href="#step-6" type="button" class="btn btn-default btn-circle disabled">6</a>
                                         <p><small>Apelacion</small></p>
                                     </div>
 
@@ -270,6 +269,15 @@
                             <!--REEVALUACION-->
                             <%@include file="../consulta/reevaluacion.jsp" %>
                             <!--/.REEVALUACION-->
+                            <!-- DICTAMEN -->
+                            <%@include file="../consulta/dictamen.jsp" %>
+                            <!-- /.DICTAMEN -->
+                            <!--APELACION-->
+                            <%@include file="../consulta/apelacion.jsp" %>
+                            <!--/.APELACION-->
+                            
+                            <!--<span class="snackbar" id ="snck">Mensaje <a href="#">CERRAR</a></span>-->
+                            <span class="snackbar" id ="snck"></span>
                         </div>
                         <!--/.Contenedor-->
                     </div>
@@ -303,6 +311,10 @@
 
 <!-- Customize JS - Consulta Tramite-->
 <script src="<c:out value="${pageContext.request.contextPath}"/>/bootstrap-3.4.1/js/bootstrap-datetimepicker.min.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/utils/jszip.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/utils/FileSaver.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/utils/excel-gen.js"></script>
+<script src="<c:out value="${pageContext.request.contextPath}"/>/js/dictamen.js"></script>
 <script src="<c:out value="${pageContext.request.contextPath}"/>/js/reevaluacion.js"></script>
 <script src="<c:out value="${pageContext.request.contextPath}"/>/js/seyci.js"></script>
 <script src="<c:out value="${pageContext.request.contextPath}"/>/js/traslado.js"></script>

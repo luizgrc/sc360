@@ -1,6 +1,15 @@
 
 $(function () {
-
+    $('#btn-export').click(function () {
+        var myTable = $("#dataTables-example");
+        excel = new ExcelGen({
+            "file_name": "output.xlsx",
+            "src": myTable,
+            "show_header": true,
+            "exclude_selector": ".xl_none"
+        });
+        excel.generate();
+    });
     $("#btn-find").click(function () {
         var x = $('#tipoDocumento').val();
         if (x == "0") {
@@ -45,7 +54,7 @@ $(function () {
     });
     $('#txtprovincia').change(function () {
         var idProvincia = $(this).val();
-        console.log('change #txtprovincia' + idProvincia);
+        //console.log('change #txtprovincia' + idProvincia);
         $.ajax({
             type: 'POST',
             url: 'Consulta.do?method=distritoXprovincia',
@@ -65,9 +74,36 @@ $(function () {
 
         });
     });
+    $('.snackbar').on('click', function () {
 
-    $(document).on('submit', '.setup-content', function () {
-        return false;
+        $(this).fadeToggle("slow", "linear");
+
+    });
+    $('#step-1').on('submit', function (e) {
+        var snk = $('.snackbar');
+        e.preventDefault();
+        var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                data = $(this).serializeArray();
+        //console.log(nextStepWizard);
+        //console.log(data);
+        $.ajax({
+            url: "Consulta.do?method=guardarSolicitud",
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'JSON'
+        }).done(function (response) {
+            //console.log(snk);    
+            //console.log(response);
+
+            //console.log(response.descripcion);
+            snk.html(response.descripcion + '<a href="#">CERRAR</a>');
+            snk.fadeToggle("slow", "linear");
+            snk.fadeToggle("slow", "linear");
+            nextStepWizard.removeClass('disabled').trigger('click');
+        });
     });
     $('#dataTables-example').dataTable();
     /** Date Time Picker Fecha Seccion */
@@ -130,56 +166,6 @@ function showModalWindow(idSolicitud) {
     });
     $("#modal-detalle").on('shown.bs.modal', function () {
         //debugger;
-        $.ajax({
-            type: 'POST',
-            url: 'Consulta.do?method=verDetalleDocumento',
-            data: {idSolicitud: idSolicitud},
-            dataType: 'JSON',
-            success: function (response) {
-                console.log(response);
-                $.each(response, function (index, item) {
-                    console.log('departamento: ' + item.departamento);
-                    console.log('provincia: ' + item.provincia);
-                    console.log('distrito: ' + item.distrito);
-                    $('#txtExp').val(item.exp);
-                    $('#txtCuspp').val(item.cuspp);
-                    $('#txtpNom').val(item.primerNombre);
-                    $('#txtsNom').val(item.segundoNombre);
-                    $('#txtpApe').val(item.primerApellido);
-                    $('#txtsApe').val(item.segundoApellido);
-                    $('#txtfecNac').val(item.fechaNacimiento);
-                    $('#txtcorreo').val(item.correo);
-                    switch (item.sexo.toUpperCase()) {
-                        case "MASCULINO" :
-                            $('#txtSexo').val("1");
-                            break;
-                        case "FEMENINO" :
-                            $('#txtSexo').val("2");
-                            break;
-                        default :
-                            $('#txtSexo').val("0");
-                            break;
-                    }
-                    $('#txtTelefono').val(item.telefono);
-                    //$('#txtEstCivil').val() por determinar
-
-                    $('#txtDireccion').val(item.direccion);
-                    $('#txtdepartamento').val(item.departamento).trigger('change');
-                    console.log('Departamento Val Modal: ' + $('#txtdepartamento').val());
-                    $('#txtprovincia').val(item.provincia).trigger('change');
-                    console.log('txtprovincia Val Modal: ' + $('#txtprovincia'));
-                    $('#txtdistrito').val(item.distrito);
-                    console.log('txtdistrito Val Modal: ' + $('#txtdistrito').val());
-
-                });
-            },
-            error: function (e) {
-                //alert('Error: ' + e);
-            }
-
-        });
-
-
         var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
                 allNextBtn = $('.nextBtn');
@@ -191,7 +177,7 @@ function showModalWindow(idSolicitud) {
             var $target = $($(this).attr('href')),
                     $item = $(this),
                     $targethrefVal = $(this).attr('href');
-            console.log($target);
+            //console.log($target);
             if (!$item.hasClass("disabled")) {
                 navListItems.removeClass('btn-warning').addClass('btn-default');
                 $item.addClass('btn-warning');
@@ -200,11 +186,15 @@ function showModalWindow(idSolicitud) {
                 $target.find('input:eq(0)').focus();
             }
             switch ($targethrefVal) {
+                //-----------Detalle Consulta
+
                 case "#step-1":
+                    //console.log(idSolicitud);
+                    AjaxDetalleC(idSolicitud);
                     break;
                     //-------SEYCI-----------
                 case "#step-2":
-                    console.log($targethrefVal);
+                    //console.log($targethrefVal);
                     listarEjecutivos();
                     listarAgencias();
                     AjaxSeyciInicio($('#txtExp').val());
@@ -218,6 +208,7 @@ function showModalWindow(idSolicitud) {
                 case "#step-4":
                     break;
                 case "#step-5":
+                    AjaxdictamenInicio($('#txtExp').val());
                     break;
                 case "#step-6":
                     break;
@@ -226,28 +217,39 @@ function showModalWindow(idSolicitud) {
         });
 
         allNextBtn.click(function () {
-
             var curStep = $(this).closest(".setup-content"),
                     curStepBtn = curStep.attr("id"),
                     nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = curStep.find("input[type='text'],input[type='url'],input[type='checkbox'],select"),
+                    //curCheckbox = curStep.find("input[type='checkbox']"),
+                    curInputs = curStep.find("input[type='text'],input[type='url'],select"),
                     isValid = true;
-
-            $(".form-group").removeClass("has-error");
+            var snk = $('.snackbar');
+            $("div").removeClass("has-error");
+            /*
+             for (var i = 0; i < curCheckbox.length; i++) {
+             //console.log(curInputs[i]);
+             if (!curCheckbox[i].validity.valid) {
+             isValid = false;
+             }
+             }*/
 
             for (var i = 0; i < curInputs.length; i++) {
+                //console.log(curInputs[i]);
                 if (!curInputs[i].validity.valid) {
 
-                    isValid = false;
-                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    // isValid = false;
+                    $(curInputs[i]).closest("div").addClass("has-error");
 
                 }
+
             }
 
-            if (isValid) {
 
-                nextStepWizard.removeClass('disabled').trigger('click');
-            }
+
+            /* if (isValid) {
+             nextStepWizard.removeClass('disabled').trigger('click');
+             
+             }*/
 
         });
 
@@ -259,6 +261,66 @@ function showModalWindow(idSolicitud) {
 
 
 }
+function AjaxDetalleC(idSolicitud) {
+    $.ajax({
+        type: 'POST',
+        url: 'Consulta.do?method=verDetalleDocumento',
+        data: {idSolicitud: idSolicitud},
+        dataType: 'JSON',
+        beforeSend: function (xhr) {
+            //console.log('procesando');
+            $('#btndetConsulta').attr('disabled', true);
+        }
+    }).done(function (response) {
+        $.each(response, function (index, item) {
+            console.log('departamento: ' + item.departamento);
+            console.log('provincia: ' + item.provincia);
+            console.log('distrito: ' + item.distrito);
+            $('#txtExp').val(item.exp);
+            $('#txtCuspp').val(item.cuspp);
+            $('#txtpNom').val(item.primerNombre);
+            $('#txtsNom').val(item.segundoNombre);
+            $('#txtpApe').val(item.primerApellido);
+            $('#txtsApe').val(item.segundoApellido);
+            $('#txtfecNac').val(item.fechaNacimiento);
+            $('#txtcorreo').val(item.correo);
+            switch (item.sexo.toUpperCase()) {
+                case "MASCULINO" :
+                    $('#txtSexo').val("1");
+                    break;
+                case "FEMENINO" :
+                    $('#txtSexo').val("2");
+                    break;
+                default :
+                    $('#txtSexo').val("0");
+                    break;
+            }
+            $('#txtTelefono').val(item.telefono);
+            //$('#txtEstCivil').val() por determinar
+
+            $('#txtDireccion').val(item.direccion);
+            $('#txtdepartamento').val(item.departamento).trigger('change');
+            console.log('Departamento Val Modal: ' + $('#txtdepartamento').val());
+            $('#txtprovincia').val(item.provincia).trigger('change');
+            console.log('txtprovincia Val Modal: ' + $('#txtprovincia').val());
+            $('#txtdistrito').val(item.distrito);
+            console.log('txtdistrito Val Modal: ' + $('#txtdistrito').val());
+            $('#btndetConsulta').removeAttr('disabled');
+        })
+    })/*always(function (jqXHR, textStatus) {
+     if (textStatus !== "success") {
+     console.log("Error: " + jqXHR.statusText);
+     } else {
+     alert("Success: ");
+     }
+     });*/
+
+
+}
+
+
+
+
 
 
 

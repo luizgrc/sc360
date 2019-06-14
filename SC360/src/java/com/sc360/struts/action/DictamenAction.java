@@ -5,6 +5,7 @@
  */
 package com.sc360.struts.action;
 
+import com.google.gson.Gson;
 import com.sc360.struts.dto.Dictamen;
 import com.sc360.struts.form.DictamenForm;
 import javax.servlet.http.HttpServletRequest;
@@ -23,88 +24,40 @@ import java.util.List;
  *
  * @author epuma
  */
-public class DictamenAction extends DispatchAction{
-    
-    public ActionForward inicioDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
+public class DictamenAction extends DispatchAction {
 
-        
+    public ActionForward inicioDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
         System.out.println(" Inicio Dictamen Action ");
-        String numeroExpediente  =  req.getParameter("numeroExp");
+        String numeroExpediente = req.getParameter("nroExp");
         System.out.println(" numeroExpediente " + numeroExpediente);
         Dictamen dto = new Dictamen();
-        IfaceUtil daoUtil = new ImpUtil();
+        Gson gson = new Gson();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        
-        DictamenForm formS =(DictamenForm)form;
-        
-        formS.setNroSeyci(numeroExpediente);
-        
-        if(numeroExpediente==null){
-  
-              numeroExpediente = formS.getNroSeyci();
-              System.out.println(" numeroExpediente Null " + numeroExpediente);
-          }
-        
+
         dto.setNroSeyci(numeroExpediente);
-        
-        List<Dictamen>   listaDictamen = daoSolicitud.ListadoDictamen(dto);
-        
-        if (listaDictamen.size()>0) {
-                    req.setAttribute("listaDictamen", listaDictamen);
-                }
-        
-        try
-           {
-                for(int cant=0;cant < listaDictamen.size();cant++ )
-                {
-                 Dictamen dtoDetalle = (Dictamen)listaDictamen.get(cant);
-                 
-                 formS.setNroSeyci(dtoDetalle.getNroSeyci());
-                 formS.setFecRecAFP(dtoDetalle.getFecRecAFP());
-                 formS.setFecEmision(dtoDetalle.getFecEmision());
-                 formS.setInstancia(dtoDetalle.getInstancia());
-                 formS.setNroEvaluacion(dtoDetalle.getNroEvaluacion());
-                 formS.setNroDictamen(dtoDetalle.getNroDictamen());
-                 formS.setPorcMenoscabio(dtoDetalle.getPorcMenoscabio());
-                 formS.setCalifica(dtoDetalle.getCalifica());
-                 formS.setIndEnf(dtoDetalle.getIndEnf());
-                 formS.setDefinitivo(dtoDetalle.getDefinitivo());
-                 formS.setGrado(dtoDetalle.getGrado());
-                 formS.setNaturaleza(dtoDetalle.getNaturaleza());
-                 formS.setMeses(dtoDetalle.getMeses());
-                 formS.setFecInicial(dtoDetalle.getFecInicial());
-                 formS.setFecFinal(dtoDetalle.getFecFinal());
-                 formS.setFecOcurrencia(dtoDetalle.getFecOcurrencia());
-                 formS.setProximaEvaluacion(dtoDetalle.getProximaEvaluacion());
-                 formS.setFecNotificacion(dtoDetalle.getFecNotificacion());
-                 formS.setFecRecNotificacion(dtoDetalle.getFecRecNotificacion());
-                 formS.setEdad(dtoDetalle.getEdad());
-                 formS.setAnalista(dtoDetalle.getAnalista());
-                 formS.setObservaciones(dtoDetalle.getObservaciones());
-                 
-                } 
-       
-            }catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-             
-    
-    return mapping.findForward("inicioDictamen");
-        
+
+        List<Dictamen> listaDictamen = daoSolicitud.ListadoDictamen(dto);
+        String jsonstring = "";
+        if(listaDictamen != null){
+            jsonstring = gson.toJson(listaDictamen);
+        }
+        res.getWriter().write(jsonstring);
+
+        return null;
+
     }
-    
-    public ActionForward guardarDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
-        
+
+    public ActionForward guardarDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
         Dictamen dictamen = new Dictamen();
         DictamenAction cons = new DictamenAction();
-        
-        DictamenForm formS =(DictamenForm)form;
-        
+
+        DictamenForm formS = (DictamenForm) form;
+
         String NroSeyci = formS.getNroSeyci();
-        String FecRecAFP   = formS.getFecRecAFP();
+        String FecRecAFP = formS.getFecRecAFP();
         String FecEmision = formS.getFecEmision();
-        String Instancia =  formS.getInstancia();
+        String Instancia = formS.getInstancia();
         String NroEvaluacion = formS.getNroEvaluacion();
         String NroDictamen = formS.getNroDictamen();
         String PorcMenoscabio = formS.getPorcMenoscabio();
@@ -123,7 +76,7 @@ public class DictamenAction extends DispatchAction{
         String Edad = formS.getEdad();
         String Analista = formS.getAnalista();
         String Observaciones = formS.getObservaciones();
-        
+
         dictamen.setNroSeyci(NroSeyci);
         dictamen.setFecRecAFP(FecRecAFP);
         dictamen.setFecEmision(FecEmision);
@@ -147,92 +100,86 @@ public class DictamenAction extends DispatchAction{
         dictamen.setAnalista(Analista);
         dictamen.setObservaciones(Observaciones);
 
-        
         IfaceUtil daoUtil = new ImpUtil();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        
+
         daoSolicitud.InsertarActualizarDictamen(dictamen);
-        
+
         System.out.println(" Fin Guardar Reevaluacion Action ");
-        
+
         return cons.inicioDictamen(mapping, form, req, res);
-        
+
         //return mapping.findForward("inicioSeyci");
-        
     }
-    
-    public ActionForward mostrarDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
-        
-        
+
+    public ActionForward mostrarDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
         System.out.println(" Inicio Mostrar Dictamen Action ");
 
-        String numeroExpediente  =  req.getParameter("numeroExp");
+        String numeroExpediente = req.getParameter("numeroExp");
         String idNroTraslado = req.getParameter("idNroTraslado");
-        
+
         System.out.println(" numeroExpediente " + numeroExpediente);
         Dictamen dto = new Dictamen();
         IfaceUtil daoUtil = new ImpUtil();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        
-        DictamenForm formS =(DictamenForm)form;
-        
+
+        DictamenForm formS = (DictamenForm) form;
+
         formS.setNroSeyci(numeroExpediente);
-        
-        if(numeroExpediente==null){
-  
-              numeroExpediente = formS.getNroSeyci();
-              System.out.println(" numeroExpediente Null " + numeroExpediente);
-          }
-        
+
+        if (numeroExpediente == null) {
+
+            numeroExpediente = formS.getNroSeyci();
+            System.out.println(" numeroExpediente Null " + numeroExpediente);
+        }
+
         dto.setNroSeyci(numeroExpediente);
         dto.setIdSeyci(idNroTraslado);
-        
-        List<Dictamen>   listaDictamen = daoSolicitud.ListadoDictamen(dto);
-        List<Dictamen>   listaDictamenItem = daoSolicitud.ListadoDictamenItem(dto);
-        
-        if (listaDictamen.size()>0) {
-                    req.setAttribute("listaDictamen", listaDictamen);
-                }
-        
-        try
-           {
-                for(int cant=0;cant < listaDictamenItem.size();cant++ )
-                {
-                 Dictamen dtoDetalle = (Dictamen)listaDictamenItem.get(cant);
-                 
-                 formS.setNroSeyci(dtoDetalle.getNroSeyci());
-                 formS.setFecRecAFP(dtoDetalle.getFecRecAFP());
-                 formS.setFecEmision(dtoDetalle.getFecEmision());
-                 formS.setInstancia(dtoDetalle.getInstancia());
-                 formS.setNroEvaluacion(dtoDetalle.getNroEvaluacion());
-                 formS.setNroDictamen(dtoDetalle.getNroDictamen());
-                 formS.setPorcMenoscabio(dtoDetalle.getPorcMenoscabio());
-                 formS.setCalifica(dtoDetalle.getCalifica());
-                 formS.setIndEnf(dtoDetalle.getIndEnf());
-                 formS.setDefinitivo(dtoDetalle.getDefinitivo());
-                 formS.setGrado(dtoDetalle.getGrado());
-                 formS.setNaturaleza(dtoDetalle.getNaturaleza());
-                 formS.setMeses(dtoDetalle.getMeses());
-                 formS.setFecInicial(dtoDetalle.getFecInicial());
-                 formS.setFecFinal(dtoDetalle.getFecFinal());
-                 formS.setFecOcurrencia(dtoDetalle.getFecOcurrencia());
-                 formS.setProximaEvaluacion(dtoDetalle.getProximaEvaluacion());
-                 formS.setFecNotificacion(dtoDetalle.getFecNotificacion());
-                 formS.setFecRecNotificacion(dtoDetalle.getFecRecNotificacion());
-                 formS.setEdad(dtoDetalle.getEdad());
-                 formS.setAnalista(dtoDetalle.getAnalista());
-                 formS.setObservaciones(dtoDetalle.getObservaciones());
-                 
-                } 
-       
-            }catch(Exception e)
-            {
-                e.printStackTrace();
+
+        List<Dictamen> listaDictamen = daoSolicitud.ListadoDictamen(dto);
+        List<Dictamen> listaDictamenItem = daoSolicitud.ListadoDictamenItem(dto);
+
+        if (listaDictamen.size() > 0) {
+            req.setAttribute("listaDictamen", listaDictamen);
+        }
+
+        try {
+            for (int cant = 0; cant < listaDictamenItem.size(); cant++) {
+                Dictamen dtoDetalle = (Dictamen) listaDictamenItem.get(cant);
+
+                formS.setNroSeyci(dtoDetalle.getNroSeyci());
+                formS.setFecRecAFP(dtoDetalle.getFecRecAFP());
+                formS.setFecEmision(dtoDetalle.getFecEmision());
+                formS.setInstancia(dtoDetalle.getInstancia());
+                formS.setNroEvaluacion(dtoDetalle.getNroEvaluacion());
+                formS.setNroDictamen(dtoDetalle.getNroDictamen());
+                formS.setPorcMenoscabio(dtoDetalle.getPorcMenoscabio());
+                formS.setCalifica(dtoDetalle.getCalifica());
+                formS.setIndEnf(dtoDetalle.getIndEnf());
+                formS.setDefinitivo(dtoDetalle.getDefinitivo());
+                formS.setGrado(dtoDetalle.getGrado());
+                formS.setNaturaleza(dtoDetalle.getNaturaleza());
+                formS.setMeses(dtoDetalle.getMeses());
+                formS.setFecInicial(dtoDetalle.getFecInicial());
+                formS.setFecFinal(dtoDetalle.getFecFinal());
+                formS.setFecOcurrencia(dtoDetalle.getFecOcurrencia());
+                formS.setProximaEvaluacion(dtoDetalle.getProximaEvaluacion());
+                formS.setFecNotificacion(dtoDetalle.getFecNotificacion());
+                formS.setFecRecNotificacion(dtoDetalle.getFecRecNotificacion());
+                formS.setEdad(dtoDetalle.getEdad());
+                formS.setAnalista(dtoDetalle.getAnalista());
+                formS.setObservaciones(dtoDetalle.getObservaciones());
+
             }
-        
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         System.out.println(" Fin Mostrar Dictamen Action ");
-        
+
         return mapping.findForward("inicioDictamen");
     }
-    
+
 }

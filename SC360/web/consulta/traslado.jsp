@@ -34,7 +34,7 @@
                             <label style="margin-bottom: 0;margin-top: 5px;">Fecha de
                                 Cita</label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="input-group date fechaModal">
                                 <input id="txtFecCitaT" type="text" required="required"
                                        class="form-control input-sm " />
@@ -43,22 +43,22 @@
                                 </span></div>
                         </div>
 
-                        <div class="col-md-1">
+                        <div class="col-md-offset-1 col-md-1">
                             <label
                                 style="margin-bottom: 0;margin-top: 5px;">Acompa&ntilde;ante</label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select id="txtAcomT" required="required"
                                     class="form-control input-sm">
                                 <option value="00">[SI]</option>
                                 <option value="01">[NO]</option>
                             </select>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-offset-1 col-md-1">
                             <label style="margin-bottom: 0;margin-top: 5px;">N
                                 Traslado</label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <input type="text" required="required"
                                    class="form-control input-sm" id="txtnroTrasladoT"
                                    size="12" maxlength="20" />
@@ -72,7 +72,7 @@
                                    style="margin-bottom: 0;margin-top: 5px;">Tipo de
                                 Traslado</label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select id="txtTipoTrasladoT" name="tipo" type="text"
                                     required="required" class="form-control input-sm">
                                 <option value="01">[PROVINCIA-PROVINCIA]</option>
@@ -81,11 +81,11 @@
                             </select>
                         </div>
 
-                        <div class="col-md-1">
+                        <div class="col-md-offset-1 col-md-1">
                             <label style="padding-top: 9px;">Origen&nbsp;</label>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select type="text" required="required"
                                     class="form-control input-sm" id="sltOrigenT">
 
@@ -94,11 +94,11 @@
                                 </c:forEach>
                             </select>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-offset-1 col-md-1">
                             <label style="padding-top: 9px;">Destino&nbsp;</label>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <select type="text" required="required"
                                     class="form-control input-sm" id="sltDestinoT">
                             
@@ -114,7 +114,7 @@
                             <label style="padding-top: 9px;">Fecha
                                 Aprobacion&nbsp;</label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="input-group date fechaModal">
                                 <input id="txtFecAprobT" type="text" required="required"
                                        class="form-control input-sm " />

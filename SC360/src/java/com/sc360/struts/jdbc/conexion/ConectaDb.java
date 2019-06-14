@@ -36,23 +36,24 @@ public class ConectaDb {
             
         String archivo_configuracion = "com.sc360.struts.jdbc.conexion.sc360";
 
-        LOGGER.log(Level.INFO, "Inicio Cadena Conexion");
+        //LOGGER.log(Level.INFO, "Inicio Cadena Conexion");
         
 
         ResourceBundle rb = ResourceBundle.getBundle(archivo_configuracion);
         try {
             String user = rb.getString("US");
             String password = rb.getString("PW");
-            String url = rb.getString("URL");
-            LOGGER.log(Level.INFO, user);
+            url = rb.getString("URL");
+           /* LOGGER.log(Level.INFO, user);
             LOGGER.log(Level.INFO, password);
-            LOGGER.log(Level.INFO, url);
+            LOGGER.log(Level.INFO, url);*/
             String driver = rb.getString("DRIVER");
             Class.forName(driver).newInstance();
             cn = DriverManager.getConnection(url, user, password);
-        } catch (Exception ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
 
-            throw new SQLException(ex.getMessage());
+            LOGGER.log(Level.ERROR ,ex.getMessage());
+            
         }
 
         return cn;

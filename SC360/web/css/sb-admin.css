@@ -399,3 +399,38 @@ body {
     line-height: 1.428571429;
     border-radius: 15px;
 }
+
+/*SnackBar*/
+.snackbar {
+    display:none;
+    font-size: 13px;
+    background: #323232;
+    color: rgba(255,255,255,87);
+    padding: 1em;
+    border-radius: 0.25em;
+    line-height: 1em;
+    position: fixed;
+    bottom: 3em;
+    left: 43em;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+
+}
+.snackbar > a{
+        
+        padding-left: 2em;
+        color: #007bed;
+        text-decoration: none;
+        font-weight: bold;
+        &:hover,&:focus{
+            color: #159bff;
+        }
+        &:active{
+            color: #3d5afe;
+        }
+    
+}
+
+
+
+
+

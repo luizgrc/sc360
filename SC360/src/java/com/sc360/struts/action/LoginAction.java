@@ -11,6 +11,8 @@ import com.sc360.struts.form.LoginForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -20,6 +22,8 @@ import org.apache.struts.action.ActionMapping;
  * @author epuma
  */
 public class LoginAction extends org.apache.struts.action.Action{
+    
+    private final static Logger LOGGER = Logger.getLogger(LoginAction.class);
     
     
     private static final String SUCCESS = "success";
@@ -42,8 +46,8 @@ public class LoginAction extends org.apache.struts.action.Action{
         LoginForm login = (LoginForm)form;
         HttpSession sesion = request.getSession();
         
-        System.out.println(" Usuario : " + login.getNickUsuario());
-        System.out.println(" Clave : " + login.getPassword());
+        LOGGER.log( Level.INFO ," Usuario : " + login.getNickUsuario());
+        LOGGER.log( Level.INFO ," Clave : " + login.getPassword());
         
         IfaceLogin iface = new ImpLogin();
         
@@ -51,9 +55,11 @@ public class LoginAction extends org.apache.struts.action.Action{
         
         if(login !=null){
             sesion.setAttribute("nickUsuario", login.getNickUsuario());
+            LOGGER.log(Level.INFO , "Inicio Correcto");
              return mapping.findForward(SUCCESS);
         }else{
             sesion.setAttribute("valida", "0");
+            LOGGER.log(Level.INFO , "No se encontro al usuario");
              return mapping.findForward("error");
         }
         

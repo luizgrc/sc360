@@ -18,8 +18,8 @@
                         <label style="margin: 4px">Exp &nbsp;</label>
                     </div>
                     <div class="col-md-2">
-                        <input id="txtExp" class="form-control input-sm"
-                               size="12" maxlength="12" disabled="true" /></div>
+                        <input id="txtExp" name="txtExp" class="form-control input-sm "
+                               size="12" maxlength="12" readonly="true"/></div>
                 </div>
                 <div class="space">&nbsp;</div>
                 <div>
@@ -28,11 +28,11 @@
                             <label style="padding-top: 10px;">CUSPP&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input id="txtCuspp" type="text" required="" class="input-sm form-control"
+                            <input readonly="true" id="txtCuspp" name="txtCuspp" type="text" required="" class="input-sm form-control"
                                    style="width: 167px;" />
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="" id="cuspp">
+                            <input type="checkbox" required="">
                         </div>
                         <div class="space">&nbsp;</div>
                         <div class="col-md-4" style="height: 20px">
@@ -40,12 +40,11 @@
                                 nombre&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input id="txtpNom" type="text" required="" class="input-sm"
+                            <input id="txtpNom" name="txtpNom" type="text" required="" class="input-sm"
                                    style="width: 167px;" />
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required"
-                                   id="primerNombre">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <div class="col-md-4" style="height: 20px">
@@ -53,12 +52,11 @@
                                 Nombre&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input id="txtsNom" type="text" required="required" class="input-sm"
+                            <input id="txtsNom" name="txtsNom" type="text" required="required" class="input-sm"
                                    style="width: 167px;" />
                         </div>
                         <div class="col-md-4 ">
-                            <input type="checkbox" required="required"
-                                   id="segundoNombre">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <div class="col-md-4" style="height: 20px">
@@ -66,13 +64,12 @@
                                 Apellido&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input id="txtpApe" type="text" required="required" class=" input-sm"
+                            <input id="txtpApe" name="txtpApe" type="text" required="required" class=" input-sm"
                                     style="width: 167px;" />
 
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required"
-                                   id="primerApellido">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <!---->
@@ -81,13 +78,12 @@
                                 Apellido&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input id="txtsApe" type="text" required="required" class="input-sm"
+                            <input id="txtsApe" name="txtsApe" type="text" required="required" class="input-sm"
                                     style="width: 167px;" />
 
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required"
-                                   id="segundoApellido">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <div class="col-lg-4" style="height: 20px">
@@ -96,7 +92,7 @@
                         </div>
                         <div class="col-md-4 form-inline">
                             <div class="input-group date fechaModal">
-                                <input id="txtfecNac" type="text" required="required"
+                                <input id="txtfecNac" name="txtfecNac" type="text" required="required"
                                        class="form-control input-sm "
                                        style="width: 130px;" />
                                 <span class="input-group-addon">
@@ -104,19 +100,18 @@
                                 </span></div>
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required"
-                                   id="fechaNacimiento">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <div class="col-md-4" style="height: 20px">
                             <label style="padding-top: 10px;">Correo&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input id="txtcorreo" type="text" required="required"
+                            <input id="txtcorreo" name="txtcorreo" type="text" required="required"
                                    class="input-sm" style="width: 167px;">
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="correo">
+                            <input type="checkbox" required="required">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -124,9 +119,9 @@
                             <label style="padding-top: 10px;"> Sexo&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select id="txtSexo" required="required" style="width: 168px;"
+                            <select id="txtSexo" name="txtSexo" required="required" style="width: 168px;"
                                     class="input-sm">
-                                <option value="0">
+                                <option value="">
                                     [SEXO]
                                 </option>
                                 <option value="1">
@@ -138,7 +133,7 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="sexo">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <!---->
@@ -146,21 +141,21 @@
                             <label style="padding-top: 10px;">Telefono&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input required="required" class=" input-sm" id="txtTelefono"
+                            <input id="txtTelefono" name="txtTelefono" required="required" class=" input-sm" 
                                    style="width: 167px;" />
 
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="telefono">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <div class="col-md-4" style="height: 20px">
                             <label style="padding-top: 10px;">Estado Civil&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select id="txtEstCivil"required="required" style="width: 168px;"
+                            <select id="txtEstCivil" name="txtEstCivil" required="required" style="width: 168px;"
                                     class="input-sm">
-                                <option value="0">
+                                <option value="">
                                     [ESTADO CIVIL]
                                 </option>
                                 <option value="1">
@@ -178,7 +173,7 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="estadoCivil">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <!---->
@@ -186,12 +181,12 @@
                             <label style="padding-top: 10px;">Direccion&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input required="required" class="input-sm" id="txtDireccion"
+                            <input id="txtDireccion" name="txtDireccion" required="required" class="input-sm" 
                                    size="20" maxlength="20" />
 
                         </div>
                         <div class="col-md-4">
-                            <input type="checkbox" required="required" id="direccion">
+                            <input type="checkbox" required="required">
                         </div>
                         <div class="space">&nbsp;</div>
                         <!---->
@@ -199,8 +194,8 @@
                             <label style="padding-top: 10px;">Departamento&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select required="required" class=" input-sm" style="width: 168px;" id="txtdepartamento">
-                                <option value="00">[DEPARTAMENTO]</option>
+                            <select id="txtdepartamento" name="txtdepartamento" required="required" class=" input-sm" style="width: 168px;" >
+                                <option value="">[DEPARTAMENTO]</option>
                                 <c:forEach var="f" items="${listDepartamento}">
                                     <option value="<c:out value="${f.codigo}"/>"><c:out value="${f.descripcion}"/></option>
                                 </c:forEach>
@@ -216,8 +211,8 @@
                             <label style="padding-top: 10px;">Provincia&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select required="required" class="input-sm" style="width: 168px;" id="txtprovincia">
-                                <option value="00">[PROVINCIA]</option>
+                            <select id="txtprovincia" name="txtprovincia" required="required" class="input-sm" style="width: 168px;" >
+                                <option value="">[PROVINCIA]</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -229,9 +224,9 @@
                             <label style="padding-top: 10px;">Distrito&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <select name="distrito" style="width: 168px;"
-                                    required="required" class="input-sm" id="txtdistrito">
-                                <option value="00">
+                            <select id="txtdistrito" name="distrito" style="width: 168px;"
+                                    required="required" class="input-sm" >
+                                <option value="">
                                     [DISTRITO]
                                 </option>
 
@@ -243,8 +238,7 @@
                     </div>
                     <div class="space">&nbsp;</div>
                     <div class="container col-9 form-inline">
-                        <input type="checkbox" required="required"
-                               id="Apoderado">&nbsp;<label style="padding-top: 10px;">Tiene
+                        <input type="checkbox" required="required">&nbsp;<label style="padding-top: 10px;">Tiene
                             Apoderado</label>
                     </div>
                 </div>
@@ -252,6 +246,9 @@
             </div>
         </div>
     </div>
+    
+        
     <button class="btn btn-custom nextBtn pull-right" type="submit" id="btndetConsulta">Siguiente</button>
 </form>
+
 <!--/.DATOS GENERALES-->

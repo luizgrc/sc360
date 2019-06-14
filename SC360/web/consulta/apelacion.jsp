@@ -1,340 +1,291 @@
-<%-- 
-    Document   : apelacion
-    Created on : 17/04/2019, 10:24:49 PM
-    Author     : Elgar
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>APELACION</title>
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/css/bootstrap.min.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/3.3.1/jquery.min.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/bootstrap.min.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/main.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.css">
-        <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}"/>/jq/style.css">
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-1.12.4.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/jq/jquery-ui.js"></script>
-        <script src="<c:out value="${pageContext.request.contextPath}"/>/js/ajax.js"></script>
-        <script src="../scripts/jquery.js"></script>
-        <link rel=stylesheet type="text/css" href="<c:out value="${pageContext.request.contextPath}"/>/css/layout-default.css">
-
-        <script>
-
-            $(function () {
-                $("#fechaApelacion").datepicker();
-                $("#fecIngBeneficios").datepicker();
-                $("#fecEnvCarta").datepicker();
-                $("#fecDictamen").datepicker();
-                $("#fecEnvioDis").datepicker();
-                $("#fecNotAfiliado").datepicker();
-                $("#fecNotCOMEC").datepicker();
-            });
-
-            function irReevaluacion() {
-                var form = document.frmDictamen;
-                var url = "Reevaluacion.do?method=inicioReevaluacion";
-                var form = document.forms(0);
-                form.action = url;
-                form.method = "post";
-                form.submit();
-            }
-
-            function irDictamen() {
-                var form = document.frmApelacion;
-                var url = "Dictamen.do?method=inicioDictamen";
-                var form = document.forms(0);
-                form.action = url;
-                form.method = "post";
-                form.submit();
-            }
-
-            function fncGuardarApelacion() {
-                var form = document.getElementById("frmApelacion");
-                form.action = "Apelacion.do?method=guardarApelacion";
-                form.method = "post";
-                form.submit();
-            }
-
-
-        </script>
-
-    </head>
-
-    <body style="background-color:#FFFFFF;">
-        <div class="container">
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link" href="javascript:irDetalle()">Detalle Consulta</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">SEYCI</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript:irTraslado()">TRASLADO</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript:irReevaluacion()">REEVALUACION</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript:irDictamen()">DICTAMEN</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">APELACION</a></li>
-            </ul>
+<!--Apelacion-->
+<form role="form" id="step-6" class="setup-content"> 
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Apelacion</h3>
         </div>
-        <html:form action="Apelacion.do" styleId="frmApelacion" >
 
+        <div class="panel-body" style="width: auto; height: 390px; overflow-y: auto;">
+            <div class="container">
+                <div class="row">
+                    <STRONG>Apelacion</STRONG>&nbsp;
 
-            <div class="form-group div-align-l dv-align-2030">
-
-                <div class="row show-grid">
-
-                    <STRONG>APELACION</STRONG>&nbsp;
-                        <html:hidden property="nroSeyci"></html:hidden>
-                        <div class="space">&nbsp;</div>
-                        <div class="col-md-4">
-                            <div class="row show-grid form-group">
-                                <div class="col-md-4">
-                                    Nro Dictamen Apelado&nbsp;
-                                </div>
-                                <div class="col-md-6">
-
-                                <html:text property="nroDictamenApelado" styleClass="form-control" styleId="nroDictamenApelado" size="12" />                                
-
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="nroDictamenApelado" >
-                            </div>
-                        </div>
+                </div>
+                <div class="space">&nbsp;</div>
+                <div class="row">
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Nro Dictamen
+                            Apelado</label>
                     </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Persona Apela&nbsp;
-                            </div>
-                            <div class="col-md-6">
-
-                                <html:text property="personaApela" styleClass="form-control" styleId="personaApela" size="12" />
-
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="personaApela" >
-                            </div>
-                        </div>
+                    <div class="col-lg-2">
+                        <input id="txtNroDictamenApelado" type="text" required="required"
+                               class="form-control input-sm" />
                     </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Apelacion&nbsp;
-                            </div>
-                            <div class="col-md-6">
-
-                                <html:text property="fechaApelacion" styleClass="form-control" styleId="fechaApelacion" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fechaApelacion" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="space">&nbsp;</div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Ingreso Beneficios&nbsp;
-                            </div>
-                            <div class="col-md-6">
-
-                                <html:text property="fecIngBeneficios" styleClass="form-control" styleId="fecIngBeneficios" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fecIngBeneficios" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Envio Carta&nbsp;
-                            </div>
-                            <div class="col-md-6">
-
-                                <html:text property="fecEnvCarta" styleClass="form-control" styleId="fecEnvCarta" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fecEnvcarta" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Recepcion COMAFP&nbsp;
-                            </div>
-                            <div class="col-md-6">
-
-                                <html:text property="recepCOMAFP" styleClass="form-control" styleId="recepCOMAFP" size="12" />
-                                <input type="checkbox" id="recepCOMAFP" >
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="recepCOMAFP" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Analista&nbsp;
-                            </div>
-                            <div class="col-md-6">
-
-                                <html:text property="analista" styleClass="form-control" styleId="analista" size="12" />
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="analista" >
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Motivo Apelacion&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="motivoApelacion" styleClass="form-control" styleId="motivoApelacion" size="12" />
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="motivoApelacion" >
-                            </div>
-                        </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required"
+                               id="nroDictamenApelado">
                     </div>
 
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Nro Dictamen Apelado&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="nroExpDictamenApelado" styleClass="form-control" styleId="nroExpDictamenApelado" size="12" />
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="nroExpDictamenApelado" >
-                            </div>
-                        </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Persona Apela</label>
                     </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                DIS / PACIFICO&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="disPacifico" styleClass="form-control" styleId="disPacifico" size="12" />
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="disPacifico" >
-                            </div>
-                        </div>
+                    <div class="col-lg-2">
+
+                        <input id="txtPersonaApelada" type="text" required="required"
+                               class="form-control input-sm" />
+
                     </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Dictamen&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="fecDictamen" styleClass="form-control" styleId="fecDictamen" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fecDictamen" >
-                            </div>
-                        </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="personaApela">
                     </div>
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Envio DIS&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="fecEnvioDis" styleClass="form-control" styleId="fecEnvioDis" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fecEnvioDis" >
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                SOL&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="oK" styleClass="form-control" styleId="oK" size="12" />
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="ok" >
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Notificacion Afiliado&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="fecNotAfiliado" styleClass="form-control" styleId="fecNotAfiliado" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fecNotAfiliado" >
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="col-md-4">
-                        <div class="row show-grid form-group">
-                            <div class="col-md-4">
-                                Fecha Notificacion COMEC&nbsp;
-                            </div>
-                            <div class="col-md-6">
-                                <html:text property="fecNotCOMEC" styleClass="form-control" styleId="fecNotCOMEC" size="12" />
-                                <img id="imagen_calendario1" src="<c:out value="${pageContext.request.contextPath}"/>/images/calendario.gif" alt="Calendario"/>
-                            </div>
-                            <div class="col-md-2">
-                                <input type="checkbox" id="fecNotCOMEC" >
-                            </div>
-                        </div>
-                    </div> 
 
 
-                    <div class="space">&nbsp;</div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
 
+                        <label style="margin: 4px">Fecha Apelacion</label>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="fechaApelacion">
+                    </div>
+                </div>
+
+                <div class="space">&nbsp;</div>
+                <div class="row">                                                    
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Fecha Ingreso
+                            Beneficios</label>
+                    </div>
+                    <div class="col-lg-2" >
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required"
+                               id="fecIngBeneficios">
+                    </div>
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Fecha Envio Carta</label>
+                    </div>
+                    <div class="col-lg-2" >
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="fecEnvcarta">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Recepcion COMAFP</label>
+                    </div>
+                    <div class="col-lg-2" >
+
+                        <input type="text" required="required"
+                               class="form-control input-sm" styleId="recepCOMAFP" />
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="recepCOMAFP">
+                    </div>
+
+
+                </div>
+                <div class="space">&nbsp;</div>
+                <div class="row">
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Analista</label>
+                    </div>
+                    <div class="col-lg-2">
+
+                        <input type="text" required="required"
+                               class="form-control input-sm" styleId="analista" />
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="analista">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Motivo Apelacion</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" required="required"
+                               class="form-control input-sm" styleId="motivoApelacion" />
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required"
+                               id="motivoApelacion">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Nro Dictamen
+                            Apelado</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" required="required"
+                               class="form-control input-sm" styleId="nroExpDictamenApelado" />
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required"
+                               id="nroExpDictamenApelado">
+                    </div>
+
+
+                </div>
+
+                <div class="space">&nbsp;</div>
+                <div class="row">
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;" >
+                        <label style="margin: 4px">DIS / PACIFICO</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" required="required"
+                               class="form-control input-sm" styleId="disPacifico" />
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="disPacifico">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">Fecha Dictamen</label>
+                    </div>
+                    <div class="col-lg-2 ">
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="fecDictamen">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px"> Envio DIS</label>
+                    </div>
+                    <div class="col-lg-2 ">
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="fecEnvioDis">
+                    </div>
+
+
+                </div>
+                <div class="space">&nbsp;</div>
+                <div class="row">
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px">SOL</label>
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" required="required"
+                               class="form-control input-sm" />
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="ok">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px"> Fecha Notificacion
+                            Afiliado</label>
+                    </div>
+                    <div class="col-lg-2" >
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required"
+                               id="fecNotAfiliado">
+                    </div>
+
+
+
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <label style="margin: 4px"> Notificacion COMEC</label>
+                    </div>
+                    <div class="col-lg-2 ">
+                        <div class="input-group date fechaModal">
+                            <input type="text" required="required"
+                                   class="form-control input-sm " />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span></div>
+                    </div>
+                    <div class="col-lg-1" style="padding-left: 0px;">
+                        <input type="checkbox" required="required" id="fecNotCOMEC">
+                    </div>
+
+
+
+                </div>
+                <div class="space">&nbsp;
+
+                </div>
+                <div class="row">
 
                     <div class="col-2 form-inline">
                         Observaciones&nbsp;
                     </div>
-                    <div class="space">&nbsp;</div>
-                    <div class="col-7 form-inline">
-                        <html:textarea cols="120" rows="2" styleClass="form-control" property="observaciones" readonly="false" />
-                    </div>
-
-                    <div class="row">
-                        <div class="col-10 form-inline">
-                            &nbsp;
-                        </div>
-                        <div class="col-2 form-inline">
-                            <a href="javascript:fncGuardarApelacion()">
-                                <input type="button" value="Guardar" alt="Guardar" class="btn btn-custom">
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
+                <div class="space">&nbsp;</div>
+                <div class="row">
 
-
-
+                    <div class="col-lg-offset-1 col-lg-10">
+                        <textarea cols="80" rows="4" class="form-control input-sm"
+                                  property="Apelacion"
+                                  style="min-height: 50px; max-height: 80px; resize: vertical;"></textarea>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+    <button class="btn btn-custom nextBtn pull-right" type="submit">Guardar</button>
 
-        </html:form>
-    </body>
-
-
-</html>
+</form>
+<!--/.Apelacion-->

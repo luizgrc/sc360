@@ -4,14 +4,17 @@
     Author     : Elgar Eduardo Puma Cruz
 --%>
 
+<%@page import="org.apache.log4j.Logger"%>
+<%@page import="org.apache.log4j.Level"%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
+    Logger LOGGER = Logger.getLogger("web.login.jsp");
     String valida = (String) session.getAttribute("valida");
-    System.out.println(" Valida:  " + valida);
+    LOGGER.log( Level.INFO , " Valida:  " + valida);
 %>
 <html>
     <head>

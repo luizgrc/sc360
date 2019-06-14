@@ -13,6 +13,7 @@ import com.sc360.struts.dto.SEYCI;
 import com.sc360.struts.dto.Solicitud;
 import com.sc360.struts.dto.Detalle;
 import com.sc360.struts.dto.Dictamen;
+import com.sc360.struts.dto.Parametro;
 import com.sc360.struts.dto.Reevaluacion;
 import com.sc360.struts.dto.Traslado;
 import com.sc360.struts.jdbc.conexion.ConectaDb;
@@ -609,8 +610,9 @@ public class ImpSolicitud implements IfaceSolicitud {
     }
 
     @Override
-    public String ActualizarSEYCI(SEYCI dto) {
-
+    public Parametro ActualizarSEYCI(SEYCI dto) {
+        Parametro mensaje = new Parametro();
+        
         String query = "{ call SP_ACTUALIZAR_SEYCI_DG(?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
 
         try (
@@ -638,12 +640,15 @@ public class ImpSolicitud implements IfaceSolicitud {
             if (cant == 0) {
                 throw new SQLException("0 filas afectadas");
             }
+            mensaje.setCodigo("201");
+            mensaje.setDescripcion("Registro Satisfactorio");
 
-        } catch (SQLException e) {
-            message = e.getMessage();
+        } catch (SQLException  e) {
+            mensaje.setCodigo("500");
+            mensaje.setDescripcion(e.getMessage());
         }
 
-        return message;
+        return mensaje;
 
     }
 
@@ -901,6 +906,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            e.printStackTrace();
         }
 
         return listDictamen;

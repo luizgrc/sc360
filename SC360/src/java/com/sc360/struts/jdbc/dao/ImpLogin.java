@@ -8,12 +8,10 @@ package com.sc360.struts.jdbc.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
 import com.sc360.struts.jdbc.conexion.ConectaDb;
 import com.sc360.struts.form.LoginForm;
-
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 /**
  *
  * @author epuma
@@ -23,7 +21,7 @@ public class ImpLogin implements IfaceLogin{
     private final ConectaDb db;
     private final StringBuilder sql;
     private String message;
-
+    private final static Logger LOGGER = Logger.getLogger(ConectaDb.class);
     public ImpLogin() {
         this.db = new ConectaDb();
         this.sql = new StringBuilder();
@@ -54,13 +52,10 @@ public class ImpLogin implements IfaceLogin{
                     bean.setTipoUsuario(rs.getString(4));
 
                 }
-             
-             
-            
-            
         } catch (Exception e) {
             
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
             
         }
         
@@ -68,7 +63,7 @@ public class ImpLogin implements IfaceLogin{
     }
     
   @Override
-    public String getMessage() {
+    public String getMessage(){
         return message;
     }  
     

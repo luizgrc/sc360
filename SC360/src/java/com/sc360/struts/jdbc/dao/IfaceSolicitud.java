@@ -13,6 +13,7 @@ import com.sc360.struts.dto.Traslado;
 import com.sc360.struts.dto.Reevaluacion;
 import com.sc360.struts.dto.Dictamen;
 import com.sc360.struts.dto.Apelacion;
+import com.sc360.struts.dto.Parametro;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public interface IfaceSolicitud {
     public String InsertarNomina(Nomina dto);
     public List<Detalle> ListadoDetalleSolicitud(Solicitud dto);
     public List<SEYCI> ListadoSeyci(SEYCI dto);
-    public String ActualizarSEYCI(SEYCI dto);
+    public Parametro ActualizarSEYCI(SEYCI dto);
     public String ActualizarSEYCITab(SEYCI dto);
     public List<Traslado> ListadoTraslado(Traslado dto);
     public List<Traslado> ListadoTrasladoItem(Traslado dto);

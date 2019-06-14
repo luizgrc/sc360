@@ -123,7 +123,6 @@
                             cols="80"
                             rows="4"
                             class="form-control input-sm"
-                            property="observacionesReevaluacion"
                             style="min-height: 50px; max-height: 80px; resize: vertical;"
                             >
                         </textarea>
@@ -133,10 +132,7 @@
             </div>
         </div>
     </div>
-    <button
-        class="btn btn-custom nextBtn pull-right"
-        type="submit"
-        >
+    <button class="btn btn-custom nextBtn pull-right" type="submit">
         Siguiente
     </button>
 </form>

@@ -49,6 +49,10 @@ function AjaxTrasladoInicio(numeroExp) {
     }
     ).done( function(response){
         console.log(response);
+    }).fail(function (jqXHR, textStatus, errorThrown ){
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
     });
 
 }

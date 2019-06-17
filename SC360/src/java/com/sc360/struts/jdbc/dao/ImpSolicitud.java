@@ -24,13 +24,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author epuma
  */
 public class ImpSolicitud implements IfaceSolicitud {
-
+    
+    private final static Logger LOGGER = Logger.getLogger(ImpSolicitud.class);
     private final ConectaDb db;
     private final StringBuilder sql;
     private String message;
@@ -171,6 +174,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -217,6 +221,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listSolicitud;
@@ -315,6 +320,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -464,6 +470,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -511,6 +518,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -560,6 +568,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listSolicitud;
@@ -603,6 +612,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listSeyci;
@@ -684,6 +694,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -736,6 +747,8 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listTraslado;
@@ -782,6 +795,8 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
+            
         }
 
         return message;
@@ -820,6 +835,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listReevaluacion;
@@ -853,6 +869,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -906,7 +923,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listDictamen;
@@ -952,7 +969,7 @@ public class ImpSolicitud implements IfaceSolicitud {
             }
 
         } catch (SQLException e) {
-            message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -991,6 +1008,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listApelacion;
@@ -1033,6 +1051,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return message;
@@ -1085,6 +1104,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listTraslado;
@@ -1137,6 +1157,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
+            LOGGER.log(Level.ERROR, message);
         }
 
         return listDictamen;

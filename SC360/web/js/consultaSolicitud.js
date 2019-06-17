@@ -80,8 +80,9 @@ $(function () {
 
     });
     $('#step-1').on('submit', function (e) {
-        var snk = $('.snackbar');
+
         e.preventDefault();
+        var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
                 nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
@@ -104,6 +105,51 @@ $(function () {
             snk.fadeToggle("slow", "linear");
             nextStepWizard.removeClass('disabled').trigger('click');
         });
+    });
+    $('#step-2').on('submit', function (e) {
+        e.preventDefault();
+        var snk = $('.snackbar');
+        var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
+        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
+        nextStepWizard.removeClass('disabled').trigger('click');
+    });
+    $('#step-3').on('submit', function (e) {
+        e.preventDefault();
+        var snk = $('.snackbar');
+        var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
+        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
+        nextStepWizard.removeClass('disabled').trigger('click');
+    });
+    $('#step-4').on('submit', function (e) {
+        e.preventDefault();
+        var snk = $('.snackbar');
+        var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
+        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
+        nextStepWizard.removeClass('disabled').trigger('click');
+    });
+    $('#step-5').on('submit', function (e) {
+        e.preventDefault();
+        var snk = $('.snackbar');
+        var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
+        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
+        nextStepWizard.removeClass('disabled').trigger('click');
+    });
+    $('#step-6').on('submit', function (e) {
+        e.preventDefault();
+        var snk = $('.snackbar');
+        var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
+        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
+        nextStepWizard.removeClass('disabled').trigger('click');
     });
     $('#dataTables-example').dataTable();
     /** Date Time Picker Fecha Seccion */
@@ -246,7 +292,7 @@ function showModalWindow(idSolicitud) {
 
 
 
-            /* if (isValid) {
+            /*if (isValid) {
              nextStepWizard.removeClass('disabled').trigger('click');
              
              }*/

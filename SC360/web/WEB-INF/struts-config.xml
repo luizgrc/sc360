@@ -59,15 +59,15 @@
         </action>
         
         <action path="/Reevaluacion" type="com.sc360.struts.action.ReevaluacionAction" parameter="method" name="formReevaluacion" validate="true"> 
-            <forward name="inicioReevaluacion" path="/consulta/reevaluacion.jsp"/>
+            <!--<forward name="inicioReevaluacion" path="/consulta/reevaluacion.jsp"/>-->
         </action>
         
         <action path="/Dictamen" type="com.sc360.struts.action.DictamenAction" parameter="method" name="formDictamen" validate="true"> 
-            <forward name="inicioDictamen" path="/consulta/dictamen.jsp"/>
+    <!--        <forward name="inicioDictamen" path="/consulta/dictamen.jsp"/>-->
         </action>
         
         <action path="/Apelacion" type="com.sc360.struts.action.ApelacionAction" parameter="method" name="formApelacion" validate="true"> 
-            <forward name="inicioApelacion" path="/consulta/apelacion.jsp"/>
+            <!--<forward name="inicioApelacion" path="/consulta/apelacion.jsp"/>-->
         </action>
         
         

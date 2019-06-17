@@ -5,12 +5,15 @@
  */
 package com.sc360.struts.dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Elgar
  */
-public class Parametro {
+public class Parametro implements Serializable{
     
+    private static final long serialVersionUID = 8799656478674716638L;
     private String codigo;
     private String descripcion;
 

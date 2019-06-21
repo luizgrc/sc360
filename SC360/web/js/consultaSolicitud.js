@@ -1,5 +1,6 @@
 
 $(function () {
+
     $('#btn-export').click(function () {
         var myTable = $("#dataTables-example");
         excel = new ExcelGen({
@@ -35,6 +36,7 @@ $(function () {
             data: {codigodep: codigodep},
             dataType: 'JSON',
             async: false,
+            cache: false,
             success: function (response) {
                 $('#txtprovincia').empty();
                 $('#txtdistrito').empty();
@@ -61,6 +63,7 @@ $(function () {
             data: {idProvincia: idProvincia},
             dataType: 'JSON',
             async: false,
+            cache: false,
             success: function (response) {
                 $('#txtdistrito').empty();
                 $("<option/>").attr("value", "00").text("[DISTRITO]").appendTo('#txtdistrito');
@@ -74,11 +77,30 @@ $(function () {
 
         });
     });
+    //TEST SEYCI SELECCIONA LOS CHECK DEL FORM
+    $('#selectAll').on('click', function () {
+        var curStep = $(this).closest(".setup-content"),
+                curCheckbox = curStep.find("input[type='checkbox']");
+
+        $.each(curCheckbox, function (index, item) {
+            //console.log(item);
+            //console.log($(item).prop("checked"));
+            if (index >= 1) {
+                if ($(item).prop("checked")) {
+                    $(item).prop("checked", false);
+                } else {
+                    $(item).prop("checked", true);
+                }
+            }
+        });
+    });
+
     $('.snackbar').on('click', function () {
 
         $(this).fadeToggle("slow", "linear");
 
     });
+    //CONSULTA DETALLE
     $('#step-1').on('submit', function (e) {
 
         e.preventDefault();
@@ -106,24 +128,45 @@ $(function () {
             nextStepWizard.removeClass('disabled').trigger('click');
         });
     });
+    //SEYCI
     $('#step-2').on('submit', function (e) {
         e.preventDefault();
         var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
-                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
-        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
-        nextStepWizard.removeClass('disabled').trigger('click');
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                data = $(this).serializeArray();
+        console.log(data);
+        $.ajax({
+            url: "Seyci.do?method=guardarSeyci",
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'JSON'
+        }).done(function (response) {
+            //console.log(snk);    
+            console.log(response);
+
+            //console.log(response.descripcion);
+            snk.html(response.descripcion + '<a href="#">CERRAR</a>');
+            snk.fadeToggle("slow", "linear");
+            snk.fadeToggle("slow", "linear");
+            nextStepWizard.removeClass('disabled').trigger('click');
+        });
     });
+    //TRASLADO
     $('#step-3').on('submit', function (e) {
         e.preventDefault();
         var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
-                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                data = $(this).serializeArray();
+        console.log(data);
         snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
         nextStepWizard.removeClass('disabled').trigger('click');
     });
+    //REEVALUACION
     $('#step-4').on('submit', function (e) {
         e.preventDefault();
         var snk = $('.snackbar');
@@ -133,6 +176,7 @@ $(function () {
         snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
         nextStepWizard.removeClass('disabled').trigger('click');
     });
+    //DICTAMEN
     $('#step-5').on('submit', function (e) {
         e.preventDefault();
         var snk = $('.snackbar');
@@ -142,6 +186,7 @@ $(function () {
         snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
         nextStepWizard.removeClass('disabled').trigger('click');
     });
+    //APELACION
     $('#step-6').on('submit', function (e) {
         e.preventDefault();
         var snk = $('.snackbar');
@@ -205,20 +250,23 @@ $(function () {
         format: 'DD/MM/YYYY'
 
     });
-});
-function showModalWindow(idSolicitud) {
-    $('#modal-detalle').modal({
-        backdrop: 'static', keyboard: false
+    $("#modal-detalle").on('hide.bs.modal', function () {
+        var navListItems = $('div.setup-panel div a'),
+                allNextBtn = $('.nextBtn');
+        navListItems.unbind('click');
+        allNextBtn.unbind('click');
     });
     $("#modal-detalle").on('shown.bs.modal', function () {
+        var idSolicitud = $(this).data("idSolicitud");
         //debugger;
+        console.log(idSolicitud);
         var navListItems = $('div.setup-panel div a'),
                 allWells = $('.setup-content'),
                 allNextBtn = $('.nextBtn');
 
         allWells.hide();
 
-        navListItems.click(function (e) {
+        navListItems.bind('click', function (e) {
             e.preventDefault();
             var $target = $($(this).attr('href')),
                     $item = $(this),
@@ -262,7 +310,7 @@ function showModalWindow(idSolicitud) {
 
         });
 
-        allNextBtn.click(function () {
+        allNextBtn.bind('click', function () {
             var curStep = $(this).closest(".setup-content"),
                     curStepBtn = curStep.attr("id"),
                     nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
@@ -304,8 +352,11 @@ function showModalWindow(idSolicitud) {
 
 
     });
-
-
+});
+function showModalWindow(idSolicitud) {
+    $('#modal-detalle').data("idSolicitud", idSolicitud).modal({
+        backdrop: 'static', keyboard: false
+    });
 }
 function AjaxDetalleC(idSolicitud) {
     $.ajax({
@@ -313,6 +364,7 @@ function AjaxDetalleC(idSolicitud) {
         url: 'Consulta.do?method=verDetalleDocumento',
         data: {idSolicitud: idSolicitud},
         dataType: 'JSON',
+        cache: false,
         beforeSend: function (xhr) {
             //console.log('procesando');
             $('#btndetConsulta').attr('disabled', true);

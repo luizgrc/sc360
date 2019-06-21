@@ -230,19 +230,19 @@
                                         <p><small>Consulta Detalle</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-2" type="button" class="btn btn-default btn-circle disabled">2</a>
+                                        <a href="#step-2" type="button" class="btn btn-default btn-circle ">2</a>
                                         <p><small>Seyci</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-3" type="button" class="btn btn-default btn-circle disabled">3</a>
+                                        <a href="#step-3" type="button" class="btn btn-default btn-circle ">3</a>
                                         <p><small>Traslado</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2" >
-                                        <a href="#step-4" type="button" class="btn btn-default btn-circle disabled">4</a>
+                                        <a href="#step-4" type="button" class="btn btn-default btn-circle ">4</a>
                                         <p><small>Reevaluacion</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-5" type="button" class="btn btn-default btn-circle disabled">5</a>
+                                        <a href="#step-5" type="button" class="btn btn-default btn-circle ">5</a>
                                         <p><small>Dictamen</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">

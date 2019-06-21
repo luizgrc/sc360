@@ -32,7 +32,7 @@ import org.apache.log4j.Logger;
  * @author epuma
  */
 public class ImpSolicitud implements IfaceSolicitud {
-    
+
     private final static Logger LOGGER = Logger.getLogger(ImpSolicitud.class);
     private final ConectaDb db;
     private final StringBuilder sql;
@@ -622,7 +622,7 @@ public class ImpSolicitud implements IfaceSolicitud {
     @Override
     public Parametro ActualizarSEYCI(SEYCI dto) {
         Parametro mensaje = new Parametro();
-        
+
         String query = "{ call SP_ACTUALIZAR_SEYCI_DG(?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
 
         try (
@@ -653,9 +653,11 @@ public class ImpSolicitud implements IfaceSolicitud {
             mensaje.setCodigo("201");
             mensaje.setDescripcion("Registro Satisfactorio");
 
-        } catch (SQLException  e) {
+        } catch (SQLException e) {
+            message = e.getMessage();
             mensaje.setCodigo("500");
-            mensaje.setDescripcion(e.getMessage());
+            mensaje.setDescripcion(message);
+            LOGGER.log(Level.ERROR, message);
         }
 
         return mensaje;
@@ -663,10 +665,10 @@ public class ImpSolicitud implements IfaceSolicitud {
     }
 
     @Override
-    public String ActualizarSEYCITab(SEYCI dto) {
+    public Parametro ActualizarSEYCITab(SEYCI dto) {
 
         String query = "{ call SP_ACTUALIZAR_SEYCI_TAB(?,?,?,?,?,?,?,?,?,?,?,?,?) }";
-
+        Parametro mensaje = new Parametro();
         try (
                 Connection cn = db.getConnection();
                 PreparedStatement ps = cn.prepareStatement(query.toString())) {
@@ -691,13 +693,17 @@ public class ImpSolicitud implements IfaceSolicitud {
             if (cant == 0) {
                 throw new SQLException("0 filas afectadas");
             }
+            mensaje.setCodigo("201");
+            mensaje.setDescripcion("Registro Satisfactorio");
 
         } catch (SQLException e) {
             message = e.getMessage();
+            mensaje.setCodigo("500");
+            mensaje.setDescripcion(message);
             LOGGER.log(Level.ERROR, message);
         }
 
-        return message;
+        return mensaje;
 
     }
 
@@ -747,7 +753,7 @@ public class ImpSolicitud implements IfaceSolicitud {
 
         } catch (SQLException e) {
             message = e.getMessage();
-            
+
             LOGGER.log(Level.ERROR, message);
         }
 
@@ -796,7 +802,7 @@ public class ImpSolicitud implements IfaceSolicitud {
         } catch (SQLException e) {
             message = e.getMessage();
             LOGGER.log(Level.ERROR, message);
-            
+
         }
 
         return message;

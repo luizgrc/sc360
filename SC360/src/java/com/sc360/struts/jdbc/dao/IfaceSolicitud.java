@@ -32,7 +32,7 @@ public interface IfaceSolicitud {
     public List<Detalle> ListadoDetalleSolicitud(Solicitud dto);
     public List<SEYCI> ListadoSeyci(SEYCI dto);
     public Parametro ActualizarSEYCI(SEYCI dto);
-    public String ActualizarSEYCITab(SEYCI dto);
+    public Parametro ActualizarSEYCITab(SEYCI dto);
     public List<Traslado> ListadoTraslado(Traslado dto);
     public List<Traslado> ListadoTrasladoItem(Traslado dto);
     public String InsertarActualizarTraslado(Traslado dto);

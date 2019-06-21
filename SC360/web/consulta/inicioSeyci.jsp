@@ -6,14 +6,17 @@
         <div class="panel-body" style="width: auto;height: 390px;overflow-y: auto;">
             <div class="container">
                 <div class="col-lg-6">
-                    <div class="col-md-6"><STRONG>SEYCI</STRONG>&nbsp;</div>
+                    <div class="col-md-6"><STRONG>SEYCI</STRONG>&nbsp;
+                    <input type="checkbox" id="selectAll"/>
+                    </div>
+                    <input type="hidden" id="nroExpS" name="nroExpS">
                 </div>
                 <div class="col-lg-6">
                     <div class="col-md-4 ">
                         <label style="padding-top: 10px;">N Solicitud&nbsp;</label>
                     </div>
                     <div class="col-md-6">
-                        <input class="form-control input-sm" disabled="true" id="txtNroSolS"/>
+                        <input class="form-control input-sm" disabled="true" id="txtNroSolS" name ="txtNroSolS"/>
                     </div>
                 </div>
                 <div class="space">&nbsp;</div>
@@ -22,7 +25,7 @@
                         <label style="padding-top: 9px;">Ejecutivo&nbsp;</label>
                     </div>
                     <div class="col-md-6">
-                        <select type="text" required="required" class="form-control input-sm" style="width: 250px;" id="sltEjecutivo">
+                        <select type="text" required="required" class="form-control input-sm" style="width: 250px;" id="sltEjecutivo" name="sltEjecutivo">
                             <option value="0">[EJECUTIVO]</option>
                         </select>
                     </div>
@@ -35,7 +38,7 @@
                         <label style="padding-top: 9px;">Tipo Solicitud&nbsp;</label>
                     </div>
                     <div class="col-md-6">
-                        <select id="slttipoSolicitud" name="tipoSolicitud" required="required" style="width: 250px;" class="form-control input-sm">
+                        <select id="slttipoSolicitud" name="slttipoSolicitud" required="required" style="width: 250px;" class="form-control input-sm">
                             <option value="00">[SELECCIONE]</option>
                             <option value="01">Invalidez</option>
                             <option value="02">Invalidez y Cáncer</option>
@@ -54,7 +57,7 @@
                         <label style="padding-top: 9px;"> Agencia&nbsp;</label>
                     </div>
                     <div class="col-md-6">
-                        <select required="required" class="form-control input-sm" style="width: 250px" id="sltAgencia">
+                        <select required="required" class="form-control input-sm" style="width: 250px" id="sltAgencia" name="sltAgencia">
                             <option value="0">[AGENCIA]</option>
                         </select>
                     </div>
@@ -83,7 +86,7 @@
                 </div>
                 <div class="col-md-2">
                     <input type="text" required="required"
-                           class="form-control input-sm" id="txtpnomS"
+                           class="form-control input-sm" id="txtpnomS" name="txtpnomS"
                            style="width: 179px;" />
 
                 </div>
@@ -91,20 +94,20 @@
                     <input type="checkbox" required="required"/>
                 </div>
                 <div class="col-md-2">
-                    <input type="text" required="required" class="form-control input-sm" id="txtsnomS" style="width: 179px;" />
+                    <input type="text" required="required" class="form-control input-sm" id="txtsnomS" name="txtsnomS" style="width: 179px;" />
                 </div>
                 <div class="col-md-1">
                     <input type="checkbox" required="required" />
                 </div>
                 <div class="col-md-2">
-                    <input type="text" required="required" class="form-control input-sm" id="txtpapeS" style="width: 179px;" />
+                    <input type="text" required="required" class="form-control input-sm" id="txtpapeS" name="txtpapeS" style="width: 179px;" />
 
                 </div>
                 <div class="col-md-1">
                     <input type="checkbox" required="required" />
                 </div>
                 <div class="col-md-2">
-                    <input type="text" required="required" class="form-control input-sm" id="txtsapeS" style="width: 179px;" />
+                    <input type="text" required="required" class="form-control input-sm" id="txtsapeS" name="txtsapeS" style="width: 179px;" />
 
                 </div>
                 <div class="col-md-1">
@@ -119,7 +122,7 @@
                     </div>
                     <div class="col-md-7">
 
-                        <select id="sltparentesco" name="parentesco" required="required"
+                        <select id="sltparentesco" name="sltparentesco" required="required"
                                 style="width: 190px;" class="form-control input-sm">
                             <option value="00">[SELECCIONE]</option>
                             <option value="01">Titular</option>
@@ -143,7 +146,7 @@
 
                     <div class="col-md-7 form-inline">
                         <div class="input-group date fechaModal">
-                            <input id="txtfecNacS" type="text" class="form-control input-sm " style="width: 153px;" />
+                            <input id="txtfecNacS" name="txtfecNacS" type="text" class="form-control input-sm " style="width: 153px;" />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span></div>
@@ -201,7 +204,7 @@
                     </div>
                     <div class="col-md-7 form-inline">
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required" id="txtFecSecIS" class="form-control input-sm" style="width: 153px;" />
+                            <input type="text" required="required" id="txtFecSecIS" name="txtFecSecIS" class="form-control input-sm" style="width: 153px;" />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span></div>
@@ -273,7 +276,7 @@
                     </div>
                     <div class="col-md-7 form-inline">
                         <div class="input-group date fechaModal">
-                            <input id="txtFecEnvCOMAFPS" type="text" required="required" class="form-control input-sm " style="width: 153px;" />
+                            <input id="txtFecEnvCOMAFPS" name="txtFecEnvCOMAFPS" type="text" required="required" class="form-control input-sm " style="width: 153px;" />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span></div>
@@ -382,7 +385,7 @@
                     <div class="space">&nbsp;</div>
                     <div>
                         <div class="col-xs-12">
-                            <textarea id="txtObsSeyci" style="min-height: 50px; max-height: 80px; resize: vertical;" type="text" cols="120" rows="2" class="form-control input-sm" >
+                            <textarea id="txtObsSeyci" name="txtObsSeyci" style="min-height: 50px; max-height: 80px; resize: vertical;" type="text" cols="120" rows="2" class="form-control input-sm" >
                                 
                             </textarea>
                         </div>

@@ -78,40 +78,24 @@ public class SeyciAction extends DispatchAction {
     public ActionForward guardarSeyci(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
 
         System.out.println(" Inicio Guardar Seyci ");
+        String numeroExpediente = req.getParameter("nroExpS");
+        String EjecutivaAgencia = req.getParameter("sltEjecutivo");
+        String NSolicitudSysde = req.getParameter("txtNroSolS");
+        String TipoSolicitud = req.getParameter("slttipoSolicitud");
+        String primerNombre = req.getParameter("txtpnomS");
+        String segundoNombre = req.getParameter("txtsnomS");
+        String primerApellido = req.getParameter("txtpapeS");
+        String segundoApellido = req.getParameter("txtsapeS");
+        String FecNacBen = req.getParameter("txtfecNacS");
+        String Parentesco = req.getParameter("sltparentesco");
+        String ActividadRiesgo = req.getParameter("actRiesgo");
+        String FechaSeccI  = req.getParameter("txtFecSecIS");
+        String FechaEnvioSeyciCOMAFP = req.getParameter("txtFecEnvCOMAFPS");
+        String Observaciones = req.getParameter("txtObsSeyci");
+        
+        Gson gson = new Gson();
+        Parametro mensaje = new Parametro();
         SEYCI seyci = new SEYCI();
-        SeyciAction cons = new SeyciAction();
-
-        SeyciForm formS = (SeyciForm) form;
-
-        String Agencia = formS.getAgencia();
-        String EjecutivaAgencia = formS.getEjecutivo();
-        String NSolicitudSysde = formS.getNroSolicitud();
-
-        String TipoSolicitud = formS.getTipoSolicitud();
-        String primerNombre = formS.getPrimerNombreEvaluado();
-        String segundoNombre = formS.getSegundoNombreEvaluado();
-        String primerApellido = formS.getPrimerApellidoEvaluado();
-        String segundoApellido = formS.getSegundoApellidoEvaluado();
-        String Parentesco = formS.getParentesco();
-        String FecNacBen = formS.getFechaNacimientoSeyci();
-        String ActividadRiesgo = formS.getActRiesgo();
-
-        String ResultadoEvaluacion = formS.getResultadoEvaluacion();
-        String FechaSeccI = formS.getFechaSeccionI();
-        String FechaIngBeneficios = formS.getFechaIngresoBenef();
-        String FechaFirmaMedico = formS.getFechaFirmaMedico();
-        String DJBenef = formS.getDjBenef();
-        String FechaEnvioSeyciCOMAFP = formS.getFechaEnvioCOMAFP();
-        String FechaRecepSeyciCOMAFP = formS.getFechaRecepCOMAFP();
-        String fechaEnvioDIS = formS.getFechaEnvioDIS();
-        String fechaRecepDIS = formS.getFechaRecepcionDIS();
-        String nombreAchivo = formS.getNombreArchivoOKDis();
-        String Analista = formS.getAnalista();
-        String Observaciones = formS.getObservacionesSEYCI();
-        String FechaConclusion = formS.getFecConclusion();
-
-        String numeroExpediente = formS.getNumeroExpediente();
-
         seyci.setExp(numeroExpediente);
         seyci.setEjecutivaAgencia(EjecutivaAgencia);
         seyci.setNumeroSolicitud(NSolicitudSysde);
@@ -126,15 +110,18 @@ public class SeyciAction extends DispatchAction {
         seyci.setFechaSeccionI(FechaSeccI);
         seyci.setFechaEnvioCOMAFP(FechaEnvioSeyciCOMAFP);
         seyci.setObservacionesSeyci(Observaciones);
-
-        IfaceUtil daoUtil = new ImpUtil();
+        
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
 
-        daoSolicitud.ActualizarSEYCITab(seyci);
+
+        
+        mensaje = (daoSolicitud.ActualizarSEYCITab(seyci));
+        String jsonstring = gson.toJson(mensaje);
+        res.getWriter().write(jsonstring);
 
         System.out.println(" Fin Guardar Seyci ");
 
-        return cons.inicioSeyci(mapping, form, req, res);
+        return null;
 
         //return mapping.findForward("inicioSeyci");
     }

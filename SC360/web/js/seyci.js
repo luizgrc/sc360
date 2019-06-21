@@ -9,6 +9,7 @@ function AjaxSeyciInicio(idExp) {
     }).done(function (response) {
         console.log(response);
         $.each(response, function (index, item) {
+            $('#nroExpS').val(item.exp);
             $('#txtNroSolS').val(item.numeroSolicitud);
             switch (item.tipoSolicitud.trim()) {
                 case "Invalidez":

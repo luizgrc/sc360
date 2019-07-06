@@ -78,43 +78,67 @@ public class SeyciAction extends DispatchAction {
     public ActionForward guardarSeyci(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
 
         System.out.println(" Inicio Guardar Seyci ");
+
+        String nickUsuario = req.getParameter("nickUsuario");
         String numeroExpediente = req.getParameter("nroExpS");
         String EjecutivaAgencia = req.getParameter("sltEjecutivo");
-        String NSolicitudSysde = req.getParameter("txtNroSolS");
-        String TipoSolicitud = req.getParameter("slttipoSolicitud");
         String primerNombre = req.getParameter("txtpnomS");
         String segundoNombre = req.getParameter("txtsnomS");
         String primerApellido = req.getParameter("txtpapeS");
         String segundoApellido = req.getParameter("txtsapeS");
-        String FecNacBen = req.getParameter("txtfecNacS");
-        String Parentesco = req.getParameter("sltparentesco");
-        String ActividadRiesgo = req.getParameter("actRiesgo");
-        String FechaSeccI  = req.getParameter("txtFecSecIS");
+        String FechaNacEvaluado = req.getParameter("txtfecNacS");
+        String FechaSeccI = req.getParameter("txtFecSecIS");
         String FechaEnvioSeyciCOMAFP = req.getParameter("txtFecEnvCOMAFPS");
         String Observaciones = req.getParameter("txtObsSeyci");
+        //
+        String TipoSolicitud = req.getParameter("slttipoSolicitud");
+        switch (TipoSolicitud.trim()) {
+                case "01":
+                       TipoSolicitud = "Invalidez";
+                    break;
+                case "02":
+                    TipoSolicitud = "Invalidez y Cáncer";
+                    break;
+                case "03":
+                    TipoSolicitud = "Invalidez y Enfermedad Terminal";
+                    break;
+                default :
+                    TipoSolicitud = "";
+                    break;
+        }
+        String TipoEvaluado = req.getParameter("slttipoEvaluado");
+            switch (TipoEvaluado.trim()) {
+                case "01":
+                    TipoEvaluado = "Afiliado";
+                    break;
+                case "02":
+                    TipoEvaluado = "Beneficiario";
+                    break;
+                default :
+                    TipoEvaluado = "";
+                    break;
+            }
+        
         
         Gson gson = new Gson();
         Parametro mensaje = new Parametro();
         SEYCI seyci = new SEYCI();
         seyci.setExp(numeroExpediente);
         seyci.setEjecutivaAgencia(EjecutivaAgencia);
-        seyci.setNumeroSolicitud(NSolicitudSysde);
         seyci.setTipoSolicitud(TipoSolicitud);
+        seyci.setTipoDeEvaluado(TipoEvaluado);
         seyci.setPrimerNombre(primerNombre);
         seyci.setSegundoNombre(segundoNombre);
         seyci.setPrimerApellido(primerApellido);
         seyci.setSegundoApellido(segundoApellido);
-        seyci.setParentescoSolicitanteBnef(Parentesco);
-        seyci.setFechaNacEvaluado(FecNacBen);
-        seyci.setActividadLaboral(ActividadRiesgo);
+        seyci.setFechaNacEvaluado(FechaNacEvaluado);
         seyci.setFechaSeccionI(FechaSeccI);
         seyci.setFechaEnvioCOMAFP(FechaEnvioSeyciCOMAFP);
         seyci.setObservacionesSeyci(Observaciones);
-        
+        seyci.setModificadopor(nickUsuario);
+
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
 
-
-        
         mensaje = (daoSolicitud.ActualizarSEYCITab(seyci));
         String jsonstring = gson.toJson(mensaje);
         res.getWriter().write(jsonstring);

@@ -13,13 +13,13 @@
                     <STRONG>DATOS GENERALES</STRONG>&nbsp;
                 </div>
                 <div class="space">&nbsp;</div>
+                <input type="hidden" class="user" id="nickUsuario" name="nickUsuario">
                 <div class="col-md-12">
                     <div class="col-md-2">
                         <label style="margin: 4px">Exp &nbsp;</label>
                     </div>
                     <div class="col-md-2">
-                        <input id="txtExp" name="txtExp" class="form-control input-sm "
-                               size="12" maxlength="12" readonly="true"/></div>
+                        <input id="txtExp" name="txtExp" class="form-control input-sm" size="12" maxlength="12" readonly/></div>
                 </div>
                 <div class="space">&nbsp;</div>
                 <div>
@@ -28,8 +28,7 @@
                             <label style="padding-top: 10px;">CUSPP&nbsp;</label>
                         </div>
                         <div class="col-md-4">
-                            <input readonly="true" id="txtCuspp" name="txtCuspp" type="text" required="" class="input-sm form-control"
-                                   style="width: 167px;" />
+                            <input readonly id="txtCuspp" name="txtCuspp" type="text" required="" class="input-sm form-control"  style="width: 167px;" />
                         </div>
                         <div class="col-md-4">
                             <input type="checkbox" required="">

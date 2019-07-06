@@ -5,6 +5,7 @@
  */
 package com.sc360.struts.action;
 
+import com.google.gson.Gson;
 import com.sc360.struts.dto.Apelacion;
 import com.sc360.struts.form.ApelacionForm;
 import javax.servlet.http.HttpServletRequest;
@@ -27,60 +28,25 @@ public class ApelacionAction extends DispatchAction{
     
     
     public ActionForward inicioApelacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
-
-        
         System.out.println(" Inicio Dictamen Action ");
         String numeroExpediente  =  req.getParameter("numeroExp");
         System.out.println(" numeroExpediente " + numeroExpediente);
+        Gson json  = new Gson();
         Apelacion dto = new Apelacion();
-        IfaceUtil daoUtil = new ImpUtil();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
         
-        ApelacionForm formS =(ApelacionForm)form;
-        
-        if(numeroExpediente==null){
-  
-              numeroExpediente = formS.getNroSeyci();
-              System.out.println(" numeroExpediente Null " + numeroExpediente);
-          }
-        
+       
         dto.setNroSeyci(numeroExpediente);
         
         List<Apelacion>   listaApelacion = daoSolicitud.ListadoApelacion(dto);
-        
-        try
-           {
-                for(int cant=0;cant < listaApelacion.size();cant++ )
-                {
-                 Apelacion dtoDetalle = (Apelacion)listaApelacion.get(cant);
-                 
-                 formS.setNroSeyci(dtoDetalle.getNroSeyci());
-                 formS.setNroDictamenApelado(dtoDetalle.getNroDictamenApelado());
-                 formS.setPersonaApela(dtoDetalle.getPersonaApela());
-                 formS.setFechaApelacion(dtoDetalle.getFechaApelacion());
-                 formS.setFecIngBeneficios(dtoDetalle.getFecIngBeneficios());
-                 formS.setFecEnvCarta(dtoDetalle.getFecEnvCarta());
-                 formS.setRecepCOMAFP(dtoDetalle.getRecepCOMAFP());
-                 formS.setAnalista(dtoDetalle.getAnalista());
-                 formS.setMotivoApelacion(dtoDetalle.getMotivoApelacion());
-                 formS.setNroExpDictamenApelado(dtoDetalle.getNroDictamenApelado());
-                 formS.setDisPacifico(dtoDetalle.getDisPacifico());
-                 formS.setFecDictamen(dtoDetalle.getFecDictamen());
-                 formS.setFecEnvioDis(dtoDetalle.getFecEnvioDis());
-                 formS.setoK(dtoDetalle.getOK());
-                 formS.setFecNotAfiliado(dtoDetalle.getFecNotAfiliado());
-                 formS.setFecNotCOMEC(dtoDetalle.getFecNotCOMEC());
-                 formS.setObservaciones(dtoDetalle.getObservaciones());
-                 
-                } 
-       
-            }catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+        String jsonstring = "";
+        if(listaApelacion != null){
+            jsonstring = json.toJson(listaApelacion);
+        }
+        res.getWriter().write(jsonstring);
              
     
-    return mapping.findForward("inicioApelacion");
+    return null;
         
     }
     

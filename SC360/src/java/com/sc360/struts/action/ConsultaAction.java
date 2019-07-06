@@ -125,27 +125,7 @@ public class ConsultaAction extends DispatchAction {
         }
         return mapping.findForward("success");
     }
-    
-    public ActionForward verDetalleDocumento(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
-        System.out.println(" Entro Metodo window Modal ");
-        String idSolicitud = req.getParameter("idSolicitud");
-        IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        Gson gson = new Gson();
-        Solicitud dto = new Solicitud();
-        dto.setIdSolicitud(idSolicitud);
-        List<Detalle> listaDetalle = daoSolicitud.ListadoDetalleSolicitud(dto);
-        System.out.println(listaDetalle);
-        String jsonString = "";
-        if (listaDetalle != null) {
-            jsonString = gson.toJson(listaDetalle);
-        }
-        res.setCharacterEncoding("UTF8");
-        res.setContentType("application/json");
-        res.getWriter().write(jsonString);
 
-        //since this is an ajax call, just return null so that struts does not take any further action
-        return null;
-    }
     
     public ActionForward provinciasXdepa(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
         System.out.println(" Entro Metodo obtenerProviciasxidep ");
@@ -186,11 +166,32 @@ public class ConsultaAction extends DispatchAction {
         //since this is an ajax call, just return null so that struts does not take any further action
         return null;
     }
+        
+    public ActionForward verDetalleDocumento(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+        System.out.println(" Entro Metodo window Modal ");
+        String idSolicitud = req.getParameter("idSolicitud");
+        IfaceSolicitud daoSolicitud = new ImpSolicitud();
+        Gson gson = new Gson();
+        Solicitud dto = new Solicitud();
+        dto.setIdSolicitud(idSolicitud);
+        List<Detalle> listaDetalle = daoSolicitud.ListadoDetalleSolicitud(dto);
+        System.out.println(listaDetalle);
+        String jsonString = "";
+        if (listaDetalle != null) {
+            jsonString = gson.toJson(listaDetalle);
+        }
+        res.setCharacterEncoding("UTF8");
+        res.setContentType("application/json");
+        res.getWriter().write(jsonString);
+
+        //since this is an ajax call, just return null so that struts does not take any further action
+        return null;
+    }
     
     public ActionForward guardarSolicitud(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
         
-        System.out.println(" Inicio Guardar ");
-        String idSolicitud = req.getParameter("txtExp");
+        System.out.println(" Inicio Guardar  Consulta detalle");
+        String Exp = req.getParameter("txtExp");
         String cuspp = req.getParameter("txtCuspp");
         String primerNombre = req.getParameter("txtpNom");
         String segundoNombre = req.getParameter("txtsNom");
@@ -204,11 +205,11 @@ public class ConsultaAction extends DispatchAction {
         String departamento = req.getParameter("txtdepartamento");
         String provincia = req.getParameter("txtprovincia");
         String distrito = req.getParameter("distrito");
-        
+        String nickUsuario = req.getParameter("nickUsuario");
         Gson gson = new Gson();
         Parametro mensaje = new Parametro();
         SEYCI seyci = new SEYCI();
-        seyci.setExp(idSolicitud);
+        seyci.setExp(Exp);
         seyci.setCuspp(cuspp);
         seyci.setPrimerNombre(primerNombre);
         seyci.setSegundoNombre(segundoNombre);
@@ -222,6 +223,7 @@ public class ConsultaAction extends DispatchAction {
         seyci.setDepartamentoAfi(departamento);
         seyci.setProvinciaAfi(provincia);
         seyci.setDistritoAfi(distrito);
+        seyci.setModificadopor(nickUsuario);
         
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
 
@@ -233,22 +235,5 @@ public class ConsultaAction extends DispatchAction {
         return null;
 
         //return mapping.findForward("datosGenerales");
-    }
-    
-    public ActionForward inicioSeyci(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
-        
-        System.out.println(" Inicio Seyci ");
-        
-        SeyciForm formS = (SeyciForm) form;
-        
-        return mapping.findForward("inicioSeyci");
-        
-    }
-    
-    public ActionForward inicioTraslado(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
-        
-        System.out.println(" Inicio Traslado ");
-        return mapping.findForward("inicioTraslado");
-        
     }
 }

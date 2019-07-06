@@ -1,15 +1,31 @@
 $(function () {
+    $('#txtMontoMov , #txtMontoAlimenT, #txtMontoAloT,#txtTotalGastoT ,#txtTotalGastoTS').val(0);
+
+    $('#txtMontoMov , #txtMontoAlimenT, #txtMontoAloT').on('change', function () {
+        suma = parseFloat($('#txtMontoMov').val()) + parseFloat($('#txtMontoAlimenT').val()) + parseFloat($('#txtMontoAloT').val());
+        $('#txtTotalGastoT').val(suma);
+        $('#txtTotalGastoTS').val(suma);
+    });
+
     $('#sltOpcionT').change(function () {
         var idOpcionT = $(this).val();
         var nroexp;
-        console.log(idOpcionT);
+        var curStep = $(this).closest(".container"),
+                curInputs = curStep.find("input[type='text']");
         switch (idOpcionT) {
             case "01" :
                 $(this).closest('.container').find('#mostrar').css('display', 'none');
+
+                $.each(curInputs, function (index, item) {
+                    $(item).removeAttr('required');
+                });
                 break;
             case "00" :
                 $(this).closest('.container').find('#mostrar').removeAttr('style');
                 nroexp = $(this).closest('.container').find('#nroExpT').val();
+                $.each(curInputs, function (index, item) {
+                    $(item).attr('required' , "true");
+                });
                 AjaxTrasladoInicio(nroexp);
 
         }
@@ -42,14 +58,31 @@ function AjaxTrasladoInicio(numeroExp) {
     $.ajax({
         type: 'POST',
         url: 'Traslado.do?method=inicioTraslado',
-        cache: false,        
+        cache: false,
         data: {numeroExp: numeroExp},
         dataType: 'JSON'
-        
+
     }
-    ).done( function(response){
-        console.log(response);
-    }).fail(function (jqXHR, textStatus, errorThrown ){
+    ).done(function (response) {
+        //console.log(response);
+        $('#tblConsulta tbody').empty();
+        $.each(response, function (index, item) {
+
+
+            var newrow = "<tr>" +
+                    "<td>" + item.idTraslado + "</td>" +
+                    "<td>" + item.fechaCita + "</td>" +
+                    "<td></td>" +
+                    "<td>" + item.origen + "</td>" +
+                    "<td>" + item.destino + "</td>" +
+                    "<td>" + item.tipoMovilidad + "</td>" +
+                    "<td>" + item.fechaAprobacion + "</td>" +
+                    "<td>" + item.totalGasto + "</td>" +
+                    "</tr>";
+            $('#tblConsulta tbody').append(newrow);
+        });
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);

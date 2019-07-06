@@ -7,6 +7,11 @@
 
 <struts-config>
     <form-beans>
+                
+        <!--<form-bean type="com.sc360.struts.form.MantenimientoTopeGS"  name="formMantenimientoTopeGS" />
+        <form-bean type="com.sc360.struts.form.MantenimientoPlazos" name="formMantenimientoPlazos" />        
+        <form-bean type="com.sc360.struts.form.MantenimientoPlantillaCartas" name="formMantenimientoPlantillaCartas" />
+        <form-bean type="com.sc360.struts.form.MantenimientoCorreosForm" name="formMantenimientoTopeGS" />-->
         <form-bean type="com.sc360.struts.form.LoginForm" name="formLogin" />
         <form-bean type="com.sc360.struts.form.CargaArchivosForm" name="formCarga" />
         <form-bean type="com.sc360.struts.form.ConsultaForm" name="formConsulta" />
@@ -68,6 +73,23 @@
         
         <action path="/Apelacion" type="com.sc360.struts.action.ApelacionAction" parameter="method" name="formApelacion" validate="true"> 
             <!--<forward name="inicioApelacion" path="/consulta/apelacion.jsp"/>-->
+        </action>
+        
+                
+       <action path="/MantenimientoCorreos" type="com.sc360.struts.action.MantenimientoCorreos" parameter="method" validate="true">
+            <forward name="success" path="/mantenimiento/mantEtapas-correo.jsp"/>
+        </action>
+        <action path="/MantenimientoPlazos" type="com.sc360.struts.action.MantenimientoPlazosAction" parameter="method" validate="true">
+          <forward name="success" path="/mantenimiento/mantEtapas-plazos.jsp"/>
+        </action>
+        
+        <action path="/MantenimientoPlantillaCartas" type="com.sc360.struts.action.MantenimientoPlantillaCartasAction" scope="session" parameter="method" validate="true" >
+            <forward name="success" path="/mantenimiento/mantEtapas-plantillacartas.jsp"/>
+            <forward name="editar" path="/mantenimiento/mantEtapas-plantillacartasedicion.jsp"/>
+        </action>
+        
+        <action path="/MantenimientoTopeGS" type="com.sc360.struts.action.MantenimientoTopeGSAction" parameter="method" validate="true">
+         <forward name="success" path="/mantenimiento/mantEtapas-topegs.jsp"/>
         </action>
         
         

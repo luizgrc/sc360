@@ -10,7 +10,7 @@ package com.sc360.struts.dto;
  * @author Elgar
  */
 public class Traslado {
-    
+
     private String nroExpSeyci;
     private String nroTraslado;
     private String fechaCita;
@@ -33,6 +33,8 @@ public class Traslado {
     private String ejecutiva;
     private String analista;
     private String idTraslado;
+    private String modificadopor;
+    private String modificadofecha;
 
     public Traslado() {
     }
@@ -212,7 +214,21 @@ public class Traslado {
     public void setIdTraslado(String idTraslado) {
         this.idTraslado = idTraslado;
     }
-    
-    
-    
+
+    public String getModificadopor() {
+        return modificadopor;
+    }
+
+    public void setModificadopor(String modificadopor) {
+        this.modificadopor = modificadopor;
+    }
+
+    public String getModificadofecha() {
+        return modificadofecha;
+    }
+
+    public void setModificadofecha(String modificadofecha) {
+        this.modificadofecha = modificadofecha;
+    }
+
 }

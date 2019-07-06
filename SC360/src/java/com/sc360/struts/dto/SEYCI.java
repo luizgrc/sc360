@@ -135,6 +135,8 @@ public class SEYCI {
     private String tipoDeBeneficio;
     private String fechaSolJA;
     private String stadoSolJA;
+    private String modificadopor;
+    private String modificadofecha;
     
     public SEYCI() {
     }
@@ -1130,6 +1132,23 @@ public class SEYCI {
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
     }
+
+    public String getModificadopor() {
+        return modificadopor;
+    }
+
+    public void setModificadopor(String modificadopor) {
+        this.modificadopor = modificadopor;
+    }
+
+    public String getModificadofecha() {
+        return modificadofecha;
+    }
+
+    public void setModificadofecha(String modificadofecha) {
+        this.modificadofecha = modificadofecha;
+    }
+    
 
     
     

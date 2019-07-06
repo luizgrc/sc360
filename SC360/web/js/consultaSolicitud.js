@@ -1,6 +1,9 @@
 
 $(function () {
 
+    var user = sessionStorage.getItem('nickusuario');
+    $('.user').val(user);
+    console.log($('.user'))
     $('#btn-export').click(function () {
         var myTable = $("#dataTables-example");
         excel = new ExcelGen({
@@ -119,12 +122,12 @@ $(function () {
             dataType: 'JSON'
         }).done(function (response) {
             //console.log(snk);    
-            //console.log(response);
+            console.log(response);
 
             //console.log(response.descripcion);
             snk.html(response.descripcion + '<a href="#">CERRAR</a>');
             snk.fadeToggle("slow", "linear");
-            snk.fadeToggle("slow", "linear");
+            snk.delay(2000).fadeToggle("slow", "linear");
             nextStepWizard.removeClass('disabled').trigger('click');
         });
     });
@@ -136,7 +139,8 @@ $(function () {
                 curStepBtn = curStep.attr("id"),
                 nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
                 data = $(this).serializeArray();
-        console.log(data);
+
+        //console.log(data);
         $.ajax({
             url: "Seyci.do?method=guardarSeyci",
             type: 'POST',
@@ -150,12 +154,13 @@ $(function () {
             //console.log(response.descripcion);
             snk.html(response.descripcion + '<a href="#">CERRAR</a>');
             snk.fadeToggle("slow", "linear");
-            snk.fadeToggle("slow", "linear");
+            snk.delay(2000).fadeToggle("slow", "linear");
             nextStepWizard.removeClass('disabled').trigger('click');
         });
     });
     //TRASLADO
     $('#step-3').on('submit', function (e) {
+        console.log("valor de opcion : " + $('#sltOpcionT').val());
         e.preventDefault();
         var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
@@ -163,8 +168,26 @@ $(function () {
                 nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
                 data = $(this).serializeArray();
         console.log(data);
-        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
-        nextStepWizard.removeClass('disabled').trigger('click');
+        if ($('#sltOpcionT').val() === "00") {
+            $.ajax({
+                url: "Traslado.do?method=guardarTraslado",
+                type: 'POST',
+                data: data,
+                cache: false,
+                dataType: 'JSON'
+            }).done(function (response) {
+                //console.log(snk);    
+                console.log(response);
+
+                //console.log(response.descripcion);
+                snk.html(response.descripcion + '<a href="#">CERRAR</a>');
+                snk.fadeToggle("slow", "linear");
+                snk.delay(2000).fadeToggle("slow", "linear");
+                nextStepWizard.removeClass('disabled').trigger('click');
+            });
+        } else {
+            nextStepWizard.removeClass('disabled').trigger('click');
+        }
     });
     //REEVALUACION
     $('#step-4').on('submit', function (e) {
@@ -289,7 +312,7 @@ $(function () {
                     //-------SEYCI-----------
                 case "#step-2":
                     //console.log($targethrefVal);
-                    listarEjecutivos();
+                    //listarEjecutivos();
                     listarAgencias();
                     AjaxSeyciInicio($('#txtExp').val());
 
@@ -297,6 +320,7 @@ $(function () {
                     //-------TRASLADO-----------
                 case "#step-3":
                     $('#nroExpT').val($('#txtExp').val());
+                    $('#nroExpTras').val($('#txtExp').val());
                     $('#sltOpcionT').trigger('change');
                     break;
                 case "#step-4":
@@ -371,9 +395,6 @@ function AjaxDetalleC(idSolicitud) {
         }
     }).done(function (response) {
         $.each(response, function (index, item) {
-            console.log('departamento: ' + item.departamento);
-            console.log('provincia: ' + item.provincia);
-            console.log('distrito: ' + item.distrito);
             $('#txtExp').val(item.exp);
             $('#txtCuspp').val(item.cuspp);
             $('#txtpNom').val(item.primerNombre);
@@ -394,8 +415,7 @@ function AjaxDetalleC(idSolicitud) {
                     break;
             }
             $('#txtTelefono').val(item.telefono);
-            //$('#txtEstCivil').val() por determinar
-
+            $('#txtEstCivil').val(1);// por determinar
             $('#txtDireccion').val(item.direccion);
             $('#txtdepartamento').val(item.departamento).trigger('change');
             console.log('Departamento Val Modal: ' + $('#txtdepartamento').val());

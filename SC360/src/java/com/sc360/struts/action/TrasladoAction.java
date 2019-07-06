@@ -20,193 +20,144 @@ import com.sc360.struts.jdbc.dao.ImpUtil;
 import com.sc360.struts.dto.Parametro;
 import com.sc360.struts.dto.Traslado;
 import java.util.List;
+
 /**
  *
  * @author epuma
  */
-public class TrasladoAction extends DispatchAction{
-    
-    public ActionForward inicioTraslado(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
+public class TrasladoAction extends DispatchAction {
 
-    
+    public ActionForward inicioTraslado(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
         System.out.println(" Inicio Traslado Action ");
         Gson gson = new Gson();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
         Traslado dto = new Traslado();
-        String numeroExpediente  =  req.getParameter("numeroExp");
+        String numeroExpediente = req.getParameter("numeroExp");
         System.out.println(" numeroExpediente " + numeroExpediente);
-        
+
         dto.setNroExpSeyci(numeroExpediente);
-        
-        List<Traslado>   listaTraslado= daoSolicitud.ListadoTraslado(dto);
+
+        List<Traslado> listaTraslado = daoSolicitud.ListadoTraslado(dto);
         String jsonstring = "";
-        if(listaTraslado != null){
+        if (listaTraslado != null) {
             jsonstring = gson.toJson(listaTraslado);
         }
         res.getWriter().write(jsonstring);
-        
+
         System.out.println(" Fin Traslado Action ");
-        
+
         return null;
-        
-    }
-    
-    public ActionForward guardarTraslado(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
 
-    
+    }
+
+    public ActionForward guardarTraslado(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
         System.out.println(" Inicio Guardar Traslado ");
-        
-        Traslado traslado = new Traslado();
-        TrasladoAction cons = new TrasladoAction();
-        
-        TrasladoForm formT =(TrasladoForm)form;
-        
-        
-                 String FechaCita = formT.getFechaCita();
-                 String Acompanante = formT.getAcompanante();
-                 String NroTraslado = formT.getNroTraslado();
-                 String Tipo = formT.getTipo();
-                 String Origen = formT.getOrigen();
-                 String Destino = formT.getDestino();
-                 String FechaAprobacion = formT.getFechaAprobacion();
-                 String Moneda  = formT.getMoneda();
-                 String TipoMovilidad = formT.getTipoMovilidad();
-                 String MontoMovilidad = formT.getMontoMovilidad();
-                 String Moneda1 = formT.getMoneda1();
-                 String DiasAlimentacion = formT.getDiasAlimentacion();
-                 String MontoAlimentacion = formT.getMontoAlimentacion();
-                 String Moneda2 = formT.getMoneda2();
-                 String DiasAlojamiento = formT.getDiasAlojamiento();
-                 String MontoAlojamiento = formT.getMontoAlojamiento();
-                 String MontoMedico = formT.getMontoMedico();
-                 String TotalGasto = formT.getTotalGasto();
-                 String Ejecutivo = formT.getEjecutivo();
-                 String Analista = formT.getAnalista();
-                 String NroExpSeyci = formT.getNroExpSeyci();
-                 
-                 formT.setNroExpSeyci(NroExpSeyci);
-                 
-                    traslado.setFechaCita(FechaCita);
-                    traslado.setAcompanante(Acompanante);
-                    traslado.setNroTraslado(NroTraslado);
-                    traslado.setTipo(Tipo);
-                    traslado.setOrigen(Origen);
-                    traslado.setDestino(Destino);
-                    traslado.setFechaAprobacion(FechaAprobacion);
-                    traslado.setMoneda1(Moneda);
-                    traslado.setTipoMovilidad(TipoMovilidad);
-                    traslado.setMontoMovilidad(MontoMovilidad);
-                    traslado.setMoneda1(Moneda1);
-                    traslado.setDiasAlimentacion(DiasAlimentacion);
-                    traslado.setMontoAlimentacion(MontoAlimentacion);
-                    traslado.setMoneda2(Moneda2);
-                    traslado.setDiasAlojamiento(DiasAlojamiento);
-                    traslado.setMontoAlojamiento(MontoAlojamiento);
-                    traslado.setMontoExtraMedicos(MontoMedico);
-                    traslado.setTotalGasto(TotalGasto);
-                    traslado.setEjecutiva(Ejecutivo);
-                    traslado.setAnalista(Analista);
-                    traslado.setNroExpSeyci(NroExpSeyci);
-        
-        IfaceUtil daoUtil = new ImpUtil();
-        IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        
-        daoSolicitud.InsertarActualizarTraslado(traslado);
-        
-        List<Parametro>  listDepartamento = daoUtil.departamentosCbo();
-        
-        if (listDepartamento != null) {
-                    req.setAttribute("listDepartamento", listDepartamento);
-        }
-  
-        
-        System.out.println(" Fin Guardar Traslado ");
-        
-        return cons.inicioTraslado(mapping,  form,  req,  res);
-        
-        //return mapping.findForward("inicioTraslado");
-        
-    }
-    
-    public ActionForward mostrarTraslado(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
 
-    
-        System.out.println(" Inicio Mostrar Traslado Action ");
-        IfaceUtil daoUtil = new ImpUtil();
-        IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        Traslado dto = new Traslado();
-        String numeroExpediente  =  req.getParameter("numeroExp");
-        String idNroTraslado = req.getParameter("idNroTraslado");
-        System.out.println(" numeroExpediente " + numeroExpediente);
-        
-        TrasladoForm formT =(TrasladoForm)form;
-        
-        formT.setNroExpSeyci(numeroExpediente);
-        
-        if(numeroExpediente==null){
-  
-              numeroExpediente = formT.getNroExpSeyci();
-              System.out.println(" numeroExpediente Null " + numeroExpediente);
-          }
-        
-        List<Parametro>  listDepartamento = daoUtil.departamentosCbo();
-        
-        if (listDepartamento != null) {
-                    req.setAttribute("listDepartamento", listDepartamento);
+        Traslado traslado = new Traslado();
+        Parametro mensaje = new Parametro();
+        Gson gson = new Gson();
+
+        String nickUsuario = req.getParameter("nickUsuario");
+        String nrotraslado = req.getParameter("txtnroTrasladoT");
+        String FechaCita = req.getParameter("txtFecCitaT");
+        String Acompanante = req.getParameter("sltAcomT");
+        switch (Acompanante.trim()) {
+            case "00":
+                Acompanante = "SI";
+                break;
+            case "01":
+                Acompanante = "NO";
+                break;
         }
-        
-        dto.setNroExpSeyci(numeroExpediente);
-        dto.setIdTraslado(idNroTraslado);
-        
-        List<Traslado>   listaTraslado= daoSolicitud.ListadoTraslado(dto);
-        List<Traslado>   listaTrasladoItem= daoSolicitud.ListadoTrasladoItem(dto);
-        
-        if (listaTraslado.size()>0) {
-                    req.setAttribute("listaTraslado", listaTraslado);
-                }
-        
-        //if (listaTraslado.size()>0) {
-        
-        try
-           {
-                for(int cant=0;cant < listaTrasladoItem.size();cant++ )
-                {
-                 Traslado dtoDetalle = (Traslado)listaTrasladoItem.get(cant);
-                 
-                 formT.setFechaCita(dtoDetalle.getFechaCita());
-                 formT.setAcompanante(dtoDetalle.getAcompanante());
-                 formT.setNroTraslado(dtoDetalle.getNroTraslado());
-                 formT.setTipo(dtoDetalle.getTipo());
-                 formT.setOrigen(dtoDetalle.getOrigen());
-                 formT.setDestino(dtoDetalle.getDestino());
-                 formT.setFechaAprobacion(dtoDetalle.getFechaAprobacion());
-                 formT.setMoneda(dtoDetalle.getMoneda1());
-                 formT.setTipoMovilidad(dtoDetalle.getTipoMovilidad());
-                 formT.setMontoMovilidad(dtoDetalle.getMontoMovilidad());
-                 formT.setMoneda1(dtoDetalle.getMoneda1());
-                 formT.setDiasAlimentacion(dtoDetalle.getDiasAlimentacion());
-                 formT.setMontoAlimentacion(dtoDetalle.getMontoAlimentacion());
-                 formT.setMoneda2(dtoDetalle.getMoneda2());
-                 formT.setDiasAlojamiento(dtoDetalle.getDiasAlojamiento());
-                 formT.setMontoAlojamiento(dtoDetalle.getMontoAlojamiento());
-                 formT.setMontoMedico(dtoDetalle.getMontoExtraMedicos());
-                 formT.setTotalGasto(dtoDetalle.getTotalGasto());
-                 formT.setEjecutivo(dtoDetalle.getEjecutiva());
-                 formT.setAnalista(dtoDetalle.getAnalista());
-                 formT.setNroExpSeyci(dtoDetalle.getNroExpSeyci());
-                 
-                } 
-       
-            }catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-  
-        //}
-        System.out.println(" Fin Mostrar Traslado Action ");
-        
-        return mapping.findForward("inicioTraslado");
-        
+        String Tipo = req.getParameter("txtFecCitaT");
+        String Origen = req.getParameter("sltOrigenT");
+        String Destino = req.getParameter("sltDestinoT");
+        String FechaAprobacion = req.getParameter("txtFecAprobT");
+        String Moneda1 = req.getParameter("sltMonedaMovT");
+        switch (Moneda1.trim()) {
+            case "01":
+                Moneda1 = "[SOLES]";
+                break;
+            case "02":
+                Moneda1 = "[DOLARES]";
+                break;
+        }
+        String TipoMovilidad = req.getParameter("slttipoMovilidadT");
+        switch (TipoMovilidad.trim()) {
+            case "01":
+                TipoMovilidad = "[PASAJES AVION]";
+                break;
+            case "02":
+                TipoMovilidad = "[PASAJES TIERRA]";
+                break;
+            case "03":
+                TipoMovilidad = "[MOVILIDAD INTERNA]";
+                break;
+        }
+        String MontoMovilidad = req.getParameter("txtMontoMov");
+        String Moneda2 = req.getParameter("sltMonedaAlimT");
+        switch (Moneda2.trim()) {
+            case "01":
+                Moneda2 = "[SOLES]";
+                break;
+            case "02":
+                Moneda2 = "[DOLARES]";
+                break;
+        }
+        String DiasAlimentacion = req.getParameter("txtDiasAlimenT");
+        String MontoAlimentacion = req.getParameter("txtMontoAlimenT");
+        String Monto3 = req.getParameter("sltMonedaAlojT");
+        switch (Monto3.trim()) {
+            case "01":
+                Monto3 = "[SOLES]";
+                break;
+            case "02":
+                Monto3 = "[DOLARES]";
+                break;
+        }
+        String DiasAlojamiento = req.getParameter("txtDiasAlojT");
+        String MontoAlojamiento = req.getParameter("txtMontoAloT");
+        String MontoMedico = req.getParameter("txtMontoMedicoT");
+        String TotalGasto = req.getParameter("txtTotalGastoT");
+        String Ejecutivo = req.getParameter("txtEjecutivoT");
+        String Analista = req.getParameter("txtanalistaT");
+        String NroExpSeyci = req.getParameter("nroExpT");
+
+        traslado.setModificadopor(nickUsuario);
+        traslado.setNroTraslado(nrotraslado);
+        traslado.setFechaCita(FechaCita);
+        traslado.setAcompanante(Acompanante);
+        traslado.setTipo(Tipo);
+        traslado.setOrigen(Origen);
+        traslado.setDestino(Destino);
+        traslado.setFechaAprobacion(FechaAprobacion);
+        traslado.setMoneda1(Moneda1);
+        traslado.setTipoMovilidad(TipoMovilidad);
+        traslado.setMontoMovilidad(MontoMovilidad);
+        traslado.setMoneda2(Moneda2);
+        traslado.setDiasAlimentacion(DiasAlimentacion);
+        traslado.setMontoAlimentacion(MontoAlimentacion);
+        traslado.setMonto3(Monto3);
+        traslado.setDiasAlojamiento(DiasAlojamiento);
+        traslado.setMontoAlojamiento(MontoAlojamiento);
+        traslado.setMontoExtraMedicos(MontoMedico);
+        traslado.setTotalGasto(TotalGasto);
+        traslado.setEjecutiva(Ejecutivo);
+        traslado.setAnalista(Analista);
+        traslado.setNroExpSeyci(NroExpSeyci);
+
+        IfaceSolicitud daoSolicitud = new ImpSolicitud();
+
+        mensaje = daoSolicitud.InsertarActualizarTraslado(traslado);
+        String jsonstring = gson.toJson(mensaje);
+        res.getWriter().write(jsonstring);
+
+        System.out.println(" Fin Guardar Traslado ");
+
+        return null;
+
+        //return mapping.findForward("inicioTraslado");
     }
-    
 }

@@ -5,6 +5,7 @@
  */
 package com.sc360.struts.action;
 
+import com.google.gson.Gson;
 import com.sc360.struts.dto.TiposDocumento;
 import com.sc360.struts.dto.Reevaluacion;
 import javax.servlet.http.HttpServletRequest;
@@ -30,60 +31,29 @@ public class ReevaluacionAction extends DispatchAction {
 
     
         System.out.println(" Inicio Reevaluacion Action ");
-        
-        IfaceUtil daoUtil = new ImpUtil();
-        IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        Reevaluacion dto = new Reevaluacion();
-        String numeroExpediente  =  req.getParameter("numeroExp");
+                String numeroExpediente = req.getParameter("nroExp");
         System.out.println(" numeroExpediente " + numeroExpediente);
-        
-        
-        
-        List<TiposDocumento> list = daoUtil.tiposDpcumentoQry();
-        
-        if (list != null) {
-                    req.setAttribute("list", list);
-                }
-        
-        ReevaluacionForm formT =(ReevaluacionForm)form;
-        
-        formT.setNumeroSeyci(numeroExpediente);
-        
-        if(numeroExpediente==null){
-  
-              numeroExpediente = formT.getNumeroSeyci();
-              System.out.println(" numeroExpediente Null " + numeroExpediente);
-          }
-        
+        Reevaluacion dto = new Reevaluacion();
+        Gson gson = new Gson();
+        IfaceSolicitud daoSolicitud = new ImpSolicitud();
+
         dto.setNumeroSeyci(numeroExpediente);
-        
+
         List<Reevaluacion>   listaReevaluacion= daoSolicitud.ListadoReevaluacion(dto);
+        String jsonstring = "";
+        if(listaReevaluacion != null){
+            jsonstring = gson.toJson(listaReevaluacion);
+        }
+        res.getWriter().write(jsonstring);
+      
         
-        try
-           {
-                for(int cant=0;cant < listaReevaluacion.size();cant++ )
-                {
-                 Reevaluacion dtoDetalle = (Reevaluacion)listaReevaluacion.get(cant);
-                 
-                 formT.setNumeroSeyci(dtoDetalle.getNumeroSeyci());
-                 formT.setFechaIngresoBeneficios(dtoDetalle.getFechaIngresoBeneficios());
-                 formT.setTipoDocumento(dtoDetalle.getTipoDocumento());
-                 formT.setFechaEvaluacionDoc(dtoDetalle.getFechaEvaluacion());
-                 formT.setAnalista(dtoDetalle.getAnalista());
-                 formT.setFechaNotificacion(dtoDetalle.getFechaNotificacion());
-                 formT.setRespDis(dtoDetalle.getResponsable());
-                 formT.setObservacionesReevaluacion(dtoDetalle.getObservaciones());
-                } 
-       
-            }catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-  
+        
+        
+
 
         System.out.println(" Fin Reevaluacion Action ");
         
-        return mapping.findForward("inicioReevaluacion");
+        return null;
         
     }
     

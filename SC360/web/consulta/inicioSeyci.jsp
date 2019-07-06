@@ -12,6 +12,7 @@
                     <input type="hidden" id="nroExpS" name="nroExpS">
                 </div>
                 <div class="col-lg-6">
+                    <input type="hidden" class="user" id="nickUsuario" name="nickUsuario">
                     <div class="col-md-4 ">
                         <label style="padding-top: 10px;">N Solicitud&nbsp;</label>
                     </div>
@@ -39,7 +40,7 @@
                     </div>
                     <div class="col-md-6">
                         <select id="slttipoSolicitud" name="slttipoSolicitud" required="required" style="width: 250px;" class="form-control input-sm">
-                            <option value="00">[SELECCIONE]</option>
+                            <option value="">[SELECCIONE]</option>
                             <option value="01">Invalidez</option>
                             <option value="02">Invalidez y Cáncer</option>
                             <option value="03">Invalidez y Enfermedad Terminal</option>
@@ -69,8 +70,8 @@
                         <label style="padding-top: 9px;"> Tipo Evaluado&nbsp;</label>
                     </div>
                     <div class="col-md-6">
-                        <select id="slttipoEvaluado" name="tipoEvaluado" required="required" class="form-control input-sm" style="width: 250px">
-                            <option value="00">[SELECCIONE]</option>
+                        <select id="slttipoEvaluado" name="slttipoEvaluado" required="required" class="form-control input-sm" style="width: 250px">
+                            <option value="">[SELECCIONE]</option>
                             <option value="01">Afiliado</option>
                             <option value="02">Beneficiario</option>
                         </select>

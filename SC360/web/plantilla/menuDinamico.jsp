@@ -21,144 +21,175 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
+        <title>BIENVENIDO AL SISTEMA COORDINADOR 360</title>
 
-    <!-- Core CSS - Include with every page -->
-    <link href="<c:out value="${pageContext.request.contextPath}"/>/bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
-    <link href="<c:out value="${pageContext.request.contextPath}"/>/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <!-- Core CSS - Include with every page -->
+        <link href="<c:out value="${pageContext.request.contextPath}"/>/bootstrap-3.4.1/css/bootstrap.css" rel="stylesheet">
+        <link href="<c:out value="${pageContext.request.contextPath}"/>/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-    <!-- SB Admin CSS - Include with every page -->
-    <link href="<c:out value="${pageContext.request.contextPath}"/>/css/sb-admin.css" rel="stylesheet">
+        <!-- SB Admin CSS - Include with every page -->
+        <link href="<c:out value="${pageContext.request.contextPath}"/>/css/sb-admin.css" rel="stylesheet">
 
-</head>
+    </head>
+    <%
+        //Usar window.location.pathname cuando sea menu de base de datos
+        String uri = request.getRequestURI();
+        System.out.println(uri);
+        String pageName = uri.substring(uri.lastIndexOf("/") + 1);
+    %>
 
-<body>
+        
+    <body>
+        <script>
+            sessionStorage.setItem('nickusuario', '<%=usuario%>');
+        </script>
 
-    <div id="wrapper" style="background-color: #FF4C01;">
-        <!-- /navbar-header -->
-        <nav class="navbar navbar-default navbar-fixed-top nav-custom" role="navigation" >
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-               
-            </div>
-            <!-- /.navbar-header -->
-            <!-- /dropdown bars -->
-            <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
-                        <span style="color: #fff"><%=usuario.toUpperCase()%></span>
-                    </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bars fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="validateLogin.do"><i class="fa fa-home fa-fw"></i> Inicio</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="logout.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
-                        </li>
-                    </ul>
-                   
-                </li>
-            </ul>
-             <!-- /.dropdown-bars -->
-              <!-- /Menu -->
-            <div class="navbar-default navbar-static-side" role="navigation"  >
-                <div class="sidebar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="CargaExcel.do?method=inicio"><i class="fa fa-upload fa-fw"></i> Carga de Archivos</a>
-                        </li>
-                        <li>
-                            <a href="Asignacion.do?method=inicio"><i class="fa fa-check-circle-o fa-fw"></i><!--<span class="fa arrow"></span>--> Asignacion</a>
-                            <!-- /.nav-second-level -->
-                            <!--<ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>-->
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="Consulta.do?method=inicio"><i class="fa fa-search fa-fw"></i> Consulta de Trámites</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Parámetros</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-book fa-fw"></i> Reportes</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope fa-fw"></i> Gestión de Cartas<!--<span class="fa arrow"></span>--></a>
-                            <!--
-                              /nav-second-level comentario
-                            
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                     /nav-third-level comentario
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    /.nav-third-level comentario
-                                </li>
-                                 
-                            </ul>
-                           
-                            /.nav-second-level comentario -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Autorización de Traslado</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-cog fa-fw"></i> Mantenimiento de Etapas</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw" aria-hidden="true"></i> Indicadores</a>
-                        </li>
-                    </ul>
-                    <!-- /#side-menu -->
+        <div id="wrapper" style="background-color: #FF4C01;">
+            <!-- /navbar-header -->
+            <nav class="navbar navbar-default navbar-fixed-top nav-custom" role="navigation" >
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
                 </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.Menu -->
-        </nav>
+                <!-- /.navbar-header -->
+                <!-- /dropdown bars -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <span style="color: #fff" class="user"><%=usuario.toUpperCase()%></span>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bars fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="validateLogin.do"><i class="fa fa-home fa-fw"></i> Inicio</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="logout.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+                <!-- /.dropdown-bars -->
+                <!-- /Menu -->
+                <div class="navbar-default navbar-static-side" role="navigation"  >
+                    <div class="sidebar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <!--pageName.equalsIgnoreCase("cargaExcel.jsp")-->
+                            <li class="<% if(pageName.equalsIgnoreCase("cargaExcel.jsp")){%>activemod<%}%>">
+                                <a href="CargaExcel.do?method=inicio"><i class="fa fa-upload fa-fw"></i> Carga de Archivos</a>
+                            </li>
+                            <li class="<% if(pageName.equalsIgnoreCase("asignacion.jsp")){%>activemod<%}%>">
+                                <a href="Asignacion.do?method=inicio"><i class="fa fa-check-circle-o fa-fw"></i><!--<span class="fa arrow"></span>--> Asignacion</a>
+                                <!-- /.nav-second-level -->
+                                <!--<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="flot.html">Flot Charts</a>
+                                    </li>
+                                    <li>
+                                        <a href="morris.html">Morris.js Charts</a>
+                                    </li>
+                                </ul>-->
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li class="<% if(pageName.equalsIgnoreCase("consultaSolicitud.jsp")){%>activemod<%}%>">
+                                <a href="Consulta.do?method=inicio"><i class="fa fa-search fa-fw"></i> Consulta de Trámites</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i> Parámetros</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-book fa-fw"></i> Reportes</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-envelope fa-fw"></i> Gestión de Cartas<!--<span class="fa arrow"></span>--></a>
+                                <!--
+                                  /nav-second-level comentario
+                                
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                                         /nav-third-level comentario
+                                        <ul class="nav nav-third-level">
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                        </ul>
+                                        /.nav-third-level comentario
+                                    </li>
+                                     
+                                </ul>
+                               
+                                /.nav-second-level comentario -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-exclamation-triangle fa-fw"></i> Autorización de Traslado</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-cog fa-fw"></i> Mantenimiento de Etapas</a>
+                                <ul class="nav nav-second-level
+                                    <% if(pageName.equalsIgnoreCase("mantEtapas-correo.jsp") || pageName.equalsIgnoreCase("mantEtapas-plazos.jsp") || pageName.equalsIgnoreCase("mantEtapas-plantillacartas.jsp") || pageName.equalsIgnoreCase("mantEtapas-topegs.jsp") ||  pageName.equalsIgnoreCase("mantEtapas-plantillacartasedicion.jsp")){%>
+                                    collapse in
+                                    <%}%>">
+                                    <li <% if(pageName.equalsIgnoreCase("mantEtapas-correo.jsp")){%>class="activemod"<%}%>>
+                                        <a href="MantenimientoCorreos.do?method=inicio">Correos</a>
+                                    </li>
+                                    <li <% if(pageName.equalsIgnoreCase("mantEtapas-plazos.jsp")){%>class="activemod"<%}%> >
+                                        
+                                        <a href="MantenimientoPlazos.do?method=inicio">Plazos</a>
+                                    </li>
+                                    <li <% if(pageName.equalsIgnoreCase("mantEtapas-plantillacartas.jsp") || pageName.equalsIgnoreCase("mantEtapas-plantillacartasedicion.jsp") ){%>class="activemod"<%}%> >
+                                        <a href="MantenimientoPlantillaCartas.do?method=inicio">Plantilla Cartas</a>
+                                    </li>
+                                    <li <% if(pageName.equalsIgnoreCase("mantEtapas-topegs.jsp")){%>class="activemod"<%}%> >
+                                        <a href="MantenimientoTopeGS.do?method=inicio">Tope GS</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw" aria-hidden="true"></i> Indicadores</a>
+                            </li>
+                        </ul>
+                        <!-- /#side-menu -->
+                    </div>
+                    <!-- /.sidebar-collapse -->
+                </div>
+                <!-- /.Menu -->
+            </nav>
 
 
-           
-           
+
+
 
 
 

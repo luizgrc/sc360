@@ -35,7 +35,7 @@ public interface IfaceSolicitud {
     public Parametro ActualizarSEYCITab(SEYCI dto);
     public List<Traslado> ListadoTraslado(Traslado dto);
     public List<Traslado> ListadoTrasladoItem(Traslado dto);
-    public String InsertarActualizarTraslado(Traslado dto);
+    public Parametro InsertarActualizarTraslado(Traslado dto);
     public List<Reevaluacion> ListadoReevaluacion(Reevaluacion dto);
     public String InsertarActualizarReevaluacion(Reevaluacion dto);
     public List<Dictamen> ListadoDictamen(Dictamen dto);

@@ -542,26 +542,24 @@ public class ImpSolicitud implements IfaceSolicitud {
 
             while (rs.next()) {
                 Detalle p = new Detalle();
-
-                p.setNumeroSolicitud(rs.getString(1));
-                p.setExp(rs.getString(2));
-                p.setCuspp(rs.getString(3));
-                p.setPrimerNombre(rs.getString(4));
-                p.setSegundoNombre(rs.getString(5));
-                p.setPrimerApellido(rs.getString(6));
-                p.setSegundoApellido(rs.getString(7));
-                p.setFechaNacimiento(rs.getString(8));
-                p.setCorreo(rs.getString(9));
-                p.setSexo(rs.getString(10));
-                p.setTelefono(rs.getString(11));
-                p.setEstadoCivil(rs.getString(12));
-                p.setDireccion(rs.getString(13));
-                p.setNombreDepartamento(rs.getString(14));
-                p.setDepartamento(rs.getString(15));
-                p.setNombreProvincia(rs.getString(16));
-                p.setProvincia(rs.getString(17));
-                p.setNombreDistrito(rs.getString(18));
-                p.setDistrito(rs.getString(19));
+                p.setExp(rs.getString("EXP"));
+                p.setCuspp(rs.getString("CUSPP"));
+                p.setPrimerNombre(rs.getString("PRIMERNOMBRE"));
+                p.setSegundoNombre(rs.getString("SEGUNDONOMBRE"));
+                p.setPrimerApellido(rs.getString("PRIMERAPELLIDO"));
+                p.setSegundoApellido(rs.getString("SEGUNDOAPELLIDO"));
+                p.setFechaNacimiento(rs.getString("FECHANACEVALUADO"));
+                p.setCorreo(rs.getString("EMAILAFI"));
+                p.setSexo(rs.getString("SEXO"));
+                p.setTelefono(rs.getString("TELEFONOAFI"));
+                p.setEstadoCivil(rs.getString("ESTADOCIVIL"));
+                p.setDireccion(rs.getString("DIRECCIONAFI"));
+                p.setNombreDepartamento(rs.getString("DEPARTAMENTOAFI"));
+                p.setDepartamento(rs.getString("IDDEPARTAMENTO"));
+                p.setNombreProvincia(rs.getString("PROVINCIAAFI"));
+                p.setProvincia(rs.getString("IDPROVINCIA"));
+                p.setNombreDistrito(rs.getString("DISTRITOAFI"));
+                p.setDistrito(rs.getString("IDDISTRITO"));
 
                 listSolicitud.add(p);
             }
@@ -593,19 +591,19 @@ public class ImpSolicitud implements IfaceSolicitud {
             while (rs.next()) {
                 SEYCI p = new SEYCI();
 
-                p.setEjecutivaAgencia(rs.getString(1));
-                p.setNumeroSolicitud(rs.getString(2));
-                p.setTipoSolicitud(rs.getString(3));
-                p.setTipoDeEvaluado(rs.getString(4));
-                p.setPrimerNombre(rs.getString(5));
-                p.setSegundoNombre(rs.getString(6));
-                p.setPrimerApellido(rs.getString(7));
-                p.setSegundoApellido(rs.getString(8));
-                p.setFechaNacEvaluado(rs.getString(9));
-                p.setFechaSeccionI(rs.getString(10));
-                p.setFechaEnvioCOMAFP(rs.getString(11));
-                p.setObservacionesSeyci(rs.getString(12));
-                p.setExp(rs.getString(13));
+                p.setEjecutivaAgencia(rs.getString("EJECUTIVAAGENCIA") != null ? rs.getString("EJECUTIVAAGENCIA") : "");
+                p.setNumeroSolicitud(rs.getString("NUMEROSOLICITUD")!= null ? rs.getString("NUMEROSOLICITUD") : "");
+                p.setTipoSolicitud(rs.getString("TIPOSOLICITUD") != null ? rs.getString("TIPOSOLICITUD") : "");
+                p.setTipoDeEvaluado(rs.getString("TIPODEEVALUADO") != null ? rs.getString("TIPODEEVALUADO") : "");
+                p.setPrimerNombre(rs.getString("PRIMERNOMBRE") != null ? rs.getString("PRIMERNOMBRE") : "");
+                p.setSegundoNombre(rs.getString("SEGUNDONOMBRE") != null ? rs.getString("SEGUNDONOMBRE") : "");
+                p.setPrimerApellido(rs.getString("PRIMERAPELLIDO") != null ? rs.getString("PRIMERAPELLIDO") : "");
+                p.setSegundoApellido(rs.getString("SEGUNDOAPELLIDO") != null ? rs.getString("SEGUNDOAPELLIDO") : "");
+                p.setFechaNacEvaluado(rs.getString("FECHANACEVALUADO") != null ? rs.getString("FECHANACEVALUADO") : "");
+                p.setFechaSeccionI(rs.getString("FECHASECCIONI") != null ? rs.getString("FECHASECCIONI") : "");
+                p.setFechaEnvioCOMAFP(rs.getString("FECHAENVIOCOMAFP") != null ? rs.getString("FECHAENVIOCOMAFP") : "");
+                p.setObservacionesSeyci(rs.getString("OBSERVACIONESSEYCI") != null ? rs.getString("OBSERVACIONESSEYCI") : "");
+                p.setExp(rs.getString("EXP") != null ? rs.getString("EXP") : "");
 
                 listSeyci.add(p);
             }
@@ -623,7 +621,7 @@ public class ImpSolicitud implements IfaceSolicitud {
     public Parametro ActualizarSEYCI(SEYCI dto) {
         Parametro mensaje = new Parametro();
 
-        String query = "{ call SP_ACTUALIZAR_SEYCI_DG(?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        String query = "{ call SP_ACTUALIZAR_SEYCI_DG(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
 
         try (
                 Connection cn = db.getConnection();
@@ -643,6 +641,7 @@ public class ImpSolicitud implements IfaceSolicitud {
             ps.setString(12, dto.getDepartamentoAfi());
             ps.setString(13, dto.getProvinciaAfi());
             ps.setString(14, dto.getDistritoAfi());
+            ps.setString(15, dto.getModificadopor());
 
             int cant = ps.executeUpdate();
             System.out.println(" Cantidad : " + cant);
@@ -675,17 +674,17 @@ public class ImpSolicitud implements IfaceSolicitud {
 
             ps.setString(1, dto.getExp());
             ps.setString(2, dto.getEjecutivaAgencia());
-            ps.setString(3, dto.getNumeroSolicitud());
-            ps.setString(4, dto.getTipoSolicitud());
-            ps.setString(5, dto.getTipoDeEvaluado());
-            ps.setString(6, dto.getPrimerNombre());
-            ps.setString(7, dto.getSegundoNombre());
-            ps.setString(8, dto.getPrimerApellido());
-            ps.setString(9, dto.getSegundoApellido());
-            ps.setString(10, dto.getFechaNacEvaluado());
-            ps.setString(11, dto.getFechaSeccionI());
-            ps.setString(12, dto.getFechaEnvioCOMAFP());
-            ps.setString(13, dto.getObservacionesSeyci());
+            ps.setString(3, dto.getTipoSolicitud());
+            ps.setString(4, dto.getTipoDeEvaluado());
+            ps.setString(5, dto.getPrimerNombre());
+            ps.setString(6, dto.getSegundoNombre());
+            ps.setString(7, dto.getPrimerApellido());
+            ps.setString(8, dto.getSegundoApellido());
+            ps.setString(9, dto.getFechaNacEvaluado());
+            ps.setString(10, dto.getFechaSeccionI());
+            ps.setString(11, dto.getFechaEnvioCOMAFP());
+            ps.setString(12, dto.getObservacionesSeyci());
+            ps.setString(13, dto.getModificadopor());
 
             int cant = ps.executeUpdate();
             System.out.println(" Cantidad : " + cant);
@@ -725,28 +724,28 @@ public class ImpSolicitud implements IfaceSolicitud {
             while (rs.next()) {
                 Traslado p = new Traslado();
 
-                p.setIdTraslado(rs.getString(1));
-                p.setNroExpSeyci(rs.getString(2));
-                p.setNroTraslado(rs.getString(3));
-                p.setFechaCita(rs.getString(4));
-                p.setAcompanante(rs.getString(5));
-                p.setTipo(rs.getString(6));
-                p.setOrigen(rs.getString(7));
-                p.setDestino(rs.getString(8));
-                p.setFechaAprobacion(rs.getString(9));
-                p.setMoneda1(rs.getString(10));
-                p.setTipoMovilidad(rs.getString(11));
-                p.setMontoMovilidad(rs.getString(12));
-                p.setMoneda2(rs.getString(13));
-                p.setDiasAlimentacion(rs.getString(14));
-                p.setMontoAlimentacion(rs.getString(15));
-                p.setMonto3(rs.getString(16));
-                p.setDiasAlojamiento(rs.getString(17));
-                p.setMontoAlojamiento(rs.getString(18));
-                p.setMontoExtraMedicos(rs.getString(19));
-                p.setTotalGasto(rs.getString(20));
-                p.setEjecutiva(rs.getString(21));
-                p.setAnalista(rs.getString(22));
+                p.setIdTraslado(rs.getString("IDTRASLADO") != null ? rs.getString("IDTRASLADO") :"");
+                p.setNroExpSeyci(rs.getString("NROEXPSEYCI")!= null ? rs.getString("NROEXPSEYCI") :"");
+                p.setNroTraslado(rs.getString("NROTRASLADO") != null ? rs.getString("NROTRASLADO") :"");
+                p.setFechaCita(rs.getString("FECHACITA") != null ? rs.getString("FECHACITA") :"");
+                p.setAcompanante(rs.getString("ACOMPANANTE") != null ? rs.getString("ACOMPANANTE") :"");
+                p.setTipo(rs.getString("TIPO") != null ? rs.getString("TIPO") :"");
+                p.setOrigen(rs.getString("ORIGEN") != null ? rs.getString("ORIGEN") :"");
+                p.setDestino(rs.getString("DESTINO") != null ? rs.getString("DESTINO") :"");
+                p.setFechaAprobacion(rs.getString("FECHAAPROBACION") != null ? rs.getString("FECHAAPROBACION") :"");
+                p.setMoneda1(rs.getString("MONEDA1") != null ? rs.getString("MONEDA1") :"");
+                p.setTipoMovilidad(rs.getString("TIPOMOVILIDAD") != null ? rs.getString("TIPOMOVILIDAD") :"");
+                p.setMontoMovilidad(rs.getString("MONTOMOVILIDAD") != null ? rs.getString("MONTOMOVILIDAD") :"");
+                p.setMoneda2(rs.getString("MONEDA2") != null ? rs.getString("MONEDA2") :"");
+                p.setDiasAlimentacion(rs.getString("DIASALIMENTACION") != null ? rs.getString("DIASALIMENTACION") :"");
+                p.setMontoAlimentacion(rs.getString("MONTOALIMENTACION") != null ? rs.getString("MONTOALIMENTACION") :"");
+                p.setMonto3(rs.getString("MONTO3") != null ? rs.getString("MONTO3") :"");
+                p.setDiasAlojamiento(rs.getString("DIASALOJAMIENTO") != null ? rs.getString("DIASALOJAMIENTO") :"");
+                p.setMontoAlojamiento(rs.getString("MONTOALOJAMIENTO") != null ? rs.getString("MONTOALOJAMIENTO") :"");
+                p.setMontoExtraMedicos(rs.getString("MONTOEXTRAMEDICOS") != null ? rs.getString("MONTOEXTRAMEDICOS") :"");
+                p.setTotalGasto(rs.getString("TOTALGASTO") != null ? rs.getString("TOTALGASTO") :"");
+                p.setEjecutiva(rs.getString("EJECUTIVA") != null ? rs.getString("EJECUTIVA") :"");
+                p.setAnalista(rs.getString("ANALISTA") != null ? rs.getString("ANALISTA") :"");
 
                 listTraslado.add(p);
             }
@@ -762,10 +761,10 @@ public class ImpSolicitud implements IfaceSolicitud {
     }
 
     @Override
-    public String InsertarActualizarTraslado(Traslado dto) {
+    public Parametro InsertarActualizarTraslado(Traslado dto) {
 
-        String query = "{ call SP_INSERT_UPDATE_TRASLADO(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
-
+        String query = "{ call SP_INSERT_UPDATE_TRASLADO(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        Parametro mensaje = new Parametro();
         try (
                 Connection cn = db.getConnection();
                 PreparedStatement ps = cn.prepareStatement(query.toString())) {
@@ -791,6 +790,7 @@ public class ImpSolicitud implements IfaceSolicitud {
             ps.setString(19, dto.getTotalGasto());
             ps.setString(20, dto.getEjecutiva());
             ps.setString(21, dto.getAnalista());
+            ps.setString(22, dto.getModificadopor());
 
             int cant = ps.executeUpdate();
             System.out.println(" Cantidad : " + cant);
@@ -798,14 +798,17 @@ public class ImpSolicitud implements IfaceSolicitud {
             if (cant == 0) {
                 throw new SQLException("0 filas afectadas");
             }
+            mensaje.setCodigo("201");
+            mensaje.setDescripcion("Registro Satisfactorio");
 
         } catch (SQLException e) {
             message = e.getMessage();
+            mensaje.setCodigo("500");
+            mensaje.setDescripcion(message);
             LOGGER.log(Level.ERROR, message);
-
         }
 
-        return message;
+        return mensaje;
 
     }
 

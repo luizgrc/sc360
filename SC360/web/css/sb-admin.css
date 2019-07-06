@@ -118,6 +118,12 @@ body {
 .active > a > .fa.arrow:before {
     content: "\f107";
 }
+.activemod{
+    background: #eeeeee;
+}
+.activemod > a{
+    color: #23527c !important;
+}
 
 .nav-second-level li,
 .nav-third-level li {

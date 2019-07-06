@@ -246,7 +246,7 @@
                                         <p><small>Dictamen</small></p>
                                     </div>
                                     <div class="stepwizard-step col-xs-2">
-                                        <a href="#step-6" type="button" class="btn btn-default btn-circle disabled">6</a>
+                                        <a href="#step-6" type="button" class="btn btn-default btn-circle">6</a>
                                         <p><small>Apelacion</small></p>
                                     </div>
 
@@ -255,7 +255,7 @@
                             <!--/.Titles Steppers-->
                             <!--DATOS GENERALES-->
 
-                            <%@include file="../consulta/detalleConsulta.jsp" %>
+                            <%@include file="../consulta/detalleConsulta.jsp"%>
 
                             <!--/.DATOS GENERALES-->
 

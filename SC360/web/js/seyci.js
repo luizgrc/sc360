@@ -8,7 +8,10 @@ function AjaxSeyciInicio(idExp) {
         dataType: 'JSON'
     }).done(function (response) {
         console.log(response);
+        $('#sltEjecutivo').empty();
         $.each(response, function (index, item) {
+
+            $("<option/>").attr("value", item.ejecutivaAgencia).text(item.ejecutivaAgencia).appendTo('#sltEjecutivo');
             $('#nroExpS').val(item.exp);
             $('#txtNroSolS').val(item.numeroSolicitud);
             switch (item.tipoSolicitud.trim()) {

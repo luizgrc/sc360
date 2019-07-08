@@ -19,6 +19,8 @@ public class Reevaluacion {
     private String fechaNotificacion;
     private String responsable;
     private String observaciones;
+    private String ingresadopor;
+    private String modificadopor;
     
     public Reevaluacion() {
     }
@@ -85,6 +87,22 @@ public class Reevaluacion {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public String getIngresadopor() {
+        return ingresadopor;
+    }
+
+    public void setIngresadopor(String ingresadopor) {
+        this.ingresadopor = ingresadopor;
+    }
+
+    public String getModificadopor() {
+        return modificadopor;
+    }
+
+    public void setModificadopor(String modificadopor) {
+        this.modificadopor = modificadopor;
     }
     
     

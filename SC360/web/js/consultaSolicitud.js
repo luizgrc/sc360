@@ -195,9 +195,26 @@ $(function () {
         var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
-                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
-        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
-        nextStepWizard.removeClass('disabled').trigger('click');
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                data = $(this).serializeArray();
+        console.log(data);
+        //console.log(data);
+        $.ajax({
+            url: "Reevaluacion.do?method=guardarReevaluacion",
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'JSON'
+        }).done(function (response) {
+            //console.log(snk);    
+            console.log(response);
+
+            //console.log(response.descripcion);
+            snk.html(response.descripcion + '<a href="#">CERRAR</a>');
+            snk.fadeToggle("slow", "linear");
+            snk.delay(2000).fadeToggle("slow", "linear");
+            nextStepWizard.removeClass('disabled').trigger('click');
+        });
     });
     //DICTAMEN
     $('#step-5').on('submit', function (e) {
@@ -205,9 +222,25 @@ $(function () {
         var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
-                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
-        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
-        nextStepWizard.removeClass('disabled').trigger('click');
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                data = $(this).serializeArray();
+        //console.log(data);
+        $.ajax({
+            url: "Dictamen.do?method=guardarDictamen",
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'JSON'
+        }).done(function (response) {
+            //console.log(snk);    
+            console.log(response);
+
+            //console.log(response.descripcion);
+            snk.html(response.descripcion + '<a href="#">CERRAR</a>');
+            snk.fadeToggle("slow", "linear");
+            snk.delay(2000).fadeToggle("slow", "linear");
+            nextStepWizard.removeClass('disabled').trigger('click');
+        });
     });
     //APELACION
     $('#step-6').on('submit', function (e) {
@@ -215,9 +248,38 @@ $(function () {
         var snk = $('.snackbar');
         var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
-                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
-        snk.html('EN MANTENIMIENTO' + '<a href="#">CERRAR</a>');
-        nextStepWizard.removeClass('disabled').trigger('click');
+               
+        data = $(this).serializeArray();
+        console.log(data);
+        $.ajax({
+            url: "Apelacion.do?method=guardarApelacion",
+            type: 'POST',
+            data: data,
+            cache: false,
+            dataType: 'JSON'
+        }).done(function (response) {
+            //console.log(snk);    
+            console.log(response);
+
+            //console.log(response.descripcion);
+            snk.html(response.descripcion + '<a href="#">CERRAR</a>');
+            snk.fadeToggle("slow", "linear");
+            snk.delay(2000).fadeToggle("slow", "linear");
+        $('#step-1')[0].reset();
+        $('#step-2')[0].reset();
+        $('#step-3')[0].reset();
+        $('#step-4')[0].reset();
+        $('#step-5')[0].reset();
+        $('#step-6')[0].reset();
+        var allStep  = $('div.setup-panel div a')
+         $.each( allStep , function (index, item) {
+             if(index > 0){
+             item.classList.add("disabled");
+             }
+             
+         });
+        $('#modal-detalle').modal('hide')
+        });
     });
     $('#dataTables-example').dataTable();
     /** Date Time Picker Fecha Seccion */
@@ -324,11 +386,19 @@ $(function () {
                     $('#sltOpcionT').trigger('change');
                     break;
                 case "#step-4":
+
+                    //------REEVALUACION----------------
+                    $('#nroExpR').val($('#txtExp').val());
+                    listarTipoDocumento();
+                    AjaxReevaluacionInicio($('#txtExp').val());
                     break;
                 case "#step-5":
+                    $('#nroExpD').val($('#txtExp').val());
                     AjaxdictamenInicio($('#txtExp').val());
                     break;
                 case "#step-6":
+                    $('#nroExpA').val($('#txtExp').val());
+                    AjaxApelacionInicio($('#txtExp').val());
                     break;
             }
 
@@ -371,8 +441,8 @@ $(function () {
 
         });
 
-
-        $('div.setup-panel div a.btn-warning').trigger('click');
+        $('div.setup-panel div a[href="#step-1"]').trigger('click');
+        //$('div.setup-panel div a.btn-warning').trigger('click');
 
 
     });

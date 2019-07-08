@@ -15,13 +15,15 @@
                 <!--/. row1 -->
                 <div class="space">&nbsp;</div>
                 <!-- row2 -->
+                <input type="hidden" id="nroExpD" name="nroExpD">
+                <input type="hidden" class="user" id="nickUsuario" name="nickUsuario">
                 <div class="row">
                     <div class="col-lg-1" style="padding-right: 0px;" >
                         <label style="margin: 4px">Fecha Recepción AFP</label>
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input id="fecRecAFP" type="text" required="required" class="form-control input-sm"/>
+                            <input id="fechaRecepcion" name="fechaRecepcion" type="text" required="required" class="form-control input-sm"/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -32,7 +34,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input id="fecEmision" type="text" required="required" class="form-control input-sm "/>
+                            <input id="fechaEmision" name="fechaEmision" type="text" required="required" class="form-control input-sm "/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -42,7 +44,7 @@
                         <label style="margin: 4px">Emite Dictamen</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="instancia" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtInstancia" name="txtInstancia" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
                         <input type="checkbox" required="required" id="instancia"/>
@@ -56,7 +58,7 @@
                         <label style="margin: 4px">Nro de Evaluacion</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="nroEvaluacion" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtNroEvaluacion" name="txtNroEvaluacion" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
                         <input type="checkbox" required="required" id="nroEvaluacion"/>
@@ -65,7 +67,7 @@
                         <label >N° Dictamen</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="nroDictamen" type="text" required="required" class="form-control input-sm" style="width: 163px;"/>                       </div>
+                        <input id="txtNroDictamen" name="txtNroDictamen" type="text" required="required" class="form-control input-sm" style="width: 163px;"/>                       </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
                         <input type="checkbox" required="required" id="nroDictamen"/>
                     </div>
@@ -79,7 +81,7 @@
                         <label style="margin: 4px">Porcentaje Menoscabo</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="porcMenoscabio" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtProcentajeMenoC" name="txtProcentajeMenoC" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-md-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="nroDictamen"/>
@@ -88,10 +90,10 @@
                         <label style="margin: 4px">Califica&nbsp;</label>
                     </div>
                     <div class="col-lg-2">
-                        <select id="califica" name="califica" type="text" required="required" class="form-control input-sm">
+                        <select id="txtCalifica" name="txtCalifica" type="text" required="required" class="form-control input-sm">
                             <option value="">[SELECCIONE]</option>
-                            <option value="02">[SI CALIFICA]</option>
-                            <option value="03">[NO CALIFICA]</option>
+                            <option value="[SI CALIFICA]">[SI CALIFICA]</option>
+                            <option value="[NO CALIFICA]">[NO CALIFICA]</option>
                         </select>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
@@ -101,10 +103,10 @@
                         <label style="margin: 0px">Indicador Enfermedad Terminal o Cancer</label>
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtInvalidez" name="txtInvalidez" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input id="indEnf" type="checkbox" required="required" id="indEnf"/>
+                        <input type="checkbox" required="required"/>
                     </div> 
                 </div>
                 <!-- /.row4 -->
@@ -115,7 +117,7 @@
                         <label style="margin: 4px">Definitivo</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="definitivo" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtDefinitivo" name="txtDefinitivo" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="definitivo"/>
@@ -124,7 +126,7 @@
                         <label>Grado</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="grado" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtGrado" name="txtGrado" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="grado"/>
@@ -133,7 +135,7 @@
                         <label>Naturaleza</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="naturaleza" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtNaturaleza" name="txtNaturaleza" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="naturaleza"/>
@@ -147,7 +149,7 @@
                         <label>Meses de Vigencia</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="meses" type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtMeses" name="txtMeses" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="meses"/>
@@ -157,7 +159,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input id="fecInicial" type="text" required="required" class="form-control input-sm "/>
+                            <input id="fechaIniVigencia" name="fechaIniVigencia" type="text" required="required" class="form-control input-sm "/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -171,7 +173,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input id="fecFinal" type="text" required="required" class="form-control input-sm"/>
+                            <input id="fechaFinVigencia" name="fechaFinVigencia" type="text" required="required" class="form-control input-sm"/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -190,7 +192,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input id="fecOcurrencia" type="text" required="required" class="form-control input-sm "/>
+                            <input id="fechaOcurrencia" name="fechaOcurrencia" type="text" required="required" class="form-control input-sm "/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -203,7 +205,12 @@
                         <label>Proxima Evaluacion</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="proximaEvaluacion" type="text" required="required" class="form-control input-sm"/>
+                        <div class="input-group date fechaModal">
+                            <input id="fechaProxEvaluacion" name="fechaProxEvaluacion" type="text" required="required" class="form-control input-sm"/>
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>                        
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="proximaEvaluacion"/>
@@ -213,7 +220,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input id="fecNotificacion" type="text" required="required" class="form-control input-sm "/>
+                            <input id="fechaNotificacionAfi" name="fechaNotificacionAfi" type="text" required="required" class="form-control input-sm "/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -232,7 +239,7 @@
                     </div>
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required" class="form-control input-sm "/>
+                            <input  id="fechaRecpNoti" name="fechaRecpNoti" type="text" required="required" class="form-control input-sm "/>
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -259,7 +266,7 @@
                         <label>Analista</label>
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" required="required" class="form-control input-sm"/>
+                        <input id="txtAnalista" name="txtAnalista" type="text" required="required" class="form-control input-sm"/>
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px">
                         <input type="checkbox" required="required" id="analista"/>
@@ -294,8 +301,8 @@
                             </thead>
                             <tbody>
                                 <tr style="text-align: center;">
-                                  <td></td>
-                                  <td colspan="8" style="text-align: left;">No se Encontro Información</td>
+                                    <td></td>
+                                    <td colspan="8" style="text-align: left;">No se Encontro Información</td>
                                 </tr>
                             </tbody>
                         </table>

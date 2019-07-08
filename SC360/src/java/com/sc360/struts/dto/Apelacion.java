@@ -28,7 +28,7 @@ public class Apelacion {
     private String FecNotAfiliado;
     private String fecNotCOMEC;
     private String Observaciones;
-    
+    private String modificadopor;
     
     public Apelacion() {
     }
@@ -167,6 +167,14 @@ public class Apelacion {
 
     public void setObservaciones(String Observaciones) {
         this.Observaciones = Observaciones;
+    }
+
+    public String getModificadopor() {
+        return modificadopor;
+    }
+
+    public void setModificadopor(String modificadopor) {
+        this.modificadopor = modificadopor;
     }
     
     

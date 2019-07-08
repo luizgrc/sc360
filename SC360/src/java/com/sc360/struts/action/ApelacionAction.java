@@ -7,6 +7,7 @@ package com.sc360.struts.action;
 
 import com.google.gson.Gson;
 import com.sc360.struts.dto.Apelacion;
+import com.sc360.struts.dto.Parametro;
 import com.sc360.struts.form.ApelacionForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,8 +30,8 @@ public class ApelacionAction extends DispatchAction{
     
     public ActionForward inicioApelacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
         System.out.println(" Inicio Dictamen Action ");
-        String numeroExpediente  =  req.getParameter("numeroExp");
-        System.out.println(" numeroExpediente " + numeroExpediente);
+        String numeroExpediente  =  req.getParameter("nroExp");
+        System.out.println(" nroExp " + numeroExpediente);
         Gson json  = new Gson();
         Apelacion dto = new Apelacion();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
@@ -52,58 +53,59 @@ public class ApelacionAction extends DispatchAction{
     
     public ActionForward guardarApelacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
 
-    
-        Apelacion apelacion = new Apelacion();
-        ApelacionAction cons = new ApelacionAction();
+        Gson json = new Gson();
+        Parametro mensaje = new Parametro();
+        Apelacion apelacion = new Apelacion();     
         
-        ApelacionForm formS =(ApelacionForm)form;
-        
-        
-                 String NroSeyci = formS.getNroSeyci();
-                 String NroDictamenApelado = formS.getNroDictamenApelado();
-                 String PersonaApela = formS.getPersonaApela();
-                 String FechaApelacion = formS.getFechaApelacion();
-                 String FecIngBeneficios = formS.getFecIngBeneficios();
-                 String FecEnvCarta = formS.getFecEnvCarta();
-                 String RecepCOMAFP = formS.getRecepCOMAFP();
-                 String Analista = formS.getAnalista();
-                 String MotivoApelacion = formS.getMotivoApelacion();
-                 String NroExpDictamenApelado = formS.getNroExpDictamenApelado();
-                 String DisPacifico = formS.getDisPacifico();
-                 String FecDictamen = formS.getFecDictamen();
-                 String FecEnvioDis = formS.getFecEnvioDis();
-                 String OK = formS.getoK();
-                 String FecNotAfiliado = formS.getFecNotAfiliado();
-                 String FecNotCOMEC = formS.getFecNotCOMEC();
-                 String Observaciones = formS.getObservaciones();
+        String nroExp = req.getParameter("nroExpA");
+        String nickUsuario = req.getParameter("nickUsuario");
+        String nroDictamenApelado = req.getParameter("txtNroDictamenApelado");
+        String personaApela = req.getParameter("txtPersonaApela");
+        String fechaApelacion = req.getParameter("fechaApelacion");
+        String fechaIngBeneficios = req.getParameter("fechaIngBeneficios");
+        String fechaEnvCarta = req.getParameter("fechaEnvCarta");
+        String fechaRecepCOMAFP = req.getParameter("txtRecepCOMAFP");
+        String Analista = req.getParameter("txtAnalista");
+        String motivoApela = req.getParameter("txtMotivoApela");
+        //observar
+       // String NroDictamenApela = req.getParameter("txtNroDictamentApelado");
+        String DIS_PACIFICO = req.getParameter("txtDIS_PACIFICO");
+        String fechaDictamen = req.getParameter("fechaDictamen");
+        String fechaEnvDIS = req.getParameter("fechaEnvioDIS");
+        String fechaNotiAfi = req.getParameter("fechaNotiAfiliado");
+        String fechaNotiCOMEC = req.getParameter("fechaNotiCOMEC");
+        String Observaciones = req.getParameter("Observaciones");
                  
-        apelacion.setNroSeyci(NroSeyci);
-        apelacion.setNroDictamenApelado(NroDictamenApelado);
-        apelacion.setPersonaApela(PersonaApela);
-        apelacion.setFechaApelacion(FechaApelacion);
-        apelacion.setFecIngBeneficios(FecIngBeneficios);
-        apelacion.setFecEnvCarta(FecEnvCarta);
-        apelacion.setRecepCOMAFP(RecepCOMAFP);
+        apelacion.setNroSeyci(nroExp);
+        apelacion.setModificadopor(nickUsuario);
+        apelacion.setNroDictamenApelado(nroDictamenApelado);
+        apelacion.setPersonaApela(personaApela);
+        apelacion.setFechaApelacion(fechaApelacion);
+        apelacion.setFecIngBeneficios(fechaIngBeneficios);
+        apelacion.setFecEnvCarta(fechaEnvCarta);
+        apelacion.setRecepCOMAFP(fechaRecepCOMAFP);
         apelacion.setAnalista(Analista);
-        apelacion.setMotivoApelacion(MotivoApelacion);
-        apelacion.setNroExpDictamenApelado(NroExpDictamenApelado);
-        apelacion.setDisPacifico(DisPacifico);
-        apelacion.setFecDictamen(FecDictamen);
-        apelacion.setFecEnvioDis(FecEnvioDis);
-        apelacion.setOK(OK);
-        apelacion.setFecNotAfiliado(FecNotAfiliado);
-        apelacion.setFecNotCOMEC(FecNotCOMEC);        
+        apelacion.setMotivoApelacion(motivoApela);
+        apelacion.setNroExpDictamenApelado(""); // not map front
+        apelacion.setDisPacifico(DIS_PACIFICO);
+        apelacion.setFecDictamen(fechaDictamen);
+        apelacion.setFecEnvioDis(fechaEnvDIS);
+        apelacion.setOK("");// not map front
+        apelacion.setFecNotAfiliado(fechaNotiAfi);
+        apelacion.setFecNotCOMEC(fechaNotiCOMEC);        
         apelacion.setObservaciones(Observaciones);
 
-        
-        IfaceUtil daoUtil = new ImpUtil();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
         
-        daoSolicitud.InsertarActualizarApelacion(apelacion);
+        mensaje = daoSolicitud.InsertarActualizarApelacion(apelacion);
+        
+        String jsonString = json.toJson(mensaje);
+        
+        res.getWriter().write(jsonString);
         
         System.out.println(" Fin Guardar Reevaluacion Action ");
         
-        return cons.inicioApelacion(mapping, form, req, res);
+        return null;
         
     }
     

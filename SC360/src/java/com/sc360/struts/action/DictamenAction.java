@@ -7,6 +7,7 @@ package com.sc360.struts.action;
 
 import com.google.gson.Gson;
 import com.sc360.struts.dto.Dictamen;
+import com.sc360.struts.dto.Parametro;
 import com.sc360.struts.form.DictamenForm;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,138 +49,75 @@ public class DictamenAction extends DispatchAction {
     }
 
     public ActionForward guardarDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+        
+        String nroExp = req.getParameter("nroExpD");
+        String nickUsuario = req.getParameter("nickUsuario");
+        String fechaRecepcion = req.getParameter("fechaRecepcion");
+        String fechaEmision = req.getParameter("fechaEmision");
+        String Instancia = req.getParameter("txtInstancia");
+        String nroEvaluacion = req.getParameter("txtNroEvaluacion");
+        String nroDictamen = req.getParameter("txtNroDictamen");
+        String PorcentajeMenosCamb = req.getParameter("txtProcentajeMenoC");
+        String Califica = req.getParameter("txtCalifica");
+        String Invalidez = req.getParameter("txtInvalidez");
+        String Definitivo = req.getParameter("txtDefinitivo");
+        String Grado = req.getParameter("txtGrado");
+        String Naturaleza = req.getParameter("txtNaturaleza");
+        String Meses= req.getParameter("txtMeses");
+        String fechaIniVigencia = req.getParameter("fechaIniVigencia");
+        String fechaFinVigencia = req.getParameter("fechaFinVigencia");
+        String fechaOcurrencia = req.getParameter("fechaOcurrencia");
+        String fechaProxEva = req.getParameter("fechaProxEvaluacion");
+        String fechaNotificacionAfi = req.getParameter("fechaNotificacionAfi");
+        String fechaRecpNoti = req.getParameter("fechaRecpNoti");
+        String Analista = req.getParameter("txtAnalista");
+        
+        
 
         Dictamen dictamen = new Dictamen();
         DictamenAction cons = new DictamenAction();
 
-        DictamenForm formS = (DictamenForm) form;
-
-        String NroSeyci = formS.getNroSeyci();
-        String FecRecAFP = formS.getFecRecAFP();
-        String FecEmision = formS.getFecEmision();
-        String Instancia = formS.getInstancia();
-        String NroEvaluacion = formS.getNroEvaluacion();
-        String NroDictamen = formS.getNroDictamen();
-        String PorcMenoscabio = formS.getPorcMenoscabio();
-        String Califica = formS.getCalifica();
-        String IndEnf = formS.getIndEnf();
-        String Definitivo = formS.getDefinitivo();
-        String Grado = formS.getGrado();
-        String Naturaleza = formS.getNaturaleza();
-        String Meses = formS.getMeses();
-        String FecInicial = formS.getFecInicial();
-        String FecFinal = formS.getFecFinal();
-        String FecOcurrencia = formS.getFecOcurrencia();
-        String ProximaEvaluacion = formS.getProximaEvaluacion();
-        String FecNotificacion = formS.getFecNotificacion();
-        String FecRecNotificacion = formS.getFecRecNotificacion();
-        String Edad = formS.getEdad();
-        String Analista = formS.getAnalista();
-        String Observaciones = formS.getObservaciones();
-
-        dictamen.setNroSeyci(NroSeyci);
-        dictamen.setFecRecAFP(FecRecAFP);
-        dictamen.setFecEmision(FecEmision);
+        dictamen.setNroSeyci(nroExp);
+        dictamen.setModificadoPor(nickUsuario);
+        dictamen.setFecRecAFP(fechaRecepcion);
+        dictamen.setFecEmision(fechaEmision);
         dictamen.setInstancia(Instancia);
-        dictamen.setNroEvaluacion(NroEvaluacion);
-        dictamen.setNroDictamen(NroDictamen);
-        dictamen.setPorcMenoscabio(PorcMenoscabio);
+        dictamen.setNroEvaluacion(nroEvaluacion);
+        dictamen.setNroDictamen(nroDictamen);
+        dictamen.setPorcMenoscabio(PorcentajeMenosCamb);
         dictamen.setCalifica(Califica);
-        dictamen.setIndEnf(IndEnf);
+        dictamen.setIndEnf(Invalidez);
         dictamen.setDefinitivo(Definitivo);
         dictamen.setGrado(Grado);
         dictamen.setNaturaleza(Naturaleza);
         dictamen.setMeses(Meses);
-        dictamen.setFecInicial(FecInicial);
-        dictamen.setFecFinal(FecFinal);
-        dictamen.setFecOcurrencia(FecOcurrencia);
-        dictamen.setProximaEvaluacion(ProximaEvaluacion);
-        dictamen.setFecNotificacion(FecNotificacion);
-        dictamen.setFecRecNotificacion(FecRecNotificacion);
-        dictamen.setEdad(Edad);
+        dictamen.setFecInicial(fechaIniVigencia);
+        dictamen.setFecFinal(fechaFinVigencia);
+        dictamen.setFecOcurrencia(fechaOcurrencia);
+        dictamen.setProximaEvaluacion(fechaProxEva);
+        dictamen.setFecNotificacion(fechaNotificacionAfi);
+        dictamen.setFecRecNotificacion(fechaRecpNoti);
+        dictamen.setEdad("");//No Map en Front
         dictamen.setAnalista(Analista);
-        dictamen.setObservaciones(Observaciones);
+        dictamen.setObservaciones(""); //No Map en Front
 
-        IfaceUtil daoUtil = new ImpUtil();
         IfaceSolicitud daoSolicitud = new ImpSolicitud();
-
-        daoSolicitud.InsertarActualizarDictamen(dictamen);
-
+        Parametro mensaje = new Parametro();
+        Gson json = new Gson();
+        
+        mensaje = daoSolicitud.InsertarActualizarDictamen(dictamen);
+        
+        String jsonString = json.toJson(mensaje);
+        res.getWriter().write(jsonString);
+        
+        
         System.out.println(" Fin Guardar Reevaluacion Action ");
 
-        return cons.inicioDictamen(mapping, form, req, res);
+        return null;
 
         //return mapping.findForward("inicioSeyci");
     }
 
-    public ActionForward mostrarDictamen(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
-
-        System.out.println(" Inicio Mostrar Dictamen Action ");
-
-        String numeroExpediente = req.getParameter("numeroExp");
-        String idNroTraslado = req.getParameter("idNroTraslado");
-
-        System.out.println(" numeroExpediente " + numeroExpediente);
-        Dictamen dto = new Dictamen();
-        IfaceUtil daoUtil = new ImpUtil();
-        IfaceSolicitud daoSolicitud = new ImpSolicitud();
-
-        DictamenForm formS = (DictamenForm) form;
-
-        formS.setNroSeyci(numeroExpediente);
-
-        if (numeroExpediente == null) {
-
-            numeroExpediente = formS.getNroSeyci();
-            System.out.println(" numeroExpediente Null " + numeroExpediente);
-        }
-
-        dto.setNroSeyci(numeroExpediente);
-        dto.setIdSeyci(idNroTraslado);
-
-        List<Dictamen> listaDictamen = daoSolicitud.ListadoDictamen(dto);
-        List<Dictamen> listaDictamenItem = daoSolicitud.ListadoDictamenItem(dto);
-
-        if (listaDictamen.size() > 0) {
-            req.setAttribute("listaDictamen", listaDictamen);
-        }
-
-        try {
-            for (int cant = 0; cant < listaDictamenItem.size(); cant++) {
-                Dictamen dtoDetalle = (Dictamen) listaDictamenItem.get(cant);
-
-                formS.setNroSeyci(dtoDetalle.getNroSeyci());
-                formS.setFecRecAFP(dtoDetalle.getFecRecAFP());
-                formS.setFecEmision(dtoDetalle.getFecEmision());
-                formS.setInstancia(dtoDetalle.getInstancia());
-                formS.setNroEvaluacion(dtoDetalle.getNroEvaluacion());
-                formS.setNroDictamen(dtoDetalle.getNroDictamen());
-                formS.setPorcMenoscabio(dtoDetalle.getPorcMenoscabio());
-                formS.setCalifica(dtoDetalle.getCalifica());
-                formS.setIndEnf(dtoDetalle.getIndEnf());
-                formS.setDefinitivo(dtoDetalle.getDefinitivo());
-                formS.setGrado(dtoDetalle.getGrado());
-                formS.setNaturaleza(dtoDetalle.getNaturaleza());
-                formS.setMeses(dtoDetalle.getMeses());
-                formS.setFecInicial(dtoDetalle.getFecInicial());
-                formS.setFecFinal(dtoDetalle.getFecFinal());
-                formS.setFecOcurrencia(dtoDetalle.getFecOcurrencia());
-                formS.setProximaEvaluacion(dtoDetalle.getProximaEvaluacion());
-                formS.setFecNotificacion(dtoDetalle.getFecNotificacion());
-                formS.setFecRecNotificacion(dtoDetalle.getFecRecNotificacion());
-                formS.setEdad(dtoDetalle.getEdad());
-                formS.setAnalista(dtoDetalle.getAnalista());
-                formS.setObservaciones(dtoDetalle.getObservaciones());
-
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(" Fin Mostrar Dictamen Action ");
-
-        return mapping.findForward("inicioDictamen");
-    }
+   
 
 }

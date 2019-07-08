@@ -34,6 +34,7 @@ public class Dictamen {
     private String Analista;
     private String Observaciones;
     private String idSeyci;
+    private String modificadoPor;
     
     
     public Dictamen() {
@@ -221,6 +222,14 @@ public class Dictamen {
 
     public void setIdSeyci(String idSeyci) {
         this.idSeyci = idSeyci;
+    }
+
+    public String getModificadoPor() {
+        return modificadoPor;
+    }
+
+    public void setModificadoPor(String modificadoPor) {
+        this.modificadoPor = modificadoPor;
     }
     
     

@@ -13,18 +13,19 @@
 
                 </div>
                 <div class="space">&nbsp;</div>
+                <input type="hidden" id="nroExpA" name="nroExpA">
+                <input type="hidden" class="user" id="nickUsuario" name="nickUsuario">
                 <div class="row">
                     <div class="col-lg-1" style="padding-left: 0px;">
                         <label style="margin: 4px">Nro Dictamen
                             Apelado</label>
                     </div>
                     <div class="col-lg-2">
-                        <input id="txtNroDictamenApelado" type="text" required="required"
+                        <input id="txtNroDictamenApelado" name="txtNroDictamenApelado" type="text" required="required"
                                class="form-control input-sm" />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input type="checkbox" required="required"
-                               id="nroDictamenApelado">
+                        <input type="checkbox" required="required">
                     </div>
 
                     <div class="col-lg-1" style="padding-left: 0px;">
@@ -32,7 +33,7 @@
                     </div>
                     <div class="col-lg-2">
 
-                        <input id="txtPersonaApelada" type="text" required="required"
+                        <input id="txtPersonaApela" name="txtPersonaApela" type="text" required="required"
                                class="form-control input-sm" />
 
                     </div>
@@ -48,7 +49,7 @@
 
                     <div class="col-lg-2">
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaApelacion" name="fechaApelacion" name="" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
@@ -68,7 +69,7 @@
                     </div>
                     <div class="col-lg-2" >
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaIngBeneficios" name="fechaIngBeneficios" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
 
@@ -85,7 +86,7 @@
                     </div>
                     <div class="col-lg-2" >
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaEnvCarta" name="fechaEnvCarta" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
@@ -102,11 +103,12 @@
                     </div>
                     <div class="col-lg-2" >
 
-                        <input type="text" required="required"
+                        <input id="txtRecepCOMAFP" name="txtRecepCOMAFP"
+                                type="text" required="required"
                                class="form-control input-sm" styleId="recepCOMAFP" />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input type="checkbox" required="required" id="recepCOMAFP">
+                        <input type="checkbox" required="required">
                     </div>
 
 
@@ -120,11 +122,12 @@
                     </div>
                     <div class="col-lg-2">
 
-                        <input type="text" required="required"
-                               class="form-control input-sm" styleId="analista" />
+                        <input id="txtAnalista" name="txtAnalista"
+                            type="text" required="required"
+                               class="form-control input-sm"  />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input type="checkbox" required="required" id="analista">
+                        <input type="checkbox" required="required">
                     </div>
 
 
@@ -133,8 +136,7 @@
                         <label style="margin: 4px">Motivo Apelacion</label>
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" required="required"
-                               class="form-control input-sm" styleId="motivoApelacion" />
+                        <input id="txtMotivoApela" name="txtMotivoApela" type="text" required="required" class="form-control input-sm"  />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
                         <input type="checkbox" required="required"
@@ -148,12 +150,11 @@
                             Apelado</label>
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" required="required"
-                               class="form-control input-sm" styleId="nroExpDictamenApelado" />
+                        <input id="txtNroDictamentApelado" name="txtNroDictamentApelado" type="text" required="required"
+                               class="form-control input-sm"  />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input type="checkbox" required="required"
-                               id="nroExpDictamenApelado">
+                        <input type="checkbox" required="required">
                     </div>
 
 
@@ -167,11 +168,11 @@
                         <label style="margin: 4px">DIS / PACIFICO</label>
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" required="required"
-                               class="form-control input-sm" styleId="disPacifico" />
+                        <input id="txtDIS_PACIFICO" name="txtDIS_PACIFICO" type="text" required="required"
+                               class="form-control input-sm" />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input type="checkbox" required="required" id="disPacifico">
+                        <input type="checkbox" required="required">
                     </div>
 
 
@@ -181,7 +182,7 @@
                     </div>
                     <div class="col-lg-2 ">
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaDictamen" name="fechaDictamen" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
@@ -198,7 +199,7 @@
                     </div>
                     <div class="col-lg-2 ">
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaEnvioDIS" name="fechaEnvioDIS" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
@@ -222,7 +223,7 @@
                                class="form-control input-sm" />
                     </div>
                     <div class="col-lg-1" style="padding-left: 0px;">
-                        <input type="checkbox" required="required" id="ok">
+                        <input type="checkbox" required="required">
                     </div>
 
 
@@ -233,7 +234,7 @@
                     </div>
                     <div class="col-lg-2" >
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaNotiAfiliado" name="fechaNotiAfiliado" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
@@ -251,7 +252,7 @@
                     </div>
                     <div class="col-lg-2 ">
                         <div class="input-group date fechaModal">
-                            <input type="text" required="required"
+                            <input id="fechaNotiCOMEC" name="fechaNotiCOMEC" type="text" required="required"
                                    class="form-control input-sm " />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
@@ -277,8 +278,7 @@
                 <div class="row">
 
                     <div class="col-lg-offset-1 col-lg-10">
-                        <textarea cols="80" rows="4" class="form-control input-sm"
-                                  property="Apelacion"
+                        <textarea id="Observaciones" name="Observaciones" cols="80" rows="4" class="form-control input-sm"
                                   style="min-height: 50px; max-height: 80px; resize: vertical;"></textarea>
                     </div>
                 </div>

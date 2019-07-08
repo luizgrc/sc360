@@ -592,7 +592,7 @@ public class ImpSolicitud implements IfaceSolicitud {
                 SEYCI p = new SEYCI();
 
                 p.setEjecutivaAgencia(rs.getString("EJECUTIVAAGENCIA") != null ? rs.getString("EJECUTIVAAGENCIA") : "");
-                p.setNumeroSolicitud(rs.getString("NUMEROSOLICITUD")!= null ? rs.getString("NUMEROSOLICITUD") : "");
+                p.setNumeroSolicitud(rs.getString("NUMEROSOLICITUD") != null ? rs.getString("NUMEROSOLICITUD") : "");
                 p.setTipoSolicitud(rs.getString("TIPOSOLICITUD") != null ? rs.getString("TIPOSOLICITUD") : "");
                 p.setTipoDeEvaluado(rs.getString("TIPODEEVALUADO") != null ? rs.getString("TIPODEEVALUADO") : "");
                 p.setPrimerNombre(rs.getString("PRIMERNOMBRE") != null ? rs.getString("PRIMERNOMBRE") : "");
@@ -724,28 +724,28 @@ public class ImpSolicitud implements IfaceSolicitud {
             while (rs.next()) {
                 Traslado p = new Traslado();
 
-                p.setIdTraslado(rs.getString("IDTRASLADO") != null ? rs.getString("IDTRASLADO") :"");
-                p.setNroExpSeyci(rs.getString("NROEXPSEYCI")!= null ? rs.getString("NROEXPSEYCI") :"");
-                p.setNroTraslado(rs.getString("NROTRASLADO") != null ? rs.getString("NROTRASLADO") :"");
-                p.setFechaCita(rs.getString("FECHACITA") != null ? rs.getString("FECHACITA") :"");
-                p.setAcompanante(rs.getString("ACOMPANANTE") != null ? rs.getString("ACOMPANANTE") :"");
-                p.setTipo(rs.getString("TIPO") != null ? rs.getString("TIPO") :"");
-                p.setOrigen(rs.getString("ORIGEN") != null ? rs.getString("ORIGEN") :"");
-                p.setDestino(rs.getString("DESTINO") != null ? rs.getString("DESTINO") :"");
-                p.setFechaAprobacion(rs.getString("FECHAAPROBACION") != null ? rs.getString("FECHAAPROBACION") :"");
-                p.setMoneda1(rs.getString("MONEDA1") != null ? rs.getString("MONEDA1") :"");
-                p.setTipoMovilidad(rs.getString("TIPOMOVILIDAD") != null ? rs.getString("TIPOMOVILIDAD") :"");
-                p.setMontoMovilidad(rs.getString("MONTOMOVILIDAD") != null ? rs.getString("MONTOMOVILIDAD") :"");
-                p.setMoneda2(rs.getString("MONEDA2") != null ? rs.getString("MONEDA2") :"");
-                p.setDiasAlimentacion(rs.getString("DIASALIMENTACION") != null ? rs.getString("DIASALIMENTACION") :"");
-                p.setMontoAlimentacion(rs.getString("MONTOALIMENTACION") != null ? rs.getString("MONTOALIMENTACION") :"");
-                p.setMonto3(rs.getString("MONTO3") != null ? rs.getString("MONTO3") :"");
-                p.setDiasAlojamiento(rs.getString("DIASALOJAMIENTO") != null ? rs.getString("DIASALOJAMIENTO") :"");
-                p.setMontoAlojamiento(rs.getString("MONTOALOJAMIENTO") != null ? rs.getString("MONTOALOJAMIENTO") :"");
-                p.setMontoExtraMedicos(rs.getString("MONTOEXTRAMEDICOS") != null ? rs.getString("MONTOEXTRAMEDICOS") :"");
-                p.setTotalGasto(rs.getString("TOTALGASTO") != null ? rs.getString("TOTALGASTO") :"");
-                p.setEjecutiva(rs.getString("EJECUTIVA") != null ? rs.getString("EJECUTIVA") :"");
-                p.setAnalista(rs.getString("ANALISTA") != null ? rs.getString("ANALISTA") :"");
+                p.setIdTraslado(rs.getString("IDTRASLADO") != null ? rs.getString("IDTRASLADO") : "");
+                p.setNroExpSeyci(rs.getString("NROEXPSEYCI") != null ? rs.getString("NROEXPSEYCI") : "");
+                p.setNroTraslado(rs.getString("NROTRASLADO") != null ? rs.getString("NROTRASLADO") : "");
+                p.setFechaCita(rs.getString("FECHACITA") != null ? rs.getString("FECHACITA") : "");
+                p.setAcompanante(rs.getString("ACOMPANANTE") != null ? rs.getString("ACOMPANANTE") : "");
+                p.setTipo(rs.getString("TIPO") != null ? rs.getString("TIPO") : "");
+                p.setOrigen(rs.getString("ORIGEN") != null ? rs.getString("ORIGEN") : "");
+                p.setDestino(rs.getString("DESTINO") != null ? rs.getString("DESTINO") : "");
+                p.setFechaAprobacion(rs.getString("FECHAAPROBACION") != null ? rs.getString("FECHAAPROBACION") : "");
+                p.setMoneda1(rs.getString("MONEDA1") != null ? rs.getString("MONEDA1") : "");
+                p.setTipoMovilidad(rs.getString("TIPOMOVILIDAD") != null ? rs.getString("TIPOMOVILIDAD") : "");
+                p.setMontoMovilidad(rs.getString("MONTOMOVILIDAD") != null ? rs.getString("MONTOMOVILIDAD") : "");
+                p.setMoneda2(rs.getString("MONEDA2") != null ? rs.getString("MONEDA2") : "");
+                p.setDiasAlimentacion(rs.getString("DIASALIMENTACION") != null ? rs.getString("DIASALIMENTACION") : "");
+                p.setMontoAlimentacion(rs.getString("MONTOALIMENTACION") != null ? rs.getString("MONTOALIMENTACION") : "");
+                p.setMonto3(rs.getString("MONTO3") != null ? rs.getString("MONTO3") : "");
+                p.setDiasAlojamiento(rs.getString("DIASALOJAMIENTO") != null ? rs.getString("DIASALOJAMIENTO") : "");
+                p.setMontoAlojamiento(rs.getString("MONTOALOJAMIENTO") != null ? rs.getString("MONTOALOJAMIENTO") : "");
+                p.setMontoExtraMedicos(rs.getString("MONTOEXTRAMEDICOS") != null ? rs.getString("MONTOEXTRAMEDICOS") : "");
+                p.setTotalGasto(rs.getString("TOTALGASTO") != null ? rs.getString("TOTALGASTO") : "");
+                p.setEjecutiva(rs.getString("EJECUTIVA") != null ? rs.getString("EJECUTIVA") : "");
+                p.setAnalista(rs.getString("ANALISTA") != null ? rs.getString("ANALISTA") : "");
 
                 listTraslado.add(p);
             }
@@ -852,10 +852,10 @@ public class ImpSolicitud implements IfaceSolicitud {
     }
 
     @Override
-    public String InsertarActualizarReevaluacion(Reevaluacion dto) {
+    public Parametro InsertarActualizarReevaluacion(Reevaluacion dto) {
 
-        String query = "{ call SP_INSERT_UPDATE_REEVALUACION(?,?,?,?,?,?,?,?) }";
-
+        String query = "{ call SP_INSERT_UPDATE_REEVALUACION(?,?,?,?,?,?,?,?,?,?) }";
+        Parametro mensaje = new Parametro();
         try (
                 Connection cn = db.getConnection();
                 PreparedStatement ps = cn.prepareStatement(query.toString())) {
@@ -868,6 +868,8 @@ public class ImpSolicitud implements IfaceSolicitud {
             ps.setString(6, dto.getFechaNotificacion());
             ps.setString(7, dto.getResponsable());
             ps.setString(8, dto.getObservaciones());
+            ps.setString(9, dto.getIngresadopor());
+            ps.setString(10, dto.getModificadopor());
 
             int cant = ps.executeUpdate();
             System.out.println(" Cantidad : " + cant);
@@ -875,13 +877,17 @@ public class ImpSolicitud implements IfaceSolicitud {
             if (cant == 0) {
                 throw new SQLException("0 filas afectadas");
             }
+            mensaje.setCodigo("201");
+            mensaje.setDescripcion("Registro Satisfactorio");
 
         } catch (SQLException e) {
             message = e.getMessage();
+            mensaje.setCodigo("500");
+            mensaje.setDescripcion(message);
             LOGGER.log(Level.ERROR, message);
         }
 
-        return message;
+        return mensaje;
 
     }
 
@@ -903,29 +909,29 @@ public class ImpSolicitud implements IfaceSolicitud {
             while (rs.next()) {
                 Dictamen p = new Dictamen();
 
-                p.setIdSeyci(rs.getString(1));
-                p.setNroSeyci(rs.getString(2));
-                p.setFecRecAFP(rs.getString(3));
-                p.setFecEmision(rs.getString(4));
-                p.setInstancia(rs.getString(5));
-                p.setNroEvaluacion(rs.getString(6));
-                p.setNroDictamen(rs.getString(7));
-                p.setPorcMenoscabio(rs.getString(8));
-                p.setCalifica(rs.getString(9));
-                p.setIndEnf(rs.getString(10));
-                p.setDefinitivo(rs.getString(11));
-                p.setGrado(rs.getString(12));
-                p.setNaturaleza(rs.getString(13));
-                p.setMeses(rs.getString(14));
-                p.setFecInicial(rs.getString(15));
-                p.setFecFinal(rs.getString(16));
-                p.setFecOcurrencia(rs.getString(17));
-                p.setProximaEvaluacion(rs.getString(18));
-                p.setFecNotificacion(rs.getString(19));
-                p.setFecRecNotificacion(rs.getString(20));
-                p.setEdad(rs.getString(21));
-                p.setAnalista(rs.getString(22));
-                p.setObservaciones(rs.getString(23));
+                p.setIdSeyci(rs.getString("IDSEYCI") != null ? rs.getString("IDSEYCI") : "");
+                p.setNroSeyci(rs.getString("EXP") != null ? rs.getString("EXP") : "");
+                p.setFecRecAFP(rs.getString("FECRECAFP") != null ? rs.getString("FECRECAFP") : "");
+                p.setFecEmision(rs.getString("FECEMISION") != null ? rs.getString("FECEMISION") : "");
+                p.setInstancia(rs.getString("INSTANCIA") != null ? rs.getString("INSTANCIA") : "");
+                p.setNroEvaluacion(rs.getString("NROEVALUACION") != null ? rs.getString("NROEVALUACION") : "");
+                p.setNroDictamen(rs.getString("NRODICTAMENCOMAFP") != null ? rs.getString("NRODICTAMENCOMAFP") : "");
+                p.setPorcMenoscabio(rs.getString("PORCMENOSCABOASIGNADO1") != null ? rs.getString("PORCMENOSCABOASIGNADO1") : "");
+                p.setCalifica(rs.getString("CALIFICA") != null ? rs.getString("CALIFICA") : "");
+                p.setIndEnf(rs.getString("IND_ENF_TER_CANC") != null ? rs.getString("IND_ENF_TER_CANC") : "");
+                p.setDefinitivo(rs.getString("DEFINITIVO") != null ? rs.getString("DEFINITIVO") : "");
+                p.setGrado(rs.getString("GRADO") != null ? rs.getString("GRADO") : "");
+                p.setNaturaleza(rs.getString("NATURALEZA") != null ? rs.getString("NATURALEZA") : "");
+                p.setMeses(rs.getString("MESES") != null ? rs.getString("MESES") : "");
+                p.setFecInicial(rs.getString("FECINICIAL") != null ? rs.getString("FECINICIAL") : "");
+                p.setFecFinal(rs.getString("FECFINAL") != null ? rs.getString("FECFINAL") : "");
+                p.setFecOcurrencia(rs.getString("FECOCURRENCIA") != null ? rs.getString("FECOCURRENCIA") : "");
+                p.setProximaEvaluacion(rs.getString("PROXIMAEVALUACION") != null ? rs.getString("PROXIMAEVALUACION") : "");
+                p.setFecNotificacion(rs.getString("FECHANOTIFAFILIADO") != null ? rs.getString("FECHANOTIFAFILIADO") : "");
+                p.setFecRecNotificacion(rs.getString("FECHARECEPCNOTAFILIADO") != null ? rs.getString("FECHARECEPCNOTAFILIADO") : "");
+                p.setEdad(rs.getString("EDAD") != null ? rs.getString("EDAD") : "");
+                p.setAnalista(rs.getString("ANALISTA") != null ? rs.getString("ANALISTA") : "");
+                p.setObservaciones(rs.getString("OBSERVACION") != null ? rs.getString("OBSERVACION") : "");
 
                 listDictamen.add(p);
             }
@@ -939,10 +945,10 @@ public class ImpSolicitud implements IfaceSolicitud {
     }
 
     @Override
-    public String InsertarActualizarDictamen(Dictamen dto) {
+    public Parametro InsertarActualizarDictamen(Dictamen dto) {
 
-        String query = "{ call SP_INSERT_UPDATE_DICTAMEN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
-
+        String query = "{ call SP_INSERT_UPDATE_DICTAMEN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        Parametro mensaje = new Parametro();
         try (
                 Connection cn = db.getConnection();
                 PreparedStatement ps = cn.prepareStatement(query.toString())) {
@@ -969,6 +975,7 @@ public class ImpSolicitud implements IfaceSolicitud {
             ps.setString(20, dto.getEdad());
             ps.setString(21, dto.getAnalista());
             ps.setString(22, dto.getObservaciones());
+            ps.setString(23, dto.getModificadoPor());
 
             int cant = ps.executeUpdate();
             System.out.println(" Cantidad : " + cant);
@@ -976,12 +983,16 @@ public class ImpSolicitud implements IfaceSolicitud {
             if (cant == 0) {
                 throw new SQLException("0 filas afectadas");
             }
+            mensaje.setCodigo("201");
+            mensaje.setDescripcion("Registro Satisfactorio");
 
         } catch (SQLException e) {
+            message = e.getMessage();
+            mensaje.setCodigo("500");
+            mensaje.setDescripcion(message);
             LOGGER.log(Level.ERROR, message);
         }
-
-        return message;
+        return mensaje;
 
     }
 
@@ -1003,9 +1014,9 @@ public class ImpSolicitud implements IfaceSolicitud {
             while (rs.next()) {
                 Apelacion p = new Apelacion();
 
-                p.setNroSeyci(rs.getString(1));
-                p.setPersonaApela(rs.getString(2));
-                p.setMotivoApelacion(rs.getString(3));
+                p.setNroSeyci(rs.getString("EXP") != null ? rs.getString("EXP") : "");
+                p.setPersonaApela(rs.getString("ENTIDADQUEAPELA")  != null ? rs.getString("ENTIDADQUEAPELA") : "");
+                p.setMotivoApelacion(rs.getString("MOTIVOAPELACION")  != null ? rs.getString("MOTIVOAPELACION") : "");
                 /*p.setFechaEvaluacion(rs.getString(4));
                 p.setAnalista(rs.getString(5));
                 p.setFechaNotificacion(rs.getString(6));
@@ -1025,9 +1036,10 @@ public class ImpSolicitud implements IfaceSolicitud {
     }
 
     @Override
-    public String InsertarActualizarApelacion(Apelacion dto) {
+    public Parametro InsertarActualizarApelacion(Apelacion dto) {
 
-        String query = "{ call SP_INSERT_UPDATE_APELACION(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        String query = "{ call SP_INSERT_UPDATE_APELACION(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }";
+        Parametro mensaje = new Parametro();
 
         try (
                 Connection cn = db.getConnection();
@@ -1050,6 +1062,7 @@ public class ImpSolicitud implements IfaceSolicitud {
             ps.setString(15, dto.getFecNotAfiliado());
             ps.setString(16, dto.getFecNotCOMEC());
             ps.setString(17, dto.getObservaciones());
+            ps.setString(18, dto.getModificadopor());
 
             int cant = ps.executeUpdate();
             System.out.println(" Cantidad : " + cant);
@@ -1057,13 +1070,17 @@ public class ImpSolicitud implements IfaceSolicitud {
             if (cant == 0) {
                 throw new SQLException("0 filas afectadas");
             }
+            mensaje.setCodigo("201");
+            mensaje.setDescripcion("Registro Satisfactorio");
 
         } catch (SQLException e) {
             message = e.getMessage();
+            mensaje.setCodigo("500");
+            mensaje.setDescripcion(message);
             LOGGER.log(Level.ERROR, message);
         }
 
-        return message;
+        return mensaje;
 
     }
 

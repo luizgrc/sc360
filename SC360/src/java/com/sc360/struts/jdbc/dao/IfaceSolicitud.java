@@ -37,12 +37,12 @@ public interface IfaceSolicitud {
     public List<Traslado> ListadoTrasladoItem(Traslado dto);
     public Parametro InsertarActualizarTraslado(Traslado dto);
     public List<Reevaluacion> ListadoReevaluacion(Reevaluacion dto);
-    public String InsertarActualizarReevaluacion(Reevaluacion dto);
+    public Parametro InsertarActualizarReevaluacion(Reevaluacion dto);
     public List<Dictamen> ListadoDictamen(Dictamen dto);
     public List<Dictamen> ListadoDictamenItem(Dictamen dto);
-    public String InsertarActualizarDictamen(Dictamen dto);
+    public Parametro InsertarActualizarDictamen(Dictamen dto);
     public List<Apelacion> ListadoApelacion(Apelacion dto);
-    public String InsertarActualizarApelacion(Apelacion dto);
+    public Parametro InsertarActualizarApelacion(Apelacion dto);
    
     
 }

@@ -6,6 +6,7 @@
 package com.sc360.struts.action;
 
 import com.google.gson.Gson;
+import com.sc360.struts.dto.Parametro;
 import com.sc360.struts.dto.TiposDocumento;
 import com.sc360.struts.dto.Reevaluacion;
 import javax.servlet.http.HttpServletRequest;
@@ -26,12 +27,11 @@ import java.util.List;
  * @author epuma
  */
 public class ReevaluacionAction extends DispatchAction {
-    
-    public ActionForward inicioReevaluacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
 
-    
+    public ActionForward inicioReevaluacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
         System.out.println(" Inicio Reevaluacion Action ");
-                String numeroExpediente = req.getParameter("nroExp");
+        String numeroExpediente = req.getParameter("nroExp");
         System.out.println(" numeroExpediente " + numeroExpediente);
         Reevaluacion dto = new Reevaluacion();
         Gson gson = new Gson();
@@ -39,71 +39,69 @@ public class ReevaluacionAction extends DispatchAction {
 
         dto.setNumeroSeyci(numeroExpediente);
 
-        List<Reevaluacion>   listaReevaluacion= daoSolicitud.ListadoReevaluacion(dto);
+        List<Reevaluacion> listaReevaluacion = daoSolicitud.ListadoReevaluacion(dto);
         String jsonstring = "";
-        if(listaReevaluacion != null){
+        if (listaReevaluacion != null) {
             jsonstring = gson.toJson(listaReevaluacion);
         }
         res.getWriter().write(jsonstring);
-      
-        
-        
-        
-
 
         System.out.println(" Fin Reevaluacion Action ");
-        
-        return null;
-        
-    }
-    
-     public ActionForward guardaReevaluacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res)throws Exception {
 
-    
-        System.out.println(" Inicio Guadar Reevaluacion Action ");
-        
+        return null;
+
+    }
+
+    public ActionForward listarDocumento(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+        IfaceUtil daoUtil = new ImpUtil();
+        List<TiposDocumento> listdocs = daoUtil.tiposDpcumentoQry();
+        Gson gson = new Gson();
+        if (listdocs != null) {
+            req.setAttribute("listdocs", listdocs);
+        }
+        String jsonString = "";
+        if (listdocs != null) {
+            jsonString = gson.toJson(listdocs);
+        }
+        res.getWriter().write(jsonString);
+
+        return null;
+
+    }
+
+       public ActionForward guardarReevaluacion(ActionMapping mapping, ActionForm form, HttpServletRequest req, HttpServletResponse res) throws Exception {
+
+        Gson gson = new Gson();
+        Parametro mensaje = new Parametro();
         Reevaluacion reevaluacion = new Reevaluacion();
-        ReevaluacionAction cons = new ReevaluacionAction();
+        IfaceSolicitud daoSolicitud = new ImpSolicitud();
+
+        String nroExp = req.getParameter("nroExpR");
+        String usuario = req.getParameter("nickUsuario");
+        String FechaIngresoBen = req.getParameter("txtFechaIngresoBen");
+        String tipoDocumento = req.getParameter("sltipoDoc");
+        String FechaEvaluacion = req.getParameter("fechaEvaluacion");
+        String Analista = req.getParameter("txtAnalista");
+        String FechaNotificacion = req.getParameter("fechaNotificacion");
+        String Responsable = req.getParameter("txtResponsable");
+        String Observaciones = req.getParameter("txtObservaciones");
         
-        ReevaluacionForm formT =(ReevaluacionForm)form;
-        
-        String NumeroSeyci = formT.getNumeroSeyci();
-        String FechaIngresoBeneficios =  formT.getFechaIngresoBeneficios();
-        String TipoDocumento =  formT.getTipoDocumento();
-        String FechaEvaluacion =  formT.getFechaEvaluacionDoc();
-        String analista =  formT.getAnalista();
-        String FechaNotificacion =  formT.getFechaNotificacion();
-        String Responsable = formT.getRespDis();
-        String Observaciones =  formT.getObservacionesReevaluacion();
-        
-        reevaluacion.setNumeroSeyci(NumeroSeyci);
-        reevaluacion.setFechaIngresoBeneficios(FechaIngresoBeneficios);
-        reevaluacion.setTipoDocumento(TipoDocumento);
+        reevaluacion.setNumeroSeyci(nroExp);
+        reevaluacion.setFechaIngresoBeneficios(FechaIngresoBen);
+        reevaluacion.setTipoDocumento(tipoDocumento);
         reevaluacion.setFechaEvaluacion(FechaEvaluacion);
-        reevaluacion.setAnalista(analista);
+        reevaluacion.setAnalista(Analista);
         reevaluacion.setFechaNotificacion(FechaNotificacion);
         reevaluacion.setResponsable(Responsable);
         reevaluacion.setObservaciones(Observaciones);
-        
-        IfaceUtil daoUtil = new ImpUtil();
-        IfaceSolicitud daoSolicitud = new ImpSolicitud();
-        
-        daoSolicitud.InsertarActualizarReevaluacion(reevaluacion);
-        
-        List<TiposDocumento> list = daoUtil.tiposDpcumentoQry();
-        
-        if (list != null) {
-                    req.setAttribute("list", list);
-                }
-        
-        ReevaluacionForm formS =(ReevaluacionForm)form;
+        reevaluacion.setModificadopor(usuario);
+        reevaluacion.setIngresadopor(usuario);
 
-        System.out.println(" Fin Guardar Reevaluacion Action ");
+        mensaje = daoSolicitud.InsertarActualizarReevaluacion(reevaluacion);
         
-        return cons.inicioReevaluacion(mapping, form, req, res);
-        
-        //return mapping.findForward("inicioReevaluacion");
-        
+        String jsonstring = gson.toJson(mensaje);
+        res.getWriter().write(jsonstring);
+
+        return null;
     }
-    
 }
